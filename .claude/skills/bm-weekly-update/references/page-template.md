@@ -12,7 +12,7 @@ Subtitle: `Brands Management — by list. Source: task activity and comments.`
 
 | List | Total | Done | Open | Owners (done/total) | Update |
 | ---| ---| ---| ---| ---| --- |
-| Advertising and Promotions | | | | Name (0/00) · Name (0/00) | |
+| Advertising and Promotions | | | | Name (0/00), Name (0/00), Name (reviewer) | |
 | Operations | | | | | |
 | Brand Health by System | | | | | |
 | Store Enhancement and Marketing | | | | | |
@@ -20,8 +20,11 @@ Subtitle: `Brands Management — by list. Source: task activity and comments.`
 | Onboarding | | | | | |
 | **Total** | | | — | — | — |
 
-Counts include tasks + subtasks. Shared tasks count for each assignee, so owner figures
-do not sum to the list total. Onboarding is approximate — derived by walking the subtask tree.
+Counts include tasks + subtasks. Onboarding is approximate — derived by walking the
+subtask tree. Owner figures cover assigned items only and do not sum to the list total —
+shared tasks count for each assignee, and unassigned items sit outside them ([name the gap]).
+
+Owner order is stable week to week — do not re-sort by volume.
 
 ## Advertising and Promotions
 

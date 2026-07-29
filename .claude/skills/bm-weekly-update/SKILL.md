@@ -71,7 +71,19 @@ Team member IDs (for `assignees` filters):
   list total. State this once under the table; never silently reconcile it.
 - "Done" means `date_closed` **inside the window**, or a comment confirming completion
   inside the window. Items closed days before the window are not this week's work.
-- Report owner counts as `Name (done/total)`.
+- Report owner counts as `Name (done/total)`, covering **assigned items only**.
+
+### Overview owners column
+
+- Comma-separated names with `(done/total)` appended: `Ibrahim (0/21), Khaled (0/63)`.
+- Keep the **same names in the same order** week to week. Do not reorder by volume —
+  a stable column is easier to read across weeks.
+- Do **not** add "Unassigned" as an owner. Unassigned work sits outside the column;
+  cover the gap in the footnote instead.
+- Someone active on a list but holding no assigned tasks is marked `Name (reviewer)`,
+  not `(0/0)`.
+- Footnote under the table must state that owner figures do not sum to the list total,
+  and name the gap (shared tasks counted twice, unassigned closures excluded).
 
 ## Page structure
 
@@ -117,10 +129,19 @@ These have each produced a wrong report. Check every one.
   before the window look done and are not.
 - **Verify parent vs subtask before splitting counts** — `clickup_get_task` returns a
   `parent` field. Do not guess from names.
+- **`clickup_update_document_page` can fail with a ClickUp server error** and leave the
+  page untouched. It is not always transient-looking — always re-read the page with
+  `clickup_get_document_pages` to confirm the write landed, then retry.
+- **When asked to change one column, change only that column.** Re-read the current
+  page first and diff against it — do not rebuild the table from memory and quietly
+  reorder rows, drop names, or reword the footnote.
 
 ## Changelog
 
 Keep this current — the skill is expected to grow.
 
+- **2026-07-29** — Overview owners column rules (stable order, no "Unassigned",
+  `(reviewer)` for non-assignees, required footnote). Added pitfalls: verify the doc
+  write landed; change only the column asked for.
 - **2026-07-29** — Created. By-list structure, brand-level ads view, owner done/total
   figures, subtask rollup rule, pitfalls from the Wk 30 build.
