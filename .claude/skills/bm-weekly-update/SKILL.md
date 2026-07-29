@@ -135,6 +135,14 @@ These have each produced a wrong report. Check every one.
 - **When asked to change one column, change only that column.** Re-read the current
   page first and diff against it — do not rebuild the table from memory and quietly
   reorder rows, drop names, or reword the footnote.
+- **Never infer the channel from a task name.** Ads levers repeat the same names
+  (`PPC Weekly Update` appears three times under one brand, one per channel). The
+  channel is the **`Sales Channel` custom field** — fetch it with
+  `include: ["custom_fields"]` and read the dropdown index against `type_config.options`
+  (0 Amazon 3P · 1 Amazon Retail · 2 Trendyol · 3 Noon · 4 Ninja · 5 Jahez · 6 Salla ·
+  7 Zid · 8 The Chefz · 9 Hungerstation · 10 Keeta). Guessing from names put figures
+  against the wrong marketplace in a page the whole team reads. Same field carries
+  `📋 Brand` and `Promo Type`.
 - **BMs post results after the window closes**, often on the day of the review, and
   they edit existing comments in place rather than adding new ones. Re-pull comments on
   every active item right before the call. Label anything outside the window with its
@@ -144,6 +152,9 @@ These have each produced a wrong report. Check every one.
 
 Keep this current — the skill is expected to grow.
 
+- **2026-07-29** — Pitfall: read the channel from the `Sales Channel` custom field,
+  never from the task name. This page is read by the whole team — wrong-channel
+  figures are the most damaging error the report can make.
 - **2026-07-29** — Pitfall: BMs post results after the window and edit comments in
   place; re-pull before the call and date-label post-window figures.
 - **2026-07-29** — Overview owners column rules (stable order, no "Unassigned",
