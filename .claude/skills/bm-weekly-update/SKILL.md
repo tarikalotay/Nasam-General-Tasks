@@ -71,8 +71,14 @@ Team member IDs (for `assignees` filters):
 - The weekly metric is **Updated, not Done**. A task counts if it closed, changed
   status, or received a comment inside the window. Closure alone understates the work —
   most real progress here is logged as comments on tasks that stay open.
-- Counts include **tasks + subtasks**.
-- An unassigned subtask counts under **its parent's assignee**.
+- **Count main tasks only.** Subtasks are excluded from every count. Pull them with
+  `clickup_filter_tasks` + `subtasks: false` — that returns parent-level tasks directly,
+  no tree walking needed. Say "Main tasks only. Subtasks are excluded from all counts."
+  under the Overview.
+- Subtasks still inform the *narrative* — ads levers, onboarding phases and barcode
+  batches are where the work shows — they just do not inflate the numbers.
+- Where a main task's only activity is on its subtasks, the main task counts as
+  updated (e.g. the Inivita ads parent, worked entirely through its levers).
 - A shared parent counts for **every** assignee — so owner figures do not sum to the
   list total. State this once under the table; never silently reconcile it.
 - Check every timestamp against the window. Items closed or commented a day or two
@@ -199,6 +205,9 @@ These have each produced a wrong report. Check every one.
 
 Keep this current — the skill is expected to grow.
 
+- **2026-07-29** — Counts are **main tasks only** (`subtasks: false`), replacing the
+  earlier tasks+subtasks rule. Totals drop ~489 → 98 and stop being dominated by
+  onboarding and ads template scaffolding.
 - **2026-07-29** — Feedback from Call is a flat bullet list, not tables, and carries
   only what the team said — never the assistant's own report changes.
 - **2026-07-29** — Wk 30 call: Feedback from Call moved to the top of the page; metric
