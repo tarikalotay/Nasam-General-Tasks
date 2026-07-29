@@ -96,16 +96,18 @@ Team member IDs (for `assignees` filters):
 
 ## Page structure
 
-1. **Feedback from Call** — **always the first section on the page**, above Overview. Left **blank** when the page is published: a numbered table
-   (# · Section · Feedback/Decision · Owner · Due) plus **Agreed actions**
-   (# · Action · Owner · Due) and **Parked / revisit next week** (# · Item · Raised by).
-   Use **empty table rows, never empty bullet stubs** — ClickUp renders an empty list
-   item as the literal text `null.` Publish it blank every week; the lead writes it by
-   hand during or after the call.
+1. **Feedback from Call** — **always the first section on the page**, above Overview.
+   A **flat bullet list**, not tables. One bullet per point, `**Owner** — action.`
+   Keep it to the main points; no sub-bullets, no grouping headers.
+   Publish it with only the heading and an italic prompt line — **no empty bullets**,
+   which ClickUp renders as the literal text `null.`
+   **Record only what the team said.** Never list your own report changes in it
+   (formatting decisions, metric redefinitions, section moves) — those are not
+   feedback and do not belong on the page. Apply them silently and mention them in
+   chat instead.
    **Once the lead has written in it, never delete or replace their text.** Tighten
-   wording, fix an owner or a date, move an item into Escalations — but the content is
-   theirs. If a section reads as empty, say so and ask; do not infer what was decided
-   or write feedback that was not given.
+   wording, fix an owner or a date — but the content is theirs. If the section reads
+   as empty, say so and ask; do not infer what was decided.
 2. **Overview** — one row per list: Total · Updated · No update · Owners (updated/total).
    Owners goes **last** — it is the longest column and must wrap at the page edge.
 3. **One section per list**, heaviest/most material first. Each gets a one-line summary
@@ -197,6 +199,8 @@ These have each produced a wrong report. Check every one.
 
 Keep this current — the skill is expected to grow.
 
+- **2026-07-29** — Feedback from Call is a flat bullet list, not tables, and carries
+  only what the team said — never the assistant's own report changes.
 - **2026-07-29** — Wk 30 call: Feedback from Call moved to the top of the page; metric
   redefined from Done to Updated; closed parent implies closed subtasks; check and
   state escalation responses every week.
