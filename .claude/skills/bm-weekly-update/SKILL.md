@@ -141,10 +141,19 @@ See `references/page-template.md` for the full skeleton.
 
 ClickUp does not scroll tables horizontally — a wide table is unreadable on the call.
 
-- **Cap at 5–6 columns.** Fold count columns into one status cell
+- **Cap at 4 columns.** 5 only when every cell is short. The Overview drops the Owners
+  column entirely — owner splits live in the By BM table, and duplicating them made the
+  Overview the widest table on the page.
+- **Cap any cell at ~40 characters.** This is the rule that actually matters — column
+  count is a proxy. A 4-column table with a 100-character cell is still unreadable.
+- **Fold at most one `·` per cell.** Two or more clauses joined by `·` means the row
+  should have been two rows. Fold count columns into one status cell
   (`7 running · 3 paused · 10 closed off`) rather than a column each.
 - **One fact per row.** If a cell needs three clauses joined by `·`, split it into
-  extra rows sharing the same Brand/Owner instead of widening the cell.
+  extra rows sharing the same Brand/Owner instead of widening the cell. Repeating
+  `Nokush | Mohammed` down four rows is correct — it is not redundancy, it is the fix.
+- **Metrics tables read `Channel | Lever | Result`.** Never put the setup and the
+  outcome in one cell; the setup is the lever, the number is the result.
 - **Give each channel its own row.** Never stack `<br>`-separated channel bullets in a
   single cell — that was the widest cell on the page. `Type | Channel | Update` reads
   cleanly and stays narrow.
@@ -205,6 +214,10 @@ These have each produced a wrong report. Check every one.
 
 Keep this current — the skill is expected to grow.
 
+- **2026-07-29** — A main task counts as **updated when only its subtasks moved**
+  (confirmed for the Inivita ads parent, worked entirely through its levers).
+- **2026-07-29** — Width is governed by **cell length (~40 chars), not column count**.
+  First pass passed the column rule and was still unreadable — 105-char cells.
 - **2026-07-29** — Counts are **main tasks only** (`subtasks: false`), replacing the
   earlier tasks+subtasks rule. Totals drop ~489 → 98 and stop being dominated by
   onboarding and ads template scaffolding.
