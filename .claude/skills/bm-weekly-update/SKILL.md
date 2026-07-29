@@ -135,11 +135,17 @@ These have each produced a wrong report. Check every one.
 - **When asked to change one column, change only that column.** Re-read the current
   page first and diff against it — do not rebuild the table from memory and quietly
   reorder rows, drop names, or reword the footnote.
+- **BMs post results after the window closes**, often on the day of the review, and
+  they edit existing comments in place rather than adding new ones. Re-pull comments on
+  every active item right before the call. Label anything outside the window with its
+  date (`Result (29 Jul)`) — never fold it into the week's counts.
 
 ## Changelog
 
 Keep this current — the skill is expected to grow.
 
+- **2026-07-29** — Pitfall: BMs post results after the window and edit comments in
+  place; re-pull before the call and date-label post-window figures.
 - **2026-07-29** — Overview owners column rules (stable order, no "Unassigned",
   `(reviewer)` for non-assignees, required footnote). Added pitfalls: verify the doc
   write landed; change only the column asked for.
