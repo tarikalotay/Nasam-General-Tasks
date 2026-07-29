@@ -57,25 +57,34 @@ Team member IDs (for `assignees` filters):
    the update — status alone is not an update.
 4. **Resolve the tree.** For any parent with unassigned subtasks, use
    `clickup_get_task` with `include: ["subtasks"]` and walk down until leaves.
-5. **Classify** each item: done-in-window / open / blocked / no-activity.
+5. **Classify** each item: updated-in-window / open / blocked / no-activity.
 6. **Write the page** using the structure below and publish with
    `clickup_create_document_page` into doc `2kzkfyh0-4958`.
-7. **Name the page** `<Mon> - Wk <ISO week> (<dd>–<dd> <Mon>)`, e.g. `Jul - Wk 30 (20–26 Jul)`.
+7. **Check escalation responses.** Re-read the tasks behind each escalation and state
+   whether any response was logged. "No response logged" is itself a finding worth
+   stating at the top of the Escalations table.
+8. **Name the page** `<Mon> - Wk <ISO week> (<dd>–<dd> <Mon>)`, e.g. `Jul - Wk 30 (20–26 Jul)`.
    Matches the existing convention (`Feb - Wk 8`, `Apr - Wk 17`).
 
 ## Counting rules
 
+- The weekly metric is **Updated, not Done**. A task counts if it closed, changed
+  status, or received a comment inside the window. Closure alone understates the work —
+  most real progress here is logged as comments on tasks that stay open.
 - Counts include **tasks + subtasks**.
 - An unassigned subtask counts under **its parent's assignee**.
 - A shared parent counts for **every** assignee — so owner figures do not sum to the
   list total. State this once under the table; never silently reconcile it.
-- "Done" means `date_closed` **inside the window**, or a comment confirming completion
-  inside the window. Items closed days before the window are not this week's work.
-- Report owner counts as `Name (done/total)`, covering **assigned items only**.
+- Check every timestamp against the window. Items closed or commented a day or two
+  before it look current and are not.
+- Report owner counts as `Name (updated/total)`, covering **assigned items only**.
+- **A closed parent implies its subtasks are closed.** Do not report subtasks of a
+  closed parent as "not started" — check the parent's status first and say
+  "parent still in progress" only when that is actually true.
 
 ### Overview owners column
 
-- Comma-separated names with `(done/total)` appended: `Ibrahim (0/21), Khaled (0/63)`.
+- Names with `(updated/total)` appended, separated by ` · `: `Ibrahim 8/21 · Khaled 0/42`.
 - Keep the **same names in the same order** week to week. Do not reorder by volume —
   a stable column is easier to read across weeks.
 - Do **not** add "Unassigned" as an owner. Unassigned work sits outside the column;
@@ -87,9 +96,7 @@ Team member IDs (for `assignees` filters):
 
 ## Page structure
 
-1. **Overview** — one row per list: Total · Done · Open · Owners (done/total) · Update.
-2. **Feedback from Call** — sits directly under Overview so it is reachable without
-   scrolling. Left **blank** when the page is published: a numbered table
+1. **Feedback from Call** — **always the first section on the page**, above Overview. Left **blank** when the page is published: a numbered table
    (# · Section · Feedback/Decision · Owner · Due) plus **Agreed actions**
    (# · Action · Owner · Due) and **Parked / revisit next week** (# · Item · Raised by).
    Use **empty table rows, never empty bullet stubs** — ClickUp renders an empty list
@@ -99,13 +106,16 @@ Team member IDs (for `assignees` filters):
    wording, fix an owner or a date, move an item into Escalations — but the content is
    theirs. If a section reads as empty, say so and ask; do not infer what was decided
    or write feedback that was not given.
+2. **Overview** — one row per list: Total · Updated · No update · Owners (updated/total).
+   Owners goes **last** — it is the longest column and must wrap at the page edge.
 3. **One section per list**, heaviest/most material first. Each gets a one-line summary
    plus a brand-level table.
 4. **By BM** — rollup table, bullets inside the cells.
 5. **Escalations** — numbered table: Item · Owner · Status.
 
-For Advertising and Promotions use the brand view: `Brand | Type | Channel — update`,
-with channels as bullets inside the third cell.
+Advertising and Promotions takes two tables: a brand summary
+(`Brand | Owner | Lever status | Update`) and, for each brand actually being worked, a
+detail table (`Type | Channel | Update`) with **one row per channel**.
 
 See `references/page-template.md` for the full skeleton.
 
@@ -187,6 +197,9 @@ These have each produced a wrong report. Check every one.
 
 Keep this current — the skill is expected to grow.
 
+- **2026-07-29** — Wk 30 call: Feedback from Call moved to the top of the page; metric
+  redefined from Done to Updated; closed parent implies closed subtasks; check and
+  state escalation responses every week.
 - **2026-07-29** — Tables must fit the container (cap columns, one fact per row, one
   row per channel, longest column last). Feedback from Call uses empty table rows, not
   bullet stubs, which ClickUp renders as `null.` Lead's written feedback is never
