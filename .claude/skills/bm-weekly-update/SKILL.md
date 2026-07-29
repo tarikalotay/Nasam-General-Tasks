@@ -88,10 +88,15 @@ Team member IDs (for `assignees` filters):
 ## Page structure
 
 1. **Overview** — one row per list: Total · Done · Open · Owners (done/total) · Update.
-2. **One section per list**, heaviest/most material first. Each gets a one-line summary
+2. **Feedback from Call** — sits directly under Overview so it is reachable without
+   scrolling. Left **blank** when the page is published: a numbered table
+   (# · Section · Feedback/Decision · Owner · Due) plus **Agreed actions** and
+   **Parked / revisit next week** bullet stubs. Filled in live during the call, by
+   hand. Never pre-populate it or write predicted feedback into it.
+3. **One section per list**, heaviest/most material first. Each gets a one-line summary
    plus a brand-level table.
-3. **By BM** — rollup table, bullets inside the cells.
-4. **Escalations** — numbered table: Item · Owner · Status.
+4. **By BM** — rollup table, bullets inside the cells.
+5. **Escalations** — numbered table: Item · Owner · Status.
 
 For Advertising and Promotions use the brand view: `Brand | Type | Channel — update`,
 with channels as bullets inside the third cell.
@@ -135,6 +140,13 @@ These have each produced a wrong report. Check every one.
 - **When asked to change one column, change only that column.** Re-read the current
   page first and diff against it — do not rebuild the table from memory and quietly
   reorder rows, drop names, or reword the footnote.
+- **Re-pull immediately before the call.** The workspace changes during the review day.
+  On Wk 30 a whole brand tree (Nokush ads, 21 items) was created and another brand was
+  reassigned to a different BM within an hour of publishing. Re-run the list pulls and
+  correct Overview totals, owner figures and the By BM table before the call starts.
+- **Ad lever subtasks roll up to the brand parent's assignee in the By BM totals**, the
+  same as any other unassigned subtask. Missing this understates the ad owners by ~20
+  each and makes the Overview and By BM tables disagree.
 - **Never infer the channel from a task name.** Ads levers repeat the same names
   (`PPC Weekly Update` appears three times under one brand, one per channel). The
   channel is the **`Sales Channel` custom field** — fetch it with

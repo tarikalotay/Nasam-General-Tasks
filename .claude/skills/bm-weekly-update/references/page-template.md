@@ -26,9 +26,32 @@ shared tasks count for each assignee, and unassigned items sit outside them ([na
 
 Owner order is stable week to week — do not re-sort by volume.
 
+## Feedback from Call
+
+_Filled in live during the call._
+
+| # | Section | Feedback / Decision | Owner | Due |
+| ---| ---| ---| ---| --- |
+| 1 | | | | |
+| 2 | | | | |
+| 3 | | | | |
+| 4 | | | | |
+| 5 | | | | |
+
+**Agreed actions**
+
+*   
+*   
+*   
+
+**Parked / revisit next week**
+
+*   
+*   
+
 ## Advertising and Promotions
 
-[N] levers across [N] brands (~20 per brand). [One-line state of play.]
+[N] levers across [N] brands (21 per brand). [One-line state of play.]
 
 | Brand | Owner | Running | Paused | Cannot implement | Pending | Update |
 | ---| ---| ---| ---| ---| ---| --- |
