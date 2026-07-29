@@ -90,9 +90,15 @@ Team member IDs (for `assignees` filters):
 1. **Overview** — one row per list: Total · Done · Open · Owners (done/total) · Update.
 2. **Feedback from Call** — sits directly under Overview so it is reachable without
    scrolling. Left **blank** when the page is published: a numbered table
-   (# · Section · Feedback/Decision · Owner · Due) plus **Agreed actions** and
-   **Parked / revisit next week** bullet stubs. Filled in live during the call, by
-   hand. Never pre-populate it or write predicted feedback into it.
+   (# · Section · Feedback/Decision · Owner · Due) plus **Agreed actions**
+   (# · Action · Owner · Due) and **Parked / revisit next week** (# · Item · Raised by).
+   Use **empty table rows, never empty bullet stubs** — ClickUp renders an empty list
+   item as the literal text `null.` Publish it blank every week; the lead writes it by
+   hand during or after the call.
+   **Once the lead has written in it, never delete or replace their text.** Tighten
+   wording, fix an owner or a date, move an item into Escalations — but the content is
+   theirs. If a section reads as empty, say so and ask; do not infer what was decided
+   or write feedback that was not given.
 3. **One section per list**, heaviest/most material first. Each gets a one-line summary
    plus a brand-level table.
 4. **By BM** — rollup table, bullets inside the cells.
@@ -112,6 +118,23 @@ See `references/page-template.md` for the full skeleton.
   progress from a status field that nobody commented on.
 - Brand level, not task level. Collapse many tasks into one brand row.
 - Include the channel (Amazon / Noon / Trendyol / Salla / Jahez …) wherever known.
+
+### Tables must fit the container
+
+ClickUp does not scroll tables horizontally — a wide table is unreadable on the call.
+
+- **Cap at 5–6 columns.** Fold count columns into one status cell
+  (`7 running · 3 paused · 10 closed off`) rather than a column each.
+- **One fact per row.** If a cell needs three clauses joined by `·`, split it into
+  extra rows sharing the same Brand/Owner instead of widening the cell.
+- **Give each channel its own row.** Never stack `<br>`-separated channel bullets in a
+  single cell — that was the widest cell on the page. `Type | Channel | Update` reads
+  cleanly and stays narrow.
+- **Put the longest column last** so it wraps at the page edge (e.g. Owners in Overview,
+  after Update).
+- Shorten list names in table cells: `Advertising`, `Brand Health`, `Catalog & Pricing`.
+- Use first names only in the By BM table.
+- Drop restating figures that appear elsewhere on the page.
 
 ## Pitfalls
 
@@ -163,6 +186,11 @@ These have each produced a wrong report. Check every one.
 ## Changelog
 
 Keep this current — the skill is expected to grow.
+
+- **2026-07-29** — Tables must fit the container (cap columns, one fact per row, one
+  row per channel, longest column last). Feedback from Call uses empty table rows, not
+  bullet stubs, which ClickUp renders as `null.` Lead's written feedback is never
+  deleted — adjust only.
 
 - **2026-07-29** — Pitfall: read the channel from the `Sales Channel` custom field,
   never from the task name. This page is read by the whole team — wrong-channel

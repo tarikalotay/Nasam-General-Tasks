@@ -10,13 +10,13 @@ Subtitle: `Brands Management — by list. Source: task activity and comments.`
 
 ## Overview
 
-| List | Total | Done | Open | Owners (done/total) | Update |
+| List | Total | Done | Open | Update | Owners (done/total) |
 | ---| ---| ---| ---| ---| --- |
-| Advertising and Promotions | | | | Name (0/00), Name (0/00), Name (reviewer) | |
+| Advertising | | | | | Name 0/00 · Name 0/00 |
 | Operations | | | | | |
-| Brand Health by System | | | | | |
-| Store Enhancement and Marketing | | | | | |
-| Catalog and Pricing | | | | | |
+| Brand Health | | | | | |
+| Store Enhancement | | | | | |
+| Catalog & Pricing | | | | | |
 | Onboarding | | | | | |
 | **Total** | | | — | — | — |
 
@@ -40,31 +40,37 @@ _Filled in live during the call._
 
 **Agreed actions**
 
-*   
-*   
-*   
+| # | Action | Owner | Due |
+| ---| ---| ---| --- |
+| 1 |  |  |  |
+| 2 |  |  |  |
+| 3 |  |  |  |
 
 **Parked / revisit next week**
 
-*   
-*   
+| # | Item | Raised by |
+| ---| ---| --- |
+| 1 |  |  |
+| 2 |  |  |
 
 ## Advertising and Promotions
 
-[N] levers across [N] brands (21 per brand). [One-line state of play.]
+[N] levers across [N] brands (21 each). [One-line state of play.]
 
-| Brand | Owner | Running | Paused | Cannot implement | Pending | Update |
-| ---| ---| ---| ---| ---| ---| --- |
-| | | | | | | |
+| Brand | Owner | Lever status | Update |
+| ---| ---| ---| --- |
+| [Brand] | | [N] running · [N] paused · [N] closed off | |
+| [Brand] | | [N] pending | **No update** |
 
-| Brand | Type | Channel — update |
+**[Active brand] detail** — one row per channel, never stacked in one cell.
+
+| Type | Channel | Update |
 | ---| ---| --- |
-| [Brand] | PPC | • **Noon** — [update with figures]<br>• **Amazon** — [update with figures] |
-| [Brand] | Discount | • **[Channel]** — [offer · products · dates] |
-| [Brand] | Deals | • |
-| [Brand] | Coupon | • |
-| [Brand] | [levers closed off] | • Marked **cannot implement** — [N] levers |
-| [Brands with nothing] | All types | • **No update** — [N] levers pending, never started |
+| PPC | [Channel] | [setting change]. **[date]:** spend · revenue · ROAS · orders |
+| Deals | [Channel] | [offer · dates]. **[date]:** [result] |
+| Discount | [Channel] | [offer · dates] |
+| Coupon | [Channel] | [offer · dates]. **[date]:** [redemptions] |
+| [N] other types | — | Cannot implement — [N] levers closed off |
 
 **Review loop:** [who reviewed what, and what was asked for.]
 
