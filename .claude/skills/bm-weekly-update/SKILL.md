@@ -258,8 +258,11 @@ These have each produced a wrong report. Check every one.
 
 Keep this current — the skill is expected to grow.
 
-- **2026-07-30** — Feedback bullets carry a **task mention (bare task URL) then the id**,
-  not the id alone.
+- **2026-07-30** — Feedback bullets carry the **bare task id only**. Mentions are
+  impossible through the API — `/mention`, `#`, `@` and the task URL were all tested on
+  the live page and none produced one. Settled; do not retry.
+- **2026-07-30** — `clickup_update_document_page` can return a transient 500. Retry once
+  before reporting a failure; the retry succeeded.
 - **2026-07-30** — Sales come from `compare_sales_periods` on a **Thu–Wed** week vs the
   prior Thu–Wed, at Brand x Channel grain via `revenueSharePerBrandPerChannel`.
 - **2026-07-30** — The page moves to a **per-brand view** from Wk 31.
