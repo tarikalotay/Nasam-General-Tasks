@@ -258,6 +258,8 @@ These have each produced a wrong report. Check every one.
 
 Keep this current — the skill is expected to grow.
 
+- **2026-07-30** — Feedback bullets carry a **task mention (bare task URL) then the id**,
+  not the id alone.
 - **2026-07-30** — Sales come from `compare_sales_periods` on a **Thu–Wed** week vs the
   prior Thu–Wed, at Brand x Channel grain via `revenueSharePerBrandPerChannel`.
 - **2026-07-30** — The page moves to a **per-brand view** from Wk 31.
