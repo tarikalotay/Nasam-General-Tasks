@@ -63,7 +63,14 @@ Team member IDs (for `assignees` filters):
 7. **Check escalation responses.** Re-read the tasks behind each escalation and state
    whether any response was logged. "No response logged" is itself a finding worth
    stating at the top of the Escalations table.
-8. **Name the page** `<Mon> - Wk <ISO week> (<dd>–<dd> <Mon>)`, e.g. `Jul - Wk 30 (20–26 Jul)`.
+8. **Create a ClickUp task for every action in Feedback from Call.** This is not
+   optional and is the step most easily missed. For each bullet naming an owner:
+   `clickup_create_task` into the list the action belongs to, assign the named person,
+   set priority (`urgent` when the call said urgent), and put
+   `From the WBR call, Wk NN (dd–dd Mon).` in the description. Then append the returned
+   task id to that bullet on the page. A feedback bullet with no id has not been actioned.
+   Bullets that are notes rather than actions ("out of scope", "no update") get no task.
+9. **Name the page** `<Mon> - Wk <ISO week> (<dd>–<dd> <Mon>)`, e.g. `Jul - Wk 30 (20–26 Jul)`.
    Matches the existing convention (`Feb - Wk 8`, `Apr - Wk 17`).
 
 ## Counting rules
@@ -100,6 +107,31 @@ Team member IDs (for `assignees` filters):
 - Footnote under the table must state that owner figures do not sum to the list total,
   and name the gap (shared tasks counted twice, unassigned closures excluded).
 
+## Weekly sales — Brand x Channel
+
+The sales week is **Thursday to Wednesday**, not the Mon–Sun task window. Compare it to
+the Thu–Wed week immediately before.
+
+```
+mcp__Nasam__compare_sales_periods
+  p1Start/p1End = the review Thu–Wed
+  p2Start/p2End = the Thu–Wed before it
+```
+
+The response is ~64k characters and will overflow the tool limit — it lands in a file.
+Parse it, do not read it:
+
+- `p1.revenueSharePerBrandPerChannel` / `p2...` — array of
+  `{brandName, saleChannel, trends:[{date, revenue, orders}]}`. Sum `trends[].revenue`
+  per `(brandName, saleChannel)` for the week figure. **This is the Brand x Channel grain.**
+- `growth.perBrand` and `growth.perSaleChannel` — ready-made p1/p2/`revenueGrowth` totals.
+- `p1.totalRevenue` / `p2.totalRevenue` for the header line.
+
+Report `Brand | Channel | This wk | Last wk | Chg`, sorted by this-week revenue. Drop
+rows where both weeks are under 1 SAR. Mark a channel that went from zero as `new`, not
+`+inf%`. Read the sales against the ads levers — a bid change and a revenue move on the
+same brand/channel is the story worth putting on the page.
+
 ## Page structure
 
 1. **Feedback from Call** — **always the first section on the page**, above Overview.
@@ -116,10 +148,14 @@ Team member IDs (for `assignees` filters):
    as empty, say so and ask; do not infer what was decided.
 2. **Overview** — one row per list: Total · Updated · No update · Owners (updated/total).
    Owners goes **last** — it is the longest column and must wrap at the page edge.
-3. **One section per list**, heaviest/most material first. Each gets a one-line summary
-   plus a brand-level table.
-4. **By BM** — rollup table, bullets inside the cells.
-5. **Escalations** — numbered table: Item · Owner · Status.
+3. **One section per brand**, not per list. This is the primary view from Wk 31 on:
+   each brand gets its sales WoW, its ads levers, its open items and its owner in one
+   place, so a BM reads one section and knows their week. List-level counts collapse
+   into the Overview.
+4. **One section per list** underneath, for anything that is genuinely cross-brand
+   (QC registrations, price checks, platform bugs).
+5. **By BM** — rollup table, bullets inside the cells.
+6. **Escalations** — numbered table: Item · Owner · Status.
 
 Advertising and Promotions takes two tables: a brand summary
 (`Brand | Owner | Lever status | Update`) and, for each brand actually being worked, a
@@ -140,6 +176,14 @@ See `references/page-template.md` for the full skeleton.
 ### Tables must fit the container
 
 ClickUp does not scroll tables horizontally — a wide table is unreadable on the call.
+
+**No human-authored page in this doc uses tables at all.** Apr Wk 17 and every page
+before it are plain lines plus pasted images. Markdown tables published through the API
+become fixed equal-width column blocks that do not adapt to their content, and they
+read back from `clickup_get_document_pages` as a single space — so **table rendering
+cannot be verified through the API.** Never claim a table fits; you cannot see it.
+Prefer plain lines for anything that is not genuinely a grid. Keep tables for the
+sales WoW figures, where the columns really are numeric and comparable.
 
 - **Cap at 4 columns.** 5 only when every cell is short. The Overview drops the Owners
   column entirely — owner splits live in the By BM table, and duplicating them made the
@@ -214,6 +258,14 @@ These have each produced a wrong report. Check every one.
 
 Keep this current — the skill is expected to grow.
 
+- **2026-07-30** — Sales come from `compare_sales_periods` on a **Thu–Wed** week vs the
+  prior Thu–Wed, at Brand x Channel grain via `revenueSharePerBrandPerChannel`.
+- **2026-07-30** — The page moves to a **per-brand view** from Wk 31.
+- **2026-07-30** — **Create a ClickUp task for every feedback action and write the id
+  onto the page.** Missed entirely in Wk 30 and asked for directly.
+- **2026-07-30** — Table rendering **cannot be verified through the API** — tables read
+  back as a single space. Two "fixed" claims were made without evidence; do not make a
+  third.
 - **2026-07-29** — A main task counts as **updated when only its subtasks moved**
   (confirmed for the Inivita ads parent, worked entirely through its levers).
 - **2026-07-29** — Width is governed by **cell length (~40 chars), not column count**.
