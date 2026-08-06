@@ -314,8 +314,10 @@ Keep this current — the skill is expected to grow.
 - **2026-08-06** — List sections lead with **open vs complete** counts, not "updated".
 - **2026-08-06** — **Never write "No update" without opening the task and reading its
   comments.** Partial counts as its own status.
-- **2026-08-06** — **The ClickUp API quota is DAILY and shared across every call —
-  reads included.** It reports as `NaN minutes` on document writes but gives the real
+- **2026-08-06** — **The ClickUp API quota is DAILY and account-wide across EVERY
+  endpoint — reads, task creation, page updates and page creation all draw on it.**
+  Creating a fresh page is not a workaround for a rate-limited update; both fail
+  identically. Tested three ways on 6 Aug. It reports as `NaN minutes` on document writes but gives the real
   figure elsewhere: `wait 1302 minutes` (~21.7h). Exhausting it on page revisions locked
   the workspace out of ClickUp entirely, hours before the call the report was for. **Budget the whole session, not the write.** Pull data once and
   cache it in the working notes; never re-pull a list you already have. **Draft the page
