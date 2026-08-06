@@ -168,12 +168,14 @@ that gap is itself the finding.
    as empty, say so and ask; do not infer what was decided.
 2. **Overview** — one row per list: Total · Updated · No update · Owners (updated/total).
    Owners goes **last** — it is the longest column and must wrap at the page edge.
-3. **One section per brand**, not per list. This is the primary view from Wk 31 on:
-   each brand gets its sales WoW, its ads levers, its open items and its owner in one
-   place, so a BM reads one section and knows their week. List-level counts collapse
-   into the Overview.
-4. **One section per list** underneath, for anything that is genuinely cross-brand
-   (QC registrations, price checks, platform bugs).
+3. **One section per function, matching the ClickUp lists** — Operations, Catalog &
+   Pricing, Advertising, Brand Health, Store Enhancement. This is the canonical
+   structure. Brands appear as rows inside each function's table, not as sections.
+   Onboarding is its own narrative section and stays out of the counts.
+4. **The structure does not change week to week.** A lead reading two consecutive pages
+   must find the same sections in the same order. Wk 30 was per-list, Wk 31 was
+   per-brand, and the inconsistency was the first thing raised. If a structural change
+   is genuinely warranted, agree it on a call and change it once — never drift into it.
 5. **By BM** — rollup table, bullets inside the cells.
 6. **Escalations** — numbered table: Item · Owner · Status.
 
@@ -278,6 +280,12 @@ These have each produced a wrong report. Check every one.
 
 Keep this current — the skill is expected to grow.
 
+- **2026-08-06** — **Structure is per function, matching the lists — and it is fixed.**
+  This supersedes the per-brand view trialled in Wk 31. Brands are rows inside each
+  function's table. Changing structure between weeks was raised as a problem in its own
+  right: consistency beats any single week's layout.
+- **2026-08-06** — Sales tables carry an explicit **Growth** column, plus **by-brand** and
+  **by-channel** rollups with their own growth rates, not just brand x channel rows.
 - **2026-08-06** — Onboarding is **excluded from counts** and carries a **300-word max
   narrative per account** instead.
 - **2026-08-06** — Page opens with **Last Week's Actions** — status of every task raised
