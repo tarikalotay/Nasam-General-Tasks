@@ -172,8 +172,20 @@ the same sections in the same order.
    is not complete; it is the column that makes the table worth reading, so compute it.
    Unassigned work gets its own row — never fold it into a person.
    Follow the table with prose on the week's material activity.
-5. **Onboarding** — no counts, activity narrative only, one short paragraph per account,
-   300 words max total.
+
+   **Two lists take their own table shape:**
+
+   - **Brand Health by System** — `AM | Done | Updated | No Update | Not completed
+     (updated / not updated)`. Check last week's activity per alert and split the last
+     cell into *Updated:* and *Not updated:* groups. An alert that is open and untouched
+     is the finding; one that is open and being worked is not.
+   - **Advertising and Promotions** — a **campaign-level matrix**, not counts:
+     `AM | Active campaign with update | Active campaign, no update | Paused`.
+     List the individual campaigns as bullets in each cell, formatted
+     `Channel lever - Brand` (e.g. `Trendyol Deals - Sondos`, `Amazon PPC - Invita`).
+     This means walking each brand's lever subtasks, not just the brand parent.
+5. **Onboarding** — no counts, activity narrative only. **Group by brand under its own
+   `###` heading**, one short paragraph each, 300 words max total.
 6. **Escalations** — numbered table: Item · Owner · Status.
 
 **Scope exclusions — apply everywhere on the page:**
@@ -285,6 +297,15 @@ These have each produced a wrong report. Check every one.
 
 Keep this current — the skill is expected to grow.
 
+- **2026-08-06** — **Brand Health** splits into `Done | Updated | No Update` with the
+  open items grouped *updated / not updated*. **Advertising** is a campaign-level matrix
+  (`Active with update | Active no update | Paused`) listing individual levers as
+  `Channel lever - Brand`, not counts.
+- **2026-08-06** — Onboarding accounts get their own `###` headings.
+- **2026-08-06** — **Escalations are the lead's list, not mine.** Wk 31 was cut from 8 to
+  2 on the call. Carry forward only what the lead keeps; do not re-add items they removed.
+- **2026-08-06** — When the lead says a **system is down**, mark the affected section
+  **provisional** and say so at the top of it. Do not report the dip as demand.
 - **2026-08-06** — Each list section carries a **per-AM table** —
   `AM | Done | Open | Overdue | Not completed` — with open task names bulleted in the cell.
 - **2026-08-06** — **Salla revenue for AlFaris Group is excluded**, shown as an explicit
