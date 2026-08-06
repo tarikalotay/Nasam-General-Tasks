@@ -293,13 +293,15 @@ Keep this current — the skill is expected to grow.
 - **2026-08-06** — List sections lead with **open vs complete** counts, not "updated".
 - **2026-08-06** — **Never write "No update" without opening the task and reading its
   comments.** Partial counts as its own status.
-- **2026-08-06** — `clickup_update_document_page` has a **long rate-limit window —
-  observed still locked at 25 minutes, likely hourly**, and reports it as `NaN minutes`. It is triggered by many writes in a
-  session, not by one large one. **Draft the page in full and write once.** Iterating a
-  section at a time will lock you out of the doc, and the lock outlasts a call. If it
-  hits, write the content to a file and hand that to the lead so they are not blocked,
-  then **stop retrying** — repeated attempts appear to extend the lockout rather than
-  test it. Wait for a scheduled slot well outside the window.
+- **2026-08-06** — **The ClickUp API quota is DAILY and shared across every call —
+  reads included.** It reports as `NaN minutes` on document writes but gives the real
+  figure elsewhere: `wait 1302 minutes` (~21.7h). Exhausting it on page revisions locked
+  the workspace out of ClickUp entirely, hours before the call the report was for. **Budget the whole session, not the write.** Pull data once and
+  cache it in the working notes; never re-pull a list you already have. **Draft the page
+  in full and write ONCE** — every revision is a page-sized write against a daily cap.
+  If the cap is hit: write the content to a file, hand it to the lead so they can paste
+  it themselves, and **stop calling ClickUp** — further attempts only confirm the lock.
+  Do not schedule a retry inside the same day; the quota will not have reset.
 - **2026-08-06** — **Structure is per function, matching the lists — and it is fixed.**
   This supersedes the per-brand view trialled in Wk 31. Brands are rows inside each
   function's table. Changing structure between weeks was raised as a problem in its own
