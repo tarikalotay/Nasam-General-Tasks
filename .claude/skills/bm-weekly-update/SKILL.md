@@ -132,8 +132,28 @@ rows where both weeks are under 1 SAR. Mark a channel that went from zero as `ne
 `+inf%`. Read the sales against the ads levers — a bid change and a revenue move on the
 same brand/channel is the story worth putting on the page.
 
+## Onboarding is tracked separately
+
+**Onboarding is excluded from every count.** Its ~250 template subtasks and handful of
+parents swamp the numbers and move for reasons that have nothing to do with the week's
+work. State the exclusion under the Overview.
+
+It gets its own section instead: a **narrative of at most 300 words total**, one short
+paragraph per account, written the way a BM would say it out loud —
+
+> Nokush: GS1 barcode closed, listings started on Amazon/Noon/Trendyol, list price
+> confirmed but profitability still needs review with Massoud.
+
+Name what closed, what started, what is blocked and on whom. Cover every account,
+including any brand that has appeared in Brand Health but has no onboarding task yet —
+that gap is itself the finding.
+
 ## Page structure
 
+0. **Last Week's Actions** — every task raised at the previous call with its current
+   status, closed ones first. Matches the LW/CW action-item convention the doc used
+   before. Check whether closed tasks were actually done by the named owner; a task
+   completed by someone else is worth a line.
 1. **Feedback from Call** — **always the first section on the page**, above Overview.
    A **flat bullet list**, not tables. One bullet per point, `**Owner** — action.`
    Keep it to the main points; no sub-bullets, no grouping headers.
@@ -258,6 +278,18 @@ These have each produced a wrong report. Check every one.
 
 Keep this current — the skill is expected to grow.
 
+- **2026-08-06** — Onboarding is **excluded from counts** and carries a **300-word max
+  narrative per account** instead.
+- **2026-08-06** — Page opens with **Last Week's Actions** — status of every task raised
+  at the previous call.
+- **2026-08-06** — **Cross-check sales against connection health.** Wk 31 showed Salla
+  −89% across every brand; `sync_and_connection_health` showed no Salla channel
+  connected for Marah and Brand Health had opened 4 new Salla fulfilment alerts. A
+  channel-wide collapse is a connection failure until proven otherwise — never report it
+  as demand.
+- **2026-08-06** — **The accessible brand list can change between weeks.** Sondos was in
+  the Wk 30 figures and gone in Wk 31, which silently rebases every total. Compare the
+  brand list week to week and say plainly when totals are not comparable to the prior page.
 - **2026-07-30** — Feedback bullets carry the **bare task id only**. Mentions are
   impossible through the API — `/mention`, `#`, `@` and the task URL were all tested on
   the live page and none produced one. Settled; do not retry.
