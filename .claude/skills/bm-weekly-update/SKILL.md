@@ -293,8 +293,11 @@ Keep this current — the skill is expected to grow.
 - **2026-08-06** — List sections lead with **open vs complete** counts, not "updated".
 - **2026-08-06** — **Never write "No update" without opening the task and reading its
   comments.** Partial counts as its own status.
-- **2026-08-06** — `clickup_update_document_page` can return **rate limit exceeded** with
-  a `NaN minutes` message. Wait ~75s and retry.
+- **2026-08-06** — `clickup_update_document_page` has a **long rate-limit window — over
+  15 minutes**, and reports it as `NaN minutes`. It is triggered by many writes in a
+  session, not by one large one. **Draft the page in full and write once.** Iterating a
+  section at a time will lock you out of the doc, and the lock outlasts a call. If it
+  hits, write the content to a file and hand that to the lead so they are not blocked.
 - **2026-08-06** — **Structure is per function, matching the lists — and it is fixed.**
   This supersedes the per-brand view trialled in Wk 31. Brands are rows inside each
   function's table. Changing structure between weeks was raised as a problem in its own
