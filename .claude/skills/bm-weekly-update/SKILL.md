@@ -150,34 +150,39 @@ that gap is itself the finding.
 
 ## Page structure
 
-0. **Last Week's Actions** — every task raised at the previous call with its current
-   status, closed ones first. Matches the LW/CW action-item convention the doc used
-   before. Check whether closed tasks were actually done by the named owner; a task
-   completed by someone else is worth a line.
-1. **Feedback from Call** — **always the first section on the page**, above Overview.
-   A **flat bullet list**, not tables. One bullet per point, `**Owner** — action.`
-   Keep it to the main points; no sub-bullets, no grouping headers.
-   Publish it with only the heading and an italic prompt line — **no empty bullets**,
-   which ClickUp renders as the literal text `null.`
-   **Record only what the team said.** Never list your own report changes in it
-   (formatting decisions, metric redefinitions, section moves) — those are not
-   feedback and do not belong on the page. Apply them silently and mention them in
-   chat instead.
-   **Once the lead has written in it, never delete or replace their text.** Tighten
-   wording, fix an owner or a date — but the content is theirs. If the section reads
-   as empty, say so and ask; do not infer what was decided.
-2. **Overview** — one row per list: Total · Updated · No update · Owners (updated/total).
-   Owners goes **last** — it is the longest column and must wrap at the page edge.
-3. **One section per function, matching the ClickUp lists** — Operations, Catalog &
-   Pricing, Advertising, Brand Health, Store Enhancement. This is the canonical
-   structure. Brands appear as rows inside each function's table, not as sections.
-   Onboarding is its own narrative section and stays out of the counts.
-4. **The structure does not change week to week.** A lead reading two consecutive pages
-   must find the same sections in the same order. Wk 30 was per-list, Wk 31 was
-   per-brand, and the inconsistency was the first thing raised. If a structural change
-   is genuinely warranted, agree it on a call and change it once — never drift into it.
-5. **By BM** — rollup table, bullets inside the cells.
+Fixed order. Do not vary it week to week. A lead reading two consecutive pages must find
+the same sections in the same order.
+
+1. **Action Items — This Call** — empty, filled live during the call. Heading plus an
+   italic prompt line only; no empty bullets (they render as the literal `null.`).
+   Once the lead has written in it, never delete or reword their text.
+2. **Last Week's Action Items** — every task raised at the previous call with its status.
+   **Verify each against the task itself before writing "No update".** Read the comments,
+   not just the status field. Wk 31 reported Khaled as silent when he had commented four
+   times on Wadi Halfa. **Partial is its own status** — say which brand moved and which
+   did not. Note when a task was closed by someone other than its named owner.
+3. **Sales — Brand x Channel** — three tables: brand x channel, by brand, by channel.
+   Every one carries an explicit **Growth** column.
+4. **One section per list**, in this order: Catalog and Pricing · Operations ·
+   Brand Health by System · Advertising and Promotions · Store Enhancement and Marketing.
+   Each is headed by an open vs complete count — `**6 complete · 5 open** of 11`, adding
+   `· N cancelled` where it applies — then a **per-AM table**:
+   `AM | Done | Open | Overdue | Not completed`, with open task names as bullets inside
+   the last cell (`<br>`-separated). **Overdue** = a due date in the past on a task that
+   is not complete; it is the column that makes the table worth reading, so compute it.
+   Unassigned work gets its own row — never fold it into a person.
+   Follow the table with prose on the week's material activity.
+5. **Onboarding** — no counts, activity narrative only, one short paragraph per account,
+   300 words max total.
 6. **Escalations** — numbered table: Item · Owner · Status.
+
+**Scope exclusions — apply everywhere on the page:**
+
+- **Salla revenue for AlFaris Group brands** is outside the AM model. Do not delete the
+  Salla row — show the channel at **0** so its absence is explicit rather than looking
+  like an oversight. Nokush is the only in-scope brand on Salla.
+- **SaaS accounts never appear in the BM WBR** — Lotana Boutique is SaaS. They surface in
+  Brand Health automatically, so filter them out by name rather than trusting the list.
 
 Advertising and Promotions takes two tables: a brand summary
 (`Brand | Owner | Lever status | Update`) and, for each brand actually being worked, a
@@ -280,6 +285,16 @@ These have each produced a wrong report. Check every one.
 
 Keep this current — the skill is expected to grow.
 
+- **2026-08-06** — Each list section carries a **per-AM table** —
+  `AM | Done | Open | Overdue | Not completed` — with open task names bulleted in the cell.
+- **2026-08-06** — **Salla revenue for AlFaris Group is excluded**, shown as an explicit
+  **0 row**. Removing it flipped Wk 31 from −35% to **+16%** — not cosmetic, it changes
+  the conclusion. **SaaS accounts (Lotana Boutique) never appear.**
+- **2026-08-06** — List sections lead with **open vs complete** counts, not "updated".
+- **2026-08-06** — **Never write "No update" without opening the task and reading its
+  comments.** Partial counts as its own status.
+- **2026-08-06** — `clickup_update_document_page` can return **rate limit exceeded** with
+  a `NaN minutes` message. Wait ~75s and retry.
 - **2026-08-06** — **Structure is per function, matching the lists — and it is fixed.**
   This supersedes the per-brand view trialled in Wk 31. Brands are rows inside each
   function's table. Changing structure between weeks was raised as a problem in its own
