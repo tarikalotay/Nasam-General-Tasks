@@ -183,7 +183,14 @@ the same sections in the same order.
      `AM | Active campaign with update | Active campaign, no update | Paused`.
      List the individual campaigns as bullets in each cell, formatted
      `Channel lever - Brand` (e.g. `Trendyol Deals - Sondos`, `Amazon PPC - Invita`).
-     This means walking each brand's lever subtasks, not just the brand parent.
+     This means walking each brand's lever subtasks, not just the brand parent —
+     `clickup_get_task` on the brand parent with `include: ["subtasks"]`, one call.
+     **Lever names in ClickUp do not carry the channel** — they are all
+     "PPC Weekly Update", "Deals Weekly Update" etc., repeated once per channel batch.
+     Read the `Sale Channel` custom field to label them; do not infer the channel from
+     batch order without saying so. Invita ran 19 levers in Wk 31 — 8 running, 2 paused
+     (Amazon Coupon, Meta Ads), 9 cannot-implement — against the "7 levers" figure
+     carried on earlier pages, so count them rather than trusting the prior week.
 5. **Onboarding** — no counts, activity narrative only. **Group by brand under its own
    `###` heading**, one short paragraph each, 300 words max total.
 6. **Escalations** — numbered table: Item · Owner · Status.
