@@ -112,7 +112,7 @@ a) Protect the patient from the primary beam b) **Reduce scattered radiation rea
 **B20.** ⚠ Wearing leaded glasses primarily protects against:
 a) Skin injury of the hands b) **Radiation-induced cataract of the eye lens** c) Thyroid cancer d) Bone marrow suppression
 
-> **Answer key note:** Answers marked in bold are provisional and must be confirmed by the expert panel (medical physicist + interventional cardiologist + radiation safety officer) during content validation, with references to current ICRP publications and national (SFDA / NRRC) regulatory limits. Distractors and difficulty balance to be reviewed at pilot stage.
+> **Answer key note:** Answers marked in bold are provisional and must be confirmed by the expert panel (medical physicist + interventional cardiologist + radiation safety officer) during content validation, with references to current ICRP publications, OSHA 29 CFR 1910.1096, IAEA GSR Part 3, and national (SFDA / NRRC) regulatory limits. Distractors and difficulty balance to be reviewed at pilot stage. See the Standards and Regulatory References section at the end of this instrument.
 
 ---
 
@@ -186,6 +186,23 @@ a) Skin injury of the hands b) **Radiation-induced cataract of the eye lens** c)
 **E8.** Are you interested in receiving additional radiation-safety training? ☐ Yes ☐ No ☐ Unsure
 
 **E9.** Have you ever been formally assessed (tested/certified) on radiation safety? ☐ Yes ☐ No
+
+---
+
+## Standards and Regulatory References
+
+The answer key, competency benchmarks, and educational course content are anchored to the following standards (expert panel to verify all cited limits against the current editions):
+
+| Reference | Key content used by this instrument |
+|---|---|
+| ICRP Publication 103 (2007) | Occupational effective dose limit 20 mSv/year averaged over 5 years (max 50 mSv in any single year); ALARA / optimization principle (items B6) |
+| ICRP Publication 118 | Eye-lens equivalent dose limit 20 mSv/year; cataract as a tissue reaction (items B7, B10, B20) |
+| ICRP Publication 120 | Radiological protection in cardiology — cath-lab-specific guidance (items B11–B19) |
+| **OSHA 29 CFR 1910.1096 — Ionizing Radiation** | Quarterly whole-body limit 1.25 rem (12.5 mSv); personal monitoring required when a worker is likely to receive >25% of the quarterly limit; radiation-area caution signage; **mandatory instruction of all personnel** in radiation-safety practices — regulatory precedent for the study's competency-based education model |
+| IAEA GSR Part 3 | International Basic Safety Standards — the framework national regulators align with |
+| Saudi NRRC / SFDA regulations | Governing national requirements for the participating centers |
+
+> **Reconciliation note for the expert panel:** OSHA's numerical limits predate current ICRP recommendations and are less restrictive; the questionnaire teaches the ICRP/IAEA/NRRC limits as operative, while OSHA 1910.1096 is cited for its monitoring, signage, and mandatory personnel-instruction requirements.
 
 ---
 

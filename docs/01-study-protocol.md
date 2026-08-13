@@ -227,7 +227,25 @@ Therefore:
 
 ---
 
-## 11. Public Health and National Significance
+## 11. Regulatory and Standards Framework
+
+The study's knowledge items, competency benchmarks, and educational course content are anchored to recognized international and national radiation-protection standards:
+
+| Standard / body | Relevance to this study |
+|---|---|
+| **ICRP Publication 103** (2007 Recommendations) | Occupational effective dose limit: 20 mSv/year averaged over 5 years (max 50 mSv in any single year); system of justification, optimization (ALARA), and dose limitation |
+| **ICRP Publication 118** | Revised eye-lens equivalent dose limit (20 mSv/year); tissue-reaction thresholds (cataract) |
+| **ICRP Publication 120** | Radiological protection specifically in cardiology — directly applicable to cath lab practice |
+| **OSHA 29 CFR 1910.1096 — Ionizing Radiation** | US occupational standard: quarterly whole-body dose limit of 1.25 rem (12.5 mSv); mandatory personal monitoring when a worker is likely to receive more than 25% of the quarterly limit; radiation-area caution signage; requirement to **instruct all personnel** in radiation-safety practices and the hazards involved — a regulatory precedent for the mandatory-education principle this study advances |
+| **IAEA GSR Part 3** (International Basic Safety Standards) | The framework most national regulators (including Saudi Arabia) align with |
+| **Saudi NRRC / SFDA regulations** | The governing national requirements for the participating centers; expert panel to confirm current dose limits and monitoring requirements |
+| **NCRP reports** | Supporting guidance on occupational monitoring and fluoroscopy safety |
+
+> **Note for the expert panel:** OSHA's numerical limits predate ICRP 103 and are less restrictive than current ICRP recommendations (12.5 mSv/quarter vs. 20 mSv/year). The questionnaire answer key and course content should teach the ICRP/IAEA/NRRC framework as the operative standard, while OSHA 1910.1096 is cited for its monitoring, signage, and — most importantly — its **mandatory personnel instruction** requirements, which directly support Goal 3 (competency-based certification).
+
+---
+
+## 12. Public Health and National Significance
 
 The study seeks to determine whether there is evidence of an underrecognized occupational radiation-safety problem within medical practice, providing an early evidence base for:
 
@@ -243,7 +261,7 @@ The small prospective sample is **signal-generating and hypothesis-generating**,
 
 ---
 
-## 12. Long-Term Policy Vision
+## 13. Long-Term Policy Vision
 
 ```
 Before independent radiation-based clinical practice
@@ -265,7 +283,7 @@ The principle is similar to other competency-based clinical certifications (e.g.
 
 ---
 
-## 13. Expected Contributions
+## 14. Expected Contributions
 
 | Output | Description |
 |---|---|
@@ -275,7 +293,7 @@ The principle is similar to other competency-based clinical certifications (e.g.
 
 ---
 
-## 14. Summary
+## 15. Summary
 
 ```
 ASSESS    → Multicenter KAP and competency assessment

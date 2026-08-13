@@ -24,7 +24,7 @@ Legend: ✅ drafted/done · 🟡 in progress · ⬜ not started
 
 ## Immediate Next Actions
 
-1. **Assemble the expert panel** — interventional cardiologist, medical physicist, radiation safety officer, and nursing/technologist representative — and circulate the v0.1 questionnaire for content validation (CVI scoring), with special attention to the ⚠-flagged knowledge items and the answer key (verify against current ICRP publications and Saudi regulatory limits).
+1. **Assemble the expert panel** — interventional cardiologist, medical physicist, radiation safety officer, and nursing/technologist representative — and circulate the v0.1 questionnaire for content validation (CVI scoring), with special attention to the ⚠-flagged knowledge items and the answer key (verify against current ICRP publications, OSHA 29 CFR 1910.1096, IAEA GSR Part 3, and Saudi NRRC/SFDA regulatory limits).
 2. **Confirm center participation** and identify a site coordinator at each of the six Riyadh cardiac centers.
 3. **Engage the medical physics / dosimetry service** to resolve the open TLD protocol decisions (badge placement convention, processing laboratory, calibration, background controls).
 4. **Draft the observer checklist** for objective practice assessment (step 10) so it can be validated alongside the questionnaire.
