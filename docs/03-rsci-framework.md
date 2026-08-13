@@ -44,7 +44,7 @@ Each domain is normalized to 0–100 before weighting, yielding a composite RSCI
 | 2. Face validity & pilot | Pilot on a small sample (~20–30) outside the main study centers; comprehension, timing, ceiling/floor effects | Revise ambiguous items |
 | 3. Reliability | Internal consistency per domain (Cronbach's α / McDonald's ω); test–retest on pilot subsample where feasible (ICC) | α ≥ 0.70 per domain |
 | 4. Item analysis | Difficulty and discrimination indices for knowledge items; item–total correlations for Likert scales | Flag items for revision/removal |
-| 5. Construct validity | Exploratory factor analysis (and confirmatory analysis if sample allows) to test the four-domain structure; inter-domain correlations | Model fit and interpretability |
+| 5. Construct validity | With an anticipated Phase I sample of ~150+, run factor analysis **per domain scale** (knowledge 20 items, attitude 13, practice 12) rather than one pooled 58-item model — per-domain analysis keeps the respondent-to-item ratio adequate at this sample size; a pooled confirmatory model is future work if a larger sample accrues | Model fit and interpretability |
 | 6. Known-groups validity | Compare RSCI across groups expected to differ (e.g., recent formal training vs. none; roles) | Significant expected differences |
 | 7. Criterion-related evidence | Relationship between RSCI (especially practice domain) and objective measures: observed practice, workload-adjusted TLD exposure | Exploratory in this study |
 | 8. Scoring & thresholds | Finalize weights (e.g., informed by factor loadings/regression on objective outcomes) and competency cut points | Documented, reproducible scoring rule |

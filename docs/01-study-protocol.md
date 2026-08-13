@@ -83,6 +83,7 @@ Two complementary phases.
 Assessment of radiation-safety knowledge, attitudes, practices, previous education, and potential competency among healthcare professionals working in cardiac catheterization laboratories.
 
 - **Setting:** six cardiac centers in Riyadh
+- **Expected sample:** all cath lab healthcare professionals across the six centers — anticipated to exceed 150 participants
 - **Instrument:** structured questionnaire covering four domains (see below and [`02-kap-questionnaire-draft.md`](02-kap-questionnaire-draft.md))
 
 #### Domain 1 — Knowledge
@@ -115,13 +116,15 @@ Professional role; specialty; years of professional experience; years in radiati
 
 ### Phase II — Prospective Educational Study
 
-A smaller group of healthcare professionals who routinely participate in cardiac catheterization procedures, selected using an appropriate sampling method to reduce selection bias, undergo objective occupational radiation measurement before and after a focused educational course.
+The TLD dosimetry component is conducted at **one center**, involving **15 healthcare practitioners** who routinely participate in cardiac catheterization procedures, selected using an appropriate sampling method to reduce selection bias. Participants undergo objective occupational radiation measurement before and after a focused educational course, and **are not informed that their radiation exposure and workplace behavior are under study observation** (see §5).
 
 | Step | Description |
 |---|---|
-| **Baseline** | KAP questionnaire; first TLD worn ~1 month during routine work; workload/procedure data collected where feasible (procedure count, type, complexity, fluoroscopy time, DAP/KAP, air kerma); selected practices objectively assessed where feasible |
-| **Course** | Focused one-day radiation-safety educational course (see §6) |
-| **Post-course** | Repeat KAP questionnaire; second TLD worn ~1 additional month; same procedural variables collected where feasible |
+| **Baseline** | First TLD worn for **~2 months** during routine work; workload/procedure data collected where feasible (procedure count, type, complexity, fluoroscopy time, DAP/KAP, air kerma); selected practices objectively assessed where feasible; baseline KAP questionnaire |
+| **Course** | Focused one-day radiation-safety educational course (see §6), followed by an **immediate post-course written MCQ assessment** |
+| **Post-course** | Second (new) TLD worn for **~2 additional months**; same procedural variables collected where feasible; badges collected and read at the end of the period |
+
+The TLD component therefore compares **two months of radiation exposure before the course with two months after the course**, while the questionnaire assesses competency across all six centers.
 
 The comparison:
 

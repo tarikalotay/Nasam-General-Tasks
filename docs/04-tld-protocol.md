@@ -6,17 +6,20 @@ Provide objective, individual-level occupational radiation exposure measurement 
 
 ## Participants
 
-- Subgroup of healthcare professionals who routinely participate in cardiac catheterization procedures.
-- Selected using an appropriate sampling method (e.g., stratified random sampling by professional role) to reduce selection bias.
+- **One center; 15 healthcare practitioners** who routinely participate in cardiac catheterization procedures.
+- Selected using an appropriate sampling method (e.g., stratified random sampling by professional role) to reduce selection bias; inclusion of higher-exposure roles (primary operators, scrub staff) recommended to protect against readings below the TLD detection threshold.
+- Participants are **not informed that their exposure and behavior are under study observation** (see Blinding section below).
 - Sample is **signal-generating / hypothesis-generating** — not intended as a national estimate.
 
 ## Measurement Schedule
 
 | Period | Duration | Instrument | Concurrent data |
 |---|---|---|---|
-| Baseline | ~1 month of routine clinical work | TLD #1 | Baseline KAP questionnaire; workload/procedural data; objective practice observation where feasible |
-| Educational course | 1 day | — | Course attendance recorded |
-| Post-course | ~1 month of routine clinical work | TLD #2 (replaces TLD #1) | Post-course KAP questionnaire; same workload/procedural data; objective practice observation where feasible |
+| Baseline | **~2 months** of routine clinical work | TLD #1 | Baseline KAP questionnaire; workload/procedural data; objective practice observation where feasible |
+| Educational course | 1 day | — | Course attendance recorded; **immediate post-course written MCQ assessment** |
+| Post-course | **~2 months** of routine clinical work | TLD #2 (new badge) | Same workload/procedural data; objective practice observation where feasible; badges collected and read at end of period |
+
+The comparison is therefore **two months of exposure before the course versus two months after**, paired within each participant. The two-month windows double the accumulated dose relative to a one-month design, improving the chance that readings for lower-exposure roles exceed the dosimetry service's minimum reportable dose.
 
 ## Open Protocol Decisions (to finalize with medical physics — roadmap step 9)
 
