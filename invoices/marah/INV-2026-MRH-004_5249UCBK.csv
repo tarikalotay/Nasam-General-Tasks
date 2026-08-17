@@ -1,0 +1,17 @@
+field,value
+invoice_number,INV-2026-MRH-004
+invoice_date,2026-08-17
+bill_to,Marah
+po_number,5249UCBK
+channel,Amazon Retail
+po_date,2026-07-26
+delivered_date,2026-07-28
+fulfillment_center,RUH8
+po_outcome,Delivered
+
+description,units,requested_sar,received_sar,commission_rate_pct,amount_sar
+Commission on PO 5249UCBK (delivered value),45,247.50,247.50,6,14.85
+
+total_due_sar,14.85
+currency,SAR
+note,Commission charged on received (fulfilled) value. Amounts exclusive of VAT.

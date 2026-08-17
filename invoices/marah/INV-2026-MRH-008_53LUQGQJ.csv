@@ -1,0 +1,17 @@
+field,value
+invoice_number,INV-2026-MRH-008
+invoice_date,2026-08-17
+bill_to,Marah
+po_number,53LUQGQJ
+channel,Amazon Retail
+po_date,2026-08-06
+delivered_date,2026-08-12
+fulfillment_center,JED4
+po_outcome,Delivered
+
+description,units,requested_sar,received_sar,commission_rate_pct,amount_sar
+Commission on PO 53LUQGQJ (delivered value),10,110.00,110.00,6,6.60
+
+total_due_sar,6.60
+currency,SAR
+note,Commission charged on received (fulfilled) value. Amounts exclusive of VAT.

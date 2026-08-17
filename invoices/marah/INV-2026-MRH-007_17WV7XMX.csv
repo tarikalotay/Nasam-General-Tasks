@@ -1,0 +1,17 @@
+field,value
+invoice_number,INV-2026-MRH-007
+invoice_date,2026-08-17
+bill_to,Marah
+po_number,17WV7XMX
+channel,Amazon Retail
+po_date,2026-08-06
+delivered_date,2026-08-11
+fulfillment_center,RDF1
+po_outcome,Delivered
+
+description,units,requested_sar,received_sar,commission_rate_pct,amount_sar
+Commission on PO 17WV7XMX (delivered value),10,456.00,456.00,6,27.36
+
+total_due_sar,27.36
+currency,SAR
+note,Commission charged on received (fulfilled) value. Amounts exclusive of VAT.

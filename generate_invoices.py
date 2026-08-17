@@ -6,9 +6,9 @@ screen. PO headers (numbers, brands, channels, dates, FCs) verified against
 the Nasam purchase_orders view; requested/received amounts taken from the PO
 screen. All amounts are SAR.
 
-Commission rates (per client agreement): Wadi Halfa 4%, SONDOS 6%.
-Marah has no commission rate on file, so no Marah invoices are generated.
-Commission is charged on the received (fulfilled) value, exclusive of VAT.
+Commission rates (per client agreement): Wadi Halfa 4%; SONDOS, Marah,
+Sense, and Arabesque 6%. Commission is charged on the received (fulfilled)
+value, exclusive of VAT.
 """
 
 import csv
@@ -20,6 +20,9 @@ INVOICE_DATE = "2026-08-17"
 COMMISSION_RATES = {
     "Wadi Halfa": Decimal("0.04"),
     "SONDOS": Decimal("0.06"),
+    "Marah": Decimal("0.06"),
+    "Sense": Decimal("0.06"),
+    "Arabesque": Decimal("0.06"),
 }
 
 # (brand, po_number, channel, order_date, delivered_date, fc, units,
@@ -51,7 +54,7 @@ PO_ROWS = [
 ]
 
 BRAND_CODES = {"Wadi Halfa": "WH", "SONDOS": "SND", "Marah": "MRH"}
-BRAND_DIRS = {"Wadi Halfa": "wadi_halfa", "SONDOS": "sondos"}
+BRAND_DIRS = {"Wadi Halfa": "wadi_halfa", "SONDOS": "sondos", "Marah": "marah"}
 
 
 def money(value):
@@ -129,7 +132,7 @@ def main():
     print(f"wrote {sorted_path}")
 
     invoice_records = []
-    for brand in ("Wadi Halfa", "SONDOS"):
+    for brand in ("Wadi Halfa", "SONDOS", "Marah"):
         brand_rows = sorted(
             (r for r in PO_ROWS if r[0] == brand),
             key=lambda r: (r[3], r[1]),

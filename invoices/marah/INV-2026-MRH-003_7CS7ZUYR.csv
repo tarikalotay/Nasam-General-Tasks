@@ -1,0 +1,17 @@
+field,value
+invoice_number,INV-2026-MRH-003
+invoice_date,2026-08-17
+bill_to,Marah
+po_number,7CS7ZUYR
+channel,Amazon Retail
+po_date,2026-07-19
+delivered_date,2026-07-29
+fulfillment_center,JED4
+po_outcome,Delivered
+
+description,units,requested_sar,received_sar,commission_rate_pct,amount_sar
+Commission on PO 7CS7ZUYR (delivered value),222,2310.00,2310.00,6,138.60
+
+total_due_sar,138.60
+currency,SAR
+note,Commission charged on received (fulfilled) value. Amounts exclusive of VAT.
