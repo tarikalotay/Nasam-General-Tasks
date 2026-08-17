@@ -1,0 +1,17 @@
+field,value
+invoice_number,INV-2026-SND-002
+invoice_date,2026-08-17
+bill_to,SONDOS
+po_number,7CS7ZUYR
+channel,Amazon Retail
+po_date,2026-07-19
+delivered_date,2026-07-29
+fulfillment_center,JED4
+po_outcome,Shortage
+
+description,units,requested_sar,received_sar,commission_rate_pct,amount_sar
+Commission on PO 7CS7ZUYR (shortage value),26,256.80,128.40,6,7.70
+
+total_due_sar,7.70
+currency,SAR
+note,Commission charged on received (fulfilled) value. Amounts exclusive of VAT.

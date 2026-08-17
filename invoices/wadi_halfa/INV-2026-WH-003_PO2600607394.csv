@@ -1,0 +1,17 @@
+field,value
+invoice_number,INV-2026-WH-003
+invoice_date,2026-08-17
+bill_to,Wadi Halfa
+po_number,PO2600607394
+channel,Ninja Retail
+po_date,2026-07-20
+delivered_date,2026-08-13
+fulfillment_center,RUH8
+po_outcome,Shortage
+
+description,units,requested_sar,received_sar,commission_rate_pct,amount_sar
+Commission on PO PO2600607394 (shortage value),240,2196.96,1633.44,4,65.34
+
+total_due_sar,65.34
+currency,SAR
+note,Commission charged on received (fulfilled) value. Amounts exclusive of VAT.

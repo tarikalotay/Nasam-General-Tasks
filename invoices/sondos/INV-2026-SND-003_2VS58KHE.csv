@@ -1,0 +1,17 @@
+field,value
+invoice_number,INV-2026-SND-003
+invoice_date,2026-08-17
+bill_to,SONDOS
+po_number,2VS58KHE
+channel,Amazon Retail
+po_date,2026-07-26
+delivered_date,2026-07-28
+fulfillment_center,RDF1
+po_outcome,Delivered
+
+description,units,requested_sar,received_sar,commission_rate_pct,amount_sar
+Commission on PO 2VS58KHE (delivered value),2,122.40,122.40,6,7.34
+
+total_due_sar,7.34
+currency,SAR
+note,Commission charged on received (fulfilled) value. Amounts exclusive of VAT.

@@ -1,0 +1,18 @@
+field,value
+invoice_number,INV-2026-WH-001
+invoice_date,2026-08-17
+bill_to,Wadi Halfa
+po_number,5EOBBQRQ
+channel,Amazon Retail
+po_date,2026-07-19
+delivered_date,2026-07-26
+fulfillment_center,RUH8
+po_outcome,Rejected
+
+description,units,requested_sar,received_sar,commission_rate_pct,amount_sar
+Commission on PO 5EOBBQRQ (rejected value),24,218.64,0.00,4,0.00
+
+total_due_sar,0.00
+currency,SAR
+note,Commission charged on received (fulfilled) value. Amounts exclusive of VAT.
+remark,"PO rejected - no units received, no commission due."

@@ -1,0 +1,17 @@
+field,value
+invoice_number,INV-2026-SND-006
+invoice_date,2026-08-17
+bill_to,SONDOS
+po_number,1F6WGJRN
+channel,Amazon Retail
+po_date,2026-08-02
+delivered_date,2026-08-04
+fulfillment_center,RDF1
+po_outcome,Delivered
+
+description,units,requested_sar,received_sar,commission_rate_pct,amount_sar
+Commission on PO 1F6WGJRN (delivered value),4,244.80,244.80,6,14.69
+
+total_due_sar,14.69
+currency,SAR
+note,Commission charged on received (fulfilled) value. Amounts exclusive of VAT.

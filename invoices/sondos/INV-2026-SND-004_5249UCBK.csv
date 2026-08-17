@@ -1,0 +1,17 @@
+field,value
+invoice_number,INV-2026-SND-004
+invoice_date,2026-08-17
+bill_to,SONDOS
+po_number,5249UCBK
+channel,Amazon Retail
+po_date,2026-07-26
+delivered_date,2026-07-28
+fulfillment_center,RUH8
+po_outcome,Delivered
+
+description,units,requested_sar,received_sar,commission_rate_pct,amount_sar
+Commission on PO 5249UCBK (delivered value),2,23.50,23.50,6,1.41
+
+total_due_sar,1.41
+currency,SAR
+note,Commission charged on received (fulfilled) value. Amounts exclusive of VAT.

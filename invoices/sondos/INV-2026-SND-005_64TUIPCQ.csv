@@ -1,0 +1,17 @@
+field,value
+invoice_number,INV-2026-SND-005
+invoice_date,2026-08-17
+bill_to,SONDOS
+po_number,64TUIPCQ
+channel,Amazon Retail
+po_date,2026-07-26
+delivered_date,2026-08-09
+fulfillment_center,JED4
+po_outcome,Delivered
+
+description,units,requested_sar,received_sar,commission_rate_pct,amount_sar
+Commission on PO 64TUIPCQ (delivered value),18,135.00,270.00,6,16.20
+
+total_due_sar,16.20
+currency,SAR
+note,Commission charged on received (fulfilled) value. Amounts exclusive of VAT.
