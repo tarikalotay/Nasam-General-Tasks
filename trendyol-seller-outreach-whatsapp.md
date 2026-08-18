@@ -21,10 +21,10 @@ Notes:
 
 فضلاً، هل يمكنكم مشاركتي بالتالي:
 
-1️⃣ بريدكم الإلكتروني
+1️⃣ البريد الإلكتروني لجميع من سيحضر المكالمة
 2️⃣ أفضل 3 مواعيد تناسبكم الأسبوع القادم (مدة كل موعد 30 دقيقة)
 
-وسأقوم بتأكيد الموعد الأنسب وإرسال دعوة المكالمة على بريدكم.
+وسأقوم بتأكيد الموعد الأنسب وإرسال دعوة المكالمة لجميع الحضور.
 
 شكراً جزيلاً، وأتطلع للحديث معكم قريباً! 🙌
 
@@ -42,9 +42,9 @@ I'd like to arrange a short call (30 minutes) next week to share these opportuni
 
 Could you please share the following with me:
 
-1️⃣ Your email address
+1️⃣ The email addresses of everyone who will join the call
 2️⃣ Your best 3 available time slots next week (30 minutes each)
 
-I'll then confirm the most suitable slot and send the call invitation to your email.
+I'll then confirm the most suitable slot and send the call invitation to all attendees.
 
 Thank you very much — looking forward to speaking with you soon! 🙌
