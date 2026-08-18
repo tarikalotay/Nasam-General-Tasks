@@ -41,6 +41,14 @@ NF_PCT = "0%"
 NF_MONTH = "mmm yyyy"
 
 
+def line_description(r) -> str:
+    """Invoice line text, e.g. 'Amazon Retail PO#13WKUXGQ' or 'Ninja PO#2600607394'."""
+    po = r["po_number"]
+    if r["channel"] == "Ninja Retail":
+        return f"Ninja PO#{po.removeprefix('PO')}"
+    return f"{r['channel']} PO#{po}"
+
+
 def style_header_row(ws, row, ncols):
     for c in range(1, ncols + 1):
         cell = ws.cell(row=row, column=c)
@@ -55,7 +63,7 @@ def build_brand_sheet(ws, brand, invoices):
     Returns per-invoice metadata for the Summary sheet:
     (ref, month_date, first_po_row, last_po_row, total_row).
     """
-    for i, w in enumerate([18, 11, 14, 13, 15], start=1):
+    for i, w in enumerate([28, 11, 14, 13, 17], start=1):
         ws.column_dimensions[get_column_letter(i)].width = w
 
     ws["A1"] = f"{brand} — Commission Invoices — Customer: {CUSTOMER[brand]}"
@@ -70,8 +78,8 @@ def build_brand_sheet(ws, brand, invoices):
     ws["C2"].font = F_NOTE
 
     hdr_row = 4
-    for c, h in enumerate(["PO Number", "Month", "Received (SAR)",
-                           "Commission %", "Commission (SAR)"], start=1):
+    for c, h in enumerate(["Description", "Month", "Received (SAR)",
+                           "Commission %", "Nasam Commission (SAR)"], start=1):
         ws.cell(row=hdr_row, column=c, value=h)
     style_header_row(ws, hdr_row, 5)
     ws.freeze_panes = f"A{hdr_row + 1}"
@@ -89,7 +97,7 @@ def build_brand_sheet(ws, brand, invoices):
 
         first = rr
         for r in rows:
-            ws.cell(row=rr, column=1, value=r["po_number"])
+            ws.cell(row=rr, column=1, value=line_description(r))
             mc = ws.cell(row=rr, column=2, value=month)
             mc.number_format = NF_MONTH
             ws.cell(row=rr, column=3, value=float(r["received_sar"])).number_format = NF_SAR
