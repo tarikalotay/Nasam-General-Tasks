@@ -73,6 +73,22 @@ Team member IDs (for `assignees` filters):
 9. **Name the page** `<Mon> - Wk <ISO week> (<dd>–<dd> <Mon>)`, e.g. `Jul - Wk 30 (20–26 Jul)`.
    Matches the existing convention (`Feb - Wk 8`, `Apr - Wk 17`).
 
+## Check the workspace shape before counting
+
+Lists and tasks move between weeks. Diff against the prior page before trusting any
+count, and say on the page when the shape changed — a list that shrinks because tasks
+moved is not progress.
+
+Seen so far: the **Store Enhancement list was emptied into Advertising** (Wk 33), the
+**QC registrations moved from Operations into Onboarding**, The Chefz registration was
+deleted, and tasks were renamed (`Onboarding Plan (Shared With Sonbol)` →
+`(Shared With Dar Sonbol)`).
+
+**The accessible brand list also changes.** Sondos vanished in Wk 31 and returned in
+Wk 33; Graffiti Resin and Sonbol appeared in Brand Health with no onboarding task behind
+them. A brand appearing in Brand Health but absent from Onboarding is a finding worth
+stating.
+
 ## Counting rules
 
 - The weekly metric is **Updated, not Done**. A task counts if it closed, changed
