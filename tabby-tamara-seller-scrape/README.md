@@ -59,7 +59,7 @@ tiers are High ≥ 65, Medium 40–64, Low < 40.
    stripped, shortener/affiliate hosts ignored for identity, path-based platforms like
    `salla.sa/<store>` keyed by path). Merchants are deduplicated within each source and
    matched across sources by domain, then by normalized EN/AR name. Result: **25,207 unique
-   sellers** (931 listed on both platforms).
+   sellers** (908 listed on both platforms after cross-source merging).
 4. **Contact enrichment** (`scripts/crawl_one.py` + `scripts/crawl_contacts.py`) — each unique
    seller website (17,688 domains) is fetched (homepage, plus contact page when the homepage has
    no email) and public emails, Saudi phone numbers, WhatsApp numbers and social handles are
