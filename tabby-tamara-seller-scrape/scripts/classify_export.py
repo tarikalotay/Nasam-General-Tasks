@@ -44,6 +44,64 @@ PLATFORM_DOMAINS = {
     "saudia.com", "almosafer.com", "wego.com", "sa.wego.com", "booking.com",
 }
 
+
+INDUSTRY_MAP = [
+    ("Fashion & Apparel", {"fashion", "fashion & apparel", "apparel"}),
+    ("Beauty & Personal Care", {"beauty & health", "beauty", "health & wellness", "health"}),
+    ("Electronics & Tech", {"electronics", "technology & electronics"}),
+    ("Home, Furniture & Appliances", {"home & appliances", "home & garden", "home & kitchen"}),
+    ("Automotive", {"automotive"}),
+    ("Jewellery & Watches", {"jewellery, gold & watches"}),
+    ("Kids & Toys", {"kids & toys"}),
+    ("Grocery & Supermarket", {"supermarket", "grocery & food"}),
+    ("Sports & Fitness", {"fitness & outdoor", "fitness & outdoors"}),
+    ("Flowers & Gifts", {"flowers & gifts"}),
+    ("Pets", {"pets"}),
+    ("Arts & Crafts", {"arts & crafts"}),
+    ("Collectibles & Hobbies", {"anime & collectibles"}),
+    ("General Retail", {"retail & consumer goods", "others"}),
+    ("Healthcare Services (Clinics)", {"clinics"}),
+    ("Beauty Services (Salons & Spas)", {"salons & spas"}),
+    ("Education & Training", {"training & courses", "educational services", "education"}),
+    ("Travel & Tourism", {"travel", "hospitality & travel"}),
+    ("Food Service & Restaurants", {"restaurants", "meal plans", "food & beverage"}),
+    ("Insurance & Finance", {"insurance"}),
+    ("Entertainment & Leisure", {"entertainment", "entertainment & leisure"}),
+    ("Professional Services", {"personal & professional services"}),
+    ("Marketplace", {"marketplace"}),
+]
+
+def industry_of(cats):
+    low = {c.lower() for c in cats}
+    for label, keys in INDUSTRY_MAP:
+        if low & keys:
+            return label
+    return "Unclassified"
+
+def potential(row):
+    """0-100 lead-potential score; components documented in the Summary sheet."""
+    s = 0
+    if row["Website Status"] == "ok":
+        s += 30
+    elif row["Website"]:
+        s += 10
+    if row["Emails"]:
+        s += 25
+    if row["Phone Numbers"] or row["WhatsApp"]:
+        s += 10
+    if row["Instagram"] or row["Twitter/X"] or row["TikTok"] or row["Snapchat"]:
+        s += 10
+    if row["On Tabby"] and row["On Tamara"]:
+        s += 10
+    if "physical" in row["Online Presence"]:
+        s += 5
+    if "Online" in row["Online Presence"]:
+        s += 10
+    return s
+
+def tier(score):
+    return "High" if score >= 65 else ("Medium" if score >= 40 else "Low")
+
 def nrm(s):
     s = unicodedata.normalize("NFKC", (s or "")).lower()
     return re.sub(r"[^0-9a-zء-ي]+", "", s)
@@ -68,11 +126,23 @@ def presence(r):
     return "Unknown"
 
 def main():
+    FIELDS = ("emails", "phones", "whatsapp", "instagram", "twitter",
+              "tiktok", "snapchat", "linkedin")
     contacts = {}
     try:
         for line in open(CONTACTS, encoding="utf-8"):
             c = json.loads(line)
-            contacts[c["dkey"]] = c
+            prev = contacts.get(c["dkey"])
+            if prev is None:
+                contacts[c["dkey"]] = c
+                continue
+            # union contact data across attempts; keep the successful status
+            for f in FIELDS:
+                merged = sorted(set(prev.get(f) or []) | set(c.get(f) or []))
+                prev[f] = merged[:6]
+            if prev.get("status") != "ok" and c.get("status") == "ok":
+                prev["status"] = "ok"
+                prev["final_url"] = c.get("final_url") or prev.get("final_url", "")
     except FileNotFoundError:
         pass
 
@@ -80,12 +150,23 @@ def main():
     for line in open(MERGED, encoding="utf-8"):
         r = json.loads(line)
         ok, reason = classify(r)
-        c = contacts.get(r.get("dkey") or "", {})
+        c = dict(contacts.get(r.get("dkey") or "", {}))
+        # If the "website" itself is a social/WhatsApp link, derive the handle directly
+        dk = r.get("dkey") or ""
+        host, _, seg = dk.partition("/")
+        if seg:
+            if host == "instagram.com":
+                c["instagram"] = sorted(set(c.get("instagram") or []) | {seg})
+            elif host in ("wa.me", "api.whatsapp.com") and re.fullmatch(r"\+?\d{9,15}", seg):
+                c["whatsapp"] = sorted(set(c.get("whatsapp") or []) | {"+" + seg.lstrip("+")})
         ig = c.get("instagram") or []
         cats = sorted(set(r["cats"]) | set(r["tamara_cats"]))
         row = {
             "Store Name (EN)": r["name_en"],
             "Store Name (AR)": r["name_ar"],
+            "Industry": industry_of(cats),
+            "Potential": "",
+            "Potential Score": 0,
             "Website": r.get("website", ""),
             "Emails": ", ".join(c.get("emails") or []),
             "Phone Numbers": ", ".join(c.get("phones") or []),
@@ -103,6 +184,8 @@ def main():
             "Website Status": c.get("status", "not crawled") if r.get("website") else "no website",
             "Description": (r.get("desc") or "")[:200],
         }
+        row["Potential Score"] = potential(row)
+        row["Potential"] = tier(row["Potential Score"])
         if ok:
             rows_ok.append(row)
         else:
@@ -113,9 +196,7 @@ def main():
             rows_no.append(row2)
 
     def sort_key(row):
-        has_email = 0 if row["Emails"] else 1
-        has_site = 0 if row["Website"] else 1
-        return (has_email, has_site, (row["Store Name (EN)"] or row["Store Name (AR)"]).lower())
+        return (-row["Potential Score"], (row["Store Name (EN)"] or row["Store Name (AR)"]).lower())
     rows_ok.sort(key=sort_key)
     rows_no.sort(key=sort_key)
 

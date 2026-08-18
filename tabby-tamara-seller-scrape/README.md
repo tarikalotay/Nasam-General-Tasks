@@ -12,15 +12,39 @@ Scrape date: **2026-08-18**.
 | File | What it is |
 |---|---|
 | `Tabby_Tamara_KSA_Sellers_for_Nasam.xlsx` | Final workbook: `Summary`, `Eligible for Nasam`, and `Not Eligible` sheets |
+| `recruiting_email.html` | Nasam-branded internal email proposing the smart-recruiting filter system |
 | `data/eligible.csv` | Same rows as the "Eligible for Nasam" sheet (UTF-8 with BOM, Excel-safe) |
 | `data/not_eligible.csv` | Same rows as the "Not Eligible" sheet, with a per-row reason |
 
+## Headline figures
+
+| Metric | Count |
+|---|---|
+| Unique sellers (deduped across both platforms) | 25,207 |
+| Eligible for Nasam | 21,993 |
+| Not eligible (separate sheet, reason per row) | 3,214 |
+| Eligible with an email found | 5,958 |
+| Eligible with phone or WhatsApp | 8,560 |
+| Eligible reachable by email **or** phone | 8,662 |
+| High potential (score ≥ 65) | 6,373 |
+| Medium potential (40–64) | 3,377 |
+| Listed on both Tabby and Tamara | 908 |
+
+Largest eligible industries: Fashion & Apparel (5,275), Beauty & Personal Care (4,169),
+Home/Furniture/Appliances (3,296), Electronics & Tech (2,335), Automotive (1,739),
+General Retail (1,411).
+
 ## Columns
 
-Store Name (EN/AR), Website, Emails, Phone Numbers, WhatsApp, Instagram, Twitter/X,
+Store Name (EN/AR), Industry, Potential, Potential Score, Website, Emails, Phone Numbers, WhatsApp, Instagram, Twitter/X,
 TikTok, Snapchat, Categories, Online Presence, On Tabby, On Tamara,
 Tabby Directory Link, BNPL Services, Website Status, Description — plus
 **Reason Not Eligible** on the not-eligible sheet.
+
+Both sheets are sorted by **Potential Score** (highest first). The score is
+website live +30, email found +25, phone/WhatsApp +10, social handle +10,
+listed on both platforms +10, has an online store +10, omnichannel +5;
+tiers are High ≥ 65, Medium 40–64, Low < 40.
 
 ## Method
 
@@ -36,9 +60,14 @@ Tabby Directory Link, BNPL Services, Website Status, Description — plus
    `salla.sa/<store>` keyed by path). Merchants are deduplicated within each source and
    matched across sources by domain, then by normalized EN/AR name. Result: **25,207 unique
    sellers** (931 listed on both platforms).
-4. **Contact enrichment** (`scripts/crawl_contacts.py`) — each unique seller website
-   (17,688 domains) is fetched (homepage, plus contact page when the homepage has no email)
-   and public emails, Saudi phone numbers, WhatsApp numbers and social handles are extracted.
+4. **Contact enrichment** (`scripts/crawl_one.py` + `scripts/crawl_contacts.py`) — each unique
+   seller website (17,688 domains) is fetched (homepage, plus contact page when the homepage has
+   no email) and public emails, Saudi phone numbers, WhatsApp numbers and social handles are
+   extracted. Pages are fetched with `curl --max-time`, since `urllib`'s `timeout` applies per
+   socket operation and let slow servers hang indefinitely. Concurrency comes from `xargs -P`
+   running independent processes — driving `subprocess` from a large Python thread pool
+   deadlocked the workers. Domains that failed on the first pass are retried, and contact data
+   from all attempts is merged per domain.
 5. **Eligibility & export** (`scripts/classify_export.py`, `scripts/build_workbook.py`).
 
 ## Eligibility criteria used
@@ -63,7 +92,7 @@ cd scripts
 python3 tabby_scrape.py tabby_merchants.jsonl
 python3 tamara_scrape.py tamara_stores.jsonl
 python3 merge_dedupe.py            # -> merged.jsonl
-python3 crawl_contacts.py 80       # -> contacts.jsonl (long-running)
+xargs -d '\n' -P 30 -n 1 timeout 40 python3 crawl_one.py < pending.tsv >> contacts.jsonl
 python3 classify_export.py         # -> eligible.csv, not_eligible.csv
 python3 build_workbook.py          # -> Tabby_Tamara_KSA_Sellers_for_Nasam.xlsx
 ```

@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Crawl merchant websites for public contact info (emails, phones, socials)."""
-import json, re, ssl, sys, threading, queue, gzip, io, zlib
+import json, os, re, socket, ssl, subprocess, sys, threading, queue, gzip, io, zlib
 import urllib.request, urllib.error
 from urllib.parse import urljoin, urlparse
 
 IN, OUT = "merged.jsonl", "contacts.jsonl"
-WORKERS = int(sys.argv[1]) if len(sys.argv) > 1 else 80
-TIMEOUT = 12
+WORKERS = int(sys.argv[1]) if (len(sys.argv) > 1 and sys.argv[1].isdigit()) else 80
+TIMEOUT = 8
 MAX_BYTES = 700_000
 
 EMAIL_RE = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
@@ -34,22 +34,29 @@ ctx = ssl.create_default_context()
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/126.0 Safari/537.36")
 
+MARK = "\n@@EFFURL@@"
+
 def fetch(url):
-    req = urllib.request.Request(url, headers={
-        "User-Agent": UA, "Accept": "text/html,application/xhtml+xml,*/*;q=0.8",
-        "Accept-Language": "en,ar;q=0.8", "Accept-Encoding": "gzip, deflate"})
-    with urllib.request.urlopen(req, timeout=TIMEOUT, context=ctx) as r:
-        raw = r.read(MAX_BYTES)
-        enc = (r.headers.get("Content-Encoding") or "").lower()
-        if "gzip" in enc:
-            try: raw = gzip.GzipFile(fileobj=io.BytesIO(raw)).read(MAX_BYTES)
-            except Exception: pass
-        elif "deflate" in enc:
-            try: raw = zlib.decompress(raw)
-            except Exception:
-                try: raw = zlib.decompress(raw, -zlib.MAX_WBITS)
-                except Exception: pass
-        return r.geturl(), raw.decode("utf-8", "ignore")
+    """Fetch via curl: guarantees a hard total-time cap (urllib's timeout did not)."""
+    p = subprocess.run(
+        ["curl", "-sL", "--compressed", "--max-time", "10", "--connect-timeout", "5",
+         "--max-filesize", str(MAX_BYTES), "--max-redirs", "5", "-A", UA,
+         "-H", "Accept: text/html,application/xhtml+xml,*/*;q=0.8",
+         "-H", "Accept-Language: en,ar;q=0.8",
+         "-w", MARK + "%{url_effective}\t%{http_code}", url],
+        capture_output=True, timeout=14)
+    out = p.stdout.decode("utf-8", "ignore")
+    if p.returncode != 0 and MARK not in out:
+        raise RuntimeError(f"curl_{p.returncode}")
+    body, _, tail = out.rpartition(MARK)
+    eff, _, code = tail.partition("\t")
+    code = (code or "0").strip()
+    if code.startswith(("4", "5")):
+        raise urllib.error.HTTPError(eff or url, int(code), "http", None, None)
+    if code in ("0", "000"):
+        raise RuntimeError("no_response")
+    return (eff or url), body
+
 
 def extract(html, acc):
     for m in MAILTO_RE.findall(html):
@@ -96,11 +103,19 @@ def process(rec):
             **{k: sorted(v)[:6] for k, v in acc.items()}}
 
 def main():
-    seen, jobs = set(), []
+    SKIP_HOSTS = {"instagram.com", "wa.me", "api.whatsapp.com", "tiktok.com",
+                  "snapchat.com", "twitter.com", "x.com", "facebook.com", "youtube.com"}
+    seen, jobs, skipped = set(), [], []
     for line in open(IN, encoding="utf-8"):
         r = json.loads(line)
         if r.get("website") and r.get("dkey") and r["dkey"] not in seen:
-            seen.add(r["dkey"]); jobs.append({"dkey": r["dkey"], "website": r["website"]})
+            seen.add(r["dkey"])
+            host = r["dkey"].split("/")[0]
+            if host in SKIP_HOSTS:
+                skipped.append({"dkey": r["dkey"], "website": r["website"], "status": "skipped_social",
+                                "final_url": "", **{k: [] for k in ("emails", "phones", "whatsapp", *SOCIAL_RES)}})
+            else:
+                jobs.append({"dkey": r["dkey"], "website": r["website"]})
     done = set()
     try:
         for line in open(OUT, encoding="utf-8"):
@@ -109,6 +124,11 @@ def main():
     except FileNotFoundError: pass
     jobs = [j for j in jobs if j["dkey"] not in done]
     print(f"domains to crawl: {len(jobs)} (already done: {len(done)})", flush=True)
+    with open(OUT, "a", encoding="utf-8") as sf:
+        for s in skipped:
+            if s["dkey"] not in done:
+                sf.write(json.dumps(s, ensure_ascii=False) + "\n")
+                done.add(s["dkey"])
     qq = queue.Queue()
     for j in jobs: qq.put(j)
     lock = threading.Lock()
@@ -122,10 +142,24 @@ def main():
             with lock:
                 out.write(json.dumps(res, ensure_ascii=False) + "\n")
                 count[0] += 1
+                out.flush()
                 if count[0] % 250 == 0:
-                    out.flush(); print(f"progress: {count[0]}", flush=True)
+                    print(f"progress: {count[0]}", flush=True)
+    def watchdog():
+        import time
+        last, last_t = count[0], time.time()
+        while True:
+            time.sleep(15)
+            if count[0] - last >= 15:
+                last, last_t = count[0], time.time()
+            elif time.time() - last_t > 90:
+                with lock:
+                    out.flush()
+                print(f"watchdog: stalled at {count[0]}, restarting", flush=True)
+                os._exit(3)
     threads = [threading.Thread(target=worker, daemon=True) for _ in range(WORKERS)]
     for t in threads: t.start()
+    wd = threading.Thread(target=watchdog, daemon=True); wd.start()
     for t in threads: t.join()
     out.close()
     print("crawl complete", flush=True)

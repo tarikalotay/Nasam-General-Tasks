@@ -14,6 +14,7 @@ SUB_FONT = Font(name="Arial", size=10, italic=True, color="555555")
 
 WIDTHS = {
     "Store Name (EN)": 32, "Store Name (AR)": 30, "Reason Not Eligible": 45,
+    "Industry": 26, "Potential": 10, "Potential Score": 9,
     "Website": 40, "Emails": 34, "Phone Numbers": 26, "WhatsApp": 16,
     "Instagram": 34, "Twitter/X": 14, "TikTok": 14, "Snapchat": 14,
     "Categories": 28, "Online Presence": 26, "On Tabby": 9, "On Tamara": 10,
@@ -34,8 +35,10 @@ def write_sheet(wb, title, header, rows):
         c.font = HDR_FONT
         c.fill = HDR_FILL
         c.alignment = Alignment(vertical="center")
+    num_idx = {i for i, h in enumerate(header) if h == "Potential Score"}
     for r in rows:
-        ws.append([v if v != "" else None for v in r])
+        ws.append([(int(v) if i in num_idx and v.lstrip("-").isdigit() else v) if v != "" else None
+                   for i, v in enumerate(r)])
     for j, h in enumerate(header, 1):
         ws.column_dimensions[get_column_letter(j)].width = WIDTHS.get(h, 18)
     for row in ws.iter_rows(min_row=2):
@@ -108,6 +111,11 @@ def main():
         "    insurance/financial services, entertainment & leisure, personal & professional services",
         "  • A seller with BOTH product and service categories is kept in the Eligible sheet (they sell products too).",
         "Contact info (emails, phones, WhatsApp, social handles) was extracted from each seller's own website (homepage + contact page).",
+        "",
+        "POTENTIAL SCORE (0-100) — rows are sorted by this score (highest potential first):",
+        "  +30 website live at crawl time (+10 if a website exists but was unreachable)   +25 email found   +10 phone/WhatsApp found",
+        "  +10 social handle found   +10 listed on BOTH Tabby & Tamara   +10 has online store   +5 omnichannel (online + physical)",
+        "  Tier: High >= 65, Medium 40-64, Low < 40.",
         "'Website Status' shows the crawl result: ok = site reachable; http_4xx/5xx or error = site unreachable at scrape time.",
     ]
     for i, line in enumerate(criteria):
