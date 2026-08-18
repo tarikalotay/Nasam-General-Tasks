@@ -156,6 +156,9 @@ the same sections in the same order.
 1. **Action Items — This Call** — empty, filled live during the call. Heading plus an
    italic prompt line only; no empty bullets (they render as the literal `null.`).
    Once the lead has written in it, never delete or reword their text.
+   **If it is still empty 5 hours after the call, the feedback is delayed — say so in
+   one line and stop.** Do not infer actions from the call, do not chase, do not ask
+   again. The lead re-runs the capture step themselves once their notes are on the page.
 2. **Last Week's Action Items** — every task raised at the previous call with its status.
    **Verify each against the task itself before writing "No update".** Read the comments,
    not just the status field. Wk 31 reported Khaled as silent when he had commented four
