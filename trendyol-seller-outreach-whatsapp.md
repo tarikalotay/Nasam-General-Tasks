@@ -1,20 +1,23 @@
 # Trendyol New Seller Outreach — WhatsApp Message
 
-Purpose: First-touch WhatsApp message to newly assigned Trendyol sellers, asking them to share their email and their best 3 available 30-minute time slots next week so an intro call can be arranged.
+Purpose: First-touch WhatsApp message to newly assigned Trendyol sellers, asking them to share their email and their best 3 available 30-minute time slots next week so a call can be arranged.
 
-Replace the placeholders before sending:
-- `[اسم البائع]` / `[Seller Name]` — the seller's name or store name
-- `[اسمك]` / `[Your Name]` — your name
+Notes:
+- No seller-name placeholder — the message opens with a general greeting so it can be sent as-is.
+- Sender: طارق العتي / Tarik Alotay.
+- Framing: a growth opportunity spotted in the seller's account (not "account manager"), since the engagement with the seller is short-term.
 
 ---
 
 ## 🇸🇦 Arabic (النسخة العربية)
 
-مرحباً [اسم البائع] 👋
+مرحباً 👋
 
-معك [اسمك] من ترينديول، يسعدني التواصل معكم! تم تعييني مؤخراً مسؤولاً عن حسابكم، وأتطلع للعمل معكم ودعم نجاح متجركم على المنصة.
+معك طارق العتي من ترينديول، يسعدني التواصل معكم!
 
-أود ترتيب مكالمة تعريفية قصيرة (30 دقيقة) خلال الأسبوع القادم للتعرف عليكم أكثر ومناقشة كيف يمكننا مساعدتكم في تنمية مبيعاتكم.
+اطلعت على متجركم ولاحظت فرصة جيدة للنمو، وأرى أن هناك مجالاً لتطوير حسابكم وزيادة مبيعاتكم على المنصة.
+
+أود ترتيب مكالمة قصيرة (30 دقيقة) خلال الأسبوع القادم لمشاركتكم هذه الفرص ومناقشة كيف يمكننا تطوير الحساب معاً.
 
 فضلاً، هل يمكنكم مشاركتي بالتالي:
 
@@ -29,11 +32,13 @@ Replace the placeholders before sending:
 
 ## 🇬🇧 English Translation
 
-Hello [Seller Name] 👋
+Hello 👋
 
-This is [Your Name] from Trendyol — a pleasure to connect with you! I've recently been assigned as your account manager, and I look forward to working with you and supporting your store's success on the platform.
+This is Tarik Alotay from Trendyol — a pleasure to connect with you!
 
-I'd like to arrange a short introductory call (30 minutes) next week to get to know you better and discuss how we can help you grow your sales.
+I've been reviewing your store and noticed a good opportunity for growth — I believe there's real room to develop your account and increase your sales on the platform.
+
+I'd like to arrange a short call (30 minutes) next week to share these opportunities with you and discuss how we can grow the account together.
 
 Could you please share the following with me:
 
