@@ -1,87 +1,64 @@
-# stc × Nasam — The Two Answers (Slide 9)
+# inspireU by stc × Nasam — The Two Answers (Slide 9)
 
-> The brief demands these answered **specifically, not general talk**. Below: the slide content,
-> the 20-second spoken version, and the evidence behind every claim so you can defend it in Q&A.
-> InspireU's own stated mandate is *"creating value for stc by facilitating the link between
-> startups and the stc ecosystem"* — this slide speaks their language back to them.
+> Rewritten after team direction (19 Aug): no money values, no investment framing, no SME co-sell
+> pilot. The centerpiece is now **stc's own commerce** — informed by direct insight from inside stc
+> channels and verified against public sources.
 
----
+## The ground rules (from inside stc — respect these in Q&A too)
+
+- **Never build the proposition on SIMs, activations, or packages/postpaid.** They sit under CST
+  (Communications, Space & Technology Commission) regulation — complex, and device-contract
+  bundles are a big share of how stc devices are paid for. Stay away.
+- **Focus on devices only** — and especially **accessories** and **home devices & appliances**.
+- stc is on an e-commerce **"Digital Push"** — the angle is access to more sales channels.
+- Most consumers don't realize stc sells anything beyond phones, laptops and SIMs.
+- stc just launched its own smartphone-accessories brand: **Vaster from stc** (originated inside
+  channels by stc). It sells via **The Store from stc** (thestorefromstc.com) — publicly verifiable.
 
 ## The slide — two columns, three bullets each
 
-### What Nasam adds to stc Group
+### What Nasam adds to stc
 
-1. **A new recurring digital revenue line on stc's SME base.** Vodafone runs 13 telco-branded SaaS
-   marketplaces for SMEs; etisalat by e& bundles commerce tools into every startup package. Nasam
-   makes stc the **first GCC telco with a marketplace-commerce offer for its merchants** — sold
-   through solutions by stc / stc Business. This is DARE's "Expand" pillar (beyond-telco revenue;
-   stc's subsidiaries grew 16% in 2024).
-2. **Data stc Bank cannot see today.** stc Bank has 200,000+ registered merchants and is rolling
-   out SME lending — but it can't see a merchant's marketplace sales. Nasam's platform holds
-   verified, live, cross-channel revenue data: the underwriting signal for merchant working-capital
-   finance. We complete "onboarding to **cashflow**" — with stc Bank as the cashflow.
-3. **The missing piece of stc's commerce portfolio.** stc already backed **Rewaa** (offline retail
-   SaaS — CIF joined its $27M Series A, then a $45M Series B) and accelerated **Zid** (webstores,
-   InspireU alumnus, ~$59M raised). Nasam is the third layer: **marketplace operations**. Offline
-   (Rewaa) + own store (Zid) + marketplaces (Nasam) = the full Saudi retail stack, all stc-linked.
-   And every brand Nasam scales is a Vision 2030 KPI InspireU reports against (SMEs to 35% of GDP).
+1. **stc's own commerce, everywhere.** The Store from stc sells devices and home tech — and just
+   launched its own accessories brand, **Vaster from stc**. Nasam takes that catalog to every
+   marketplace, powering the Digital Push.
+2. **Shoppers stc isn't reaching.** Most consumers don't know stc sells beyond phones and SIMs —
+   the marketplaces are where they're already searching.
+3. **The missing layer.** Rewaa: retail. Zid: webstores. Nasam: the marketplaces.
 
-### What stc adds to Nasam
+### What inspireU by stc adds to Nasam
 
-1. **Distribution we cannot buy.** One channel: solutions by stc / stc Business SME customers, and
-   stc Bank's 200K+ registered merchants. Ask on-slide: *a co-sell pilot — Nasam bundled to the
-   first [500] stc SME merchants in 2027.* One warm channel beats twelve months of cold sales.
-2. **The fintech rails for our roadmap.** stc Bank partnership: merchant payouts into stc Bank
-   accounts + the Kingdom's **first marketplace-data-underwritten working-capital product** —
-   piloted on our live brands, then offered to the Bank's own merchant base. (InspireU's 11th batch
-   ran a fintech track with stc Bank that produced real commercial agreements — we're asking for
-   exactly that path.)
-3. **Capital + credibility on a named path.** The program's SAR 100K equity-free grant and ~SAR
-   600K in services now; **tali ventures follow-on of up to $500K** as we scale (their published
-   thesis: *capital + access to stc's enterprise customer base* — precisely what the model above
-   activates); and the stc name behind us when we walk into enterprise brands.
+1. **A pilot inside the group.** Let us prove it — Vaster from stc, one brand, live on every
+   marketplace.
+2. **The ecosystem.** Coaches, the stc network, and the credibility of inspireU behind us when we
+   walk into brands.
+3. **The rails for our roadmap.** An stc Bank partnership — completing onboarding-to-cashflow for
+   every brand we run.
 
-*Held for Q&A (don't spend pitch seconds): sirar by stc security certification for merchant trust;
-stc cloud / center3 hosting for in-Kingdom data residency (PDPL); iot squared for
-fulfillment/logistics telemetry.*
+*(Removed per team: the "first 500 SME merchants" co-sell ask, the tali ventures $500K line, the
+SAR grant amounts — this is not an investment pitch and the numbers made it sound like one.)*
 
----
+## The 20-second spoken version (script, 2:35–2:55)
 
-## The 20-second spoken version (script slide 9, 2:35–2:55)
+> "So why inspireU — specifically? stc just launched its own accessories brand — Vaster from stc —
+> and The Store from stc now sells every kind of device. Most shoppers don't know that. The
+> marketplaces are where they're already searching — and taking brands to every marketplace is
+> exactly what we do. So here's the pilot: Vaster, live on every marketplace. And with stc Bank,
+> we complete onboarding-to-cashflow. Rewaa runs retail. Zid runs webstores. Nasam runs the
+> marketplaces."
 
-> "So why InspireU — specifically? Three reasons, all concrete. One: our merchants are your
-> customers — bundle Nasam through solutions by stc and stc becomes the first telco in the Gulf
-> with a commerce offer for its SMEs. Two: stc Bank is rolling out merchant lending — we hold the
-> one thing it can't see: verified marketplace sales data. Onboarding to cashflow — stc Bank IS the
-> cashflow. Three: stc backed Rewaa for offline retail and Zid for webstores. Nasam is the third
-> layer — the marketplaces. We're not asking for a certificate. We're asking to be stc's commerce
-> infrastructure."
+## Why this framing wins the room
 
----
+- It answers pillar 08's Q3 ("why do you want to be part of inspireU?") with a **commercial
+  proposal**, not gratitude — and inspireU's stated mandate is creating value for stc by linking
+  startups into the stc ecosystem.
+- It's **provable on stage**: thestorefromstc.com and Vaster products are public.
+- It respects the regulatory reality (no SIMs/packages) — if a judge from stc probes, the team
+  shows it understands the difference between the telco business and the devices business.
+- The Rewaa/Zid lineage still lands the "strategic fit to stc" criterion the intake was screened on.
 
-## Why this framing wins this room (evidence)
+## Held for Q&A (don't spend pitch seconds)
 
-- **InspireU exists to link startups commercially into stc** — its specialized tracks (fintech ×
-  stc Bank, cyber × sirar, gaming × stc play, IoT × iot squared) have already produced commercial
-  agreements with stc Group. Proposing a concrete commercial link is answering the exam question.
-- **The final's judging criteria** (from past editions): innovation, scalability, market
-  reach/impact, business-plan quality, pitching. The synergy slide scores "market reach/impact"
-  directly.
-- **The jury knows this market.** At the Bahrain 2025 final, the CEO of **Jahez** sat on the panel.
-  Jahez is one of Nasam's live channels — if a food-delivery ecosystem judge is in the room, the
-  line "we run brands on Jahez and HungerStation alongside Amazon and noon — nobody else does" is
-  worth saying out loud.
-- **The precedent lineage to claim in one sentence:** "Zid built Saudi webstores out of InspireU.
-  Sary built B2B commerce. Nasam builds the marketplace-operations layer."
-- **Program facts** (state them precisely — it shows homework): 3-month equity-free General
-  Program; SAR 100K zero-equity grant; ~SAR 600K services value; tali ventures up to $500K
-  follow-on; ~3% acceptance (18 of 600+ in the 9th intake) — reaching this final is already a
-  credential.
-
-### Sources (for your own verification, not the slide)
-stc.com (inspireU page) · Forbes ME (inspireU investments, 9th intake) · SPA (SAR 600K services) ·
-aawsat.com (11th batch subsidiary tracks) · arabnews.com (tali ventures launch & thesis) ·
-fintechfutures.com / enterpriseam.com (stc Bank launch, 200K merchants, SME lending) ·
-businesswire/wamda (Rewaa rounds; CIF participation) · appdirect.com & tmforum (Vodafone SME
-marketplaces) · thefastmode.com (etisalat by e& SME bundles) · stc.com.bh & startupbahrain.com
-(Bahrain 2025 final, Jahez CEO judge).
+sirar by stc security certification · stc cloud / center3 data residency (PDPL) · marketplace
+sales data as an underwriting signal for stc Bank's merchant lending · iot squared logistics
+telemetry · Jahez/HungerStation coverage if a food-delivery judge is on the panel.

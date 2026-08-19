@@ -295,7 +295,48 @@ sessions as real pitches are visibly different by judging day"*:
 
 ---
 
-*All challenge cards received and reflected: overview (8 topics), 02 Problem, 03 Solution,
-04 Business Model, 05 Revenue & Growth, 06 Market & Competition, 07 Founders & Team, 08 What Makes
-You Special, the hard-limits card, and the closing card. Research pass (InspireU program, stc Group
-units, KSA market, competition) completed 19 Aug 2026.*
+## 12. Draft 2 changes (19 Aug, after team direction + full bootcamp brief)
+
+- **Problem = the market's problem**, not Nasam's origin story ("we ran 25 brands" moved to the
+  team slide, where pillar 07's "why you started" question lives).
+- **Vision de-localized**: "for every brand" / "when a brand sells anywhere" — Saudi stays only as
+  the beachhead market on slide 6.
+- **Solution is software-first**: real product screenshot in a browser frame + 4 short capability
+  rows; the operations team is framed as a layer *on top of the platform* — kills the
+  account-management-agency impression.
+- **Business model redesigned as three SaaS pricing cards** with prices on every tier:
+  Platform **SAR 449/mo or SAR 3,999/yr** · Platform+Onboarding (3,999/yr + one-time fee [EDIT]) ·
+  Full Management (retainer [EDIT] + % GMV [EDIT], platform included). The heavy header sentence
+  moved to the spoken script only.
+- **Revenue slide anonymized**: no brand names — "25+ brands across 10 accounts" added as a stat;
+  the growth story is now "one brand: 495 → 822K/month in 60 days."
+- **Market & competition rebuilt** around the profile's own dot-matrix illustration
+  (78,000+ storefront merchants vs <20,000 marketplace sellers, every dot = 1,000) + ONE market
+  number ($24.6B, +12%/yr) — TAM/SAM/SOM ladder dropped per team; rivals as a named list.
+- **Founders use the real photos** from the company profile.
+- **inspireU slide rewritten** (see `stc-synergy.md`): the give is stc's own commerce — The Store
+  from stc + **Vaster from stc** to every marketplace (devices & accessories only; never
+  SIMs/packages — CST-regulated); the asks are non-monetary (pilot, ecosystem, stc Bank rails);
+  "with stc" replaced by **"with inspireU by stc"** throughout.
+
+## 13. Bootcamp brief coverage check (intake-13 welcome deck, read in full)
+
+| Brief requirement | Where the deck answers it |
+|---|---|
+| All 8 topics, labeled and scored | Slides 1–8 carry the topic tags |
+| 3:00 hard cutoff · 8–10 slides | 10 slides, timed script rehearsed to 2:45 |
+| Pillar 01: 5–10 year view + "why you started" | Slide 10 road (2031) + team slide origin line |
+| Pillar 02: pain real/current/expensive | Market-level problem + 3 stats |
+| Pillar 03: "one screen beats two minutes" | Real product screenshot |
+| Pillar 04: who pays/what/price/how often | Pricing cards with SAR amounts |
+| Pillar 05: revenue today + realistic 2–3yr | 250K invoiced + chart + assumption cards |
+| Pillar 06: named rivals incl. doing nothing | Rivals list + dot matrix |
+| Pillar 07: chemistry + failures learned | Loop line + "let go of small brands" |
+| Pillar 08: why you & why inspireU + memorable line | Uber line + slide 9 |
+| "Vague market claims lose judges" (why-now page) | Every number sourced; corrections applied (§8b) |
+| Judging: Aug 23–24 · Q&A right after | Q&A landmines (§9) — no slides needed |
+| 7 criteria (timing/content/flow/realistic/emphasis/style/q&a) | §9b mapping + rehearsal plan (§11) |
+
+*All challenge cards and the full intake-13 bootcamp welcome deck are reflected. Research passes:
+inspireU program, stc Group units, KSA market, competition (19 Aug) + The Store from stc / Vaster
+verification (19 Aug).*
