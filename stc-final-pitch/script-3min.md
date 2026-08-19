@@ -1,63 +1,48 @@
-# The 3-Minute Script — draft 2 (≈430 words · rehearse to 2:45 — hard cutoff, timer on screen)
+# The 3-Minute Script — draft 3 (8 slides · ≈370 words · rehearse to 2:45)
 
-> Matches deck draft 2. Numbers live on the slides; the voice carries the story. Slow down on the
-> **bold** beats. If rehearsal runs past 2:50, cut from slides 2–3, never from 4, 5 or 9.
-> The brief prefers English (some jury members are English-speaking); Arabic accepted where you're
-> more comfortable. Judges assess: timing, content, flow, realistic, emphasis, style, Q&A —
-> six of seven are delivery.
+> Coaching said 6:00 — this cut is built for 3:00. One message per slide; if a sentence isn't
+> below, don't say it. Timing chips on the slides are rehearsal aids; judges assess timing,
+> content, flow, realistic, emphasis, style, Q&A.
 
----
-
-**[0:00 · Slide 1 — Title + Vision & Mission]**
+**[0:00 · S1 — Vision & Mission]**
 We're Nasam — the operating layer for commerce. We take brands live on every sales channel and run
-them — from onboarding to cashflow. Our mission: one platform, every channel, for every brand. Our
-vision: when a brand sells anywhere — it runs through Nasam.
+them, from onboarding to cashflow. Our vision: when a brand sells anywhere — it runs through Nasam.
 
-**[0:20 · Slide 2 — The Problem]**
-Shoppers moved to the marketplaces — product search starts there now, and they convert three times
-better than a brand's own store. But for a brand, every channel is a world of its own: six
-decisions before the first sale, fifty checks every day after it. So most brands stay on a single
-storefront. **The demand moved. The brands didn't.**
+**[0:20 · S2 — The Problem]**
+In Saudi, forty-thousand-plus brand owners sell on only one channel — their own storefront.
+The marketplaces convert three times better, but operating them is hard. That's uncaptured growth,
+every single day.
 
-**[0:50 · Slide 3 — Our Solution]**
-Nasam is a software platform — one operating layer for every channel. Orders, inventory, pricing,
-profit — synced automatically across Amazon, noon, Trendyol, Salla, Jahez. Two things nobody else
-has: Brand Health — ten dimensions graded daily — and AI access to live commerce data. And when a
-brand wants it run for them, our operations team works on top of the same platform.
+**[0:45 · S3 — Our Solution]**
+So we built one portal with every signal a brand needs — orders, inventory, pricing, profit,
+across every channel. Two things nobody else has: Brand Health, graded daily — and AI access to
+live commerce data. And when a brand wants it run for them — our team runs it, on the same
+platform.
 
-**[1:10 · Slide 4 — Business Model]**
-The model in one sentence: **brands subscribe to the platform — 449 a month, or 3,999 a year —
-and as they grow, they hand us more of the operation, until we run everything and earn a
-percentage of every riyal they sell.** Recurring — and it compounds with our brands' growth.
+**[1:10 · S4 — Business Model]**
+One platform, three ways to run it. Software: four-forty-nine a month, or three-nine-nine-nine a
+year. Onboarding on top — we take you live. Full management on top of that — a fee plus a share of
+GMV, services included. Brands graduate tiers as they grow — recurring, and GMV-linked.
 
-**[1:30 · Slide 5 — Revenue & Growth]**
-Is it working? We've served twenty-five-plus brands across ten accounts. The past twelve months:
-nearly two million riyals of GMV — and the last ninety days did four times the nine months before
-them. **One brand went from 495 riyals in June to 822,000 in the first nineteen days of August.**
-Our projections: assumptions attached, no hockey stick.
+**[1:35 · S5 — Revenue & Growth]**
+The last twelve months: nearly two million riyals of GMV through the platform — a quarter-million
+in invoiced revenue, twenty-five-plus brands across ten accounts, fifteen-thousand orders. And
+August is our biggest month yet — in nineteen days.
 
-**[1:55 · Slide 6 — Market & Competition]**
-The market: twenty-five billion dollars of Saudi e-commerce, growing twelve percent a year. Eighty
-thousand merchants sell from their own storefront — fewer than twenty thousand made it to the
-marketplaces. Our rivals are real — agencies, Pattern, ChannelEngine — and the biggest: doing
-nothing. Nobody else is software AND operations, every channel.
+**[1:55 · S6 — Market & Competition]**
+A twenty-five-billion-dollar market. Seventy-eight thousand merchants have a storefront — fewer
+than twenty thousand ever reached the marketplaces. Agencies do one channel. ChannelEngine is
+software only. Pattern buys your inventory. We're the region's only software-plus-operations
+layer across every channel — built Arabic-first.
 
-**[2:10 · Slide 7 — Founders & Team]**
-Three founders, one closed loop: Fahad builds it, Ibrahim brings brands in, Tarik makes them
-succeed. We ran twenty-five brands together before writing a line of code — and letting go of the
-small ones taught us where we win: brands ready to scale.
+**[2:15 · S7 — Founders & Team]**
+We lived this problem: three-plus startups before Nasam, operator experience inside Amazon and
+Trendyol, eight-and-a-half thousand hours of building since March — and a quarter-million riyals
+of pilot revenue. We ran twenty-five brands together before writing a line of code.
 
-**[2:20 · Slide 8 — What Makes Us Special]**
-Are we the next Uber? Uber didn't own cars. We don't own brands — **we run the rails every brand
-rides to every marketplace.** And the rails work — you saw the numbers.
-
-**[2:35 · Slide 9 — inspireU by stc × Nasam]**
-So why inspireU — specifically? stc just launched its own accessories brand — **Vaster from stc** —
-and The Store from stc now sells every kind of device. Most shoppers don't know that. The
-marketplaces are where they're already searching — and taking brands to every marketplace is
-exactly what we do. **One pilot: Vaster, live on every marketplace.** Rewaa runs retail. Zid runs
-webstores. Nasam runs the marketplaces.
-
-**[2:55 · Slide 10 — Close]**
-This year: [target]. Five years: the commerce infrastructure of the Gulf — with inspireU by stc.
-Thank you.
+**[2:35 · S8 — Why us, why inspireU]**
+And why inspireU? stc just launched Vaster — its own accessories brand. Most shoppers think stc
+sells only phones and SIMs. Taking brands to every marketplace is exactly what we do — so here's
+the pilot: Vaster, every marketplace, run by Nasam, with channels by stc. Rewaa does accounting.
+Zid does storefronts. OTO does shipping. Nasam runs the marketplaces. Powering every seller's
+growth — with inspireU by stc. Thank you.
