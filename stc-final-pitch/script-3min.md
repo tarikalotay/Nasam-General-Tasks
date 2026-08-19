@@ -8,16 +8,15 @@
 We're Nasam — the operating layer for commerce. We take brands live on every sales channel and run
 them, from onboarding to cashflow. Our vision: when a brand sells anywhere — it runs through Nasam.
 
-**[0:20 · S2 — The Problem]**
-In Saudi, forty-thousand-plus brand owners sell on only one channel — their own storefront.
-The marketplaces convert three times better, but operating them is hard. That's uncaptured growth,
-every single day.
+**[0:20 · S2, The Problem]**
+Seventy-eight thousand brands sell from their own storefronts. Fewer than twenty thousand ever
+make it to the marketplaces, where conversion is three times higher. Why? The operations wall:
+listings, inventory, fulfillment, pricing, ads. That is the bottleneck.
 
-**[0:45 · S3 — Our Solution]**
-So we built one portal with every signal a brand needs — orders, inventory, pricing, profit,
-across every channel. Two things nobody else has: Brand Health, graded daily — and AI access to
-live commerce data. And when a brand wants it run for them — our team runs it, on the same
-platform.
+**[0:45 · S3, Our Solution]**
+Nasam opens it. One portal with every signal a brand needs: orders, inventory, pricing, profit,
+across every channel. Brand Health graded daily, and AI access to live commerce data. And when a
+brand wants it run for them, our team runs it on the same platform.
 
 **[1:10 · S4 — Business Model]**
 One platform, three ways to run it. Software: four-forty-nine a month, or three-nine-nine-nine a
