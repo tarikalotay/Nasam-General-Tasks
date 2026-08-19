@@ -319,6 +319,38 @@ sessions as real pitches are visibly different by judging day"*:
   SIMs/packages — CST-regulated); the asks are non-monetary (pilot, ecosystem, stc Bank rails);
   "with stc" replaced by **"with inspireU by stc"** throughout.
 
+## 12b. Draft 4 changes (19 Aug, team comment round after draft 3.1)
+
+Now **9 slides** (the close split back into its own final page, by request).
+
+- **Header row removed on every slide** (topic chip + timing) — each title now carries its topic:
+  "The problem: …", "Our solution: …", "Business model: …", "Revenue & growth: …",
+  "Market & competition: …", "Founders & team: …", "Why us, why inspireU: …".
+- **Business model**: SAR ____ placeholders deleted — Onboarding shows only **"One-time payment"**,
+  Full Management shows **"Monthly + share of GMV"** (no numbers). Nesting illustration and the
+  "Recurring and GMV-linked…" line removed. Color coding: Platform = green head, Onboarding =
+  light-blue head; higher tiers carry "Includes Platform" (green) / "Includes Onboarding"
+  (light-blue) chips. Service lists expanded on all three cards.
+- **Revenue & growth rebuilt on managed GMV**: 13 monthly values Aug-25 → Aug-26
+  (1,441 → 31,463; sum ≈ SAR 254K) with a "22× in 12 months" badge; four equal stat tiles
+  (SAR 250K+ managed · SAR 2M+ platform GMV · 25+ brands · 15K+ orders) in mixed styles so focus
+  spreads across the whole slide, not just the chart.
+- **Market & competition**: title states the claim is regional; dot matrix removed (numbers
+  already live on the problem slide) and replaced with a **"What makes us the one"** block
+  (only software + management team · ops layer across every local marketplace with channel icons ·
+  Arabic & English, Arabic-first · AI on live data · onboarding-to-cashflow). Quadrant kept with
+  clearer axes: "They run it for you / Software only, you run it" × "Runs one channel / Runs
+  every channel".
+- **Founders & team**: fuller layout — big circle photos with role chips, icon credential tiles
+  with lead-in + main text only ("Prior experience in" + Amazon/Trendyol logos), and the
+  25-brands line as a dark banner band.
+- **Funnel pair unified**: the hopper sits in the exact same position/size on both slides; the
+  stage numbers dock onto the funnel itself (78,000+ pill at the mouth, <20,000 pill at the pool,
+  advantage chips attached); the side panel swaps in place — operations-wall bricks (problem) →
+  the Nasam portal (solution) — both connected to the neck by the same dashed line.
+- **Final slide simplified** to the two columns + logos only; **new closing slide** (dark):
+  Nasam mark, "Powering every seller's growth." with the inspireU by stc lockup, contacts.
+
 ## 13. Bootcamp brief coverage check (intake-13 welcome deck, read in full)
 
 | Brief requirement | Where the deck answers it |
