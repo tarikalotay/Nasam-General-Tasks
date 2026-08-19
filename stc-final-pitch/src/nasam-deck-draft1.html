@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nasam — InspireU Final Pitch · Draft 1</title>
+<link rel="stylesheet" href="fonts/fonts-local.css">
+<style>
+  :root {
+    --paper: #FBF8F3;
+    --panel: #FFFFFF;
+    --panel-warm: #F2ECDF;
+    --ink: #1E3A43;
+    --muted: #5D7078;
+    --border: #E2D9C9;
+    --accent: #C2604A;
+    --accent-deep: #A34A36;
+    --sage: #6F8D7F;
+    --stc: #6D4FA1;
+    --stc-soft: #F0EAF8;
+    --dark: #1D3A44;
+    --dark-2: #23434F;
+    --dark-border: #35525D;
+    --cream: #ECE4D6;
+    --cream-muted: #A9BAC0;
+    --bar: #2A5561;
+  }
+  @page { size: 960pt 540pt; margin: 0; }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; margin: 0; }
+  body { font-family: "IBM Plex Sans", "IBM Plex Sans Arabic", system-ui, sans-serif; color: var(--ink); }
+  .slide {
+    width: 960pt; height: 540pt; overflow: hidden; position: relative;
+    background: var(--paper); padding: 34pt 46pt 30pt; break-after: page;
+    display: flex; flex-direction: column;
+  }
+  .slide.dark { background: var(--dark); color: var(--cream); }
+  .bal { font-family: "Baloo 2", "IBM Plex Sans", sans-serif; }
+  .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14pt; }
+  .topic {
+    font-size: 9pt; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--sage); border: 1pt solid var(--border); background: var(--panel);
+    border-radius: 999px; padding: 3pt 11pt;
+  }
+  .dark .topic { color: var(--cream-muted); border-color: var(--dark-border); background: var(--dark-2); }
+  .time { font-size: 8.5pt; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .dark .time { color: var(--cream-muted); }
+  .foot {
+    position: absolute; left: 46pt; right: 46pt; bottom: 14pt;
+    display: flex; justify-content: space-between; font-size: 8pt; color: var(--muted);
+  }
+  .dark .foot { color: var(--cream-muted); }
+  h1 { font-family: "Baloo 2", sans-serif; font-weight: 700; font-size: 30pt; line-height: 1.15; }
+  .kicker { font-size: 10.5pt; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-deep); margin-bottom: 8pt; }
+  .dark .kicker { color: #D98A70; }
+  .edit {
+    display: inline-block; border: 1pt dashed var(--accent); color: var(--accent-deep);
+    border-radius: 6pt; padding: 0 6pt; font-size: .82em; font-weight: 600; background: #FFF6F2;
+  }
+  .dark .edit { background: #2A4550; color: #E8A98F; border-color: #B5765F; }
+  .card { background: var(--panel); border: 1pt solid var(--border); border-radius: 12pt; }
+  .num { font-family: "Baloo 2", sans-serif; font-weight: 700; color: var(--accent-deep); font-variant-numeric: tabular-nums; line-height: 1.05; }
+  .lbl { color: var(--muted); }
+
+  /* Slide 1 */
+  .s1 { justify-content: center; }
+  .s1 .wordmark { display: flex; align-items: baseline; gap: 18pt; margin-bottom: 10pt; }
+  .s1 .en { font-size: 58pt; font-weight: 700; letter-spacing: .01em; }
+  .s1 .ar { font-family: "IBM Plex Sans Arabic", sans-serif; font-size: 40pt; font-weight: 600; color: #D98A70; }
+  .s1 .oneliner { font-size: 19pt; line-height: 1.4; max-width: 620pt; color: var(--cream); font-weight: 500; }
+  .s1 .vm { display: flex; gap: 16pt; margin-top: 26pt; }
+  .s1 .vmcard { background: var(--dark-2); border: 1pt solid var(--dark-border); border-radius: 12pt; padding: 14pt 18pt; width: 330pt; }
+  .s1 .vmcard .h { font-size: 9pt; letter-spacing: .16em; text-transform: uppercase; color: #D98A70; font-weight: 600; margin-bottom: 4pt; }
+  .s1 .vmcard p { font-size: 11.5pt; line-height: 1.45; color: var(--cream); }
+  .s1 .channels { margin-top: 24pt; font-size: 9.5pt; color: var(--cream-muted); letter-spacing: .04em; }
+
+  /* Slide 2 */
+  .s2 .grid { display: grid; grid-template-columns: 400pt 1fr; gap: 22pt; flex: 1; }
+  .story { background: var(--panel-warm); border: 1pt solid var(--border); border-radius: 12pt; padding: 18pt 20pt; display: flex; flex-direction: column; gap: 11pt; justify-content: center; }
+  .story .h { font-size: 9pt; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-deep); font-weight: 600; }
+  .story p { font-size: 12.5pt; line-height: 1.5; }
+  .bigstats { display: grid; grid-template-rows: 1fr 1fr 1fr; gap: 12pt; }
+  .bigstat { display: grid; grid-template-columns: 175pt 1fr; align-items: center; gap: 14pt; background: var(--panel); border: 1pt solid var(--border); border-radius: 12pt; padding: 10pt 18pt; }
+  .bigstat .num { font-size: 30pt; }
+  .bigstat .lbl { font-size: 11.5pt; line-height: 1.4; }
+
+  /* Slide 3 */
+  .s3 .stage { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15pt; }
+  .chanrow { display: flex; gap: 8pt; }
+  .chan { font-size: 11.5pt; font-weight: 600; background: var(--panel); border: 1pt solid var(--border); border-radius: 999px; padding: 4pt 13pt; color: var(--ink); }
+  .flow { font-size: 16pt; color: var(--sage); }
+  .appframe { width: 740pt; background: var(--panel); border: 1.5pt solid var(--border); border-radius: 14pt; padding: 0 0 16pt; box-shadow: 0 3pt 10pt rgba(30,58,67,.08); }
+  .appbar { display: flex; align-items: center; gap: 8pt; padding: 9pt 14pt; border-bottom: 1pt solid var(--border); }
+  .dot { width: 7pt; height: 7pt; border-radius: 50%; background: var(--border); }
+  .url { font-size: 9.5pt; color: var(--muted); margin-left: 8pt; }
+  .modules { display: flex; flex-wrap: wrap; gap: 9pt; padding: 18pt 20pt 6pt; justify-content: center; }
+  .mod { font-size: 11.5pt; font-weight: 500; border: 1pt solid var(--border); background: var(--paper); border-radius: 8pt; padding: 5pt 12pt; }
+  .mod.u { border-color: var(--accent); background: #FFF3EE; color: var(--accent-deep); font-weight: 600; }
+  .s3 .caption { font-size: 10.5pt; color: var(--muted); }
+  .s3 .unote { font-size: 10pt; color: var(--accent-deep); font-weight: 500; }
+
+  /* Slide 4 */
+  .s4 .sentence { font-family: "Baloo 2", sans-serif; font-size: 20.5pt; font-weight: 600; line-height: 1.35; background: var(--panel-warm); border: 1pt solid var(--border); border-radius: 14pt; padding: 16pt 22pt; margin-bottom: 16pt; }
+  .s4 .grid { display: grid; grid-template-columns: 1fr 300pt; gap: 20pt; flex: 1; }
+  .funnel { display: flex; flex-direction: column; gap: 9pt; justify-content: center; }
+  .tier { border-radius: 11pt; padding: 11pt 18pt; color: #FFFFFF; display: flex; justify-content: space-between; align-items: center; }
+  .tier .t1 { font-size: 13.5pt; font-weight: 700; font-family: "Baloo 2", sans-serif; }
+  .tier .t2 { font-size: 10.5pt; opacity: .92; }
+  .tier .p { font-size: 12.5pt; font-weight: 700; font-variant-numeric: tabular-nums; text-align: right; }
+  .tierA { background: #6F8D7F; width: 100%; }
+  .tierB { background: #3E6472; width: 86%; }
+  .tierC { background: #1E3A43; width: 72%; }
+  .s4 .why { display: flex; flex-direction: column; gap: 8pt; justify-content: center; }
+  .whyrow { background: var(--panel); border: 1pt solid var(--border); border-radius: 10pt; padding: 8pt 12pt; font-size: 10.5pt; line-height: 1.4; }
+  .whyrow b { color: var(--accent-deep); }
+  .s4 .bottom { margin-top: 12pt; font-size: 11.5pt; color: var(--muted); }
+
+  /* Slide 5 */
+  .s5 .grid { display: grid; grid-template-columns: 1fr 268pt; gap: 20pt; flex: 1; }
+  .chartcard { background: var(--panel); border: 1pt solid var(--border); border-radius: 12pt; padding: 14pt 18pt 10pt; display: flex; flex-direction: column; }
+  .charttitle { font-size: 11pt; font-weight: 600; }
+  .chartsub { font-size: 8.5pt; color: var(--muted); margin-bottom: 8pt; }
+  .plot { position: relative; flex: 1; }
+  .gl { position: absolute; left: 0; right: 26pt; border-top: 1pt solid #EFE9DC; }
+  .gl span { position: absolute; right: -26pt; top: -5pt; font-size: 7pt; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .bars { position: absolute; inset: 0 26pt 0 0; display: flex; align-items: flex-end; gap: 4pt; }
+  .bcol { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; position: relative; }
+  .bar { width: 100%; background: var(--bar); border-radius: 3pt 3pt 0 0; min-height: 2pt; }
+  .bcol.hot .bar { background: var(--accent); }
+  .bval { position: absolute; bottom: calc(var(--h) + 4pt); font-size: 8pt; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .bcol.hot .bval { color: var(--accent-deep); }
+  .xlabels { display: flex; gap: 4pt; margin-top: 4pt; padding-right: 26pt; }
+  .xlabels span { flex: 1; text-align: center; font-size: 7pt; color: var(--muted); }
+  .s5 .stats { display: flex; flex-direction: column; gap: 10pt; }
+  .s5 .stat { background: var(--panel); border: 1pt solid var(--border); border-radius: 11pt; padding: 9pt 14pt; }
+  .s5 .stat .num { font-size: 20pt; }
+  .s5 .stat .lbl { font-size: 9.5pt; margin-top: 1pt; }
+  .s5 .stat.sonbol { background: #FFF3EE; border-color: var(--accent); }
+  .proj { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12pt; margin-top: 12pt; }
+  .projcard { background: var(--panel-warm); border: 1pt solid var(--border); border-radius: 11pt; padding: 9pt 14pt; }
+  .projcard .y { font-size: 9pt; font-weight: 700; letter-spacing: .1em; color: var(--sage); text-transform: uppercase; }
+  .projcard .v { font-family: "Baloo 2", sans-serif; font-size: 15pt; font-weight: 700; color: var(--ink); margin: 1pt 0; }
+  .projcard .a { font-size: 8.5pt; color: var(--muted); line-height: 1.35; }
+
+  /* Slide 6 */
+  .s6 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22pt; flex: 1; }
+  .ladder { display: flex; flex-direction: column; gap: 13pt; justify-content: center; }
+  .rung { border-radius: 11pt; padding: 15pt 18pt; color: #fff; }
+  .rung .r1 { font-size: 9pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; opacity: .85; }
+  .rung .r2 { font-family: "Baloo 2", sans-serif; font-size: 16pt; font-weight: 700; }
+  .rung .r3 { font-size: 9.5pt; opacity: .92; line-height: 1.35; }
+  .rungT { background: #1E3A43; width: 100%; }
+  .rungS { background: #3E6472; width: 88%; }
+  .rungO { background: #6F8D7F; width: 76%; }
+  .quad { background: var(--panel); border: 1pt solid var(--border); border-radius: 12pt; padding: 14pt 16pt; display: flex; flex-direction: column; }
+  .quad .qtitle { font-size: 11pt; font-weight: 600; margin-bottom: 8pt; }
+  .qbox { position: relative; flex: 1; border-left: 1pt solid var(--border); border-bottom: 1pt solid var(--border); margin: 4pt 8pt 14pt 8pt; }
+  .qmid-v { position: absolute; left: 50%; top: 0; bottom: 0; border-left: 1pt dashed #EFE9DC; }
+  .qmid-h { position: absolute; top: 50%; left: 0; right: 0; border-top: 1pt dashed #EFE9DC; }
+  .qpt { position: absolute; display: flex; align-items: center; gap: 4pt; font-size: 8.5pt; color: var(--muted); white-space: nowrap; }
+  .qpt i { width: 7pt; height: 7pt; border-radius: 50%; background: var(--sage); display: inline-block; }
+  .qpt.nasam { font-size: 11pt; font-weight: 700; color: var(--accent-deep); }
+  .qpt.nasam i { width: 12pt; height: 12pt; background: var(--accent); }
+  .qaxis { position: absolute; font-size: 7.5pt; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
+  .s6 .foots { margin-top: 10pt; font-size: 10.5pt; color: var(--ink); }
+  .s6 .foots b { color: var(--accent-deep); }
+
+  /* Slide 7 */
+  .s7 .row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16pt; flex: 1; align-content: center; }
+  .founder { background: var(--panel); border: 1pt solid var(--border); border-radius: 14pt; padding: 18pt; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6pt; }
+  .avatar { width: 58pt; height: 58pt; border-radius: 50%; background: var(--dark); color: var(--cream); display: grid; place-items: center; font-family: "Baloo 2", sans-serif; font-size: 19pt; font-weight: 700; }
+  .fname { font-family: "Baloo 2", sans-serif; font-size: 15pt; font-weight: 700; }
+  .frole { font-size: 10pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent-deep); }
+  .fdo { font-size: 10.5pt; color: var(--muted); line-height: 1.4; }
+  .loopline { text-align: center; font-size: 12.5pt; margin-top: 14pt; }
+  .loopline b { color: var(--accent-deep); }
+  .learn { text-align: center; font-size: 10.5pt; color: var(--muted); margin-top: 5pt; }
+
+  /* Slide 8 */
+  .s8 { justify-content: center; }
+  .s8 .big { font-family: "Baloo 2", sans-serif; font-size: 33pt; font-weight: 700; line-height: 1.3; max-width: 780pt; }
+  .s8 .big em { font-style: normal; color: #D98A70; }
+  .s8 .proof { margin-top: 24pt; display: inline-flex; gap: 10pt; align-items: center; background: var(--dark-2); border: 1pt solid var(--dark-border); border-radius: 999px; padding: 8pt 18pt; font-size: 12.5pt; width: fit-content; }
+  .s8 .proof b { color: #E8A98F; font-variant-numeric: tabular-nums; }
+
+  /* Slide 9 */
+  .s9 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20pt; flex: 1; align-items: start; }
+  .stccol { background: var(--panel); border: 1.5pt solid var(--stc); border-radius: 14pt; padding: 16pt 20pt; }
+  .stccol .h { font-family: "Baloo 2", sans-serif; font-size: 15.5pt; font-weight: 700; color: var(--stc); margin-bottom: 10pt; }
+  .stccol ol { margin: 0; padding-left: 16pt; display: flex; flex-direction: column; gap: 12pt; }
+  .stccol li { font-size: 11.5pt; line-height: 1.5; }
+  .stccol li b { color: var(--stc); }
+  .s9 .lineage { margin-top: 12pt; text-align: center; font-size: 11pt; color: var(--muted); }
+  .s9 .lineage b { color: var(--stc); }
+
+  /* Slide 10 */
+  .s10 .road { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12pt; flex: 1; align-content: center; }
+  .stop { background: var(--dark-2); border: 1pt solid var(--dark-border); border-radius: 12pt; padding: 14pt 16pt; }
+  .stop .y { font-size: 9pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #D98A70; }
+  .stop .v { font-family: "Baloo 2", sans-serif; font-size: 15pt; font-weight: 700; color: var(--cream); margin: 3pt 0; line-height: 1.25; }
+  .stop .d { font-size: 9.5pt; color: var(--cream-muted); line-height: 1.4; }
+  .s10 .close { text-align: center; margin-top: 20pt; }
+  .s10 .close .line { font-family: "Baloo 2", sans-serif; font-size: 24pt; font-weight: 700; }
+  .s10 .close .line em { font-style: normal; color: #D98A70; }
+  .s10 .contact { text-align: center; margin-top: 8pt; font-size: 10pt; color: var(--cream-muted); }
+</style>
+</head>
+<body>
+
+<!-- 1 · Title + Vision & Mission (dark) -->
+<div class="slide dark s1">
+  <div class="top"><span class="topic">01 · Vision &amp; Mission</span><span class="time">0:00 – 0:20</span></div>
+  <div class="wordmark bal"><span class="en bal">Nasam</span><span class="ar">نسم</span></div>
+  <p class="oneliner">The operating layer for Saudi commerce — we take brands live on <b>every sales channel</b> and run them, from onboarding to cashflow.</p>
+  <div class="vm">
+    <div class="vmcard"><p class="h">Mission — today</p><p>One platform, every channel, for every Saudi brand.</p></div>
+    <div class="vmcard"><p class="h">Vision — where we're headed</p><p>When a Saudi brand sells anywhere — it runs through Nasam.</p></div>
+  </div>
+  <p class="channels">Amazon · noon · Trendyol · Salla · Jahez · HungerStation · Keeta · Ninja&nbsp;&nbsp;+</p>
+  <div class="foot"><span>InspireU by stc — final round · draft 1</span><span>1 / 10</span></div>
+</div>
+
+<!-- 2 · Problem -->
+<div class="slide s2">
+  <div class="top"><span class="topic">02 · The Problem</span><span class="time">0:20 – 0:50</span></div>
+  <h1 style="margin-bottom:14pt">The demand moved. The brands didn't.</h1>
+  <div class="grid">
+    <div class="story">
+      <p class="h">We lived it</p>
+      <p>We ran <b>25+ brands for 10 companies</b> on these marketplaces. Every morning: five dashboards, fifty checks.</p>
+      <p>A coffee brand winning on Salla — <b>invisible on Amazon</b>. Same products, same country, different rules. <span class="edit">EDIT: your real anecdote</span></p>
+      <p><b>Six decisions</b> stand before the first sale — channel, fulfilment, programme, pricing, catalog, inbound — and fifty daily checks stand after it.</p>
+      <p>So most brands stay out — and pay for the demand the marketplaces would have paid for. The pain is real, current, and <b>expensive every single day</b>.</p>
+    </div>
+    <div class="bigstats">
+      <div class="bigstat"><p class="num">9.5% <span style="font-size:15pt;color:var(--muted)">vs 2–3%</span></p><p class="lbl">Marketplaces convert 3× better than a brand's own store — and the channel pays for the demand.</p></div>
+      <div class="bigstat"><p class="num">80,000+</p><p class="lbl">Saudi merchants sell only from their own storefront. Only a small fraction ever made the jump to the marketplaces.</p></div>
+      <div class="bigstat"><p class="num">1.6%</p><p class="lbl">of sellers capture half of all marketplace GMV. Without an operating layer, the game belongs to the few.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>نسم Nasam</span><span>2 / 10</span></div>
+</div>
+
+<!-- 3 · Solution -->
+<div class="slide s3">
+  <div class="top"><span class="topic">03 · Our Solution</span><span class="time">0:50 – 1:10</span></div>
+  <h1>One layer. Every channel. From onboarding to cashflow.</h1>
+  <div class="stage">
+    <div class="chanrow">
+      <span class="chan">Amazon</span><span class="chan">noon</span><span class="chan">Trendyol</span><span class="chan">Salla</span><span class="chan">Jahez</span><span class="chan">HungerStation</span><span class="chan">+ more</span>
+    </div>
+    <div class="flow">▼</div>
+    <div class="appframe">
+      <div class="appbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">app.nasam.co — one operating layer for every channel a brand sells on</span></div>
+      <div class="modules">
+        <span class="mod">Products</span><span class="mod">Orders</span><span class="mod">Inventory</span><span class="mod">Fulfillment</span><span class="mod">Profitability</span><span class="mod">Vendor POs</span><span class="mod">Marketplace Ads</span><span class="mod u">Brand Health — 10 dimensions, graded daily</span><span class="mod u">AI access — any AI agent, live commerce data</span>
+      </div>
+    </div>
+    <p class="caption">Software runs the signals — <b>our team acts on them</b>. Fifty daily checks become one screen. <span class="edit">EDIT: swap panel for real product screenshot</span></p>
+    <p class="unote">The two highlighted capabilities exist nowhere else in the Saudi market.</p>
+  </div>
+  <div class="foot"><span>نسم Nasam</span><span>3 / 10</span></div>
+</div>
+
+<!-- 4 · Business Model -->
+<div class="slide s4">
+  <div class="top"><span class="topic">04 · Business Model</span><span class="time">1:10 – 1:30</span></div>
+  <p class="sentence">"Brands pay us monthly for the platform — and as they grow, they hand us more of the operation, until we run everything and earn a percentage of every riyal they sell."</p>
+  <div class="grid">
+    <div class="funnel">
+      <div class="tier tierA"><div><p class="t1">Nasam Platform</p><p class="t2">Self-serve software — they run it</p></div><p class="p">SAR 449 / month</p></div>
+      <div class="tier tierB"><div><p class="t1">Platform + Onboarding</p><p class="t2">We take them live, then they run it</p></div><p class="p">One-time fee + subscription</p></div>
+      <div class="tier tierC"><div><p class="t1">Full Account Management</p><p class="t2">We are their commerce team</p></div><p class="p">Monthly fee + % of GMV</p></div>
+    </div>
+    <div class="why">
+      <div class="whyrow"><b>Who pays:</b> the brand — SME to enterprise.</div>
+      <div class="whyrow"><b>How often:</b> monthly, recurring — and GMV-linked, so revenue compounds with our brands' growth.</div>
+      <div class="whyrow"><b>Why it scales:</b> merchants move <i>down</i> the funnel as they grow — ARPU rises with zero new acquisition cost.</div>
+      <div class="whyrow"><b>Unlockable next:</b> ads %, seller financing, data products, AI seats.</div>
+    </div>
+  </div>
+  <p class="bottom">Merchants enter at the top and move down as they grow — the software underneath stays the same.</p>
+  <div class="foot"><span>نسم Nasam</span><span>4 / 10</span></div>
+</div>
+
+<!-- 5 · Revenue & Growth -->
+<div class="slide s5">
+  <div class="top"><span class="topic">05 · Revenue &amp; Growth</span><span class="time">1:30 – 1:55</span></div>
+  <h1 style="font-size:24pt;margin-bottom:10pt">Revenue today — and 30× GMV growth in six months</h1>
+  <div class="grid">
+    <div class="chartcard">
+      <p class="charttitle">Monthly GMV through the platform — trailing 12 months (SAR)</p>
+      <p class="chartsub">Confirmed sales, excl. shipping · production data, 19 Aug 2026 · August = first 19 days only</p>
+      <div class="plot">
+        <div class="gl" style="bottom: 84.9%"><span>750K</span></div>
+        <div class="gl" style="bottom: 56.6%"><span>500K</span></div>
+        <div class="gl" style="bottom: 28.3%"><span>250K</span></div>
+        <div class="bars">
+          <div class="bcol" style="--h:1.1%"><span class="bval">9K</span><div class="bar" style="height:1.1%"></div></div>
+          <div class="bcol"><div class="bar" style="height:1.7%"></div></div>
+          <div class="bcol"><div class="bar" style="height:3.8%"></div></div>
+          <div class="bcol"><div class="bar" style="height:3.9%"></div></div>
+          <div class="bcol"><div class="bar" style="height:3.7%"></div></div>
+          <div class="bcol"><div class="bar" style="height:4.7%"></div></div>
+          <div class="bcol"><div class="bar" style="height:4.5%"></div></div>
+          <div class="bcol"><div class="bar" style="height:7.8%"></div></div>
+          <div class="bcol"><div class="bar" style="height:11.9%"></div></div>
+          <div class="bcol"><div class="bar" style="height:13.9%"></div></div>
+          <div class="bcol" style="--h:64.4%"><span class="bval">569K</span><div class="bar" style="height:64.4%"></div></div>
+          <div class="bcol hot" style="--h:100%"><span class="bval">883K · 19 days</span><div class="bar" style="height:100%"></div></div>
+        </div>
+      </div>
+      <div class="xlabels"><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span><span>Jan 26</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><p class="num">SAR 250K+</p><p class="lbl">invoiced revenue to date — yes, we earn revenue today, and it recurs</p></div>
+      <div class="stat"><p class="num">SAR 1.96M</p><p class="lbl">GMV, past 365 days — the last 90 days did 4× the prior nine months</p></div>
+      <div class="stat"><p class="num">15,594</p><p class="lbl">confirmed orders lifetime · live GMV on 5 channels</p></div>
+      <div class="stat sonbol"><p class="num">495 → 822K</p><p class="lbl">Sonbol (سنبل): monthly GMV, June → August. Zero to 800K+/month in 60 days.</p></div>
+    </div>
+  </div>
+  <div class="proj">
+    <div class="projcard"><p class="y">2026 exit</p><p class="v">SAR <span class="edit">1.2–1.5M</span> rev run-rate</p><p class="a">Assumes: 2 more Sonbol-class accounts + first self-serve cohort live</p></div>
+    <div class="projcard"><p class="y">2027</p><p class="v">SAR <span class="edit">4–6M</span> revenue</p><p class="a">Assumes: 50–60 brands, self-serve tier open, stc SME co-sell pilot</p></div>
+    <div class="projcard"><p class="y">2028</p><p class="v">SAR <span class="edit">10–14M</span> revenue</p><p class="a">Assumes: 150+ brands, ads % + financing referrals live, first GCC market</p></div>
+  </div>
+  <div class="foot"><span>نسم Nasam</span><span>5 / 10</span></div>
+</div>
+
+<!-- 6 · Market & Competition -->
+<div class="slide s6">
+  <div class="top"><span class="topic">06 · Market &amp; Competition</span><span class="time">1:55 – 2:10</span></div>
+  <h1 style="font-size:24pt;margin-bottom:12pt">A $24.6B market — and no one else runs every channel</h1>
+  <div class="grid">
+    <div class="ladder">
+      <div class="rung rungT"><p class="r1">TAM — Saudi e-commerce</p><p class="r2">$24.6B · +12% a year</p><p class="r3">~10% of retail today, heading past 25% (Renub, SAMA mada)</p></div>
+      <div class="rung rungS"><p class="r1">SAM — commerce enablement</p><p class="r2">SAR 0.5B → 5B by 2030</p><p class="r3">10× (RedSeer) · 40,953 registered e-commerce businesses (Monsha'at) + 80K+ storefronts</p></div>
+      <div class="rung rungO"><p class="r1">SOM — our 5-year target</p><p class="r2">SAR ~45M · ~1% of SAM</p><p class="r3">1,500 brands × blended SAR 30K/yr — and we grew 30× this year</p></div>
+    </div>
+    <div class="quad">
+      <p class="qtitle">Rivals we can name — nobody sits in our corner</p>
+      <div class="qbox">
+        <div class="qmid-v"></div><div class="qmid-h"></div>
+        <span class="qpt" style="left:6%; top:18%"><i></i>Amazon SPN agencies</span>
+        <span class="qpt" style="left:34%; top:34%"><i></i>Local Saudi agencies</span>
+        <span class="qpt" style="left:40%; top:8%"><i></i>Pattern (buys inventory)</span>
+        <span class="qpt" style="left:8%; top:72%"><i></i>Ad tools (Helium 10…)</span>
+        <span class="qpt" style="left:56%; top:78%"><i></i>ChannelEngine (software only)</span>
+        <span class="qpt nasam" style="right:4%; top:14%"><i></i>Nasam</span>
+        <span class="qaxis" style="left:0; bottom:-11pt">One channel</span>
+        <span class="qaxis" style="right:0; bottom:-11pt">Every channel</span>
+        <span class="qaxis" style="left:-6pt; top:-9pt">Managed for them</span>
+      </div>
+    </div>
+  </div>
+  <p class="foots">And the biggest rival of all: <b>doing nothing</b> — 80,000 merchants staying off the marketplaces. We are the market test: 25+ brands, 15K+ orders, every feature built because a brand asked for it.</p>
+  <div class="foot"><span>نسم Nasam</span><span>6 / 10</span></div>
+</div>
+
+<!-- 7 · Founders & Team -->
+<div class="slide s7">
+  <div class="top"><span class="topic">07 · Founders &amp; Team</span><span class="time">2:10 – 2:20</span></div>
+  <h1 style="font-size:24pt">Three founders. One closed loop.</h1>
+  <div class="row">
+    <div class="founder"><div class="avatar">FA</div><p class="fname">Fahad Alhssan</p><p class="frole">CTO — builds it</p><p class="fdo">Architect of the Marketplace Management Platform — product design &amp; development.</p></div>
+    <div class="founder"><div class="avatar">IA</div><p class="fname">Ibrahim Alothman</p><p class="frole">CGO — brings brands in</p><p class="fdo">Brand acquisition, partnerships and scalable growth programs.</p></div>
+    <div class="founder"><div class="avatar">TA</div><p class="fname">Tarik Alotay</p><p class="frole">CEO — makes them succeed</p><p class="fdo">Strategy, brand management and long-term growth across platforms.</p></div>
+  </div>
+  <p class="loopline">We ran <b>25+ brands together</b> before writing a line of this platform.</p>
+  <p class="learn">And we let go of the smallest ones — learning where our machine wins: brands ready to scale. <span class="edit">EDIT: add awards / recognition — this final is one</span></p>
+  <div class="foot"><span>نسم Nasam</span><span>7 / 10</span></div>
+</div>
+
+<!-- 8 · What Makes Us Special (dark) -->
+<div class="slide dark s8">
+  <div class="top"><span class="topic">08 · What Makes Us Special</span><span class="time">2:20 – 2:35</span></div>
+  <p class="big">Uber didn't own cars.<br>We don't own brands — <em>we run the rails every Saudi brand rides to every marketplace.</em></p>
+  <p class="proof">The rails work — <b>Sonbol: SAR 495 → 822,000 / month</b> in 60 days.</p>
+  <div class="foot"><span>نسم Nasam</span><span>8 / 10</span></div>
+</div>
+
+<!-- 9 · stc × Nasam -->
+<div class="slide s9">
+  <div class="top"><span class="topic" style="color:var(--stc);border-color:var(--stc)">stc × Nasam</span><span class="time">2:35 – 2:55</span></div>
+  <h1 style="font-size:24pt;margin-bottom:12pt">Why we need each other</h1>
+  <div class="grid">
+    <div class="stccol">
+      <p class="h">What Nasam adds to stc Group</p>
+      <ol>
+        <li><b>A new SME revenue line.</b> Bundled through solutions by stc, stc becomes the first GCC telco with a marketplace-commerce offer — the DARE "Expand" pillar in action.</li>
+        <li><b>Data stc Bank can't see.</b> Verified cross-channel sales data that underwrites merchant lending for its 200K+ registered merchants.</li>
+        <li><b>The missing portfolio piece.</b> Rewaa runs offline retail, Zid runs webstores — Nasam runs the marketplaces. Together: the full Saudi retail stack.</li>
+      </ol>
+    </div>
+    <div class="stccol">
+      <p class="h">What stc adds to Nasam</p>
+      <ol>
+        <li><b>Distribution we can't buy.</b> A co-sell pilot through solutions by stc — the first <span class="edit">500</span> SME merchants in 2027.</li>
+        <li><b>The fintech rails.</b> stc Bank payouts + the Kingdom's first marketplace-data-underwritten working capital, piloted on our live brands.</li>
+        <li><b>Capital + credibility on a named path.</b> The equity-free grant and services now — tali ventures follow-on (up to $500K) as we scale.</li>
+      </ol>
+    </div>
+  </div>
+  <p class="lineage">Zid built Saudi webstores out of InspireU. Sary built B2B commerce. <b>Nasam builds the marketplace layer.</b></p>
+  <div class="foot"><span>نسم Nasam</span><span>9 / 10</span></div>
+</div>
+
+<!-- 10 · The Road (dark) -->
+<div class="slide dark s10">
+  <div class="top"><span class="topic">The Road</span><span class="time">2:55 – 3:00</span></div>
+  <h1 style="font-size:24pt;color:var(--cream)">This year — and five years out</h1>
+  <div class="road">
+    <div class="stop"><p class="y">Today · Aug 2026</p><p class="v">SAR 2M GMV<br>15K+ orders</p><p class="d">8 active brands, 5 channels carrying live GMV, 12K+ products under management.</p></div>
+    <div class="stop"><p class="y">2026 exit</p><p class="v"><span class="edit">20+</span> brands<br>SAR <span class="edit">2M+</span>/mo pace</p><p class="d">Two more Sonbol-class accounts; first self-serve platform cohort.</p></div>
+    <div class="stop"><p class="y">2027 — with stc</p><p class="v">stc SME co-sell<br>+ stc Bank pilot</p><p class="d">Nasam bundled to stc SME merchants; marketplace-data merchant financing goes live.</p></div>
+    <div class="stop"><p class="y">2031</p><p class="v">The commerce<br>infrastructure of the Gulf</p><p class="d">1,500+ brands · GCC expansion · financing, data and AI layers on top.</p></div>
+  </div>
+  <div class="close"><p class="line">Powering every seller's growth — <em>with stc</em>.</p></div>
+  <p class="contact">www.nasam.co · general@nasam.co</p>
+  <div class="foot"><span>نسم Nasam · InspireU by stc — final round</span><span>10 / 10</span></div>
+</div>
+
+</body>
+</html>

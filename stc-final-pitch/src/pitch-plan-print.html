@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nasam × InspireU — 3-Minute Pitch Plan</title>
+<link rel="stylesheet" href="fonts/fonts-local.css">
+<style>
+  :root {
+    --bg: #faf7f2;
+    --surface: #ffffff;
+    --surface-2: #f2ecdf;
+    --ink: #1e3a43;
+    --muted: #5d7078;
+    --border: #ddd2bf;
+    --accent: #c2604a;
+    --accent-ink: #a34a36;
+    --sage: #6f8d7f;
+    --stc: #6d4fa1;
+    --stc-soft: #f0eaf8;
+    --good: #3e7d5c;
+    --warn: #a3612a;
+    --bad: #a83a2e;
+  }
+  @page { size: A4; margin: 14mm 13mm 16mm; }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "IBM Plex Sans", "IBM Plex Sans Arabic", system-ui, sans-serif;
+    font-size: 10.2pt; line-height: 1.5;
+  }
+  h1, h2, h3 { font-family: "Baloo 2", "IBM Plex Sans", sans-serif; line-height: 1.2; margin: 0; }
+  h1 { font-size: 23pt; font-weight: 700; }
+  h2 { font-size: 13.5pt; font-weight: 600; margin-bottom: 3pt; }
+  h3 { font-size: 10.8pt; font-weight: 600; }
+  p { margin: 0; }
+  .eyebrow { font-size: 7.4pt; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 5pt; }
+  header.doc {
+    background: #1d3a44; color: #ece4d6; border-radius: 10px;
+    padding: 20pt 22pt; margin-bottom: 16pt;
+  }
+  header.doc .eyebrow { color: #d98a70; }
+  header.doc .sub { color: #b9c6ca; max-width: 60ch; margin-top: 7pt; font-size: 9.6pt; }
+  .chips { display: flex; flex-wrap: wrap; gap: 5pt; margin-top: 11pt; }
+  header.doc .chip { border-color: #35525d; background: #23434f; color: #b9c6ca; }
+  header.doc .chip strong { color: #ece4d6; }
+  .chip { font-size: 7.8pt; font-weight: 500; padding: 2.5pt 8pt; border-radius: 999px; border: 1pt solid var(--border); background: var(--surface); color: var(--muted); white-space: nowrap; }
+  .chip strong { color: var(--ink); font-weight: 600; }
+  section { margin-top: 15pt; break-inside: auto; }
+  section > h2 { break-after: avoid; }
+  .lede { color: var(--muted); max-width: 66ch; margin: 2pt 0 8pt; font-size: 9.4pt; }
+  .verdict { display: grid; gap: 6pt; }
+  .verdict article { background: var(--surface); border: 1pt solid var(--border); border-radius: 8px; padding: 8pt 11pt; break-inside: avoid; }
+  .verdict b { color: var(--accent-ink); }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6pt; }
+  .stat { background: var(--surface); border: 1pt solid var(--border); border-radius: 8px; padding: 9pt 11pt 7pt; break-inside: avoid; }
+  .stat .n { font-family: "Baloo 2", sans-serif; font-size: 15pt; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--accent-ink); line-height: 1.1; }
+  .stat .l { font-size: 7.8pt; color: var(--muted); margin-top: 1pt; }
+  .slides { display: grid; gap: 5pt; }
+  .slide { display: grid; grid-template-columns: 44pt 1fr; gap: 9pt; background: var(--surface); border: 1pt solid var(--border); border-radius: 8px; padding: 7pt 11pt; break-inside: avoid; }
+  .slide.stc-row { border-color: var(--stc); background: var(--stc-soft); }
+  .slide .t { font-variant-numeric: tabular-nums; font-size: 8pt; font-weight: 600; color: var(--muted); padding-top: 2pt; }
+  .slide .topic { font-weight: 600; font-size: 9.8pt; }
+  .slide .topic .tag { color: var(--sage); font-size: 7.4pt; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; margin-right: 4pt; }
+  .slide .what { color: var(--muted); font-size: 8.8pt; }
+  .slide .jury { color: var(--stc); font-size: 8.2pt; font-style: italic; margin-top: 2pt; }
+  table { border-collapse: collapse; width: 100%; font-size: 8.6pt; background: var(--surface); border: 1pt solid var(--border); border-radius: 8px; }
+  th, td { text-align: left; padding: 5.5pt 9pt; border-top: 1pt solid var(--border); vertical-align: top; }
+  thead th { border-top: none; font-size: 7pt; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+  tr { break-inside: avoid; }
+  td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .ok { color: var(--good); font-weight: 600; } .fix { color: var(--bad); font-weight: 600; } .warnc { color: var(--warn); font-weight: 600; }
+  blockquote.anchor { margin: 0; padding: 13pt 16pt; border-radius: 10px; background: var(--surface-2); border: 1pt solid var(--border); font-family: "Baloo 2", "IBM Plex Sans Arabic", sans-serif; font-size: 12pt; font-weight: 600; line-height: 1.4; break-inside: avoid; }
+  blockquote.anchor footer { font-family: "IBM Plex Sans", sans-serif; font-size: 8.2pt; font-weight: 400; color: var(--muted); margin-top: 7pt; }
+  .stc-section { border-left: 2.5pt solid var(--stc); padding-left: 13pt; }
+  .stc-section h2, .stc-section .eyebrow { color: var(--stc); }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 8pt; }
+  .col { background: var(--surface); border: 1pt solid var(--border); border-radius: 8px; padding: 10pt 12pt; break-inside: avoid; }
+  .col h3 { margin-bottom: 6pt; }
+  .col ol { margin: 0; padding-left: 13pt; display: grid; gap: 6pt; font-size: 8.7pt; }
+  .col li b { color: var(--accent-ink); }
+  .stc-section .col li b { color: var(--stc); }
+  .beats { display: block; }
+  .beat { break-inside: avoid; margin-bottom: 7pt; background: var(--surface); border: 1pt solid var(--border); border-radius: 8px; padding: 7pt 11pt; }
+  .cue { font-size: 7.2pt; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--sage); }
+  .beat p + p { margin-top: 2pt; font-size: 9.2pt; }
+  ol.check { display: grid; gap: 5pt; counter-reset: step; margin: 0; padding: 0; }
+  ol.check li { list-style: none; background: var(--surface); border: 1pt solid var(--border); border-radius: 8px; padding: 7pt 11pt 7pt 30pt; position: relative; font-size: 8.9pt; break-inside: avoid; }
+  ol.check li::before { counter-increment: step; content: counter(step); position: absolute; left: 9pt; top: 7pt; width: 14pt; height: 14pt; border-radius: 50%; background: var(--accent); color: #faf7f2; font-weight: 700; font-size: 8pt; display: grid; place-items: center; }
+  .footer-note { margin-top: 18pt; padding-top: 9pt; border-top: 1pt solid var(--border); color: var(--muted); font-size: 7.8pt; }
+  code { background: var(--surface-2); border: 1pt solid var(--border); border-radius: 4px; padding: 0 4pt; font-size: .88em; }
+  .pagebreak { break-before: page; }
+  .keep { break-inside: avoid; }
+  section:has(blockquote.anchor) { break-inside: avoid; }
+</style>
+</head>
+<body>
+
+<header class="doc">
+  <p class="eyebrow">Final round · InspireU by stc · 19 Aug 2026</p>
+  <h1>Nasam × InspireU — the 3-minute pitch plan</h1>
+  <p class="sub">Built from the challenge brief's 8 scored topics, live platform data, and a research pass over the InspireU program, stc Group units, and the Saudi market. Companion files on branch <b>claude/stc-final-pitch-deck-0fo3yu</b>.</p>
+  <div class="chips">
+    <span class="chip"><strong>3:00</strong> hard cutoff</span>
+    <span class="chip"><strong>10</strong> slides (max)</span>
+    <span class="chip"><strong>8</strong> topics scored</span>
+    <span class="chip">Q&amp;A right after</span>
+    <span class="chip">English preferred</span>
+    <span class="chip"><strong>2</strong> coaching sessions left</span>
+  </div>
+</header>
+
+<section>
+  <h2>The three headline moves</h2>
+  <div class="verdict">
+    <article><p><b>1 · Your traction slide undersells you.</b> The deck says SAR 1.63M GMV and 300K in July. Live data: SAR 1.96M trailing-365-days, July at 569K, and August at 883K in just 19 days. Update every number.</p></article>
+    <article><p><b>2 · Two market claims are publicly indefensible.</b> "29% of retail" is really ~10% (a better story — more room to grow), and "&lt;20,000 sellers" conflicts with Amazon's own 40K target. Fix both before judging day — the Bahrain final's jury included the Jahez CEO. These rooms know the numbers.</p></article>
+    <article><p><b>3 · The stc slide is the centerpiece.</b> The 22-page profile has no answer to "what do we add to stc / what does stc add to us" — and pillar 08 is literally titled <i>"why you, and why InspireU."</i> The two answers on page 2 are specific and named.</p></article>
+  </div>
+</section>
+
+<section>
+  <h2>The numbers to put on stage</h2>
+  <p class="lede">Pulled from production on 19 Aug 2026. August is a partial month — say "first 19 days" out loud; it sounds stronger and it's honest.</p>
+  <div class="stats">
+    <div class="stat"><p class="n">SAR 1.96M</p><p class="l">GMV, trailing 365 days</p></div>
+    <div class="stat"><p class="n">4×</p><p class="l">last 90 days vs the prior nine months combined</p></div>
+    <div class="stat"><p class="n">15,594</p><p class="l">confirmed orders lifetime</p></div>
+    <div class="stat"><p class="n">495 → 822K</p><p class="l">Sonbol (سنبل) monthly GMV, June → August, in 60 days</p></div>
+    <div class="stat"><p class="n">12,382</p><p class="l">active products · 12,586 listings</p></div>
+    <div class="stat"><p class="n">5</p><p class="l">channels carrying live GMV (Salla, Amazon, Trendyol, noon, Jahez)</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>The 10 slides · 3:00</h2>
+  <p class="lede">Label each slide with the brief's own topic names — judges work from the same list and tick boxes. Purple lines are what the judges' cards say they listen for.</p>
+  <div class="slides">
+    <div class="slide"><p class="t">0:00</p><div><p class="topic"><span class="tag">01 Vision</span>Title + Vision &amp; Mission</p><p class="what">"The operating layer for Saudi commerce — from onboarding to cashflow." Vision: when a Saudi brand sells anywhere, it runs through Nasam.</p></div></div>
+    <div class="slide"><p class="t">0:20</p><div><p class="topic"><span class="tag">02 Problem</span>Told as a story</p><p class="what">We lived it — 25+ brands, 5 dashboards, 50 checks a day. Marketplaces convert 3× better, yet 80K merchants never made the jump. The demand moved; the brands didn't.</p><p class="jury">Judges listen for: evidence the pain is real, current and expensive.</p></div></div>
+    <div class="slide"><p class="t">0:50</p><div><p class="topic"><span class="tag">03 Solution</span>One screen, no tech depth</p><p class="what">One dashboard replaces five + a team that acts on it. Only two tech lines survive: Brand Health (10 dimensions, daily) and AI access to live commerce data.</p><p class="jury">Judges listen for: a clear line from the problem to your specific approach.</p></div></div>
+    <div class="slide"><p class="t">1:10</p><div><p class="topic"><span class="tag">04 Model</span>The anchor slide</p><p class="what">One sentence a judge can repeat (below) + the funnel with prices: SAR 449/mo → onboarding → management + % of GMV.</p><p class="jury">Judges listen for: who pays, for what, at what price, how often.</p></div></div>
+    <div class="slide"><p class="t">1:30</p><div><p class="topic"><span class="tag">05 Revenue</span>Past 365 days + projection</p><p class="what">One illustration: 12 monthly GMV bars + dotted projection bars with assumptions written under them. Keep invoiced revenue (SAR 250K+) visibly separate from GMV. Land the Sonbol beat here.</p><p class="jury">Judges listen for: numbers with assumptions attached — not a hockey stick.</p></div></div>
+    <div class="slide"><p class="t">1:55</p><div><p class="topic"><span class="tag">06 Market</span>One simple slide</p><p class="what">TAM $24.6B (12% CAGR) → SAM: enablement SaaS SAR 0.5B → 5B by 2030 (RedSeer) → SOM ~SAR 45M at 1%. Name the rivals: agencies, ChannelEngine, Pattern — and doing nothing.</p><p class="jury">Judges listen for: a market you have actually spoken to, and rivals you can name.</p></div></div>
+    <div class="slide"><p class="t">2:10</p><div><p class="topic"><span class="tag">07 Team</span>Chemistry, not CVs</p><p class="what">One closed loop: Fahad builds it · Ibrahim brings brands in · Tarik makes them succeed. One learning beat: we let go of the small brands — our machine wins on brands ready to scale.</p><p class="jury">Judges listen for: why this team, specifically, wins this market.</p></div></div>
+    <div class="slide"><p class="t">2:20</p><div><p class="topic"><span class="tag">08 Special</span>The repeatable line</p><p class="what">"Uber didn't own cars. We don't own brands — we run the rails every Saudi brand rides to every marketplace." Then: you saw the rails work — Sonbol.</p><p class="jury">Judges listen for: the one line a judge repeats to another judge afterwards.</p></div></div>
+    <div class="slide stc-row"><p class="t">2:35</p><div><p class="topic"><span class="tag">stc</span>stc × Nasam — why we need each other</p><p class="what">The two mandatory answers, specific and named — page 2. This is the slide the room remembers.</p></div></div>
+    <div class="slide"><p class="t">2:55</p><div><p class="topic"><span class="tag">Close</span>The road</p><p class="what">This year → 5 years in one visual. "Powering every seller's growth — with stc."</p></div></div>
+  </div>
+</section>
+
+<section>
+  <h2>The business-model sentence</h2>
+  <p class="lede">The team's call: this is the judges' #1 decision factor. If a judge cannot repeat it back, it isn't clear enough yet.</p>
+  <blockquote class="anchor">
+    "Brands pay us monthly for the platform — and as they grow, they hand us more of the operation, until we run everything and earn a percentage of every riyal they sell."
+    <footer>Why it scales: land-and-expand is built into the funnel · revenue is GMV-linked (Sonbol is the live proof) · every manual service becomes a platform feature · unlockable later: ads %, seller financing, data, AI seats.</footer>
+  </blockquote>
+</section>
+
+<section class="stc-section keep">
+  <p class="eyebrow">The centerpiece</p>
+  <h2>stc × Nasam — the two answers</h2>
+  <p class="lede">InspireU's stated mandate is "creating value for stc by linking startups into the stc ecosystem." This slide answers the exam question in their own language.</p>
+  <div class="cols">
+    <div class="col">
+      <h3>What Nasam adds to stc Group</h3>
+      <ol>
+        <li><b>A new SME revenue line.</b> Vodafone runs 13 telco SaaS marketplaces; e&amp; bundles commerce tools. Through solutions by stc, stc becomes the first GCC telco with a marketplace-commerce offer — DARE's "Expand" pillar.</li>
+        <li><b>Data stc Bank can't see.</b> 200K+ registered merchants, SME lending rolling out — and no view of marketplace sales. Nasam holds the verified cross-channel revenue data that underwrites merchant working capital.</li>
+        <li><b>The missing portfolio piece.</b> stc backed Rewaa (offline retail SaaS) and Zid (webstores, InspireU alum). Nasam is the third layer: marketplaces. Together — the full Saudi retail stack.</li>
+      </ol>
+    </div>
+    <div class="col">
+      <h3>What stc adds to Nasam</h3>
+      <ol>
+        <li><b>Distribution we can't buy.</b> A co-sell pilot through solutions by stc / stc Business SME customers and stc Bank's merchant base — the first [500] merchants in 2027.</li>
+        <li><b>The fintech rails.</b> stc Bank partnership: merchant payouts + the Kingdom's first marketplace-data-underwritten working-capital product, piloted on our live brands. (The 11th batch's fintech track produced real commercial agreements — we're asking for that path.)</li>
+        <li><b>Capital + credibility, on a named path.</b> SAR 100K equity-free grant + ~SAR 600K services now; tali ventures follow-on up to $500K as we scale; the stc name behind us with enterprise brands.</li>
+      </ol>
+    </div>
+  </div>
+  <p class="lede" style="margin-top:8pt">Held for Q&amp;A: sirar security certification · stc cloud / center3 data residency (PDPL) · iot squared logistics telemetry. And if a food-delivery judge is in the room (Jahez's CEO judged the Bahrain final): "we run brands on Jahez and HungerStation alongside Amazon and noon — nobody else does."</p>
+</section>
+
+<section class="keep">
+  <h2>Fix these numbers before judging day</h2>
+  <table>
+    <thead><tr><th>Deck claim</th><th>Verdict</th><th>Use instead</th></tr></thead>
+    <tbody>
+      <tr><td class="num">KSA e-commerce $24.58B</td><td class="ok">Confirmed</td><td>Keep (~$24.67B, Renub 2024; SAMA mada corroborates)</td></tr>
+      <tr><td class="num">CAGR &gt;12%</td><td class="ok">Confirmed</td><td>Keep</td></tr>
+      <tr><td class="num">"29% of retail share"</td><td class="fix">Wrong</td><td>"~10% of retail today, heading past 25% — the shift is early" (a better story)</td></tr>
+      <tr><td class="num">78,000+ storefront merchants</td><td class="ok">Confirmed</td><td>Keep — or "80,000+"</td></tr>
+      <tr><td class="num">"Under 20,000 marketplace sellers"</td><td class="warnc">Unverifiable</td><td>"Active local sellers are a small fraction of the 40,000+ registered e-commerce businesses"</td></tr>
+      <tr><td class="num">Trendyol SA 915M → 1.35B → 1.67B</td><td class="warnc">No public source</td><td>Label "internal estimate" — or "Trendyol passed $1B Gulf GMV in year one, KSA its largest market"</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>The full script — word for word (~445 words · rehearse to 2:45)</h2>
+  <div class="beats">
+    <div class="beat"><p class="cue">0:00 · Title + Vision &amp; Mission</p><p>We're Nasam — the operating layer for Saudi commerce. We take brands live on every sales channel and run them — from onboarding to cashflow. Our mission: one platform, every channel, for every Saudi brand. Our vision: when a Saudi brand sells anywhere — it runs through Nasam.</p></div>
+    <div class="beat"><p class="cue">0:20 · The Problem</p><p>We didn't find this problem in a report — we lived it, running twenty-five brands for ten companies. Every morning: five dashboards, fifty checks. A coffee brand winning on Salla, invisible on Amazon — same products, different rules. Saudi shoppers moved to the marketplaces — they convert three times better than a brand's own store. Eighty thousand merchants never made the jump. The demand moved. The brands didn't.</p></div>
+    <div class="beat"><p class="cue">0:50 · Our Solution</p><p>So we built the bridge ourselves. One screen replaces five dashboards — products, orders, inventory, profit — across Amazon, noon, Trendyol, Salla, Jahez — with a team that acts on it. Two things nobody else has: Brand Health, ten dimensions graded daily — and AI access to your live commerce data.</p></div>
+    <div class="beat"><p class="cue">1:10 · Business Model</p><p>The model in one sentence: brands pay us monthly for the platform — and as they grow, they hand us more of the operation, until we run everything and earn a percentage of every riyal they sell. Recurring — and it compounds with our brands' growth.</p></div>
+    <div class="beat"><p class="cue">1:30 · Revenue &amp; Growth</p><p>Is it working? The past twelve months: two million riyals of GMV — and the last ninety days did four times the nine months before them. One brand — Sonbol: four hundred ninety-five riyals in June; eight hundred twenty-two thousand in nineteen days of August. Our three-year projection: assumptions attached, no hockey stick.</p></div>
+    <div class="beat"><p class="cue">1:55 · Market &amp; Competition</p><p>The market: twenty-five billion dollars of Saudi e-commerce, growing twelve percent a year, forty thousand registered online businesses. Our rivals are real — agencies, ChannelEngine, Pattern — and the biggest: doing nothing. Nobody else is software AND operations, every channel.</p></div>
+    <div class="beat"><p class="cue">2:10 · Founders &amp; Team</p><p>Three founders, one closed loop: Fahad builds it, Ibrahim brings brands in, Tarik makes them succeed. Letting go of our smallest brands taught us where we win: brands ready to scale.</p></div>
+    <div class="beat"><p class="cue">2:20 · What Makes Us Special</p><p>Are we the next Uber? Uber didn't own cars. We don't own brands — we run the rails every Saudi brand rides to every marketplace. And you saw the rails work — Sonbol.</p></div>
+    <div class="beat"><p class="cue">2:35 · stc × Nasam</p><p>So why InspireU — specifically? One: our merchants are your customers — bundle Nasam through solutions by stc: the Gulf's first telco commerce offer. Two: stc Bank is rolling out merchant lending; we hold what it can't see — verified marketplace sales data. stc Bank IS the cashflow. Three: you backed Rewaa for retail and Zid for webstores — Nasam is the marketplaces.</p></div>
+    <div class="beat"><p class="cue">2:55 · Close</p><p>This year: [target]. In five years: the commerce infrastructure of the Gulf — with stc. Thank you.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>The next 48 hours</h2>
+  <p class="lede">From the brief's own closing card: "the teams that treat the coaching sessions as real pitches are visibly different by judging day."</p>
+  <ol class="check">
+    <li><b>Coaching session 1 — pitch badly, on purpose.</b> Full script, full timer, as if it's judging day. Mistakes belong here, not in front of the jury.</li>
+    <li><b>Ask for the hard feedback, explicitly.</b> "Tear apart our business-model sentence and our stc slide — which claim would a judge attack?"</li>
+    <li><b>Rehearse against a clock — out loud, standing, every time.</b> Timing is the most common reason teams lose points. Target 2:45.</li>
+    <li><b>Fill every [EDIT ME]:</b> projection numbers, the coffee-brand anecdote, the one-liner choice, and the answer for SONDOS's August dip before a judge finds it.</li>
+  </ol>
+</section>
+
+<p class="footer-note">Full working files (plan, script, synergy, sources) in <code>stc-final-pitch/</code> on branch <code>claude/stc-final-pitch-deck-0fo3yu</code>. Live metrics from the Nasam production database; market facts research-verified 19 Aug 2026 — sources in <code>stc-synergy.md</code> and <code>pitch-plan.md</code> §8.</p>
+
+</body>
+</html>
