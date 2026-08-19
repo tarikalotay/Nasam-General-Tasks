@@ -84,6 +84,13 @@ Seen so far: the **Store Enhancement list was emptied into Advertising** (Wk 33)
 deleted, and tasks were renamed (`Onboarding Plan (Shared With Sonbol)` →
 `(Shared With Dar Sonbol)`).
 
+**Watch for wholesale assignee changes.** In Wk 34 Mohammed Alrowitea vanished as
+assignee from all ~50 of his tasks in one move, with the work transferred to Tarik. The
+per-AM tables would otherwise have shown this as one person's heroic week and another's
+disappearance. When a name drops out of the workspace entirely, lead with it — it is a
+staffing event, not a productivity result — and never present the receiving person's
+inherited backlog as their own throughput.
+
 **The accessible brand list also changes.** Sondos vanished in Wk 31 and returned in
 Wk 33; Graffiti Resin and Sonbol appeared in Brand Health with no onboarding task behind
 them. A brand appearing in Brand Health but absent from Onboarding is a finding worth
