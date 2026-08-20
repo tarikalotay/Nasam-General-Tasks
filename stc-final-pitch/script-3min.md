@@ -1,4 +1,4 @@
-# The 3-Minute Script — draft 4.1 (8 slides · ≈370 words · rehearse to 2:45)
+# The 3-Minute Script — draft 5 (8 slides · ≈370 words · rehearse to 2:45)
 
 > Built for the 3:00 hard cutoff. One message per slide; if a sentence isn't below, don't say it.
 > Header chips are gone — each title now carries its topic, so say the topic word as you land on
@@ -25,9 +25,9 @@ year. Onboarding — a one-time payment, platform included, we take you live. Fu
 monthly fee plus a share of GMV, everything included, we are their commerce team.
 
 **[1:35 · S5 — Revenue & growth]**
-The last twelve months of managed GMV: from fourteen hundred riyals a month to thirty-one
-thousand — twenty-two times, a quarter-million riyals total. Two million through the platform,
-twenty-five-plus brands, fifteen thousand orders.
+The last twelve months of revenue: from fourteen hundred riyals a month to thirty-one and a half
+thousand — a quarter-million riyals total. Two million of GMV through the platform,
+twenty-five-plus brands across ten accounts, fifteen thousand orders.
 
 **[1:55 · S6 — Market & competition]**
 A twenty-five-billion-dollar market — and only one player in the region runs every channel.

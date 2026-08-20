@@ -362,6 +362,32 @@ Now **9 slides** (the close split back into its own final page, by request).
 - **"Why us, why inspireU" slide deleted per team** — the deck is 8 slides again; topic 08 is now
   answered verbally over the closing slide (see script), which carries the inspireU by stc lockup.
 
+## 12d. Draft 5 changes (20 Aug, presentation-day round)
+
+- **Funnels**: hopper lowered on both slides (clear of the storefront pill); all particle dots and
+  the catch pools removed; the bottleneck is now a tall red section blended into the neck with a
+  gradient; S3 reshaped to a smooth cylinder with the Nasam gate as a sage band *inside* the tube,
+  not a separate object; marketplace advantage chips turned green; operations-wall bricks got
+  icons; **correct KeeTa logo** (rebuilt from the official app icon; keeta.com is an unrelated
+  fintech, which is how the wrong mark slipped in).
+- **Business model**: "+" circles and the "+" in "+ Onboarding" removed; Platform priced year
+  first (SAR 3,999/yr, "or SAR 449 / month"); one unified "What's inside" label; every service is
+  an icon chip color-coded by tier (green = Platform, light blue = Onboarding, dark = Full
+  Management) and higher tiers list the inherited services too; summary lines bold.
+- **Revenue**: stat tiles left, chart right; chart title/subtitle/badge removed; SAR 250K+ is
+  labeled **revenue** (not managed GMV); orders tile shows the live-channel logos (8 icons, "5
+  live channels" text dropped); brands tile shows real client logos — Reefi, Sonbol, Feel, iOud,
+  Safwat Aljouf (logo supplied by the team) — plus "+20".
+- **Market & competition**: left column now stacks "What makes us the one" and a TAM/SAM/SOM
+  ladder in SAR (92,000M / 366M / 14-25M) per the team's sizing table; Arabic row states we're the
+  region's only Arabic support; Y axis titles vertical from the origin ("We manage it" up top,
+  "We integrate it" below); the 2.8× Amazon.sa line removed; Amazon SPN chip carries the Amazon
+  logo.
+- **Team**: the 25-brands banner removed; credential tiles enlarged, tinted in four palette
+  colors, icons added ("Prior working experience in" + badge icon); hours read "8,580+ hrs" with
+  "7+ hrs a day, per founder".
+- **Close**: full Nasam logo, "growth." in accent, colorful marketplace icon row for life.
+
 ## 13. Bootcamp brief coverage check (intake-13 welcome deck, read in full)
 
 | Brief requirement | Where the deck answers it |
