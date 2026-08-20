@@ -390,10 +390,10 @@ Now **9 slides** (the close split back into its own final page, by request).
 
 ## 12e. Post-rehearsal additions (20 Aug, instructor feedback after the 2:00 run)
 
-- **Problem**: impact row added to the operations wall — Time (50 checks a day), Cost (penalties,
-  lost Buy Box, dead stock), Quality (broken listings, slipping ratings).
-- **Solution**: "Why now?" banner above the portal — demand is already paid for, the shelf is
-  uncaptured, the season won't wait.
+- **Problem**: "What it costs them" illustration under the wall bricks — Time (50 checks a day),
+  Cost (penalties, lost Buy Box), Quality (listings slip, ratings drop) as three icon badges.
+- **Solution**: "Why solve it now" illustration under the portal tiles — demand is paid for, the
+  shelf is uncaptured, the season won't wait — three icon badges matching the problem side.
 
 ## 13. Bootcamp brief coverage check (intake-13 welcome deck, read in full)
 

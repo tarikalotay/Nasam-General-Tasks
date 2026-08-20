@@ -77,15 +77,24 @@
   .hconn i { position: absolute; top: -4pt; width: 7pt; height: 7pt; border-radius: 50%; background: #C8BBA4; }
   .hconn i.l { left: -2pt; } .hconn i.r { right: -2pt; }
   .sidepanel { position: absolute; left: 548pt; right: 0; top: 22pt; bottom: 22pt; z-index: 2; display: flex; flex-direction: column; gap: 9pt; }
-  .whynow { background: #EDF2EE; border: 1pt solid #D8E4DC; border-radius: 10pt; padding: 7.5pt 12pt; font-size: 10pt; font-weight: 600; color: #2F5240; text-align: center; }
-  .whynow b { font-family: "Baloo 2", sans-serif; font-size: 11pt; color: #A34A36; margin-right: 4pt; }
+
   /* the operations wall (S2) */
   .wall { background: var(--panel); border: 1pt solid var(--border); border-radius: 14pt; padding: 13pt 15pt 12pt; flex: 1; display: flex; flex-direction: column; gap: 6pt; }
-  .impact { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5pt; margin: 1pt 0 2pt; }
-  .imp { background: #FFF6F2; border: 1pt solid #F0D9CE; border-radius: 8pt; padding: 6pt 8pt 7pt; }
-  .imp svg { width: 12.5pt; height: 12.5pt; }
-  .imp .il { font-size: 7.5pt; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--accent-deep); margin-top: 2pt; }
-  .imp .it { font-size: 8pt; color: #6B4A3D; font-weight: 600; line-height: 1.3; margin-top: 1.5pt; }
+  .impx { margin-top: 3pt; padding-top: 7pt; border-top: 1pt dashed #EFE4D4; }
+  .impx .xh { font-size: 7.5pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; text-align: center; margin-bottom: 5pt; }
+  .impx .xrow { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6pt; }
+  .ix { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2pt; }
+  .ix .ic2 { width: 27pt; height: 27pt; border-radius: 50%; display: grid; place-items: center; }
+  .ix svg { width: 14.5pt; height: 14.5pt; }
+  .ix .xl { font-size: 8.5pt; font-weight: 700; }
+  .ix .xt { font-size: 7.5pt; color: var(--muted); line-height: 1.25; }
+  .impx.wm .xh { color: var(--accent-deep); }
+  .impx.wm .ic2 { background: #FDEEE8; border: 1pt solid #F0D9CE; }
+  .impx.wm .xl { color: #6B4A3D; }
+  .impx.sg { padding: 7pt 12pt 9pt; margin-top: 0; border-top: 1pt solid var(--border); }
+  .impx.sg .xh { color: #3E6B52; }
+  .impx.sg .ic2 { background: #EDF2EE; border: 1pt solid #D8E4DC; }
+  .impx.sg .xl { color: #2F5240; }
   .wall .wt { font-family: "Baloo 2", sans-serif; font-size: 14.5pt; font-weight: 700; color: var(--accent-deep); }
   .wall .ws { font-size: 9pt; color: var(--muted); margin: -3pt 0 2pt; }
   .brow { display: flex; gap: 5pt; flex: 1; }
@@ -275,12 +284,7 @@
       <div class="wall">
         <p class="wt">The operations wall</p>
         <p class="ws">what clogs the funnel, per channel, every day</p>
-        <div class="impact">
-          <div class="imp"><svg viewBox="0 0 24 24" fill="none" stroke="#A34A36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7 v5 l3.5 2"/></svg><p class="il">Time</p><p class="it">50 checks a day, across dashboards</p></div>
-          <div class="imp"><svg viewBox="0 0 24 24" fill="none" stroke="#A34A36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="11" rx="2"/><circle cx="12" cy="12.5" r="2.6"/></svg><p class="il">Cost</p><p class="it">Penalties, lost Buy Box, dead stock</p></div>
-          <div class="imp"><svg viewBox="0 0 24 24" fill="none" stroke="#A34A36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 l2.5 5.1 5.5.8 -4 3.9 1 5.6 -5-2.6 -5 2.6 1-5.6 -4-3.9 5.5-.8 Z"/></svg><p class="il">Quality</p><p class="it">Broken listings, slipping ratings</p></div>
-        </div>
-        <div class="brow">
+                <div class="brow">
           <span class="brick b6"><svg viewBox="0 0 24 24" fill="none" stroke="#8A5B4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3 h12 v18 l-3-2 -3 2 -3-2 -3 2 Z"/><path d="M9 8.5 h6 M9 12.5 h6"/></svg>Listings per channel</span>
           <span class="brick b4"><svg viewBox="0 0 24 24" fill="none" stroke="#8A5B4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17 l5-4 4 3 5-5 4 4"/></svg>Content &amp; media</span>
         </div>
@@ -295,6 +299,14 @@
         <div class="brow">
           <span class="brick b4"><svg viewBox="0 0 24 24" fill="none" stroke="#8A5B4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14 L4 9 l5-5"/><path d="M4 9 h11 a5 5 0 0 1 0 10 h-7"/></svg>Returns &amp; penalties</span>
           <span class="brick b6"><svg viewBox="0 0 24 24" fill="none" stroke="#8A5B4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="11" rx="2"/><circle cx="12" cy="12.5" r="2.6"/></svg>Cashflow reconciliation</span>
+        </div>
+        <div class="impx wm">
+          <p class="xh">What it costs them</p>
+          <div class="xrow">
+            <div class="ix"><span class="ic2"><svg viewBox="0 0 24 24" fill="none" stroke="#A34A36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7 v5 l3.5 2"/></svg></span><p class="xl">Time</p><p class="xt">50 checks a day</p></div>
+            <div class="ix"><span class="ic2"><svg viewBox="0 0 24 24" fill="none" stroke="#A34A36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="11" rx="2"/><circle cx="12" cy="12.5" r="2.6"/></svg></span><p class="xl">Cost</p><p class="xt">penalties, lost Buy Box</p></div>
+            <div class="ix"><span class="ic2"><svg viewBox="0 0 24 24" fill="none" stroke="#A34A36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 l2.5 5.1 5.5.8 -4 3.9 1 5.6 -5-2.6 -5 2.6 1-5.6 -4-3.9 5.5-.8 Z"/></svg></span><p class="xl">Quality</p><p class="xt">listings slip, ratings drop</p></div>
+          </div>
         </div>
         <p class="wstuck">58,000+ brands stay stuck behind it</p>
       </div>
@@ -331,7 +343,6 @@
     </div>
     <div class="hconn"><i class="l"></i><i class="r"></i></div>
     <div class="sidepanel">
-      <p class="whynow"><b>Why now?</b> Demand is already paid for · the shelf is uncaptured · the season won't wait</p>
       <div class="portal">
         <div class="appbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url"><img src="assets/logo_mark_ink.png" alt="">app.nasam.co</span></div>
         <div class="tiles">
@@ -347,6 +358,14 @@
           <div class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#2A5561" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20 C6.5 15.5 4 12 4 9 a4.4 4.4 0 0 1 8-2.5 A4.4 4.4 0 0 1 20 9 c0 3-2.5 6.5-8 11 Z"/><path d="M8 11.5 h2.6 l1.4-2.6 1.6 4.4 1.4-1.8 H16"/></svg><p class="tt">Brand Health</p></div>
           <div class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#2A5561" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 v4 h3 l6 4.5 V5.5 L6 10 Z"/><path d="M16 9 a4.2 4.2 0 0 1 0 6"/></svg><p class="tt">Marketplace Ads</p></div>
           <div class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#2A5561" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5 l1.7 4.8 4.8 1.7 -4.8 1.7 L12 17.5 l-1.7-4.8 -4.8-1.7 4.8-1.7 Z"/><path d="M18.7 4 l.55 1.75 L21 6.3 l-1.75.55 L18.7 8.6 l-.55-1.75 L16.4 6.3 l1.75-.55 Z"/></svg><p class="tt">AI Access (MCP)</p></div>
+        </div>
+        <div class="impx sg">
+          <p class="xh">Why solve it now</p>
+          <div class="xrow">
+            <div class="ix"><span class="ic2"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10 h18"/><path d="M15 15 h3"/></svg></span><p class="xl">Demand is paid for</p><p class="xt">marketplaces buy the traffic</p></div>
+            <div class="ix"><span class="ic2"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10 v10 h16 V10"/><path d="M2 6 h20 l-1.5 4 h-17 Z"/><path d="M10 20 v-6 h4 v6"/></svg></span><p class="xl">Shelf uncaptured</p><p class="xt">first movers take it</p></div>
+            <div class="ix"><span class="ic2"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10 h18 M8 3 v4 M16 3 v4"/><path d="M9 15 l2 2 4-4"/></svg></span><p class="xl">Season won't wait</p><p class="xt">be live before the peak</p></div>
+          </div>
         </div>
         <p class="pfoot"><b>From onboarding to cashflow</b>: software and AI, with an operations team on top.</p>
       </div>
