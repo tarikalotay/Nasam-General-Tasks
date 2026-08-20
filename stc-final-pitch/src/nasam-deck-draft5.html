@@ -73,7 +73,7 @@
   .chips span { font-size: 8.5pt; font-weight: 600; background: #EAF1EC; color: #3E6B52; border: 1pt solid #D8E4DC; border-radius: 999px; padding: 2pt 9pt; }
   .hconn { position: absolute; border-top: 1.6pt dashed #C8BBA4; z-index: 1; }
   .s2b .hconn { left: 280pt; width: 270pt; top: 318pt; }
-  .s3b .hconn { left: 302pt; width: 248pt; top: 300pt; }
+  .s3b .hconn { left: 318pt; width: 232pt; top: 296pt; }
   .hconn i { position: absolute; top: -4pt; width: 7pt; height: 7pt; border-radius: 50%; background: #C8BBA4; }
   .hconn i.l { left: -2pt; } .hconn i.r { right: -2pt; }
   .sidepanel { position: absolute; left: 548pt; right: 0; top: 22pt; bottom: 22pt; z-index: 2; }
@@ -190,13 +190,13 @@
   .qaxis.v.qbot { bottom: 0; }
 
   /* S7 — founders & team */
-  .s7 .people { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16pt; margin-top: 18pt; }
+  .s7 .people { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16pt; margin-top: auto; }
   .person { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4pt; background: var(--panel); border: 1pt solid var(--border); border-radius: 12pt; padding: 23pt 12pt 19pt; }
   .person img { width: 96pt; height: 96pt; border-radius: 50%; object-fit: cover; background: #F2EEE7; margin-bottom: 7pt; border: 2.5pt solid var(--panel-warm); }
   .person .pn { font-family: "Baloo 2", sans-serif; font-size: 16pt; font-weight: 700; line-height: 1.15; }
   .person .rolechip { font-size: 9.5pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #FFF; background: var(--accent); border-radius: 999px; padding: 3pt 12pt; margin: 3pt 0; }
   .person .pr { font-size: 11.5pt; color: var(--muted); font-weight: 600; }
-  .s7 .creds { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16pt; margin-top: 18pt; flex: 1; align-content: center; }
+  .s7 .creds { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16pt; margin-top: 16pt; margin-bottom: auto; }
   .cred { border-radius: 12pt; padding: 21pt 18pt 19pt; position: relative; }
   .cred.c1 { background: #EDF2EE; border: 1pt solid #D8E4DC; }
   .cred.c2 { background: #E4EEF3; border: 1pt solid #C6DCE5; }
@@ -305,12 +305,12 @@
           <linearGradient id="wgB" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3A6473"/><stop offset=".55" stop-color="#1E3A43"/><stop offset="1" stop-color="#31596A"/></linearGradient>
           <linearGradient id="sg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1E3A43"/><stop offset=".22" stop-color="#5C7A6D"/><stop offset=".5" stop-color="#8FB1A0"/><stop offset=".78" stop-color="#5C7A6D"/><stop offset="1" stop-color="#1E3A43"/></linearGradient>
         </defs>
-        <path d="M15,30 L425,30 C425,104 272,150 268,196 L268,298 L172,298 L172,196 C168,150 15,104 15,30 Z" fill="url(#wgB)"/>
+        <path d="M15,30 L425,30 C425,100 288,146 285,190 L285,298 L155,298 L155,190 C152,146 15,100 15,30 Z" fill="url(#wgB)"/>
         <ellipse cx="220" cy="30" rx="205" ry="26" fill="#12303A"/>
         <ellipse cx="220" cy="30" rx="205" ry="26" fill="none" stroke="#4A6E7C" stroke-width="2.5"/>
-        <rect x="172" y="220" width="96" height="60" fill="url(#sg2)"/>
-        <image href="assets/logo_mark_cream.png" x="194" y="236" width="52" height="28"/>
-        <ellipse cx="220" cy="298" rx="48" ry="8" fill="#12303A"/>
+        <rect x="155" y="206" width="130" height="82" fill="url(#sg2)"/>
+        <image href="assets/logo_mark_cream.png" x="188" y="230" width="64" height="34"/>
+        <ellipse cx="220" cy="298" rx="65" ry="9" fill="#12303A"/>
       </svg>
       <div class="hbot">
         <span class="pill"><img src="assets/ch_amazon.png" alt="Amazon"><img src="assets/ch_noon.png" alt="noon"><img src="assets/ch_trendyol.png" alt="Trendyol"><img src="assets/ch_jahez.png" alt="Jahez"><img src="assets/ch_hungerstation.png" alt="HungerStation"><img src="assets/ch_keeta.png" alt="Keeta"><img src="assets/ch_ninja.png" alt="Ninja"><span class="pn ok">Every marketplace</span><span class="pt">run from one place</span></span>
@@ -529,7 +529,7 @@
     </div>
     <div class="cred c3">
       <span class="cic"><svg viewBox="0 0 24 24" fill="none" stroke="#A08A5A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7 v5 l3.5 2"/></svg></span>
-      <p class="cl">Building since Mar 2025</p><p class="cn">8,580+ hrs</p>
+      <p class="cl">Building since Mar 2025</p><p class="cn">+8,580 hrs</p>
       <p class="csub">7+ hrs a day, per founder</p>
     </div>
     <div class="cred c4">
@@ -548,8 +548,7 @@
   <div class="withrow"><span>with</span><img src="assets/inspireu_lockup_white.png" alt="inspireU from stc"></div>
   <div class="chanicons">
     <img src="assets/ch_amazon.png" alt="Amazon"><img src="assets/ch_noon.png" alt="noon"><img src="assets/ch_salla.png" alt="Salla"><img src="assets/ch_trendyol.png" alt="Trendyol"><img src="assets/ch_jahez.png" alt="Jahez"><img src="assets/ch_hungerstation.png" alt="HungerStation"><img src="assets/ch_keeta.png" alt="Keeta"><img src="assets/ch_ninja.png" alt="Ninja"><img src="assets/ch_zid.png" alt="Zid"><img src="assets/ch_shopify.png" alt="Shopify"><img src="assets/ch_plus8.png" alt="+8 more"></div>
-  <p class="contact">www.nasam.co · general@nasam.co</p>
-  <div class="foot"><span class="brand">Thank you · شكرًا</span><span>8 / 8</span></div>
+  <div class="foot"><span class="brand">www.nasam.co · general@nasam.co</span><span>Thank you · شكرًا</span><span>8 / 8</span></div>
 </div>
 
 </body>
