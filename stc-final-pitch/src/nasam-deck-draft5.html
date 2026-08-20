@@ -60,7 +60,7 @@
   /* S2 + S3 — the funnel pair (hopper identical position on both) */
   .fstage { position: relative; flex: 1; min-height: 0; margin-top: 8pt; }
   .hop { position: absolute; left: 20pt; top: 0; bottom: 0; width: 464pt; }
-  .hop svg { position: absolute; left: 0; top: 58pt; width: 100%; height: calc(100% - 118pt); filter: drop-shadow(0 5pt 12pt rgba(20,44,54,.22)); }
+  .hop svg { position: absolute; left: 0; top: 38pt; width: 100%; height: calc(100% - 88pt); filter: drop-shadow(0 5pt 12pt rgba(20,44,54,.22)); }
   .htop, .hbot { position: absolute; left: 0; right: 0; display: flex; flex-direction: column; align-items: center; gap: 5pt; z-index: 2; }
   .htop { top: 0; } .hbot { bottom: 0; }
   .pill { display: inline-flex; align-items: center; gap: 7pt; background: var(--panel); border: 1pt solid var(--border); border-radius: 999px; padding: 4pt 13pt; box-shadow: 0 2pt 6pt rgba(30,58,67,.10); }
@@ -72,30 +72,31 @@
   .chips { display: flex; gap: 5pt; }
   .chips span { font-size: 8.5pt; font-weight: 600; background: #EAF1EC; color: #3E6B52; border: 1pt solid #D8E4DC; border-radius: 999px; padding: 2pt 9pt; }
   .hconn { position: absolute; border-top: 1.6pt dashed #C8BBA4; z-index: 1; }
-  .s2b .hconn { left: 280pt; width: 270pt; top: 318pt; }
-  .s3b .hconn { left: 318pt; width: 232pt; top: 296pt; }
+  .s2b .hconn { left: 279pt; width: 271pt; top: 322pt; }
+  .s3b .hconn { left: 322pt; width: 228pt; top: 297pt; }
   .hconn i { position: absolute; top: -4pt; width: 7pt; height: 7pt; border-radius: 50%; background: #C8BBA4; }
   .hconn i.l { left: -2pt; } .hconn i.r { right: -2pt; }
   .sidepanel { position: absolute; left: 548pt; right: 0; top: 22pt; bottom: 22pt; z-index: 2; display: flex; flex-direction: column; gap: 9pt; }
 
   /* the operations wall (S2) */
   .wall { background: var(--panel); border: 1pt solid var(--border); border-radius: 14pt; padding: 13pt 15pt 12pt; flex: 1; display: flex; flex-direction: column; gap: 6pt; }
-  .impx { margin-top: 3pt; padding-top: 7pt; border-top: 1pt dashed #EFE4D4; }
-  .impx .xh { font-size: 7.5pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; text-align: center; margin-bottom: 5pt; }
-  .impx .xrow { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6pt; }
+  .impcard { background: var(--panel); border: 1pt solid var(--border); border-radius: 14pt; padding: 11pt 16pt 12pt; }
+  .impcard .xh { font-family: "Baloo 2", sans-serif; font-size: 13.5pt; font-weight: 700; margin-bottom: 7pt; }
+  .xrow { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6pt; }
   .ix { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2pt; }
-  .ix .ic2 { width: 27pt; height: 27pt; border-radius: 50%; display: grid; place-items: center; }
-  .ix svg { width: 14.5pt; height: 14.5pt; }
+  .ix .ic2 { width: 31pt; height: 31pt; border-radius: 50%; display: grid; place-items: center; }
+  .ix svg { width: 17pt; height: 17pt; }
   .ix .xl { font-size: 8.5pt; font-weight: 700; }
   .ix .xt { font-size: 7.5pt; color: var(--muted); line-height: 1.25; }
-  .impx.wm .xh { color: var(--accent-deep); }
-  .impx.wm .ic2 { background: #FDEEE8; border: 1pt solid #F0D9CE; }
-  .impx.wm .xl { color: #6B4A3D; }
-  .impx.sg { padding: 7pt 12pt 9pt; margin-top: 0; border-top: 1pt solid var(--border); }
-  .impx.sg .xh { color: #3E6B52; }
-  .impx.sg .ic2 { background: #EDF2EE; border: 1pt solid #D8E4DC; }
-  .impx.sg .xl { color: #2F5240; }
-  .wall .wt { font-family: "Baloo 2", sans-serif; font-size: 14.5pt; font-weight: 700; color: var(--accent-deep); }
+  .impcard.wm .xh { color: var(--accent-deep); }
+  .impcard.wm .ic2 { background: #FDEEE8; border: 1pt solid #F0D9CE; }
+  .impcard.wm .xl { color: #6B4A3D; }
+  .impcard.sg .xh { color: #3E6B52; }
+  .impcard.sg .ic2 { background: #EDF2EE; border: 1pt solid #D8E4DC; }
+  .impcard.sg .xl { color: #2F5240; }
+  .ftag { font-size: 9pt; color: var(--muted); text-align: center; max-width: 430pt; }
+  .ftag b { color: var(--ink); }
+  .wall .wt { font-family: "Baloo 2", sans-serif; font-size: 15pt; font-weight: 700; color: var(--accent-deep); margin-bottom: 2pt; }
   .wall .ws { font-size: 9pt; color: var(--muted); margin: -3pt 0 2pt; }
   .brow { display: flex; gap: 5pt; flex: 1; }
   .brick { background: #F6E7DF; border: 1pt solid #E8CCBE; border-radius: 7pt; display: flex; align-items: center; justify-content: center; text-align: center; gap: 6pt; padding: 0 8pt; font-size: 9.5pt; font-weight: 600; color: #6B4A3D; }
@@ -138,7 +139,8 @@
   .svc .g { background: #EAF1EC; color: #3E6B52; border: 1pt solid #D8E4DC; }
   .svc .b { background: var(--lblue); color: #24505F; border: 1pt solid #C6DCE5; }
   .svc .k { background: #E9EBE9; color: #1E3A43; border: 1pt solid #CFD8D4; }
-  .price .desc { font-size: 11pt; font-weight: 700; color: var(--ink); margin-top: auto; line-height: 1.35; padding-top: 8pt; border-top: 1pt solid #F0EADD; }
+  .price .desc { font-size: 11pt; font-weight: 700; color: var(--ink); margin-top: auto; line-height: 1.35; padding-top: 8pt; border-top: 1pt solid #F0EADD; display: flex; align-items: center; gap: 7pt; }
+  .price .desc svg { width: 13.5pt; height: 13.5pt; flex: none; }
 
   /* S5 — revenue & growth */
   .s5 .grid { display: grid; grid-template-columns: 336pt 1fr; gap: 18pt; flex: 1; min-height: 0; margin-top: 12pt; margin-bottom: 8pt; }
@@ -155,13 +157,13 @@
   .xlabels { display: flex; gap: 4pt; margin-top: 4pt; padding-left: 26pt; }
   .xlabels span { flex: 1; text-align: center; font-size: 6.8pt; color: var(--muted); white-space: nowrap; }
   .stats2 { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 12pt; min-height: 0; }
-  .stt { border: 1pt solid var(--border); background: var(--panel); border-radius: 12pt; padding: 11pt 14pt; display: flex; flex-direction: column; justify-content: center; gap: 1pt; position: relative; }
-  .stt .ic { position: absolute; top: 9pt; right: 10pt; width: 24pt; height: 24pt; border-radius: 8pt; background: #EDF2EE; display: grid; place-items: center; }
-  .stt .ic svg { width: 14pt; height: 14pt; }
-  .stt .n { font-family: "Baloo 2", sans-serif; font-size: 21pt; font-weight: 700; color: var(--accent-deep); font-variant-numeric: tabular-nums; line-height: 1.1; }
-  .stt .l { font-size: 9.5pt; color: var(--muted); font-weight: 600; }
+  .stt { border: 1pt solid var(--border); background: var(--panel); border-radius: 12pt; padding: 13pt 16pt; display: flex; flex-direction: column; justify-content: center; gap: 3pt; position: relative; }
+  .stt .ic { position: absolute; top: 11pt; right: 12pt; width: 34pt; height: 34pt; border-radius: 11pt; background: #EDF2EE; display: grid; place-items: center; }
+  .stt .ic svg { width: 20pt; height: 20pt; }
+  .stt .n { font-family: "Baloo 2", sans-serif; font-size: 25pt; font-weight: 700; color: var(--accent-deep); font-variant-numeric: tabular-nums; line-height: 1.1; }
+  .stt .l { font-size: 10.5pt; color: var(--muted); font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding-right: 44pt; line-height: 1.25; }
   .stt .strip { display: flex; gap: 3pt; margin-top: 6pt; align-items: center; flex-wrap: wrap; }
-  .stt .strip img { width: 13pt; height: 13pt; border-radius: 3.5pt; border: .5pt solid rgba(30,58,67,.14); }
+  .stt .strip img { width: 16pt; height: 16pt; border-radius: 4.5pt; border: .5pt solid rgba(30,58,67,.14); }
   .stt .strip .more { font-size: 8pt; font-weight: 700; color: var(--muted); margin-left: 1pt; }
   .stt.dk { background: var(--dark); border-color: var(--dark); }
   .stt.dk .n { color: #E8A891; } .stt.dk .l { color: var(--cream-muted); } .stt.dk .ic { background: var(--dark-2); }
@@ -180,18 +182,19 @@
   .wrow .mini { display: flex; gap: 4pt; margin-top: 3pt; }
   .wrow .mini img { width: 17pt; height: 17pt; border-radius: 4.5pt; }
   .tamcard { background: var(--panel); border: 1pt solid var(--border); border-radius: 12pt; padding: 10pt 16pt 12pt; }
-  .tamcard .th { font-family: "Baloo 2", sans-serif; font-size: 13pt; font-weight: 700; color: var(--ink); margin-bottom: 2pt; }
+  .tamcard .th { font-family: "Baloo 2", sans-serif; font-size: 14pt; font-weight: 700; color: var(--accent-deep); margin-bottom: 4pt; }
   .trow { display: flex; align-items: center; gap: 8pt; margin-top: 7pt; }
-  .trow .tl { width: 28pt; font-size: 8.5pt; font-weight: 700; letter-spacing: .05em; color: var(--muted); flex: none; }
+  .trow .tl { width: 62pt; font-size: 9.5pt; font-weight: 700; letter-spacing: .04em; color: var(--ink); flex: none; line-height: 1.05; }
+  .trow .tl small { display: block; font-size: 6.3pt; font-weight: 600; letter-spacing: .01em; color: var(--muted); }
   .trow .tspace { flex: 1; }
   .tbar { height: 18pt; border-radius: 5pt; color: #FFF; font-size: 9.5pt; font-weight: 700; display: inline-flex; align-items: center; padding: 0 9pt; white-space: nowrap; font-variant-numeric: tabular-nums; }
   .tb1 { width: 100%; background: var(--bar); }
   .tb2 { width: 62%; background: var(--lblue-deep); }
   .tb3 { width: 36%; background: var(--accent); }
-  .tcap { font-size: 7.5pt; color: var(--muted); margin: 2pt 0 0 36pt; line-height: 1.3; }
+  .tcap { font-size: 7.5pt; color: var(--muted); margin: 2pt 0 0 70pt; line-height: 1.3; }
   .quad { background: var(--panel); border: 1pt solid var(--border); border-radius: 12pt; padding: 12pt 16pt 18pt 22pt; display: flex; flex-direction: column; }
   .quad .qtitle { font-size: 10.5pt; font-weight: 600; margin-bottom: 6pt; }
-  .qbox { position: relative; flex: 1; border-left: 1.5pt solid #C8BBA4; border-bottom: 1.5pt solid #C8BBA4; margin: 4pt 8pt 12pt 10pt; }
+  .qbox { position: relative; flex: 1; border-left: 1.5pt solid #C8BBA4; border-bottom: 1.5pt solid #C8BBA4; margin: 4pt 8pt 18pt 10pt; }
   .qzone { position: absolute; right: 0; top: 0; width: 50%; height: 50%; background: rgba(111,141,127,.08); border-radius: 0 4pt 0 10pt; }
   .qmid-v { position: absolute; left: 50%; top: 0; bottom: 0; border-left: 1pt dashed #EFE9DC; }
   .qmid-h { position: absolute; top: 50%; left: 0; right: 0; border-top: 1pt dashed #EFE9DC; }
@@ -243,7 +246,7 @@
 <div class="slide dark s1">
   <img class="wm" src="assets/logo_mark_cream.png" alt="">
   <img class="logo" src="assets/logo_full_cream.png" alt="Nasam نسم">
-  <p class="oneliner">We take brands live on <b>every sales channel</b>, and run them. From onboarding to cashflow.</p>
+  <p class="oneliner">Where brands grow across marketplaces. <b>Seamlessly, efficiently, intelligently.</b></p>
   <div class="vm">
     <div class="vmcard"><p class="h">Mission · today</p><p>One platform, every channel, for every brand.</p></div>
     <div class="vmcard"><p class="h">Vision · where we're headed</p><p>When a brand sells anywhere, it runs through Nasam.</p></div>
@@ -261,7 +264,6 @@
     <div class="hop">
       <div class="htop">
         <span class="pill"><img src="assets/ch_salla.png" alt="Salla"><img src="assets/ch_zid.png" alt="Zid"><img src="assets/ch_shopify.png" alt="Shopify"><span class="pn">78,000+</span><span class="pt">active brands on their storefronts</span></span>
-        <span class="chips"><span>Manageable</span><span>Higher margin</span><span>Own the customer</span></span>
       </div>
       <svg viewBox="0 0 440 330" preserveAspectRatio="xMidYMid meet">
         <defs>
@@ -276,14 +278,12 @@
       </svg>
       <div class="hbot">
         <span class="pill"><img src="assets/ch_amazon.png" alt="Amazon"><img src="assets/ch_noon.png" alt="noon"><img src="assets/ch_trendyol.png" alt="Trendyol"><img src="assets/ch_jahez.png" alt="Jahez"><img src="assets/ch_hungerstation.png" alt="HungerStation"><img src="assets/ch_keeta.png" alt="Keeta"><img src="assets/ch_ninja.png" alt="Ninja"><span class="pn hot">&lt; 20,000</span><span class="pt">reach the marketplaces</span></span>
-        <span class="chips"><span>3× conversion</span><span>Millions of customers</span><span>Channel-paid demand</span></span>
       </div>
     </div>
     <div class="hconn"><i class="l"></i><i class="r"></i></div>
     <div class="sidepanel">
       <div class="wall">
         <p class="wt">The operations wall</p>
-        <p class="ws">what clogs the funnel, per channel, every day</p>
                 <div class="brow">
           <span class="brick b6"><svg viewBox="0 0 24 24" fill="none" stroke="#8A5B4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3 h12 v18 l-3-2 -3 2 -3-2 -3 2 Z"/><path d="M9 8.5 h6 M9 12.5 h6"/></svg>Listings per channel</span>
           <span class="brick b4"><svg viewBox="0 0 24 24" fill="none" stroke="#8A5B4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17 l5-4 4 3 5-5 4 4"/></svg>Content &amp; media</span>
@@ -300,15 +300,15 @@
           <span class="brick b4"><svg viewBox="0 0 24 24" fill="none" stroke="#8A5B4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14 L4 9 l5-5"/><path d="M4 9 h11 a5 5 0 0 1 0 10 h-7"/></svg>Returns &amp; penalties</span>
           <span class="brick b6"><svg viewBox="0 0 24 24" fill="none" stroke="#8A5B4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="11" rx="2"/><circle cx="12" cy="12.5" r="2.6"/></svg>Cashflow reconciliation</span>
         </div>
-        <div class="impx wm">
-          <p class="xh">What it costs them</p>
-          <div class="xrow">
-            <div class="ix"><span class="ic2"><svg viewBox="0 0 24 24" fill="none" stroke="#A34A36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7 v5 l3.5 2"/></svg></span><p class="xl">Time</p><p class="xt">50 checks a day</p></div>
-            <div class="ix"><span class="ic2"><svg viewBox="0 0 24 24" fill="none" stroke="#A34A36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="11" rx="2"/><circle cx="12" cy="12.5" r="2.6"/></svg></span><p class="xl">Cost</p><p class="xt">penalties, lost Buy Box</p></div>
-            <div class="ix"><span class="ic2"><svg viewBox="0 0 24 24" fill="none" stroke="#A34A36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 l2.5 5.1 5.5.8 -4 3.9 1 5.6 -5-2.6 -5 2.6 1-5.6 -4-3.9 5.5-.8 Z"/></svg></span><p class="xl">Quality</p><p class="xt">listings slip, ratings drop</p></div>
-          </div>
-        </div>
         <p class="wstuck">58,000+ brands stay stuck behind it</p>
+      </div>
+      <div class="impcard wm">
+        <p class="xh">What's the impact</p>
+        <div class="xrow">
+          <div class="ix"><span class="ic2"><svg viewBox="0 0 24 24" fill="none" stroke="#A34A36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7 v5 l3.5 2"/></svg></span><p class="xl">Time</p><p class="xt">10+ signals per platform, daily</p></div>
+          <div class="ix"><span class="ic2"><svg viewBox="0 0 24 24" fill="none" stroke="#A34A36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="11" rx="2"/><circle cx="12" cy="12.5" r="2.6"/></svg></span><p class="xl">Cost</p><p class="xt">extra employee, penalties, wrong pricing</p></div>
+          <div class="ix"><span class="ic2"><svg viewBox="0 0 24 24" fill="none" stroke="#A34A36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 l2.5 5.1 5.5.8 -4 3.9 1 5.6 -5-2.6 -5 2.6 1-5.6 -4-3.9 5.5-.8 Z"/></svg></span><p class="xl">Quality</p><p class="xt">poor brand reach, ratings drop</p></div>
+        </div>
       </div>
     </div>
   </div>
@@ -322,23 +322,22 @@
     <div class="hop">
       <div class="htop">
         <span class="pill"><img src="assets/ch_salla.png" alt="Salla"><img src="assets/ch_zid.png" alt="Zid"><img src="assets/ch_shopify.png" alt="Shopify"><span class="pn">78,000+</span><span class="pt">active brands on their storefronts</span></span>
-        <span class="chips"><span>Manageable</span><span>Higher margin</span><span>Own the customer</span></span>
       </div>
       <svg viewBox="0 0 440 330" preserveAspectRatio="xMidYMid meet">
         <defs>
           <linearGradient id="wgB" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3A6473"/><stop offset=".55" stop-color="#1E3A43"/><stop offset="1" stop-color="#31596A"/></linearGradient>
-          <linearGradient id="sg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1E3A43"/><stop offset=".16" stop-color="#5C7A6D"/><stop offset=".45" stop-color="#8FB1A0"/><stop offset=".85" stop-color="#5C7A6D"/><stop offset="1" stop-color="#4A6459"/></linearGradient>
+          <linearGradient id="sg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2E4A46"/><stop offset=".12" stop-color="#93B1A2"/><stop offset=".5" stop-color="#ACC6B7"/><stop offset=".88" stop-color="#93B1A2"/><stop offset="1" stop-color="#6E8C7D"/></linearGradient>
         </defs>
         <path d="M15,30 L425,30 C425,100 288,146 285,190 L285,298 L155,298 L155,190 C152,146 15,100 15,30 Z" fill="url(#wgB)"/>
         <ellipse cx="220" cy="30" rx="205" ry="26" fill="#12303A"/>
         <ellipse cx="220" cy="30" rx="205" ry="26" fill="none" stroke="#4A6E7C" stroke-width="2.5"/>
         <rect x="155" y="196" width="130" height="102" fill="url(#sg2)"/>
-        <image href="assets/logo_mark_cream.png" x="188" y="228" width="64" height="34"/>
-        <ellipse cx="220" cy="298" rx="65" ry="9" fill="#3C554B"/>
+        <image href="assets/logo_mark_ink.png" x="188" y="228" width="64" height="34"/>
+        <ellipse cx="220" cy="298" rx="65" ry="9" fill="#5B786A"/>
       </svg>
       <div class="hbot">
         <span class="pill"><img src="assets/ch_amazon.png" alt="Amazon"><img src="assets/ch_noon.png" alt="noon"><img src="assets/ch_trendyol.png" alt="Trendyol"><img src="assets/ch_jahez.png" alt="Jahez"><img src="assets/ch_hungerstation.png" alt="HungerStation"><img src="assets/ch_keeta.png" alt="Keeta"><img src="assets/ch_ninja.png" alt="Ninja"><span class="pn ok">Every marketplace</span><span class="pt">run from one place</span></span>
-        <span class="chips"><span>3× conversion unlocked</span><span>Millions of customers reached</span></span>
+        <p class="ftag"><b>From onboarding to cashflow</b>: software and AI, with an operations team on top.</p>
       </div>
     </div>
     <div class="hconn"><i class="l"></i><i class="r"></i></div>
@@ -359,15 +358,14 @@
           <div class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#2A5561" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 v4 h3 l6 4.5 V5.5 L6 10 Z"/><path d="M16 9 a4.2 4.2 0 0 1 0 6"/></svg><p class="tt">Marketplace Ads</p></div>
           <div class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#2A5561" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5 l1.7 4.8 4.8 1.7 -4.8 1.7 L12 17.5 l-1.7-4.8 -4.8-1.7 4.8-1.7 Z"/><path d="M18.7 4 l.55 1.75 L21 6.3 l-1.75.55 L18.7 8.6 l-.55-1.75 L16.4 6.3 l1.75-.55 Z"/></svg><p class="tt">AI Access (MCP)</p></div>
         </div>
-        <div class="impx sg">
-          <p class="xh">Why solve it now</p>
-          <div class="xrow">
-            <div class="ix"><span class="ic2"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10 h18"/><path d="M15 15 h3"/></svg></span><p class="xl">Demand is paid for</p><p class="xt">marketplaces buy the traffic</p></div>
-            <div class="ix"><span class="ic2"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10 v10 h16 V10"/><path d="M2 6 h20 l-1.5 4 h-17 Z"/><path d="M10 20 v-6 h4 v6"/></svg></span><p class="xl">Shelf uncaptured</p><p class="xt">first movers take it</p></div>
-            <div class="ix"><span class="ic2"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10 h18 M8 3 v4 M16 3 v4"/><path d="M9 15 l2 2 4-4"/></svg></span><p class="xl">Season won't wait</p><p class="xt">be live before the peak</p></div>
-          </div>
+      </div>
+      <div class="impcard sg">
+        <p class="xh">Why solve it now</p>
+        <div class="xrow">
+          <div class="ix"><span class="ic2"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10 h18"/><path d="M15 15 h3"/></svg></span><p class="xl">Demand is paid</p><p class="xt">marketplaces buy the traffic</p></div>
+          <div class="ix"><span class="ic2"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 a8 8 0 0 1 14-5"/><path d="M18 3 v4 h-4"/><path d="M20 12 a8 8 0 0 1-14 5"/><path d="M6 21 v-4 h4"/></svg></span><p class="xl">Inventory turnover</p><p class="xt">faster cycles, healthier cashflow</p></div>
+          <div class="ix"><span class="ic2"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8 v4 l3 2"/><path d="M12 3 v2 M21 12 h-2 M12 21 v-2 M3 12 h2"/></svg></span><p class="xl">Competitors won't wait</p><p class="xt">first movers take the shelf</p></div>
         </div>
-        <p class="pfoot"><b>From onboarding to cashflow</b>: software and AI, with an operations team on top.</p>
       </div>
     </div>
   </div>
@@ -390,9 +388,9 @@
           <span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6.5" rx="7" ry="3"/><path d="M5 6.5 v10 c0 1.7 3.1 3 7 3 s7-1.3 7-3 v-10"/></svg>Profitability</span>
           <span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20 C6.5 15.5 4 12 4 9 a4.4 4.4 0 0 1 8-2.5 A4.4 4.4 0 0 1 20 9 c0 3-2.5 6.5-8 11 Z"/></svg>Brand Health</span>
           <span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 v4 h3 l6 4.5 V5.5 L6 10 Z"/><path d="M16 9 a4.2 4.2 0 0 1 0 6"/></svg>Marketplace ads</span>
-          <span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5 l1.7 4.8 4.8 1.7 -4.8 1.7 L12 17.5 l-1.7-4.8 -4.8-1.7 4.8-1.7 Z"/></svg>AI access</span>
+          <span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5 l1.7 4.8 4.8 1.7 -4.8 1.7 L12 17.5 l-1.7-4.8 -4.8-1.7 4.8-1.7 Z"/></svg>AI access</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 V4 h8 l9 9 -8 8 Z"/><path d="M7.5 8 h.01"/></svg>Pricing</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20 h18"/><path d="M7 20 v-7 M12 20 v-11 M17 20 v-5"/></svg>Performance analysis</span>
         </div>
-        <p class="desc">Self-serve software. The brand runs it.</p>
+        <p class="desc"><svg viewBox="0 0 24 24" fill="none" stroke="#6F8D7F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21 c0-4 3.6-7 8-7 s8 3 8 7"/></svg>Self-serve. The brand runs it.</p>
       </div>
     </div>
     <div class="price pB">
@@ -400,14 +398,14 @@
       <div class="body">
         <p class="amount txt">One-time payment</p>
         <p class="per">&nbsp;</p>
-        <div class="svc"><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4 h6 v6 H4 Z M14 4 h6 v6 h-6 Z M4 14 h6 v6 H4 Z M14 14 h6 v6 h-6 Z"/></svg>Every channel</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 L12 3 3 8 v8 l9 5 9-5 Z"/><path d="M3 8 l9 5 9-5"/></svg>Orders &amp; inventory</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="11" height="8" rx="1"/><path d="M13 10 h4 l3 3 v2 h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/></svg>Fulfillment</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6.5" rx="7" ry="3"/><path d="M5 6.5 v10 c0 1.7 3.1 3 7 3 s7-1.3 7-3 v-10"/></svg>Profitability</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20 C6.5 15.5 4 12 4 9 a4.4 4.4 0 0 1 8-2.5 A4.4 4.4 0 0 1 20 9 c0 3-2.5 6.5-8 11 Z"/></svg>Brand Health</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 v4 h3 l6 4.5 V5.5 L6 10 Z"/><path d="M16 9 a4.2 4.2 0 0 1 0 6"/></svg>Marketplace ads</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5 l1.7 4.8 4.8 1.7 -4.8 1.7 L12 17.5 l-1.7-4.8 -4.8-1.7 4.8-1.7 Z"/></svg>AI access</span><span class="b"><svg viewBox="0 0 24 24" fill="none" stroke="#24505F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M11 12 L20 3"/><path d="M16 4 l3 3"/></svg>Account opening</span>
+        <div class="svc"><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4 h6 v6 H4 Z M14 4 h6 v6 h-6 Z M4 14 h6 v6 H4 Z M14 14 h6 v6 h-6 Z"/></svg>Every channel</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 L12 3 3 8 v8 l9 5 9-5 Z"/><path d="M3 8 l9 5 9-5"/></svg>Orders &amp; inventory</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="11" height="8" rx="1"/><path d="M13 10 h4 l3 3 v2 h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/></svg>Fulfillment</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6.5" rx="7" ry="3"/><path d="M5 6.5 v10 c0 1.7 3.1 3 7 3 s7-1.3 7-3 v-10"/></svg>Profitability</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20 C6.5 15.5 4 12 4 9 a4.4 4.4 0 0 1 8-2.5 A4.4 4.4 0 0 1 20 9 c0 3-2.5 6.5-8 11 Z"/></svg>Brand Health</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 v4 h3 l6 4.5 V5.5 L6 10 Z"/><path d="M16 9 a4.2 4.2 0 0 1 0 6"/></svg>Marketplace ads</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5 l1.7 4.8 4.8 1.7 -4.8 1.7 L12 17.5 l-1.7-4.8 -4.8-1.7 4.8-1.7 Z"/></svg>AI access</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 V4 h8 l9 9 -8 8 Z"/><path d="M7.5 8 h.01"/></svg>Pricing</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20 h18"/><path d="M7 20 v-7 M12 20 v-11 M17 20 v-5"/></svg>Performance analysis</span><span class="b"><svg viewBox="0 0 24 24" fill="none" stroke="#24505F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M11 12 L20 3"/><path d="M16 4 l3 3"/></svg>Account opening</span>
           <span class="b"><svg viewBox="0 0 24 24" fill="none" stroke="#24505F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10 v10 h16 V10"/><path d="M2 6 h20 l-1.5 4 h-17 Z"/><path d="M10 20 v-6 h4 v6"/></svg>Store &amp; brand setup</span>
           <span class="b"><svg viewBox="0 0 24 24" fill="none" stroke="#24505F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3 h9 l4 4 v14 H6 Z"/><path d="M15 3 v5 h4"/><path d="M9 13 h6 M9 17 h6"/></svg>Catalog &amp; content</span>
           <span class="b"><svg viewBox="0 0 24 24" fill="none" stroke="#24505F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 l5 5"/></svg>Listings &amp; SEO</span>
           <span class="b"><svg viewBox="0 0 24 24" fill="none" stroke="#24505F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 V4 h8 l9 9 -8 8 Z"/><path d="M7.5 8 h.01"/></svg>Pricing setup</span>
           <span class="b"><svg viewBox="0 0 24 24" fill="none" stroke="#24505F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 L2 9 l10 5 10-5 Z"/><path d="M6 11.5 V16 c0 1.5 2.7 3 6 3 s6-1.5 6-3 v-4.5"/></svg>Team training</span>
         </div>
-        <p class="desc">We take the brand live, then they run it.</p>
+        <p class="desc"><svg viewBox="0 0 24 24" fill="none" stroke="#4E7E90" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21 V4"/><path d="M5 4 h12 l-3 4.5 3 4.5 H5"/></svg>We take you live.</p>
       </div>
     </div>
     <div class="price pC">
@@ -415,7 +413,7 @@
       <div class="body">
         <p class="amount txt">Monthly fees + share of GMV</p>
         <p class="per">&nbsp;</p>
-        <div class="svc"><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4 h6 v6 H4 Z M14 4 h6 v6 h-6 Z M4 14 h6 v6 H4 Z M14 14 h6 v6 h-6 Z"/></svg>Every channel</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 L12 3 3 8 v8 l9 5 9-5 Z"/><path d="M3 8 l9 5 9-5"/></svg>Orders &amp; inventory</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="11" height="8" rx="1"/><path d="M13 10 h4 l3 3 v2 h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/></svg>Fulfillment</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6.5" rx="7" ry="3"/><path d="M5 6.5 v10 c0 1.7 3.1 3 7 3 s7-1.3 7-3 v-10"/></svg>Profitability</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20 C6.5 15.5 4 12 4 9 a4.4 4.4 0 0 1 8-2.5 A4.4 4.4 0 0 1 20 9 c0 3-2.5 6.5-8 11 Z"/></svg>Brand Health</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 v4 h3 l6 4.5 V5.5 L6 10 Z"/><path d="M16 9 a4.2 4.2 0 0 1 0 6"/></svg>Marketplace ads</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5 l1.7 4.8 4.8 1.7 -4.8 1.7 L12 17.5 l-1.7-4.8 -4.8-1.7 4.8-1.7 Z"/></svg>AI access</span><span class="b"><svg viewBox="0 0 24 24" fill="none" stroke="#24505F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M11 12 L20 3"/><path d="M16 4 l3 3"/></svg>Account opening</span><span class="b"><svg viewBox="0 0 24 24" fill="none" stroke="#24505F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10 v10 h16 V10"/><path d="M2 6 h20 l-1.5 4 h-17 Z"/><path d="M10 20 v-6 h4 v6"/></svg>Store &amp; brand setup</span><span class="b"><svg viewBox="0 0 24 24" fill="none" stroke="#24505F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3 h9 l4 4 v14 H6 Z"/><path d="M15 3 v5 h4"/><path d="M9 13 h6 M9 17 h6"/></svg>Catalog &amp; content</span><span class="b"><svg viewBox="0 0 24 24" fill="none" stroke="#24505F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 l5 5"/></svg>Listings &amp; SEO</span><span class="b"><svg viewBox="0 0 24 24" fill="none" stroke="#24505F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 V4 h8 l9 9 -8 8 Z"/><path d="M7.5 8 h.01"/></svg>Pricing setup</span><span class="b"><svg viewBox="0 0 24 24" fill="none" stroke="#24505F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 L2 9 l10 5 10-5 Z"/><path d="M6 11.5 V16 c0 1.5 2.7 3 6 3 s6-1.5 6-3 v-4.5"/></svg>Team training</span><span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="#1E3A43" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 v4 h3 l6 4.5 V5.5 L6 10 Z"/><path d="M16 9 a4.2 4.2 0 0 1 0 6"/></svg>Ads &amp; promotions</span>
+        <div class="svc"><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4 h6 v6 H4 Z M14 4 h6 v6 h-6 Z M4 14 h6 v6 H4 Z M14 14 h6 v6 h-6 Z"/></svg>Every channel</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 L12 3 3 8 v8 l9 5 9-5 Z"/><path d="M3 8 l9 5 9-5"/></svg>Orders &amp; inventory</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="11" height="8" rx="1"/><path d="M13 10 h4 l3 3 v2 h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/></svg>Fulfillment</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6.5" rx="7" ry="3"/><path d="M5 6.5 v10 c0 1.7 3.1 3 7 3 s7-1.3 7-3 v-10"/></svg>Profitability</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20 C6.5 15.5 4 12 4 9 a4.4 4.4 0 0 1 8-2.5 A4.4 4.4 0 0 1 20 9 c0 3-2.5 6.5-8 11 Z"/></svg>Brand Health</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 v4 h3 l6 4.5 V5.5 L6 10 Z"/><path d="M16 9 a4.2 4.2 0 0 1 0 6"/></svg>Marketplace ads</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5 l1.7 4.8 4.8 1.7 -4.8 1.7 L12 17.5 l-1.7-4.8 -4.8-1.7 4.8-1.7 Z"/></svg>AI access</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 V4 h8 l9 9 -8 8 Z"/><path d="M7.5 8 h.01"/></svg>Pricing</span><span class="g"><svg viewBox="0 0 24 24" fill="none" stroke="#3E6B52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20 h18"/><path d="M7 20 v-7 M12 20 v-11 M17 20 v-5"/></svg>Performance analysis</span><span class="b"><svg viewBox="0 0 24 24" fill="none" stroke="#24505F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M11 12 L20 3"/><path d="M16 4 l3 3"/></svg>Account opening</span><span class="b"><svg viewBox="0 0 24 24" fill="none" stroke="#24505F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10 v10 h16 V10"/><path d="M2 6 h20 l-1.5 4 h-17 Z"/><path d="M10 20 v-6 h4 v6"/></svg>Store &amp; brand setup</span><span class="b"><svg viewBox="0 0 24 24" fill="none" stroke="#24505F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3 h9 l4 4 v14 H6 Z"/><path d="M15 3 v5 h4"/><path d="M9 13 h6 M9 17 h6"/></svg>Catalog &amp; content</span><span class="b"><svg viewBox="0 0 24 24" fill="none" stroke="#24505F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 l5 5"/></svg>Listings &amp; SEO</span><span class="b"><svg viewBox="0 0 24 24" fill="none" stroke="#24505F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 V4 h8 l9 9 -8 8 Z"/><path d="M7.5 8 h.01"/></svg>Pricing setup</span><span class="b"><svg viewBox="0 0 24 24" fill="none" stroke="#24505F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 L2 9 l10 5 10-5 Z"/><path d="M6 11.5 V16 c0 1.5 2.7 3 6 3 s6-1.5 6-3 v-4.5"/></svg>Team training</span><span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="#1E3A43" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 v4 h3 l6 4.5 V5.5 L6 10 Z"/><path d="M16 9 a4.2 4.2 0 0 1 0 6"/></svg>Ads &amp; promotions</span>
           <span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="#1E3A43" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 V4 h8 l9 9 -8 8 Z"/><path d="M7.5 8 h.01"/></svg>Daily pricing</span>
           <span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="#1E3A43" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="11" height="8" rx="1"/><path d="M13 10 h4 l3 3 v2 h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/></svg>Fulfillment ops</span>
           <span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="#1E3A43" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13 a8 8 0 0 1 16 0"/><rect x="3" y="13" width="4.5" height="6" rx="1.8"/><rect x="16.5" y="13" width="4.5" height="6" rx="1.8"/></svg>Customer service</span>
@@ -423,7 +421,7 @@
           <span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="#1E3A43" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="11" rx="2"/><circle cx="12" cy="12.5" r="2.6"/></svg>Financial reconciliation</span>
           <span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="#1E3A43" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.5"/><path d="M3 20 c0-3.3 2.7-6 6-6 s6 2.7 6 6"/><circle cx="17" cy="9.5" r="2.8"/><path d="M17 14.5 c2.6 0 4.5 1.9 4.5 4.5"/></svg>Dedicated account team</span>
         </div>
-        <p class="desc">We are their commerce team, end to end.</p>
+        <p class="desc"><svg viewBox="0 0 24 24" fill="none" stroke="#1E3A43" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.5"/><path d="M3 20 c0-3.3 2.7-6 6-6 s6 2.7 6 6"/><circle cx="17" cy="9.5" r="2.8"/><path d="M17 14.5 c2.6 0 4.5 1.9 4.5 4.5"/></svg>Your commerce team, end to end.</p>
       </div>
     </div>
   </div>
@@ -432,25 +430,25 @@
 
 <!-- 5 · Revenue & growth -->
 <div class="slide s5">
-  <h1><span class="tk">Revenue &amp; growth:</span> the last 12 months</h1>
+  <h1><span class="tk">Revenue &amp; growth:</span> the past 12 months</h1>
   <div class="grid">
     <div class="stats2">
       <div class="stt dk">
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#E8A891" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17 L9 11 L13 14 L21 6"/><path d="M15 6 h6 v6"/></svg></span>
-        <p class="n">SAR 250K+</p><p class="l">revenue, last 12 months</p>
+        <p class="l">Revenue</p><p class="n">SAR 250K+</p>
       </div>
       <div class="stt sg">
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#6F8D7F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9 h18"/><path d="M8 21 h8"/></svg></span>
-        <p class="n">SAR 2M+</p><p class="l">GMV through the platform</p>
+        <p class="l">GMV through the platform</p><p class="n">SAR 2M+</p>
       </div>
       <div class="stt wm">
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#A34A36" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10 L4 20 h16 V10"/><path d="M2 6 h20 l-1.5 4 h-17 Z"/><path d="M10 20 v-6 h4 v6"/></svg></span>
-        <p class="n">25+</p><p class="l">brands, 10 accounts</p>
+        <p class="l">Brands, 10 accounts</p><p class="n">25+</p>
         <div class="strip"><img src="assets/br_reefi.png" alt="Reefi"><img src="assets/br_sonbol.png" alt="Sonbol"><img src="assets/br_feel.png" alt="Feel"><img src="assets/br_ioud.png" alt="iOud"><img src="assets/br_safwat.png" alt="Safwat Aljouf"><span class="more">+20</span></div>
       </div>
       <div class="stt">
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2A5561" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 L12 3 L3 8 v8 l9 5 9-5 Z"/><path d="M3 8 l9 5 9-5"/><path d="M12 13 v8"/></svg></span>
-        <p class="n">15K+</p><p class="l">orders on live channels</p>
+        <p class="l">Orders on live channels</p><p class="n">15K+</p>
         <div class="strip"><img src="assets/ch_amazon.png" alt="Amazon"><img src="assets/ch_noon.png" alt="noon"><img src="assets/ch_trendyol.png" alt="Trendyol"><img src="assets/ch_jahez.png" alt="Jahez"><img src="assets/ch_ninja.png" alt="Ninja"><img src="assets/ch_salla.png" alt="Salla"><img src="assets/ch_hungerstation.png" alt="HungerStation"><img src="assets/ch_keeta.png" alt="Keeta"></div>
       </div>
     </div>
@@ -498,24 +496,20 @@
         </div>
         <div class="wrow">
           <span class="wic"><span class="ar">ع</span></span>
-          <span>Arabic &amp; English stores, the region's only Arabic support</span>
+          <span>Arabic &amp; English stores support, globally the 1st</span>
         </div>
         <div class="wrow">
           <span class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="#6F8D7F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 L13.8 9.2 L20 11 L13.8 12.8 L12 19 L10.2 12.8 L4 11 L10.2 9.2 Z"/><path d="M19 3.5 l.7 2.3 2.3.7 -2.3.7 -.7 2.3 -.7-2.3 -2.3-.7 2.3-.7 Z"/></svg></span>
           <span>AI on live commerce data, Brand Health graded daily</span>
         </div>
-        <div class="wrow">
-          <span class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="#6F8D7F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 a8 8 0 0 1 14-5"/><path d="M18 3 v4 h-4"/><path d="M20 12 a8 8 0 0 1-14 5"/><path d="M6 21 v-4 h4"/></svg></span>
-          <span>From onboarding to cashflow, in one place</span>
-        </div>
       </div>
       <div class="tamcard">
-        <p class="th">The market, in SAR</p>
-        <div class="trow"><span class="tl">TAM</span><span class="tspace"><span class="tbar tb1">SAR 92,000M</span></span></div>
+        <p class="th">The market size, in SAR</p>
+        <div class="trow"><span class="tl">TAM<small>total addressable</small></span><span class="tspace"><span class="tbar tb1">SAR 92,000M</span></span></div>
         <p class="tcap">GCC e-commerce</p>
-        <div class="trow"><span class="tl">SAM</span><span class="tspace"><span class="tbar tb2">SAR 366M</span></span></div>
+        <div class="trow"><span class="tl">SAM<small>serviceable addressable</small></span><span class="tspace"><span class="tbar tb2">SAR 366M</span></span></div>
         <p class="tcap">marketplace software &amp; services for KSA storefront brands</p>
-        <div class="trow"><span class="tl">SOM</span><span class="tspace"><span class="tbar tb3">SAR 14-25M</span></span></div>
+        <div class="trow"><span class="tl">SOM<small>serviceable obtainable</small></span><span class="tspace"><span class="tbar tb3">SAR 14-25M</span></span></div>
         <p class="tcap">2,500 to 4,000 brands, next 2 to 3 years</p>
       </div>
     </div>
@@ -530,8 +524,8 @@
         <span class="qpt" style="left:7%; top:74%"><img src="assets/lg_helium.png" alt="">Ad tools · Helium 10</span>
         <span class="qpt" style="left:53%; top:80%"><img src="assets/lg_channelengine.png" alt="">ChannelEngine · software only</span>
         <span class="qpt nasam" style="right:4%; top:12%"><img src="assets/logo_mark_ink.png" alt="">Nasam</span>
-        <span class="qaxis" style="left:0; bottom:-10pt">Manages one channel</span>
-        <span class="qaxis" style="right:0; bottom:-10pt">Manages every channel</span>
+        <span class="qaxis" style="left:0; bottom:-16pt">Manages one channel</span>
+        <span class="qaxis" style="right:0; bottom:-16pt">Manages every channel</span>
         <span class="qaxis v qtop">We manage it</span>
         <span class="qaxis v qbot">We integrate it</span>
       </div>
@@ -557,11 +551,11 @@
     <div class="cred c2">
       <span class="cic"><svg viewBox="0 0 24 24" fill="none" stroke="#4E7E90" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="17" rx="2"/><circle cx="12" cy="10" r="2.6"/><path d="M7.5 17.5 c.6-2.2 2.4-3.5 4.5-3.5 s3.9 1.3 4.5 3.5"/></svg></span>
       <p class="cl">Prior working experience in</p><p class="cn"><img src="assets/ch_amazon.png" alt="Amazon"> <img src="assets/ch_trendyol.png" alt="Trendyol"></p>
-      <p class="csub">Amazon &amp; Trendyol</p>
+      <p class="csub">managed over 4K accounts</p>
     </div>
     <div class="cred c3">
       <span class="cic"><svg viewBox="0 0 24 24" fill="none" stroke="#A08A5A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7 v5 l3.5 2"/></svg></span>
-      <p class="cl">Building since Mar 2025</p><p class="cn">+8,580 hrs</p>
+      <p class="cl">Building since Mar 2025</p><p class="cn">+8,500 hrs</p>
       <p class="csub">7+ hrs a day, per founder</p>
     </div>
     <div class="cred c4">
@@ -580,7 +574,7 @@
   <div class="withrow"><span>with</span><img src="assets/inspireu_lockup_white.png" alt="inspireU from stc"></div>
   <div class="chanicons">
     <img src="assets/ch_amazon.png" alt="Amazon"><img src="assets/ch_noon.png" alt="noon"><img src="assets/ch_salla.png" alt="Salla"><img src="assets/ch_trendyol.png" alt="Trendyol"><img src="assets/ch_jahez.png" alt="Jahez"><img src="assets/ch_hungerstation.png" alt="HungerStation"><img src="assets/ch_keeta.png" alt="Keeta"><img src="assets/ch_ninja.png" alt="Ninja"><img src="assets/ch_zid.png" alt="Zid"><img src="assets/ch_shopify.png" alt="Shopify"><img src="assets/ch_plus8.png" alt="+8 more"></div>
-  <div class="foot"><span class="brand">www.nasam.co · general@nasam.co</span><span>Thank you · شكرًا</span><span>8 / 8</span></div>
+  <div class="foot"><span class="brand">www.nasam.co · general@nasam.co</span><span>Thank you</span><span>8 / 8</span></div>
 </div>
 
 </body>
