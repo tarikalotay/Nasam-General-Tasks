@@ -49,6 +49,7 @@
 
   /* S1 — title, vision & mission (dark) */
   .s1 { justify-content: center; }
+  .s1 .wm { position: absolute; right: -55pt; top: 50%; transform: translateY(-50%); width: 330pt; opacity: .05; }
   .s1 .logo { height: 88pt; width: auto; align-self: flex-start; margin-bottom: 26pt; }
   .s1 .oneliner { font-family: 'Baloo 2', sans-serif; font-size: 20pt; line-height: 1.4; max-width: 640pt; color: var(--cream); font-weight: 600; }
   .s1 .vm { display: flex; gap: 16pt; margin-top: 28pt; }
@@ -85,21 +86,24 @@
   .brow { display: flex; gap: 5pt; flex: 1; }
   .brick { background: #F6E7DF; border: 1pt solid #E8CCBE; border-radius: 7pt; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 8pt; font-size: 9.5pt; font-weight: 600; color: #6B4A3D; }
   .brow .b6 { flex: 1.3; } .brow .b4 { flex: 1; }
-  .wstuck { margin-top: 3pt; text-align: center; font-size: 10pt; font-weight: 700; color: var(--accent-deep); background: #FDEEE8; border: 1pt solid #F0D9CE; border-radius: 999px; padding: 4pt 10pt; }
+  .wstuck { margin-top: 3pt; text-align: center; font-size: 11pt; font-weight: 700; color: var(--accent-deep); background: #FDEEE8; border: 1pt solid #F0D9CE; border-radius: 999px; padding: 4pt 10pt; }
   /* the portal (S3) */
   .portal { background: var(--panel); border: 1.5pt solid var(--border); border-radius: 14pt; box-shadow: 0 3pt 10pt rgba(30,58,67,.08); overflow: hidden; height: 100%; display: flex; flex-direction: column; }
   .appbar { display: flex; align-items: center; gap: 8pt; padding: 7pt 14pt; border-bottom: 1pt solid var(--border); }
   .dot { width: 6.5pt; height: 6.5pt; border-radius: 50%; background: var(--border); }
   .url { font-size: 9pt; color: var(--muted); margin-left: 6pt; display: flex; align-items: center; gap: 6pt; }
   .url img { height: 10pt; }
-  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6pt; padding: 10pt 12pt; flex: 1; }
-  .tile { border: 1pt solid var(--border); background: var(--paper); border-radius: 8pt; padding: 6pt 9pt; display: flex; align-items: center; }
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6pt; padding: 10pt 12pt; flex: 1; background: #F6F1E8; }
+  .tile { border: 1pt solid var(--border); background: var(--panel); border-radius: 8pt; padding: 6pt 8pt; display: flex; align-items: center; gap: 6pt; box-shadow: 0 1pt 2.5pt rgba(30,58,67,.05); }
+  .tile svg { width: 11.5pt; height: 11.5pt; flex: none; }
   .tile .tt { font-size: 9pt; font-weight: 600; line-height: 1.2; }
   .pfoot { border-top: 1pt solid var(--border); padding: 7pt 12pt; font-size: 9.5pt; color: var(--muted); text-align: center; }
   .pfoot b { color: var(--ink); }
 
   /* S4 — business model */
-  .s4 .cards { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 344pt; gap: 16pt; flex: 1; align-content: center; margin-top: 6pt; margin-bottom: 8pt; }
+  .s4 .cards { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 344pt; gap: 16pt; flex: 1; align-content: center; margin-top: 6pt; margin-bottom: 8pt; position: relative; }
+  .plus { position: absolute; top: calc(50% - 155pt); transform: translate(-50%, -50%); width: 21pt; height: 21pt; border-radius: 50%; background: var(--panel); border: 1pt solid var(--border); color: var(--muted); display: grid; place-items: center; font-family: "Baloo 2", sans-serif; font-weight: 700; font-size: 13pt; box-shadow: 0 1pt 4pt rgba(30,58,67,.14); z-index: 2; }
+  .plus.p1 { left: 33.03%; } .plus.p2 { left: 66.97%; }
   .price { background: var(--panel); border: 1pt solid var(--border); border-radius: 14pt; overflow: hidden; display: flex; flex-direction: column; }
   .price .head { padding: 10pt 17pt; color: #FFF; font-family: "Baloo 2", sans-serif; font-weight: 700; font-size: 15pt; }
   .price.pA .head { background: var(--sage); }
@@ -110,6 +114,7 @@
   .incl span { font-size: 8.5pt; font-weight: 700; border-radius: 999px; padding: 2.5pt 10pt; }
   .incl .ip { background: #EAF1EC; color: #3E6B52; border: 1pt solid #D8E4DC; }
   .incl .io { background: var(--lblue); color: #2A5561; border: 1pt solid #C6DCE5; }
+  .incl .ib { background: var(--paper); color: var(--muted); border: 1pt solid var(--border); }
   .price .amount { font-family: "Baloo 2", sans-serif; font-size: 23pt; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.1; }
   .price .amount.txt { font-size: 17.5pt; padding: 3pt 0; }
   .price .per { font-size: 9.5pt; color: var(--muted); }
@@ -161,12 +166,13 @@
   .quad { background: var(--panel); border: 1pt solid var(--border); border-radius: 12pt; padding: 12pt 16pt 20pt; display: flex; flex-direction: column; }
   .quad .qtitle { font-size: 10.5pt; font-weight: 600; margin-bottom: 6pt; }
   .qbox { position: relative; flex: 1; border-left: 1pt solid var(--border); border-bottom: 1pt solid var(--border); margin: 4pt 8pt 12pt 8pt; }
+  .qzone { position: absolute; right: 0; top: 0; width: 50%; height: 50%; background: rgba(111,141,127,.08); border-radius: 0 4pt 0 10pt; }
   .qmid-v { position: absolute; left: 50%; top: 0; bottom: 0; border-left: 1pt dashed #EFE9DC; }
   .qmid-h { position: absolute; top: 50%; left: 0; right: 0; border-top: 1pt dashed #EFE9DC; }
-  .qpt { position: absolute; display: flex; align-items: center; gap: 5pt; font-size: 8.5pt; color: var(--muted); white-space: nowrap; }
+  .qpt { position: absolute; display: flex; align-items: center; gap: 5pt; font-size: 8.5pt; color: var(--muted); white-space: nowrap; background: var(--panel); border: 1pt solid var(--border); border-radius: 999px; padding: 2.5pt 9pt 2.5pt 5pt; box-shadow: 0 1pt 3pt rgba(30,58,67,.07); z-index: 1; }
   .qpt img { width: 17pt; height: 17pt; border-radius: 4.5pt; border: .5pt solid var(--border); }
   .qpt i { width: 7pt; height: 7pt; border-radius: 50%; background: var(--sage); display: inline-block; }
-  .qpt.nasam { font-size: 11.5pt; font-weight: 700; color: var(--accent-deep); }
+  .qpt.nasam { font-size: 11.5pt; font-weight: 700; color: var(--accent-deep); background: #FDF6F3; border: 1.5pt solid var(--accent); padding: 3.5pt 12pt 3.5pt 8pt; }
   .qpt.nasam img { height: 14pt; width: auto; border: none; border-radius: 0; }
   .qaxis { position: absolute; font-size: 7.5pt; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
   .s6 .only { margin-top: 10pt; font-size: 12pt; text-align: center; }
@@ -196,8 +202,9 @@
   .s8h .logos img.na { height: 20pt; width: auto; }
   .s8h .logos .x { font-size: 14pt; color: var(--muted); }
   .s8 .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18pt; flex: 1; min-height: 0; margin-top: 14pt; margin-bottom: 6pt; }
-  .stccol { background: var(--panel); border: 1.5pt solid var(--stc); border-radius: 14pt; padding: 14pt 18pt; display: flex; flex-direction: column; justify-content: space-evenly; gap: 8pt; }
-  .stccol .h { font-family: "Baloo 2", sans-serif; font-size: 15.5pt; font-weight: 700; color: var(--stc); }
+  .stccol { background: var(--panel); border: 1.5pt solid var(--stc); border-radius: 14pt; padding: 0; display: flex; flex-direction: column; overflow: hidden; }
+  .stccol .h { font-family: "Baloo 2", sans-serif; font-size: 15.5pt; font-weight: 700; color: var(--stc); background: #F7F4FB; border-bottom: 1pt solid #E9E2F2; padding: 11pt 18pt 9pt; }
+  .stccol .rows { flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; gap: 6pt; padding: 6pt 18pt 10pt; }
   .srow { display: flex; align-items: center; gap: 12pt; }
   .srow img.thumb { width: 54pt; height: 54pt; border-radius: 11pt; object-fit: cover; object-position: 50% 30%; border: 1pt solid var(--border); flex: none; }
   .srow .st { font-size: 11.5pt; line-height: 1.4; }
@@ -226,6 +233,7 @@
 
 <!-- 1 · Title + Vision & Mission (dark) -->
 <div class="slide dark s1">
+  <img class="wm" src="assets/logo_mark_cream.png" alt="">
   <img class="logo" src="assets/logo_full_cream.png" alt="Nasam نسم">
   <p class="oneliner">We take brands live on <b>every sales channel</b>, and run them. From onboarding to cashflow.</p>
   <div class="vm">
@@ -235,7 +243,7 @@
   <div class="chanicons">
     <img src="assets/ch_amazon.png" alt="Amazon"><img src="assets/ch_noon.png" alt="noon"><img src="assets/ch_salla.png" alt="Salla"><img src="assets/ch_trendyol.png" alt="Trendyol"><img src="assets/ch_jahez.png" alt="Jahez"><img src="assets/ch_hungerstation.png" alt="HungerStation"><img src="assets/ch_zid.png" alt="Zid"><img src="assets/ch_plus8.png" alt="+8 more">
   </div>
-  <div class="foot"><span class="brand">inspireU by stc · final pitch</span><span>1 / 9</span></div>
+  <div class="foot"><span class="brand">inspireU by stc · final pitch</span><span>1 / 8</span></div>
 </div>
 
 <!-- 2 · The problem -->
@@ -282,7 +290,7 @@
       </div>
     </div>
   </div>
-  <div class="foot"><span class="brand"><img src="assets/logo_mark_ink.png" alt="Nasam">Nasam</span><span>2 / 9</span></div>
+  <div class="foot"><span class="brand"><img src="assets/logo_mark_ink.png" alt="Nasam">Nasam</span><span>2 / 8</span></div>
 </div>
 
 <!-- 3 · Our solution -->
@@ -326,33 +334,35 @@
       <div class="portal">
         <div class="appbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url"><img src="assets/logo_mark_ink.png" alt="">app.nasam.co</span></div>
         <div class="tiles">
-          <div class="tile"><p class="tt">Products</p></div>
-          <div class="tile"><p class="tt">Orders</p></div>
-          <div class="tile"><p class="tt">Inventory</p></div>
-          <div class="tile"><p class="tt">Fulfillment</p></div>
-          <div class="tile"><p class="tt">Vendor Orders</p></div>
-          <div class="tile"><p class="tt">Profitability</p></div>
-          <div class="tile"><p class="tt">Sales Performance</p></div>
-          <div class="tile"><p class="tt">Product Insights</p></div>
-          <div class="tile"><p class="tt">Period Comparison</p></div>
-          <div class="tile"><p class="tt">Brand Health</p></div>
-          <div class="tile"><p class="tt">Marketplace Ads</p></div>
-          <div class="tile"><p class="tt">AI Access (MCP)</p></div>
+          <div class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#2A5561" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 L12 3 3 8 v8 l9 5 9-5 Z"/><path d="M3 8 l9 5 9-5"/><path d="M12 13 v8"/></svg><p class="tt">Products</p></div>
+          <div class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#2A5561" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3 h12 v18 l-3-2 -3 2 -3-2 -3 2 Z"/><path d="M9 8.5 h6 M9 12.5 h6"/></svg><p class="tt">Orders</p></div>
+          <div class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#2A5561" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 L21 7.5 12 12 3 7.5 Z"/><path d="M3 12 l9 4.5 9-4.5"/><path d="M3 16.5 l9 4.5 9-4.5"/></svg><p class="tt">Inventory</p></div>
+          <div class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#2A5561" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="11" height="8" rx="1"/><path d="M13 10 h4 l3 3 v2 h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/></svg><p class="tt">Fulfillment</p></div>
+          <div class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#2A5561" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="5" width="12" height="16" rx="2"/><path d="M9 5 a3 3 0 0 1 6 0"/><path d="M9 11.5 h6 M9 15.5 h6"/></svg><p class="tt">Vendor Orders</p></div>
+          <div class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#2A5561" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6.5" rx="7" ry="3"/><path d="M5 6.5 v5 c0 1.7 3.1 3 7 3 s7-1.3 7-3 v-5"/><path d="M5 11.5 v5 c0 1.7 3.1 3 7 3 s7-1.3 7-3 v-5"/></svg><p class="tt">Profitability</p></div>
+          <div class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#2A5561" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20 h18"/><path d="M7 20 v-7 M12 20 v-11 M17 20 v-5"/></svg><p class="tt">Sales Performance</p></div>
+          <div class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#2A5561" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 a6 6 0 0 1 4 10.4 c-.8.7-1 1.6-1 2.6 h-6 c0-1-.2-1.9-1-2.6 A6 6 0 0 1 12 3 Z"/><path d="M10 19.5 h4"/></svg><p class="tt">Product Insights</p></div>
+          <div class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#2A5561" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="9" height="9" rx="1.5"/><rect x="12" y="11" width="9" height="9" rx="1.5"/></svg><p class="tt">Period Comparison</p></div>
+          <div class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#2A5561" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20 C6.5 15.5 4 12 4 9 a4.4 4.4 0 0 1 8-2.5 A4.4 4.4 0 0 1 20 9 c0 3-2.5 6.5-8 11 Z"/><path d="M8 11.5 h2.6 l1.4-2.6 1.6 4.4 1.4-1.8 H16"/></svg><p class="tt">Brand Health</p></div>
+          <div class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#2A5561" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 v4 h3 l6 4.5 V5.5 L6 10 Z"/><path d="M16 9 a4.2 4.2 0 0 1 0 6"/></svg><p class="tt">Marketplace Ads</p></div>
+          <div class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#2A5561" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5 l1.7 4.8 4.8 1.7 -4.8 1.7 L12 17.5 l-1.7-4.8 -4.8-1.7 4.8-1.7 Z"/><path d="M18.7 4 l.55 1.75 L21 6.3 l-1.75.55 L18.7 8.6 l-.55-1.75 L16.4 6.3 l1.75-.55 Z"/></svg><p class="tt">AI Access (MCP)</p></div>
         </div>
         <p class="pfoot"><b>From onboarding to cashflow</b>: software and AI, with an operations team on top.</p>
       </div>
     </div>
   </div>
-  <div class="foot"><span class="brand"><img src="assets/logo_mark_ink.png" alt="Nasam">Nasam</span><span>3 / 9</span></div>
+  <div class="foot"><span class="brand"><img src="assets/logo_mark_ink.png" alt="Nasam">Nasam</span><span>3 / 8</span></div>
 </div>
 
 <!-- 4 · Business model -->
 <div class="slide s4">
   <h1><span class="tk">Business model:</span> one platform, three ways to run it</h1>
   <div class="cards">
+    <span class="plus p1">+</span><span class="plus p2">+</span>
     <div class="price pA">
       <p class="head">Platform</p>
       <div class="body">
+        <div class="incl"><span class="ib">The base plan</span></div>
         <p class="amount">SAR 449<span style="font-size:11pt"> /mo</span></p>
         <p class="per">or SAR 3,999 / year</p>
         <p class="svch">What's inside</p>
@@ -381,7 +391,7 @@
       </div>
     </div>
   </div>
-  <div class="foot"><span class="brand"><img src="assets/logo_mark_ink.png" alt="Nasam">Nasam</span><span>4 / 9</span></div>
+  <div class="foot"><span class="brand"><img src="assets/logo_mark_ink.png" alt="Nasam">Nasam</span><span>4 / 8</span></div>
 </div>
 
 <!-- 5 · Revenue & growth -->
@@ -434,7 +444,7 @@
       </div>
     </div>
   </div>
-  <div class="foot"><span class="brand"><img src="assets/logo_mark_ink.png" alt="Nasam">Nasam</span><span>5 / 9</span></div>
+  <div class="foot"><span class="brand"><img src="assets/logo_mark_ink.png" alt="Nasam">Nasam</span><span>5 / 8</span></div>
 </div>
 
 <!-- 6 · Market & competition -->
@@ -467,6 +477,7 @@
     <div class="quad">
       <p class="qtitle">Rivals we can name. Nobody sits in our corner</p>
       <div class="qbox">
+        <span class="qzone"></span>
         <div class="qmid-v"></div><div class="qmid-h"></div>
         <span class="qpt" style="left:5%; top:20%"><i></i>Amazon SPN agencies</span>
         <span class="qpt" style="left:32%; top:38%"><i></i>Local Saudi agencies</span>
@@ -482,7 +493,7 @@
     </div>
   </div>
   <p class="only"><b>2.8×</b> demand per Amazon.sa seller vs the global average · the market is still uncaptured</p>
-  <div class="foot"><span class="brand"><img src="assets/logo_mark_ink.png" alt="Nasam">Nasam</span><span>6 / 9</span></div>
+  <div class="foot"><span class="brand"><img src="assets/logo_mark_ink.png" alt="Nasam">Nasam</span><span>6 / 8</span></div>
 </div>
 
 <!-- 7 · Founders & team -->
@@ -495,7 +506,7 @@
   </div>
   <div class="creds">
     <div class="cred">
-      <span class="cic"><svg viewBox="0 0 24 24" fill="none" stroke="#6F8D7F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15 C8 11 8.5 5.5 12 2 C15.5 5.5 16 11 12 15 Z"/><path d="M9 12 L5 15 l3 .8"/><path d="M15 12 l4 3 -3 .8"/><path d="M12 15 v4"/></svg></span>
+      <span class="cic"><svg viewBox="0 0 24 24" fill="none" stroke="#6F8D7F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="8" width="17" height="11" rx="2"/><path d="M9 8 V6.5 a2 2 0 0 1 2-2 h2 a2 2 0 0 1 2 2 V8"/><path d="M3.5 12.5 h17"/></svg></span>
       <p class="cl">Startups before Nasam</p><p class="cn">3+</p>
     </div>
     <div class="cred">
@@ -506,65 +517,21 @@
       <p class="cl">Building since Mar 2025</p><p class="cn">8,580+</p>
     </div>
     <div class="cred">
-      <span class="cic"><svg viewBox="0 0 24 24" fill="none" stroke="#6F8D7F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 15 V9 l3.5 4 3.5-4 v6"/></svg></span>
+      <span class="cic"><svg viewBox="0 0 24 24" fill="none" stroke="#6F8D7F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6.5" width="19" height="11" rx="2"/><circle cx="12" cy="12" r="2.8"/><path d="M6 12 h.01 M18 12 h.01"/></svg></span>
       <p class="cl">Revenue in the pilot</p><p class="cn">SAR 250K+</p>
     </div>
   </div>
   <p class="teamband">We ran <b>25+ brands together</b> before writing a line of this platform.</p>
-  <div class="foot"><span class="brand"><img src="assets/logo_mark_ink.png" alt="Nasam">Nasam</span><span>7 / 9</span></div>
+  <div class="foot"><span class="brand"><img src="assets/logo_mark_ink.png" alt="Nasam">Nasam</span><span>7 / 8</span></div>
 </div>
 
-<!-- 8 · Why us, why inspireU -->
-<div class="slide s8">
-  <div class="s8h">
-    <h1 style="font-size:23pt"><span class="tk" style="color:var(--stc)">Why us, why inspireU:</span> we complete each other</h1>
-    <div class="logos"><img class="iu" src="assets/inspireu_lockup_purple.png" alt="inspireU from stc"><span class="x">×</span><img class="na" src="assets/logo_full_ink.png" alt="Nasam"></div>
-  </div>
-  <div class="grid2">
-    <div class="stccol">
-      <p class="h">What Nasam adds to stc</p>
-      <div class="srow">
-        <img class="thumb" src="assets/vaster_product.jpg" alt="Vaster from stc accessory">
-        <p class="st"><b>Vaster &amp; The Store from stc, everywhere</b><span>stc's devices and accessories, on every marketplace</span></p>
-      </div>
-      <div class="srow">
-        <span class="stcchip"><img src="assets/stc_purple.png" alt="stc"></span>
-        <p class="st"><b>Shoppers stc isn't reaching</b><span>most think stc sells only phones and SIMs</span></p>
-      </div>
-      <div class="lay">
-        <p class="lt">The missing layer</p>
-        <p class="lrow"><img src="assets/lg_rewaa.png" alt="Rewaa"><b>Rewaa</b><span>· Accounting</span></p>
-        <p class="lrow"><img src="assets/ch_zid.png" alt="Zid"><b>Zid</b><span>· Storefronts</span></p>
-        <p class="lrow"><img src="assets/lg_oto.png" alt="OTO"><b>OTO</b><span>· OMS</span></p>
-        <p class="lrow"><img class="nm" src="assets/logo_mark_ink.png" alt="Nasam"><b>Nasam</b><span>· the Marketplaces</span></p>
-      </div>
-    </div>
-    <div class="stccol">
-      <p class="h">What inspireU by stc adds to Nasam</p>
-      <div class="srow">
-        <span class="stcchip"><img src="assets/stc_purple.png" alt="stc"></span>
-        <p class="st"><b>channels by stc</b><span>the pilot: Vaster, one brand, every marketplace</span></p>
-      </div>
-      <div class="srow">
-        <span class="stcchip"><img src="assets/stc_purple.png" alt="stc"></span>
-        <p class="st"><b>myStore.com.sa + 70,000 points of sale</b><span>stc shelves, opened to the brands we run</span></p>
-      </div>
-      <div class="srow">
-        <span class="stcchip"><img src="assets/stc_purple.png" alt="stc"></span>
-        <p class="st"><b>stc Bank</b><span>the rails from onboarding to cashflow</span></p>
-      </div>
-    </div>
-  </div>
-  <div class="foot"><span class="brand"><img src="assets/logo_mark_ink.png" alt="Nasam">Nasam · inspireU by stc</span><span>8 / 9</span></div>
-</div>
-
-<!-- 9 · Closing (dark) -->
+<!-- 8 · Closing (dark) -->
 <div class="slide dark s9">
   <img class="mark" src="assets/logo_mark_cream.png" alt="Nasam">
   <p class="big">Powering every seller's growth.</p>
   <div class="withrow"><span>with</span><img src="assets/inspireu_lockup_white.png" alt="inspireU from stc"></div>
   <p class="contact">www.nasam.co · general@nasam.co</p>
-  <div class="foot"><span class="brand">Thank you · شكرًا</span><span>9 / 9</span></div>
+  <div class="foot"><span class="brand">Thank you · شكرًا</span><span>8 / 8</span></div>
 </div>
 
 </body>

@@ -1,4 +1,4 @@
-# The 3-Minute Script — draft 4 (9 slides · ≈380 words · rehearse to 2:45)
+# The 3-Minute Script — draft 4.1 (8 slides · ≈370 words · rehearse to 2:45)
 
 > Built for the 3:00 hard cutoff. One message per slide; if a sentence isn't below, don't say it.
 > Header chips are gone — each title now carries its topic, so say the topic word as you land on
@@ -39,11 +39,12 @@ We lived this problem: three-plus startups before Nasam, operator experience ins
 Trendyol, eight-and-a-half thousand hours of building since March — a quarter-million riyals of
 pilot revenue. We ran twenty-five brands together before writing a line of code.
 
-**[2:35 · S8 — Why us, why inspireU]**
-And why inspireU? stc just launched Vaster — its own accessories brand. Most shoppers think stc
-sells only phones and SIMs. Taking brands to every marketplace is exactly what we do — so here's
-the pilot: Vaster, every marketplace, run by Nasam, with channels by stc. Rewaa does accounting.
-Zid does storefronts. OTO does shipping. Nasam runs the marketplaces.
+**[2:35 · S8 — Close (why us, why inspireU is SPOKEN over this slide)]**
+And why inspireU? stc just launched Vaster — its own accessories brand — and taking brands to
+every marketplace is exactly what we do. So here's the pilot: Vaster, every marketplace, run by
+Nasam, with channels by stc. Rewaa does accounting. Zid does storefronts. OTO does shipping.
+Nasam runs the marketplaces. Powering every seller's growth — with inspireU by stc. Thank you.
 
-**[2:55 · S9 — Close]**
-Powering every seller's growth — with inspireU by stc. Thank you.
+> The dedicated why-inspireU slide was cut by the team (20 Aug): topic 08 is answered entirely in
+> this spoken close, delivered over the dark closing slide with the inspireU by stc lockup on
+> screen. If a judge probes deeper, the Q&A answers in `stc-synergy.md` still hold.

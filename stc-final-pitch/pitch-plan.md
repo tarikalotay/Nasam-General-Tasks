@@ -351,6 +351,17 @@ Now **9 slides** (the close split back into its own final page, by request).
 - **Final slide simplified** to the two columns + logos only; **new closing slide** (dark):
   Nasam mark, "Powering every seller's growth." with the inspireU by stc lockup, contacts.
 
+## 12c. Draft 4.1 changes (20 Aug, UX pass with Nasam's own skills + team cut)
+
+- **UX pass via the team's own `ux-touch` / `ux-discovery` skills** (judge treated as a
+  first-time user; "surface value, not menus"): the 12 portal signals each got a product icon on
+  an app-canvas background (kept as a uniform grid per the earlier rule); business-model tiers
+  gained "+" connectors and a "The base plan" chip so all three amounts align; quadrant
+  competitors became logo chips with Nasam in an accent chip inside a softly washed "our corner";
+  cleaner team-slide icons; a subtle Nasam-mark watermark on the title slide.
+- **"Why us, why inspireU" slide deleted per team** — the deck is 8 slides again; topic 08 is now
+  answered verbally over the closing slide (see script), which carries the inspireU by stc lockup.
+
 ## 13. Bootcamp brief coverage check (intake-13 welcome deck, read in full)
 
 | Brief requirement | Where the deck answers it |
