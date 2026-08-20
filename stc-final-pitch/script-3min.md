@@ -11,13 +11,15 @@ them, from onboarding to cashflow. Our vision: when a brand sells anywhere — i
 **[0:20 · S2 — The problem]**
 Seventy-eight thousand brands sell from their own storefronts. Fewer than twenty thousand ever
 reach the marketplaces, where conversion is three times higher. Why? The operations wall:
-listings, inventory, fulfillment, pricing, ads — per channel, every day. Fifty-eight thousand
-brands stay stuck behind it.
+listings, inventory, fulfillment, pricing, ads — per channel, every day. And it costs them time,
+money, and quality: fifty checks a day, penalties and lost Buy Box, listings that slip.
+Fifty-eight thousand brands stay stuck behind it.
 
 **[0:45 · S3 — Our solution]**
 Nasam opens the bottleneck. One portal with every signal a brand needs — orders, inventory,
 pricing, profit — across every channel, with Brand Health graded daily and AI on live data. And
-when a brand wants it run for them, our team runs it on the same platform.
+when a brand wants it run for them, our team runs it on the same platform. Why now? The demand
+is already paid for, the shelf is uncaptured, and the season won't wait.
 
 **[1:10 · S4 — Business model]**
 One platform, three ways to run it. Software: four-forty-nine a month, or three-nine-nine-nine a

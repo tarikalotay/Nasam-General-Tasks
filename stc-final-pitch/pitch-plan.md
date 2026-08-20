@@ -388,6 +388,13 @@ Now **9 slides** (the close split back into its own final page, by request).
   "7+ hrs a day, per founder".
 - **Close**: full Nasam logo, "growth." in accent, colorful marketplace icon row for life.
 
+## 12e. Post-rehearsal additions (20 Aug, instructor feedback after the 2:00 run)
+
+- **Problem**: impact row added to the operations wall — Time (50 checks a day), Cost (penalties,
+  lost Buy Box, dead stock), Quality (broken listings, slipping ratings).
+- **Solution**: "Why now?" banner above the portal — demand is already paid for, the shelf is
+  uncaptured, the season won't wait.
+
 ## 13. Bootcamp brief coverage check (intake-13 welcome deck, read in full)
 
 | Brief requirement | Where the deck answers it |
