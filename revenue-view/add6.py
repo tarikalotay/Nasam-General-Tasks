@@ -23,5 +23,5 @@ TWO_M=[
 ("Reefi","Trendyol","2026-02",884.10,7),("Reefi","Trendyol","2026-03",1210.55,17),("Reefi","Trendyol","2026-04",4728.50,39),
 ("Reefi","Trendyol","2026-05",6300.00,57),("Reefi","Trendyol","2026-06",2931.00,23),
 ]
-# Sonbol Salla from integration date (13 Aug 2026) — mcp_read.revenue daily, 17 Aug
-SONBOL_FROM_INTEGRATION=(167356.40, 598)
+# Sonbol Salla from integration date (13 Aug 2026) — mcp_read.revenue daily, refreshed 23 Aug 2026
+SONBOL_FROM_INTEGRATION=(407451.70, 1530)

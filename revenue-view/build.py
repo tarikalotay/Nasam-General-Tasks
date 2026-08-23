@@ -6,7 +6,7 @@ from collections import defaultdict
 from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Font, PatternFill, Alignment
 from openpyxl.utils import get_column_letter
-import rev5, old_gmv, add6
+import rev5, old_gmv, add6, wafeq_api, po_plat
 
 F="Arial"
 BLACK=Font(name=F,size=10); BOLD=Font(name=F,size=10,bold=True)
@@ -20,12 +20,13 @@ M=[f"20{y}-{m:02d}" for y,m in [(25,11),(25,12)]+[(26,i) for i in range(1,9)]]
 MNAMES={1:'Jan',2:'Feb',3:'Mar',4:'Apr',5:'May',6:'Jun',7:'Jul',8:'Aug',9:'Sep',10:'Oct',11:'Nov',12:'Dec'}
 def mlbl(m): return f"{MNAMES[int(m[5:7])]} {m[:4]}"
 ML=[mlbl(m) for m in M]
-SONBOL="سنبل - المتجر الإلكتروني - Sonbol"
+SONBOL="Sonbol"
+SONBOL_OLD="سنبل - المتجر الإلكتروني - Sonbol"
 
 SRC_WAFEQ="Wafeq invoice export"
 SRC_PLAT="Nasam platform — revenue view"
 SRC_ORD="Nasam platform — orders view"
-SRC_PO="Closed-PO export"
+SRC_PO="Nasam platform — closed POs"
 SRC_CARD="Rate card (Tarik)"
 SRC_SALLA="Salla Partners export"
 
@@ -51,7 +52,8 @@ CONTACT_BRAND={"شركة البخور الذكي - IOUD":"iOUD","شركة الب
 B2C={}; K2B={k:brs for k,_,_,_,brs in CL}; CHURN={k:chn for k,_,_,chn,_ in CL}
 for k,_,_,_,brs in CL:
     for b in brs: B2C[b]=k
-DISP={SONBOL:"Sonbol (سنبل)"}
+B2C[SONBOL_OLD]="Dar Sonbol"
+DISP={SONBOL:"Sonbol (سنبل)",SONBOL_OLD:"Sonbol (سنبل)"}
 def disp(b): return DISP.get(b,b)
 def ckey(contact):
     if contact in C2K: return C2K[contact]
@@ -97,6 +99,7 @@ CH_AR=[('أمازون للتجزئة','Amazon Retail'),('أمازون','Amazon')
 def stream(item,desc,client):
     it=str(item or ''); de=str(desc or '')
     if 'كلاود شيلف' in de or 'كلاود شيلف' in it: return ('PassThrough',None)
+    if 'PO#' in de or 'PO #' in de: return ('Commission','Ninja Retail' if 'Ninja' in de or 'نينجا' in de else 'Amazon Retail')
     if 'رسوم شهرية' in it: return ('Monthly fee',None)
     if it.startswith('عمولة مبيعات'):
         for a,e in CH_AR:
@@ -110,21 +113,31 @@ def stream(item,desc,client):
     if client=='House Mart': return ('Setup',None)
     return ('Other',None)
 
-ws0=load_workbook(os.path.join(HERE,'sources','wafeq_invoices_2026-08-17.xlsx'), data_only=True)['Sheet1']
+def wafeq_lines():
+    if wafeq_api.available():
+        for L in wafeq_api.load(): yield L
+        return
+    ws0=load_workbook(os.path.join(HERE,'sources','wafeq_invoices_2026-08-17.xlsx'), data_only=True)['Sheet1']
+    seen=set()
+    for r in ws0.iter_rows(min_row=2, values_only=True):
+        num=r[1]; first=num not in seen; seen.add(num)
+        yield dict(num=num,date=str(r[2])[:10],contact=r[5],amount=fnum(r[8]),balance=fnum(r[10]),
+                   status=str(r[0]),disc=fnum(r[26]),ref=r[32],item=str(r[12] or ''),desc=str(r[15] or ''),lam=fnum(r[23]),first=first)
+SRC_MODE='Wafeq API' if wafeq_api.available() else 'manual xlsx export'
+print('billing source:',SRC_MODE)
 invmeta={}
 fee=defaultdict(float); setup=defaultdict(float); other=defaultdict(float); disc=defaultdict(float); pth=defaultdict(float)
 comm=defaultdict(float); comm_brand=defaultdict(float); rate_obs=defaultdict(set)
-for r in ws0.iter_rows(min_row=2, values_only=True):
-    status,num,date,due,_,contact,_,cur,amount,payments,balance,_,item,_,_,desc,qty,price,account=r[:19]
-    ref=r[32]; lam=fnum(r[23])
-    month=parse_ref(ref, str(date)[:10][:7])
+for L in wafeq_lines():
+    num=L['num']; contact=L['contact']; item=L['item']; desc=L['desc']; lam=L['lam']
+    month=parse_ref(L['ref'], L['date'][:7])
     if contact in EXCL_CONTACT:
         era='Excluded'; ck='(excluded)'
     else:
         ck=ckey(contact) or f"UNRESOLVED:{contact}"
         era='Current' if month>=CUT else 'Old'
     if num not in invmeta:
-        invmeta[num]={'amount':fnum(amount),'client':ck,'era':era,'month':month,'disc':fnum(r[26])}
+        invmeta[num]={'amount':L['amount'],'client':ck,'era':era,'month':month,'disc':L['disc']}
     if era!='Current': continue
     st,ch=stream(item,desc,ck)
     if st=='PassThrough': pth[(ck,month)]+=lam
@@ -142,6 +155,14 @@ for num,v in invmeta.items():
         disc[(v['client'],v['month'])]-=v['disc']
 unres=sorted({v['client'] for v in invmeta.values() if str(v['client']).startswith('UNRESOLVED')})
 assert not unres, f"unresolved contacts: {unres}"
+_x=os.path.join(HERE,'sources','wafeq_invoices_2026-08-17.xlsx')
+if wafeq_api.available() and os.path.exists(_x):
+    _w=load_workbook(_x, data_only=True)['Sheet1']; _seen=set(); _xt={}
+    for _r in _w.iter_rows(min_row=2, values_only=True):
+        if _r[1] in _seen: continue
+        _seen.add(_r[1]); _xt[_r[1]]=fnum(_r[8])
+    _d=[n for n in _xt if abs(_xt[n]-(invmeta.get(n,{}).get('amount',0)))>0.02]
+    print(f"API-vs-export reconciliation: {len(_xt)} shared invoices, {len(_d)} mismatches"+(f" -> {_d[:5]}" if _d else ""))
 allk=[k for k,*_ in CL]
 billed_wafeq=defaultdict(float)
 for num,v in invmeta.items():
@@ -151,20 +172,32 @@ billed=defaultdict(float)
 for kk,vv in billed_wafeq.items(): billed[kk]=vv
 for (ck,m),v in pth.items(): billed[(ck,m)]-=v
 
-# ---------- closed POs ----------
+# ---------- retail: closed POs from the platform (values live since 20 Aug), netted vs Wafeq ----------
 acc=defaultdict(lambda: defaultdict(float)); acc_val=defaultdict(lambda: defaultdict(float)); acc_rate={}
-with open(os.path.join(HERE,'sources','closed_pos_2026-08-17.csv')) as fcsv:
-    for row in csv.DictReader(fcsv):
-        if not row.get('brand'): continue
-        b=row['brand'].strip(); ch=row['channel'].strip()
-        mm_,dd_,yy_=row['delivered_date'].split('/')
-        month=f"{yy_}-{int(mm_):02d}"
-        rec=fnum(row['received_sar']); com=fnum(row['commission_sar']); rate=fnum(row['commission_rate_pct'])
-        assert abs(com-rec*rate/100)<0.02, f"CSV commission mismatch {row['po_number']}"
-        k=B2C[b]
-        acc[(k,b,ch)][month]+=com; acc_val[(k,b,ch)][month]+=rec; acc_rate[(k,b,ch)]=rate
+plat=defaultdict(float)
+for b,ch,ym,rec in po_plat.PO_CLOSED:
+    k=B2C[b]; rate=po_plat.RETAIL_RATE[b]
+    acc_val[(k,b,ch)][ym]+=rec
+    plat[(k,b,ch,ym)]+=rec*rate
+    acc_rate[(k,b,ch)]=rate*100
+plat_total=sum(plat.values())
+billed_retail=defaultdict(float)
+for (k2,ch2,m2),v in comm.items():
+    if ch2 in ('Amazon Retail','Ninja Retail'): billed_retail[(k2,ch2)]+=v
+over=0.0
+for (k2,ch2),bill in billed_retail.items():
+    keys=sorted([kk for kk in plat if kk[0]==k2 and kk[2]==ch2], key=lambda x:x[3])
+    rem=bill
+    for kk in keys:
+        take=min(plat[kk],rem); plat[kk]-=take; rem-=take
+        if rem<=0.005: break
+    if rem>0.005: over+=rem
+for (k2,b,ch2,m2),v in plat.items():
+    if v>0.005: acc[(k2,b,ch2)][m2]+=v
 acc_total=sum(v for d in acc.values() for v in d.values())
 acc_val_total=sum(v for d in acc_val.values() for v in d.values())
+billed_retail_total=sum(billed_retail.values())
+print(f"retail: platform commission {plat_total:,.2f} | billed in Wafeq {billed_retail_total:,.2f} | net to invoice {acc_total:,.2f}"+(f" | over-billed vs platform {over:,.2f}" if over>0.005 else ""))
 
 # ---------- GMV ----------
 gmv=defaultdict(float); gmv_src={}
@@ -236,18 +269,11 @@ def olvl(ws,r,lvl):
 # ---------- 0 ReadMe ----------
 w=wb.active; w.title="0 ReadMe"
 w.column_dimensions['B'].width=26; w.column_dimensions['C'].width=112
-rows=[("Nasam Revenue View — v10",""),
-("Data sources","Every line carries its source in the last column. WAFEQ INVOICE EXPORT = billed revenue (ties to the ledger) — moves to the Wafeq API (api.wafeq.com/v1, Authorization: Api-Key) once the ACCOUNTING_KEY is shared, so invoices pull with each run. NASAM PLATFORM = sales/GMV, pulled directly. CLOSED-PO EXPORT = retail on received value. SALLA PARTNERS EXPORT = SaaS app subscriptions (manual each time). RATE CARD = commercial terms."),
-("Reporting logic","Window: Nov 2025 onward (current model). GMV is post-Nasam only — Sonbol from its integration (13 Aug 2026); post-churn months excluded. SaaS brand-channels carry 0% commission. SaaS subscriptions recognised net of Salla's 15% share. Cloud Shelf recharges (3,355.01), Dashcam and the old-model ledger are excluded. No prior retail invoices existed in Wafeq — full closed-PO commission is to-invoice."),
-("View","Row groups: Client → Brand → Channel (+/− outline buttons; single-child levels skipped). Colours on tab 2: BLUE = sales · GREEN = billed revenue · AMBER = to-invoice (not yet in Wafeq) · grey = totals."),
-("Weekly update","1) Wafeq invoices — via API once the key is shared; manual export until then. 2) Closed-PO export (until PO values are in the platform, Q2). 3) Salla Partners subscriptions export. 4) Platform sales pull directly. 5) Rebuild — all totals re-verify automatically."),
-("Tabs","1 Revenue Summary = sales (grouped) + revenue by stream and client incl. SaaS actuals. 2 Brand-Channel Detail = grouped sales + commission + model + rates. 3 SaaS Subscriptions = the Salla app subscribers."),
-("VAT","Nasam is VAT-exempt (trailing-12-month income < 375K SAR); figures ex-VAT, SAR."),
-("OPEN QUESTIONS",""),
-("Q1 — Retail invoices","3,710.35 to invoice (Alfaris 3,392.23 · Wadi Halfa 318.12) — being created manually, automated by Fahad soon. Next run this stream reads from Wafeq. (Tarik)"),
-("Q2 — PO values in platform","Shared with Fahad, fix in progress: expose units, requested/received values, outcome and dates on purchase_orders — retail then pulls directly and I reconcile once against the export. (Fahad)"),
-("Q3 — Wafeq API key","ACCOUNTING_KEY to be shared — invoices then pull automatically with each run. (Tarik)"),
-("Q4 — Salla app trials","7-day free trial before integration: جرافيتي ريزن ends 19 Aug · Sonbol 20 Aug · Pearly touch 22 Aug — follow up before lapse and confirm conversion pricing. (Tarik)"),]
+rows=[("Nasam Revenue View — weekly run · 23 Aug 2026",""),
+("This run","First automated Sunday run. Billing source switched to the WAFEQ API (reconciled against the 17-Aug manual export before switching). Retail reads closed POs directly from the platform (values live since 20 Aug), netted against retail invoices already raised in Wafeq. Sonbol was renamed in the platform ('Sonbol') and its from-integration sales refreshed."),
+("Sources","Wafeq API snapshot 23 Aug (160 invoices) · platform revenue + purchase orders pulled 23 Aug · churned-brand snapshots 15 Aug (the read layer does not serve deactivated brands) · Salla Partners export 18 Aug (manual) · rate card 17 Aug."),
+("Reporting rules","Window Nov 2025+ (current model) · GMV post-Nasam only (Sonbol from 13 Aug 2026) · post-churn months excluded · SaaS brand-channels 0% · SaaS subscriptions net of Salla 15% · retail commission on the RECEIVED value of closed POs · pass-throughs (3,355.01) excluded · all figures SAR ex-VAT."),
+("Weekly update","Automatic: Wafeq API, platform sales, platform POs, rebuild + verification. Manual: only the Salla Partners subscriptions export — share it whenever it changes."),]
 for i,(a,b) in enumerate(rows, start=2):
     w.cell(row=i,column=2,value=a).font=BOLD if i==2 else BLACK
     c=w.cell(row=i,column=3,value=b); c.font=BLACK; c.alignment=Alignment(wrap_text=True,vertical="top")
@@ -280,7 +306,7 @@ put(w1,r,2,"SALES",BOLD); r+=1
 def gmv_by(pred):
     return lambda m: sum(v for (b,c,m2),v in gmv.items() if m2==m and pred(b,c))
 man_tot=month_row(w1,r,"Managed (FAM) marketplace GMV",gmv_by(lambda b,c: model(b,c)=="FAM"),SRC_PLAT); r+=1
-ret_tot=month_row(w1,r,"Managed retail — received value",lambda m: sum(d.get(m,0.0) for d in acc_val.values()),SRC_PO+" (platform once PO values exposed, O3)"); r+=1
+ret_tot=month_row(w1,r,"Managed retail — received value",lambda m: sum(d.get(m,0.0) for d in acc_val.values()),SRC_PO+" — received value"); r+=1
 saas_tot=month_row(w1,r,"SaaS (unmanaged) GMV",gmv_by(lambda b,c: model(b,c)=="SaaS"),SRC_PLAT); r+=1
 all_tot=month_row(w1,r,"Total sales",lambda m: sum(v for (b,c,m2),v in gmv.items() if m2==m)+sum(d.get(m,0.0) for d in acc_val.values()),"Sum of the three rows above",BOLD,GREY); r+=1
 sales_hdr=r
@@ -317,7 +343,7 @@ sums['Setup']=month_row(w1,r,"Setup / one-time",lambda m: sum(setup[(k,m)] for k
 sums['Other']=month_row(w1,r,"Other",lambda m: sum(other[(k,m)] for k in allk),SRC_WAFEQ); r+=1
 sums['Discounts']=month_row(w1,r,"Discounts",lambda m: sum(disc[(k,m)] for k in allk),SRC_WAFEQ); r+=1
 tot_billed=month_row(w1,r,"TOTAL BILLED",lambda m: sum(billed[(k,m)] for k in allk),SRC_WAFEQ+" — ties to ledger",BOLD,GREY); r+=1
-acc_row=month_row(w1,r,"Retail commission — closed POs, to invoice",lambda m: sum(d.get(m,0.0) for d in acc.values()),SRC_PO+" (from Wafeq next run)"); r+=1
+acc_row=month_row(w1,r,"Retail commission — closed POs, to invoice",lambda m: sum(d.get(m,0.0) for d in acc.values()),SRC_PO+" — net of retail already billed in Wafeq"); r+=1
 saas_row=month_row(w1,r,"SaaS subscriptions (Salla App Store, gross)",lambda m: saas_rev.get(m,0.0),SRC_SALLA); r+=1
 for s in SAAS_SUBS:
     if s[7]>0:
@@ -390,7 +416,7 @@ for k,cons,st_,chn,brs in CL:
                 mrow(r,[k,disp(b)+(" ≈" if (k,ach) in alloc_note else ""),ach,"Commission (billed)",model(b,ach),rs],lambda m,d=am: d.get(m,0.0),src,BLACK,BILLED_F,lvl=blvl)
                 r+=1
             if (k,b,c) in acc:
-                mrow(r,[k,disp(b),c,"Commission (to invoice)","FAM",f"{acc_rate[(k,b,c)]:g}%"],lambda m,d=acc[(k,b,c)]: d.get(m,0.0),SRC_PO+" — on received value; from Wafeq once invoiced",BLACK,TOINV_F,lvl=blvl)
+                mrow(r,[k,disp(b),c,"Commission (to invoice)","FAM",f"{acc_rate[(k,b,c)]:g}%"],lambda m,d=acc[(k,b,c)]: d.get(m,0.0),SRC_PO+" — net of billed; on received value",BLACK,TOINV_F,lvl=blvl)
                 r+=1
     for (kk,b,ch) in sorted(alloc.keys()):
         if kk==k and b.startswith('—'):
