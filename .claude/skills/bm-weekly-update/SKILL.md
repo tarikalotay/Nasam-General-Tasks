@@ -200,7 +200,10 @@ the same sections in the same order.
    `AM | Done | Open | Overdue | Not completed`, with open task names as bullets inside
    the last cell (`<br>`-separated). **Overdue** = a due date in the past on a task that
    is not complete; it is the column that makes the table worth reading, so compute it.
-   Unassigned work gets its own row — never fold it into a person.
+   **Unassigned work gets its own row in EVERY per-AM table** — Brand Health and the
+   Advertising matrix included, not just Operations and Catalog. Ad lever subtasks carry
+   no assignee of their own and silently inherit the brand parent's; list them as
+   unassigned rather than crediting them to the parent's owner.
    Follow the table with prose on the week's material activity.
 
    **Two lists take their own table shape:**
@@ -237,6 +240,11 @@ the same sections in the same order.
    > Weak: "Discount created on old stock."
    > Strong: "32% clearance on 14 legacy SKUs, Amazon and Noon, 15 Aug to 30 Sep,
    > target 80% sell-through before the new brand goes live."
+
+   **Flag any task whose status contradicts its comments.** A task marked `running`
+   whose only comment says "blocked on client" will land in the wrong column and read as
+   progress. Wk 34's Salla-themes task did exactly that. Put these in Update Quality —
+   the contradiction is the finding.
 
    A blocked task must name the person being waited on and the date they were last
    chased. "Pending client" with neither cannot be escalated.
