@@ -224,6 +224,22 @@ the same sections in the same order.
 5. **Onboarding** — no counts, activity narrative only. **Group by brand under its own
    `###` heading**, one short paragraph each, 300 words max total.
 6. **Escalations** — numbered table: Item · Owner · Status.
+7. **Update Quality** — up to 10 of the week's weakest task comments, so the team learns
+   what a usable update contains. `Task · ID | AM | Update given | What is missing` —
+   **four columns, never five**; ClickUp clips the fifth, which would drop the whole
+   point of the section. Include "no comment at all" cases, and include your own updates
+   when they are thin — the lead's Nokush clearance note was in the first one.
+
+   **Judge every update against five questions:** scope (all selection or a chosen
+   category, how many SKUs) · size (number, percentage, budget) · window (start and end
+   date) · channel (which marketplace) · next (who does what, by when).
+
+   > Weak: "Discount created on old stock."
+   > Strong: "32% clearance on 14 legacy SKUs, Amazon and Noon, 15 Aug to 30 Sep,
+   > target 80% sell-through before the new brand goes live."
+
+   A blocked task must name the person being waited on and the date they were last
+   chased. "Pending client" with neither cannot be escalated.
 
 **Scope exclusions — apply everywhere on the page:**
 
