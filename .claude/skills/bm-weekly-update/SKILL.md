@@ -70,6 +70,10 @@ Team member IDs (for `assignees` filters):
    `From the WBR call, Wk NN (dd–dd Mon).` in the description. Then append the returned
    task id to that bullet on the page. A feedback bullet with no id has not been actioned.
    Bullets that are notes rather than actions ("out of scope", "no update") get no task.
+   **Search the target list for an existing task first.** A recurring call item usually
+   already has a task from a prior week — comment on that one and re-date it rather than
+   creating a second. Wk 31 created "Upload the Ninja POs" when "Upload the Ninja PO to
+   the system" had been open since Wk 30; both had to be closed later as duplicates.
 9. **Name the page** `<Mon> - Wk <ISO week> (<dd>–<dd> <Mon>)`, e.g. `Jul - Wk 30 (20–26 Jul)`.
    Matches the existing convention (`Feb - Wk 8`, `Apr - Wk 17`).
 
