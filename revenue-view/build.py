@@ -68,11 +68,37 @@ def model(b,ch):
 
 # SaaS app subscriptions — Salla Partners export 18 Aug 2026 (منصة نسم)
 SAAS_SUBS=[ # store, client, merchant#, plan, start, end, list, net ex-VAT, paid inc-VAT, coupon, status
+ # --- paid (count as revenue) ---
  ("محمصة نقوش (Nokush)","Nokush","317767866","Annual","2026-05-14","2027-05-14",3999.00,999.75,1149.71,"SPNS75 (−75%)","Paid — active"),
+ ("SONDOS","Alfaris Group","1052755076","Monthly","2026-07-02","2026-08-02",449.00,449.00,516.35,"—","Paid — ended, replaced by annual"),
  ("SONDOS","Alfaris Group","1052755076","Annual","2026-08-09","2027-08-09",3999.00,999.75,1149.71,"SPNS75 (−75%)","Paid — active"),
- ("Sonbol (سنبل)","Dar Sonbol","773002475","Annual","2026-08-13","2026-08-20",None,0.0,0.0,"—","Trial until 20 Aug"),
- ("Pearly touch","— new lead","458981891","Monthly","2026-08-15","2026-08-22",None,0.0,0.0,"—","Trial until 22 Aug"),
- ("شركة جرافيتي ريزن","— new lead","825450288","Monthly","2026-08-12","2026-08-19",None,0.0,0.0,"—","Trial until 19 Aug"),
+ # --- purchased then cancelled: revenue held at 0 pending confirmation ---
+ ("Sonbol (سنبل)","Dar Sonbol","1773002475","Annual","2026-08-20","2027-08-20",3999.00,0.0,4598.85,"— (full price)","CANCELLED — confirm paid/refunded"),
+ # --- trials running now ---
+ ("Hattrick - هاتريك","— new lead","789609037","Monthly","2026-08-30","2026-09-06",None,0.0,0.0,"—","Trial — live to 6 Sep"),
+ ("Erbi3a'a3228","— new lead","1695233027","Monthly","2026-08-28","2026-09-04",None,0.0,0.0,"—","Trial — live to 4 Sep"),
+ ("المها | ALMAHA","— new lead","559840089","Annual","2026-08-26","2026-09-02",None,0.0,0.0,"—","Trial — live to 2 Sep"),
+ ("HANAY ABAYA","— new lead","1852978713","Monthly","2026-08-24","2026-08-31",None,0.0,0.0,"—","Trial — live to 31 Aug"),
+ # --- trials that converted ---
+ ("Sonbol (سنبل)","Dar Sonbol","1773002475","Annual","2026-08-13","2026-08-20",None,0.0,0.0,"—","Trial — converted 20 Aug"),
+ ("SONDOS","Alfaris Group","1052755076","Annual","2026-06-25","2026-07-02",None,0.0,0.0,"—","Trial — converted 2 Jul"),
+ ("محمصة نقوش (Nokush)","Nokush","317767866","Annual","2026-05-14","2026-05-21",None,0.0,0.0,"—","Trial — converted 14 May"),
+ # --- trials that lapsed without converting ---
+ ("جوهرة الروح","— lapsed","524997780","Monthly","2026-08-22","2026-08-29",None,0.0,0.0,"—","Trial — lapsed"),
+ ("جزيرة رجوة","— lapsed","1398934210","Monthly","2026-08-19","2026-08-26",None,0.0,0.0,"—","Trial — lapsed"),
+ ("Pearly touch","— lapsed","1458981891","Monthly","2026-08-15","2026-08-22",None,0.0,0.0,"—","Trial — lapsed"),
+ ("شركة جرافيتي ريزن","— lapsed","825450288","Monthly","2026-08-12","2026-08-19",None,0.0,0.0,"—","Trial — lapsed"),
+ ("لوتانا بوتيك Lotana","— lapsed","277377837","Monthly","2026-07-29","2026-08-05",None,0.0,0.0,"—","Trial — lapsed"),
+ ("سنديان Seindyan","— lapsed","1870570337","Annual","2026-07-09","2026-07-16",None,0.0,0.0,"—","Trial — lapsed"),
+ ("فيلور للأناقة","— lapsed","1289067859","Annual","2026-06-22","2026-06-29",None,0.0,0.0,"—","Trial — lapsed"),
+ ("ANARCHI","— lapsed","1771117031","Annual","2026-06-22","2026-06-29",None,0.0,0.0,"—","Trial — lapsed"),
+ ("كودك ستور","— lapsed","7315862","Annual","2026-06-11","2026-06-18",None,0.0,0.0,"—","Trial — lapsed"),
+ ("مذهلة","— lapsed","816144827","Annual","2026-06-02","2026-06-09",None,0.0,0.0,"—","Trial — lapsed"),
+ ("العيسائي - موندو توندو","— lapsed","1439457817","Annual","2026-06-01","2026-06-08",None,0.0,0.0,"—","Trial — lapsed"),
+ ("المبخرة الحجازية | Hejaz Oud","— lapsed","498974673","Annual","2026-06-01","2026-06-08",None,0.0,0.0,"—","Trial — lapsed"),
+ ("شروق تأنّ","— lapsed","1553526899","Annual","2026-05-28","2026-06-04",None,0.0,0.0,"—","Trial — lapsed"),
+ ("أضواء ADWAA","— lapsed","91801065","Annual","2026-05-16","2026-05-23",None,0.0,0.0,"—","Trial — lapsed"),
+ ("إتحاد اللياقة","— lapsed","1146172804","Annual","2026-05-14","2026-05-21",None,0.0,0.0,"—","Trial — lapsed"),
 ]
 saas_rev=defaultdict(float)
 for s in SAAS_SUBS:
@@ -347,7 +373,7 @@ acc_row=month_row(w1,r,"Retail commission — closed POs, to invoice",lambda m: 
 saas_row=month_row(w1,r,"SaaS subscriptions (Salla App Store, gross)",lambda m: saas_rev.get(m,0.0),SRC_SALLA); r+=1
 for s in SAAS_SUBS:
     if s[7]>0:
-        month_row(w1,r,f"    {s[0]} — annual, paid {mlbl(s[4][:7])}",lambda m,ss=s: ss[7] if m==ss[4][:7] else 0.0,SRC_SALLA,lvl=1); r+=1
+        month_row(w1,r,f"    {s[0]} — {s[3].lower()}, paid {mlbl(s[4][:7])}",lambda m,ss=s: ss[7] if m==ss[4][:7] else 0.0,SRC_SALLA,lvl=1); r+=1
 share_row=month_row(w1,r,"less: Salla share (15%)",lambda m: -saas_rev.get(m,0.0)*SALLA_SHARE,"15% per Tarik — not pullable from Salla"); r+=1
 tot_all=month_row(w1,r,"TOTAL REVENUE",lambda m: sum(billed[(k,m)] for k in allk)+sum(d.get(m,0.0) for d in acc.values())+saas_rev.get(m,0.0)*(1-SALLA_SHARE),"Billed + to-invoice + SaaS net of Salla share",BOLD,GREY); r+=2
 put(w1,r,2,"BY CLIENT (billed)",BOLD); r+=1
@@ -464,6 +490,6 @@ put(w3,r,12,SRC_SALLA)
 OUT=os.path.join(HERE,"output","Nasam_Revenue_View.xlsx")
 wb.save(OUT)
 print('SAVED', os.path.getsize(OUT), 'bytes')
-print('billed:', round(sum(billed.values()),2), '| to-invoice:', round(acc_total,2), '| SaaS subs:', round(saas_total,2),
-      '| TOTAL:', round(sum(billed.values())+acc_total+saas_total,2))
+print('billed:', round(sum(billed.values()),2), '| to-invoice:', round(acc_total,2), '| SaaS gross:', round(saas_total,2), '| SaaS net:', round(saas_total*(1-SALLA_SHARE),2),
+      '| TOTAL:', round(sum(billed.values())+acc_total+saas_total*(1-SALLA_SHARE),2))
 print('sales: managed', round(man_tot), '+ retail', round(ret_tot,2), '+ SaaS', round(saas_tot), '=', round(all_tot))
