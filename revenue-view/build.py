@@ -72,8 +72,9 @@ SAAS_SUBS=[ # store, client, merchant#, plan, start, end, list, net ex-VAT, paid
  ("محمصة نقوش (Nokush)","Nokush","317767866","Annual","2026-05-14","2027-05-14",3999.00,999.75,1149.71,"SPNS75 (−75%)","Paid — active"),
  ("SONDOS","Alfaris Group","1052755076","Monthly","2026-07-02","2026-08-02",449.00,449.00,516.35,"—","Paid — ended, replaced by annual"),
  ("SONDOS","Alfaris Group","1052755076","Annual","2026-08-09","2027-08-09",3999.00,999.75,1149.71,"SPNS75 (−75%)","Paid — active"),
- # --- purchased then cancelled: revenue held at 0 pending confirmation ---
- ("Sonbol (سنبل)","Dar Sonbol","1773002475","Annual","2026-08-20","2027-08-20",3999.00,0.0,4598.85,"— (full price)","CANCELLED — confirm paid/refunded"),
+ # --- cancelled, no revenue: subscribed at full price because the SPNS75 coupon was not
+ # applied; Salla cancelled it and Dar Sonbol will re-subscribe with the discount (~999.75 ex-VAT) ---
+ ("Sonbol (سنبل)","Dar Sonbol","1773002475","Annual","2026-08-20","2027-08-20",3999.00,0.0,4598.85,"none — coupon missed","Cancelled via Salla — re-subscribing with SPNS75"),
  # --- trials running now ---
  ("Hattrick - هاتريك","— new lead","789609037","Monthly","2026-08-30","2026-09-06",None,0.0,0.0,"—","Trial — live to 6 Sep"),
  ("Erbi3a'a3228","— new lead","1695233027","Monthly","2026-08-28","2026-09-04",None,0.0,0.0,"—","Trial — live to 4 Sep"),
