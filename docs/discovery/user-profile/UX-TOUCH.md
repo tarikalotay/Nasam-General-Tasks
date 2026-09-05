@@ -3,7 +3,8 @@
 **Type:** UX touch — an addition to shipped UI (sidebar user menu, home greeting, admin "Edit user" dialog).
 **Where it ships:** `Nasam-co/nasam-frontend-v2`. The backend (`Nasam-co/nasam`) is checked only for whether the data fields exist; if they do not, a small schema/API addition is a prerequisite (see "Backend data check").
 **Companion doc:** `DISCOVERY.md` in this folder holds the full reasoning, copy, and validation rules. This file is the placement-level design an implementer works from.
-**Mockups:** `mockups/` in this folder (rendered PNGs).
+**Mockups:** `mockups/` in this folder (rendered PNGs, each in Arabic `-ar` and English `-en`). Palette: the existing Nasam UI palette only (dark sidebar, cream surfaces, neutral borders, dark-ink primary button, red for errors/logout). No green accents, badges, or highlights.
+**Revision:** contact email and the live name preview were removed at the requester's decision.
 
 > Note on grounding: this session could not read either Nasam-co repository (cross-owner access is blocked from a session started on this repo). The "existing feature" section below is reconstructed from the three screenshots in the request. The implementer must confirm component names and data flow in the frontend session before building; every place that needs confirmation is marked **[verify]**.
 
@@ -24,7 +25,7 @@
 ## 2. The need (from the request)
 
 - Users should be able to open their profile from the main page by clicking their name.
-- They can add an **Arabic name**, an **English name**, a **contact email**, and a **phone number with country code**.
+- They can add an **Arabic name**, an **English name**, and a **phone number with country code**.
 - Existing data (full name, login email) stays **mandatory**; the new fields are **optional**.
 - Goal 1: stop the mixed-language greeting (image 3).
 - Goal 2: have contact details ("contacts") for emergency cases.
@@ -34,7 +35,7 @@
 ## 3. Placement
 
 ### 3a. Sidebar user menu → add "My profile" as the first row
-- **How the user opens the profile** (see `mockups/07-open-profile-flow-ar.png`): (1) click the name/avatar row at the bottom of the sidebar → (2) the existing popover opens with "الملف الشخصي / My profile" as its first row → (3) clicking it opens the profile dialog over the current page. Alternate entry: the "إضافة / Add" link in the home-page phone nudge opens the same dialog with the phone field focused.
+- **How the user opens the profile** (see `mockups/06-open-profile-flow-ar.png` / `-en.png`): (1) click the name/avatar row at the bottom of the sidebar → (2) the existing popover opens with "الملف الشخصي / My profile" as its first row → (3) clicking it opens the profile dialog over the current page. Alternate entry: the "إضافة / Add" link in the home-page phone nudge opens the same dialog with the phone field focused.
 - **Above:** nothing; it is the first item in the popover.
 - **Below:** the existing Appearance section, then Language, then the divider and Logout. The three existing controls do not move.
 - Row style matches the Logout row (icon + label), with a user icon. Optional "جديد / New" pill for the first release; remove after a few weeks.
@@ -45,11 +46,9 @@
 - Field order, top to bottom:
   1. Name in Arabic (`dir="rtl"` forced)
   2. Name in English (`dir="ltr"` forced)
-  3. Live preview line: "سيظهر اسمك كالتالي: مساء الخير يا طارق" / "You will appear as: Good evening, Tarik" — rendered with the same greeting function the home page uses, in the current UI locale
-  4. Login email (disabled, existing note under it)
-  5. Contact email (optional)
-  6. Phone: country-code selector + number input (optional)
-  7. Save / Cancel
+  3. Login email (disabled, existing note under it)
+  4. Phone: country-code selector + number input (optional)
+  5. Save / Cancel
 - Width: same as "Edit user" (~520px). Height fits without scrolling on a 768px-tall laptop; on smaller viewports the dialog body scrolls, header and buttons stay fixed.
 
 ### 3c. Home greeting → use the localized name
@@ -59,7 +58,7 @@
 
 ### 3d. Admin "Edit user" dialog → same fields
 - Replace the single "Full name" input with "Name in Arabic" + "Name in English".
-- Add Phone and Contact email below the email field, before Role.
+- Add Phone below the email field, before Role.
 - **Role ("الدور") and every other existing control in this dialog stay exactly as they are today.** Do not restyle, reorder, or change the role selector; it will be revisited in a separate task. The mockup shows it as an "as-is" placeholder for that reason.
 - Keep the legacy full name readable somewhere only if the two localized names are both empty (e.g. as placeholder text in the Arabic/English inputs, "Migrated from: {fullName}"), so admins understand what the migration did.
 
@@ -70,12 +69,10 @@
 | Item | Level | Notes |
 |---|---|---|
 | Arabic name, English name | Primary | The reason the user is here. Each in its own script direction. |
-| Live greeting preview | Primary | Answers "why two names" without a paragraph of help text. |
 | Phone (+country) | Primary | The business's second goal. Helper text explains the emergency purpose. |
 | Login email (read-only) | Secondary | Orientation only. |
-| Contact email | Secondary | Optional; helper explains it is a fallback channel. |
 
-Data relations: the names feed the sidebar footer, home greeting, admin user list, and any place the user's name is printed (reports, activity logs) **[verify: list the call sites of `fullName`]**. Phone and contact email are shown only in the profile and the admin dialog.
+Data relations: the names feed the sidebar footer, home greeting, admin user list, and any place the user's name is printed (reports, activity logs) **[verify: list the call sites of `fullName`]**. The phone number is shown only in the profile and the admin dialog.
 
 ---
 
@@ -97,7 +94,6 @@ Data relations: the names feed the sidebar footer, home greeting, admin user lis
 - **No localized names yet (legacy user):** greeting and sidebar use `fullName`; dialog shows empty localized inputs with the migrated value as placeholder.
 - **Only one localized name:** used in both languages rather than showing nothing.
 - **Both names empty and `fullName` empty:** greeting drops the name segment; sidebar shows the email.
-- **Contact email = login email:** allowed, soft hint, no error.
 - **Same phone on two users:** allowed.
 - **Extremely long name:** 100-char max per field; sidebar truncates with ellipsis and full name on hover/title.
 - **Feature degrades gracefully:** if the BE does not yet return the new fields, the FE treats them as null and everything behaves exactly as today. Ship the FE behind that null-tolerance so it can go out before/with the BE change.
@@ -116,14 +112,14 @@ Data relations: the names feed the sidebar footer, home greeting, admin user lis
 
 Answer these before building the FE, in the FE/BE session that has repo access:
 
-1. **User entity / table:** does it already have any of `name_ar`, `name_en`, `phone`, `phone_country`, `contact_email` (or similar)? Search for `phone` and `nameAr` / `name_ar` in the user model, migrations, and DTOs. If any exist, reuse them and their validation.
-2. **Current-user endpoint** (`GET /me` or `GET /auth/me` **[verify path]**): which fields does it return? The FE needs the five new fields here.
+1. **User entity / table:** does it already have any of `name_ar`, `name_en`, `phone`, `phone_country` (or similar)? Search for `phone` and `nameAr` / `name_ar` in the user model, migrations, and DTOs. If any exist, reuse them and their validation.
+2. **Current-user endpoint** (`GET /me` or `GET /auth/me` **[verify path]**): which fields does it return? The FE needs the four new fields here.
 3. **Self-update endpoint:** is there a `PATCH /me` (or `PUT /users/me`)? If only the admin `PATCH /users/:id` exists, a self-scoped update endpoint is required, with the login email excluded from the accepted body.
-4. **Admin update DTO:** add the same five fields and validation (script check, libphonenumber, email format).
+4. **Admin update DTO:** add the same four fields and validation (script check, libphonenumber).
 5. **Identity source:** if names come from an external IdP (Google Workspace, Auth0, Salla OAuth) on every login, make sure the login sync does not overwrite `name_ar` / `name_en` — it should only touch the legacy `fullName`.
 6. **Backfill:** one-off script/migration splitting `fullName` into `name_ar` or `name_en` by script (details in DISCOVERY.md). Confirm the migration tooling (Prisma, TypeORM, Knex, raw SQL) **[verify]**.
 7. **Locale:** how does the BE know the user's UI language for emails/notifications? If it stores one, `displayName` should be implemented once on the BE too (for email templates) and once on the FE.
-8. **Privacy:** who can read phone/contact email via existing user-list endpoints? Restrict to self + admin roles; do not leak to organization-wide user listings.
+8. **Privacy:** who can read the phone number via existing user-list endpoints? Restrict to self + admin roles; do not leak to organization-wide user listings.
 
 ---
 
@@ -144,4 +140,4 @@ Answer these before building the FE, in the FE/BE session that has repo access:
 
 Start a new session with `Nasam-co/nasam-frontend-v2` as the source, add `Nasam-co/nasam` for the backend check, and paste:
 
-> Implement the user profile feature described in `tarikalotay/Nasam-General-Tasks` → `docs/discovery/user-profile/UX-TOUCH.md` and `DISCOVERY.md` (branch `claude/user-profile-contact-info-ahup85`; mockups in `mockups/`). First run the "Backend data check" section against `Nasam-co/nasam` and report which fields/endpoints already exist. Then build the FE: "My profile" entry in the sidebar user menu + clickable footer row, the profile dialog (Arabic name, English name, read-only login email, optional contact email, phone with country code), the `displayName(user, locale)` helper wired into the greeting and sidebar, the same fields in the admin Edit-user dialog, and the phone nudge on the home page. Existing full name and login email stay mandatory; all new fields are optional. Match the existing dialog, input, and toast components; add AR/EN i18n keys. If the BE lacks the fields, make the FE null-tolerant and list the exact BE changes needed.
+> Implement the user profile feature described in `tarikalotay/Nasam-General-Tasks` → `docs/discovery/user-profile/UX-TOUCH.md` and `DISCOVERY.md` (branch `claude/user-profile-contact-info-ahup85`; mockups in `mockups/`). First run the "Backend data check" section against `Nasam-co/nasam` and report which fields/endpoints already exist. Then build the FE: "My profile" entry in the sidebar user menu + clickable footer row, the profile dialog (Arabic name, English name, read-only login email, optional phone with country code), the `displayName(user, locale)` helper wired into the greeting and sidebar, the same fields in the admin Edit-user dialog, and the phone nudge on the home page. Existing full name and login email stay mandatory; all new fields are optional. Match the existing dialog, input, and toast components and the existing Nasam palette (no new green accents); add AR/EN i18n keys. If the BE lacks the fields, make the FE null-tolerant and list the exact BE changes needed.
