@@ -34,6 +34,7 @@
 ## 3. Placement
 
 ### 3a. Sidebar user menu → add "My profile" as the first row
+- **How the user opens the profile** (see `mockups/07-open-profile-flow-ar.png`): (1) click the name/avatar row at the bottom of the sidebar → (2) the existing popover opens with "الملف الشخصي / My profile" as its first row → (3) clicking it opens the profile dialog over the current page. Alternate entry: the "إضافة / Add" link in the home-page phone nudge opens the same dialog with the phone field focused.
 - **Above:** nothing; it is the first item in the popover.
 - **Below:** the existing Appearance section, then Language, then the divider and Logout. The three existing controls do not move.
 - Row style matches the Logout row (icon + label), with a user icon. Optional "جديد / New" pill for the first release; remove after a few weeks.
