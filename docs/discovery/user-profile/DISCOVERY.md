@@ -107,7 +107,7 @@ The dialog is one screen, no tabs. Order reflects what the user came for and wha
 
 ### Navigation placement
 - Sidebar footer menu (image 1): **My profile · Appearance · Language · Logout**, in that order. Profile is first because it is an action on "me"; the other three are preferences and stay where users know them.
-- Admin user management (image 2): same fields inside the existing "Edit user" dialog, replacing the single "Full name" input with the two localized names, and adding phone + contact email below the email. Admin dialog keeps its title and layout otherwise.
+- Admin user management (image 2): same fields inside the existing "Edit user" dialog, replacing the single "Full name" input with the two localized names, and adding phone + contact email below the email. Admin dialog keeps its title and layout otherwise. The Role ("الدور") control and all other existing settings in that dialog are out of scope and stay as they are; they will be handled in a later task.
 
 ## Key Interactions
 

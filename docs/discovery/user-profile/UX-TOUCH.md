@@ -59,6 +59,7 @@
 ### 3d. Admin "Edit user" dialog → same fields
 - Replace the single "Full name" input with "Name in Arabic" + "Name in English".
 - Add Phone and Contact email below the email field, before Role.
+- **Role ("الدور") and every other existing control in this dialog stay exactly as they are today.** Do not restyle, reorder, or change the role selector; it will be revisited in a separate task. The mockup shows it as an "as-is" placeholder for that reason.
 - Keep the legacy full name readable somewhere only if the two localized names are both empty (e.g. as placeholder text in the Arabic/English inputs, "Migrated from: {fullName}"), so admins understand what the migration did.
 
 ---
