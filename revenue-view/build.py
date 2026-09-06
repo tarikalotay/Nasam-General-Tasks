@@ -155,6 +155,7 @@ print('billing source:',SRC_MODE)
 invmeta={}
 fee=defaultdict(float); setup=defaultdict(float); other=defaultdict(float); disc=defaultdict(float); pth=defaultdict(float)
 comm=defaultdict(float); comm_brand=defaultdict(float); rate_obs=defaultdict(set)
+drafted=defaultdict(float)
 for L in wafeq_lines():
     num=L['num']; contact=L['contact']; item=L['item']; desc=L['desc']; lam=L['lam']
     month=parse_ref(L['ref'], L['date'][:7])
@@ -163,6 +164,10 @@ for L in wafeq_lines():
     else:
         ck=ckey(contact) or f"UNRESOLVED:{contact}"
         era='Current' if month>=CUT else 'Old'
+    if L['status']=='DRAFT':   # drafted, not issued: not billed, not receivable — memo only
+        if num not in invmeta: invmeta[num]={'amount':L['amount'],'client':ck,'era':'Draft','month':month,'disc':L['disc']}
+        if era=='Current' and L['first']: drafted[(ck,month)]+=L['amount']
+        continue
     if num not in invmeta:
         invmeta[num]={'amount':L['amount'],'client':ck,'era':era,'month':month,'disc':L['disc']}
     if era!='Current': continue
@@ -296,9 +301,9 @@ def olvl(ws,r,lvl):
 # ---------- 0 ReadMe ----------
 w=wb.active; w.title="0 ReadMe"
 w.column_dimensions['B'].width=26; w.column_dimensions['C'].width=112
-rows=[("Nasam Revenue View — weekly run · 23 Aug 2026",""),
-("This run","First automated Sunday run. Billing source switched to the WAFEQ API (reconciled against the 17-Aug manual export before switching). Retail reads closed POs directly from the platform (values live since 20 Aug), netted against retail invoices already raised in Wafeq. Sonbol was renamed in the platform ('Sonbol') and its from-integration sales refreshed."),
-("Sources","Wafeq API snapshot 23 Aug (160 invoices) · platform revenue + purchase orders pulled 23 Aug · churned-brand snapshots 15 Aug (the read layer does not serve deactivated brands) · Salla Partners export 18 Aug (manual) · rate card 17 Aug."),
+rows=[("Nasam Revenue View — weekly run · 6 Sep 2026",""),
+("This run","Third automated Sunday run. Wafeq pulled via API on 6 Sep (164 invoices): no new invoices issued since 30 Aug; four August monthly invoices are drafted (31 Aug, 12,013.72) and enter billed once sent; five invoices moved to PAID (Alfaris May–Jul, Inivita Jul, INV-000151). The platform read layer was unavailable this run, so platform sales, purchase orders and Sonbol's from-integration figure are carried from the 30 Aug pull (August through 30 Aug; no September GMV yet). The six duplicated Alfaris retail invoices (INV-000169/170/171/181/182/183, 739.48) are still SENT in Wafeq with no credit note, so the Dec–Feb over-billing is still shown."),
+("Sources","Wafeq API snapshot 6 Sep (164 invoices) · platform revenue + purchase orders pulled 30 Aug (not refreshed this run) · churned-brand snapshots 15 Aug (the read layer does not serve deactivated brands) · Salla Partners export 30 Aug (manual, 26 records) · rate card 17 Aug."),
 ("Reporting rules","Window Nov 2025+ (current model) · GMV post-Nasam only (Sonbol from 13 Aug 2026) · post-churn months excluded · SaaS brand-channels 0% · SaaS subscriptions net of Salla 15% · retail commission on the RECEIVED value of closed POs · pass-throughs (3,355.01) excluded · all figures SAR ex-VAT."),
 ("Weekly update","Automatic: Wafeq API, platform sales, platform POs, rebuild + verification. Manual: only the Salla Partners subscriptions export — share it whenever it changes."),]
 for i,(a,b) in enumerate(rows, start=2):
@@ -370,6 +375,7 @@ sums['Setup']=month_row(w1,r,"Setup / one-time",lambda m: sum(setup[(k,m)] for k
 sums['Other']=month_row(w1,r,"Other",lambda m: sum(other[(k,m)] for k in allk),SRC_WAFEQ); r+=1
 sums['Discounts']=month_row(w1,r,"Discounts",lambda m: sum(disc[(k,m)] for k in allk),SRC_WAFEQ); r+=1
 tot_billed=month_row(w1,r,"TOTAL BILLED",lambda m: sum(billed[(k,m)] for k in allk),SRC_WAFEQ+" — ties to ledger",BOLD,GREY); r+=1
+month_row(w1,r,"Memo: drafted in Wafeq, not yet issued (not in billed)",lambda m: sum(v for (k,m2),v in drafted.items() if m2==m),SRC_WAFEQ+" — DRAFT status; enters billed once sent"); r+=1
 acc_row=month_row(w1,r,"Retail commission — closed POs, to invoice",lambda m: sum(d.get(m,0.0) for d in acc.values()),SRC_PO+" — net of retail already billed in Wafeq"); r+=1
 saas_row=month_row(w1,r,"SaaS subscriptions (Salla App Store, gross)",lambda m: saas_rev.get(m,0.0),SRC_SALLA); r+=1
 for s in SAAS_SUBS:
