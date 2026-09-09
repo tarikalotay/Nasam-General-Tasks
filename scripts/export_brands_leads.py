@@ -36,10 +36,12 @@ DATA_SHEET = "High & Urgent Leads"
 ARIAL = "Arial"
 
 HEADERS = ["#", "Lead / Brand", "Status", "Priority", "Assignee(s)", "Lead Source",
-           "Contact Person", "Phone", "City", "Store URL", "Started Date", "Closing Date",
-           "Due Date", "Created", "Last Updated", "Last Update (note)", "ClickUp Link", "Task ID"]
-WIDTHS = [5, 34, 13, 10, 20, 20, 18, 16, 14, 34, 12, 12, 12, 12, 13, 46, 30, 12]
-DATE_COLS = {11, 12, 13, 14, 15}
+           "Contact Person", "Phone", "City", "Website", "Own site (candidate)",
+           "Website source", "Confidence", "Started Date", "Closing Date", "Due Date",
+           "Created", "Last Updated", "Last Update (note)", "ClickUp Link", "Task ID"]
+WIDTHS = [5, 34, 13, 10, 20, 20, 18, 16, 14, 34, 30, 22, 11, 12, 12, 12, 12, 13, 46, 30, 12]
+DATE_COLS = {14, 15, 16, 17, 18}
+WEB_COL, OWN_COL, LINK_COL = 10, 11, 20
 
 
 def fetch_tasks(list_id, token):
@@ -83,7 +85,7 @@ def from_description(task, key):
     return m.group(1).strip() if m else None
 
 
-def build_workbook(tasks, rows, priorities):
+def build_workbook(tasks, rows, priorities, websites=None):
     wb = Workbook()
     ws = wb.active
     ws.title = DATA_SHEET
@@ -105,8 +107,10 @@ def build_workbook(tasks, rows, priorities):
         ws.column_dimensions[get_column_letter(c)].width = WIDTHS[c - 1]
     ws.row_dimensions[1].height = 28
 
+    websites = websites or {}
     for i, t in enumerate(rows, 1):
         source = custom_field(t, "Lead Sorce") or []
+        found = websites.get(t["id"], {})
         values = [
             i,
             t["name"].strip(),
@@ -117,7 +121,10 @@ def build_workbook(tasks, rows, priorities):
             custom_field(t, "Contact Person") or "",
             from_description(t, "Phone") or "",
             from_description(t, "City") or "",
-            custom_field(t, "URL") or "",
+            custom_field(t, "URL") or found.get("website", ""),
+            found.get("own_site", ""),
+            found.get("source", ""),
+            found.get("confidence", ""),
             ms_to_date(custom_field(t, "Started Date")),
             ms_to_date(custom_field(t, "Closing Date")),
             ms_to_date(t.get("due_date")),
@@ -133,14 +140,15 @@ def build_workbook(tasks, rows, priorities):
             cell.font, cell.border = body_font, border
             cell.alignment = Alignment(
                 vertical="top",
-                horizontal="center" if c in (1, 3, 4) or c in DATE_COLS else "left")
+                horizontal="center" if c in (1, 3, 4, 13) or c in DATE_COLS else "left")
             if c in DATE_COLS:
                 cell.number_format = "yyyy-mm-dd"
             if i % 2 == 0 and c != 4:
                 cell.fill = band
         if values[3] in prio_fill:
             ws.cell(row=r, column=4).fill = prio_fill[values[3]]
-        for col, url in ((10, values[9]), (17, values[16])):
+        for col in (WEB_COL, OWN_COL, LINK_COL):
+            url = values[col - 1]
             if url:
                 link = ws.cell(row=r, column=col)
                 link.hyperlink = url
@@ -220,13 +228,41 @@ def add_summary(wb, tasks, rows, priorities, last):
         cell.font, cell.border = bold, border
         cell.alignment = Alignment(horizontal="center")
 
-    n = trow + 2
+    web = trow + 2
+    sm.cell(row=web, column=1, value="Website coverage").font = bold
+    rng_w = f"'{DATA_SHEET}'!$J$2:$J${last}"
+    rng_own = f"'{DATA_SHEET}'!$K$2:$K${last}"
+    rng_src = f"'{DATA_SHEET}'!$L$2:$L${last}"
+    coverage = [("Leads with a website", f'=COUNTIF({rng_w},"?*")'),
+                ("Leads with no website", f'=COUNTBLANK({rng_w})'),
+                ("  already on the task",
+                 f'=COUNTIFS({rng_w},"?*",{rng_src},"")'
+                 f'+COUNTIF({rng_src},"Domain check (own site)")'),
+                ("  from ClickUp activity", f'=COUNTIF({rng_src},"ClickUp activity")'),
+                ("  from a contact email domain",
+                 f'=COUNTIF({rng_src},"Contact email domain (activity)")'),
+                ("  from a domain check", f'=COUNTIF({rng_src},"Domain check")'),
+                ("  from a web search", f'=COUNTIF({rng_src},"Web search")'),
+                ("Mahally listing with an own-site candidate",
+                 f'=COUNTIF({rng_own},"?*")')]
+    for offset, (k, formula) in enumerate(coverage):
+        sm.cell(row=web + 1 + offset, column=1, value=k).font = body_font
+        cell = sm.cell(row=web + 1 + offset, column=2, value=formula)
+        cell.font, cell.border = body_font, border
+        cell.alignment = Alignment(horizontal="center")
+
+    n = web + len(coverage) + 3
     for offset, text in enumerate([
         f'Notes: counts are COUNTIFS formulas over the "{DATA_SHEET}" sheet, '
         "so they follow any row you delete or re-filter.",
         "Phone and City are parsed from the ClickUp task description and are blank "
         "where the task carries no description.",
         "Dates are shown in Riyadh time (UTC+3). Blank means the field is empty in ClickUp.",
+        'Website source is blank when the URL was already on the ClickUp task. "Domain check" '
+        "and \"Web search\" rows were found by this script and written back to ClickUp; "
+        "confidence medium means the match is plausible but worth a human glance.",
+        '"Own site (candidate)" is for leads whose ClickUp URL is only a Mahally directory '
+        "listing: the brand's own store, found by domain check and NOT written to ClickUp.",
     ]):
         sm.cell(row=n + offset, column=1, value=text).font = note
 
@@ -239,6 +275,8 @@ def main():
                     help='default: lead')
     ap.add_argument("--priority", action="append", default=None,
                     help="priorities to keep; default: urgent, high")
+    ap.add_argument("--websites", help="JSON map task_id -> {website, source, confidence} "
+                                       "to fill in for leads with no URL on the task")
     ap.add_argument("--out", default=".", help="output directory or file path")
     args = ap.parse_args()
 
@@ -263,7 +301,8 @@ def main():
         os.makedirs(out, exist_ok=True)
         out = os.path.join(
             out, f"Nasam_Brands_Leads_High-Urgent_{datetime.now(RIYADH):%Y-%m-%d}.xlsx")
-    build_workbook(tasks, rows, priorities).save(out)
+    websites = json.load(open(args.websites)) if args.websites else {}
+    build_workbook(tasks, rows, priorities, websites).save(out)
     print(f"{len(rows)} of {len(tasks)} leads → {out}")
 
 

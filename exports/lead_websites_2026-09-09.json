@@ -1,0 +1,1970 @@
+{
+ "86eu04da8": {
+  "name": "Inivita",
+  "status": "approved",
+  "priority": "urgent",
+  "website": "https://inivita.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86eu04e11": {
+  "name": "Champ Kit",
+  "status": "rejected",
+  "priority": "high",
+  "website": "https://champkit.sa",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86eu04f31": {
+  "name": "Roasting House",
+  "status": "rejected",
+  "priority": "urgent",
+  "website": "https://roastinghouse.sa",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86eu143rr": {
+  "name": "Mohjah",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://salla.sa/mohjah",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86euy9470": {
+  "name": "Shaya",
+  "status": "churned",
+  "priority": "urgent",
+  "website": "https://salla.sa/shaya",
+  "source": "Domain check",
+  "confidence": "medium"
+ },
+ "86evmt0mu": {
+  "name": "سيليا",
+  "status": "propose",
+  "priority": "urgent",
+  "website": "https://salla.sa/silia",
+  "source": "Domain check",
+  "confidence": "medium"
+ },
+ "86evmt0vu": {
+  "name": "bajah",
+  "status": "meeting",
+  "priority": "urgent",
+  "website": "https://salla.sa/bajah",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86evmt13a": {
+  "name": "الف",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://salla.sa/alf",
+  "source": "Domain check",
+  "confidence": "medium"
+ },
+ "86evmt2f4": {
+  "name": "Ancy",
+  "status": "churned",
+  "priority": "urgent",
+  "website": "https://ancy.store",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86evmt2hk": {
+  "name": "Gamesir",
+  "status": "churned",
+  "priority": "high",
+  "website": "https://gamesir.store",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86evtedkd": {
+  "name": "Awa",
+  "status": "churned",
+  "priority": "urgent",
+  "website": "https://awastore.sa",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86evtedm0": {
+  "name": "Brio",
+  "status": "churned",
+  "priority": "high",
+  "website": "https://salla.sa/brio",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86evtedn1": {
+  "name": "Reefi",
+  "status": "churned",
+  "priority": "urgent",
+  "website": "https://reefi.me",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86evtednj": {
+  "name": "Labelle",
+  "status": "churned",
+  "priority": "high",
+  "website": "https://labelle.sa",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86ewfbtfe": {
+  "name": "إكسير البن",
+  "status": "rejected",
+  "priority": "urgent",
+  "website": "https://salla.sa/elixircoffee",
+  "source": "Domain check",
+  "confidence": "medium"
+ },
+ "86ewfc569": {
+  "name": "0100",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://o-100.com",
+  "source": "Contact email domain (activity)",
+  "confidence": "medium"
+ },
+ "86ewfc5xh": {
+  "name": "الرفاعى",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://alrifaisaudi.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewfc61q": {
+  "name": "مهباج",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://mehbaj.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewfc93n": {
+  "name": "Alwaleef Perfumes - عطور الوليف",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://alwaleef.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86ewfcfj3": {
+  "name": "Goovy - قوقي",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://govyy.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewg2kwt": {
+  "name": "عجلان و اخوانه",
+  "status": "rejected",
+  "priority": "urgent",
+  "website": "https://www.ajlanbros.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86ewg2p3r": {
+  "name": "شماغ البسام",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://albassam.com",
+  "source": "Domain check",
+  "confidence": "medium"
+ },
+ "86ewg2pfb": {
+  "name": "دسار",
+  "status": "propose",
+  "priority": "urgent",
+  "website": "https://desarksa.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewg2pp9": {
+  "name": "أخشاب",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://akshab.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewg2r5t": {
+  "name": "Bmax",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://bmask.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewgv461": {
+  "name": "مشاعل المجد",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://almajd.com.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewjee0g": {
+  "name": "Trolley Convenience Store KSA",
+  "status": "rejected",
+  "priority": "urgent",
+  "website": "https://trolley.com.sa",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86ewjenej": {
+  "name": "الفوزان سنتر",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://alfozan.com",
+  "source": "Domain check",
+  "confidence": "medium"
+ },
+ "86ewjg2tv": {
+  "name": "Wooden Coffee",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://wooden.sa",
+  "source": "Contact email domain (activity)",
+  "confidence": "medium"
+ },
+ "86ewjg5bn": {
+  "name": "Arriyadh Roaster محمصة الرياض",
+  "status": "rejected",
+  "priority": "high",
+  "website": "https://arriyadhroaster.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86ewjhp0f": {
+  "name": "ALdakheel Oud الدخيل للعود",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://aldakheeloud.com",
+  "source": "Contact email domain (activity)",
+  "confidence": "medium"
+ },
+ "86ewke2pj": {
+  "name": "Dar Sonbol Co, Ltd",
+  "status": "approved",
+  "priority": "urgent",
+  "website": "https://darsonbol.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86ewke43w": {
+  "name": "Virgin Megastore Saudi Arabia",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://virginmegastore.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86ewm55vt": {
+  "name": "ابراق",
+  "status": "opportunity",
+  "priority": "urgent",
+  "website": "https://ibrahimalqurashi.com",
+  "source": "Contact email domain (activity)",
+  "confidence": "medium"
+ },
+ "86ewm578p": {
+  "name": "شركه الخدمات الطبيه و الصيداليات",
+  "status": "rejected",
+  "priority": "high",
+  "website": "",
+  "source": "",
+  "confidence": ""
+ },
+ "86ewm5fuh": {
+  "name": "Dkhoon Emirates",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://dkhoonemirates.com",
+  "source": "Contact email domain (activity)",
+  "confidence": "medium"
+ },
+ "86ewm5kec": {
+  "name": "شركه رواد الجمال",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://rowadaljamal.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86ewm5n07": {
+  "name": "Oudlover | عود لافر",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://oudlover.com",
+  "source": "Contact email domain (activity)",
+  "confidence": "medium"
+ },
+ "86ewmcy18": {
+  "name": "Aya | آيـا",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://aya.app",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewmhu0t": {
+  "name": "nishman",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://nishman.org",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewmre0x": {
+  "name": "zonda",
+  "status": "postpone",
+  "priority": "high",
+  "website": "",
+  "source": "",
+  "confidence": ""
+ },
+ "86ewmt9aw": {
+  "name": "majarah store",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://salla.sa/majarah",
+  "source": "Web search",
+  "confidence": "high"
+ },
+ "86ewmtj0w": {
+  "name": "Elfaleh Sports House",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://elfaleh.sa",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86ewmu2xx": {
+  "name": "ALASEEL",
+  "status": "rejected",
+  "priority": "high",
+  "website": "https://alaseel.com.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewn6h0n": {
+  "name": "AlMalki Group",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://salla.sa/almalki",
+  "source": "Domain check",
+  "confidence": "medium"
+ },
+ "86ewn88uc": {
+  "name": "Deraah Trading Company",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://salla.sa/deraah",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86ewn8ax3": {
+  "name": "Al Musbah Group",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://almusbah.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewn8k2n": {
+  "name": "قصر الأواني | QASR ALAWANI",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://qasralawani.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewnah8u": {
+  "name": "BACK CARE",
+  "status": "rejected",
+  "priority": "urgent",
+  "website": "https://backcare.com.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewnj3gm": {
+  "name": "Imtiaz Al Arabia Co. شركة امتياز العربية",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://www.imtiaz.com.sa",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86ewnj6h9": {
+  "name": "M. A. Al Abdul Karim & Co | شركة العبدالكريم التجارية",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://ak.com.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewnjcg1": {
+  "name": "Karaz Linen",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://karazlinen.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewpmz2u": {
+  "name": "شركة عال الكيف التجارية",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://aalalkaif.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewpn68r": {
+  "name": "Kaif AlShiuokh",
+  "status": "propose",
+  "priority": "urgent",
+  "website": "https://kaifalshiuokh.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewppbuv": {
+  "name": "سيار | Sayyar",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://sayyar.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewpq6un": {
+  "name": "12 Cups",
+  "status": "rejected",
+  "priority": "high",
+  "website": "https://12cups.com.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewpqfge": {
+  "name": "Alkhair Company | شركة الخير",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://alkhair.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewq4r0t": {
+  "name": "Tamkeen Stores",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://tamkeenstores.com.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewq6jyn": {
+  "name": "Alsaif Gallery",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://alsaifgallery.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewq6w18": {
+  "name": "Baytonia",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://baytonia.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewq74gf": {
+  "name": "ALKAFFARY GROUP",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://kaffary.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewqm8g6": {
+  "name": "aorgn",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://aorgn.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewqmb8z": {
+  "name": "urjwan",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://urjwan.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewqn8tq": {
+  "name": "electroon",
+  "status": "opportunity",
+  "priority": "urgent",
+  "website": "https://electroon.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewqndrt": {
+  "name": "Electron Trading Company",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://electroon.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewqnk96": {
+  "name": "rebunesastore",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://rebunesastore.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewqnwmf": {
+  "name": "wopow",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://wopow.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewqp2fj": {
+  "name": "Alhareri Store متجر الحريري",
+  "status": "rejected",
+  "priority": "high",
+  "website": "https://alhareri.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewr3d86": {
+  "name": "iconah",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://iconah-sa.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewr3dxt": {
+  "name": "nazih",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://nazih.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewr3jun": {
+  "name": "asnasstore",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://asnasstore.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewr7h25": {
+  "name": "Marah",
+  "status": "approved",
+  "priority": "high",
+  "website": "https://salla.sa/marah",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86ewrjb2f": {
+  "name": "Retaal",
+  "status": "churned",
+  "priority": "urgent",
+  "website": "https://reetalstore.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewrv8km": {
+  "name": "promate",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://promate.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewrvavj": {
+  "name": "inhouse",
+  "status": "rejected",
+  "priority": "high",
+  "website": "https://inhouse.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewrvfd0": {
+  "name": "bazilstore",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://bazilstore.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewrvg0d": {
+  "name": "alhaages",
+  "status": "rejected",
+  "priority": "high",
+  "website": "https://alhaages.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewrvnuc": {
+  "name": "duraah",
+  "status": "rejected",
+  "priority": "urgent",
+  "website": "https://duraah.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewrw0b6": {
+  "name": "markaz-al-najoom",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://markaz-al-najoom.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewrw3q3": {
+  "name": "blossomxstore",
+  "status": "rejected",
+  "priority": "urgent",
+  "website": "https://blossomxstore.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewrw49x": {
+  "name": "ليدرز",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://leaderschairs.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewt82d1": {
+  "name": "latafah",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://latafah.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewt88x5": {
+  "name": "joodtelecom",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://joodtelecom.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewt8m71": {
+  "name": "onebrand",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://onebrand-1b.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewt90xj": {
+  "name": "لحظات القهوه",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://coffeemoments.net",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewtp3pk": {
+  "name": "باور ستور - Power Store",
+  "status": "rejected",
+  "priority": "urgent",
+  "website": "https://ppowerstore.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewtpkua": {
+  "name": "بيت التحميص",
+  "status": "meeting",
+  "priority": "urgent",
+  "website": "https://roastinghouse.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewtpur9": {
+  "name": "محمصه كافيين لاب",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://caffeinelab.me",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewtq81x": {
+  "name": "ESSO Coffee",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://essogourmet.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewtqe4w": {
+  "name": "Sulalat Coffee سلالات القهوة",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://sulalat.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewtqp6r": {
+  "name": "Hjeen Coffee Roasters",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://shop.hjeen.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewtvrx0": {
+  "name": "kabrita",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://kabrita.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewu65c6": {
+  "name": "Natcho Store - ناتشو",
+  "status": "rejected",
+  "priority": "high",
+  "website": "https://natchostore.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewu6kfv": {
+  "name": "lodore",
+  "status": "rejected",
+  "priority": "high",
+  "website": "https://lodore.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewu6ru0": {
+  "name": "toptato",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://toptato.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewu71xq": {
+  "name": "mestores",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://mestores.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewu76ke": {
+  "name": "najdalatheyah",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://najdalatheyah.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86ewu7hjc": {
+  "name": "modernsupply",
+  "status": "opportunity",
+  "priority": "urgent",
+  "website": "https://modernsupply.com.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewu7uhr": {
+  "name": "CLARA Group",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://clarahair.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewumwpx": {
+  "name": "Mothhelah",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://mothhelah-store.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewvkq3u": {
+  "name": "juzrastore",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://juzrastore.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewvkw0q": {
+  "name": "stepshoes",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://stepshoes.store",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewvkwwf": {
+  "name": "bluebrand",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://thatbluebrand.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewvkyyv": {
+  "name": "latina",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://new-latina.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewvm0d3": {
+  "name": "alamrahal",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://alamrahal.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewvm1k8": {
+  "name": "karamalnakhil",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://karamalnakhil.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86eww13ux": {
+  "name": "noorstoresa",
+  "status": "rejected",
+  "priority": "high",
+  "website": "https://noorstoresa.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewwdp3j": {
+  "name": "بهارات الغربى",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://algharbis.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewwdt99": {
+  "name": "eshq.coffee",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://eshq.coffee",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewwdyku": {
+  "name": "بلاك نايت Black Knight",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://b-k.coffee",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewwehqm": {
+  "name": "orkonalina",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://orkonalina.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewwekh5": {
+  "name": "almasmak",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://robooalmasmak.info",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewwep11": {
+  "name": "finjalcoffeealshiuokh",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://finjalcoffeealshiuokh.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewwewrr": {
+  "name": "دفت للمفارش",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://duvet.com.sa",
+  "source": "Web search",
+  "confidence": "medium"
+ },
+ "86ewwf30u": {
+  "name": "homely-store",
+  "status": "rejected",
+  "priority": "high",
+  "website": "https://homely-store.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewwvfyg": {
+  "name": "rozy",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://rozy.com.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewwvrbb": {
+  "name": "dunya-alasar",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://dunya-alasar.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewwvzr2": {
+  "name": "knooz-store",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://knooz-store.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewww8a6": {
+  "name": "Arabian Trading Supplies",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://ats.mynaghi.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewx8nju": {
+  "name": "snowhite",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://snowhite.com.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewx8qvn": {
+  "name": "nmastores",
+  "status": "opportunity",
+  "priority": "urgent",
+  "website": "https://nmastores.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewx8ur4": {
+  "name": "Specialty Hub",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://shub.coffee",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewx8xgf": {
+  "name": "rituals",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://ar-sa.rituals.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewx8ypz": {
+  "name": "crateandbarrel",
+  "status": "rejected",
+  "priority": "high",
+  "website": "https://crateandbarrel.me",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewy4mh1": {
+  "name": "almostore",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://almostore-sa.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewyh75k": {
+  "name": "ركن الجمال",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://ksabeautycorner.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewyh9vw": {
+  "name": "lamsah",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://lamsah.co",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewyhgn0": {
+  "name": "sleepbox",
+  "status": "opportunity",
+  "priority": "urgent",
+  "website": "https://sleepbox.com.sa",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86ewyhnbh": {
+  "name": "season",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://season.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewyxfv8": {
+  "name": "becarestore",
+  "status": "meeting",
+  "priority": "urgent",
+  "website": "https://becarestore.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewyxpyc": {
+  "name": "ghlastore",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://ghlastore.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewyyjqe": {
+  "name": "newflon",
+  "status": "rejected",
+  "priority": "urgent",
+  "website": "https://newflon.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewyyqt7": {
+  "name": "jarrahshop",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://jarrahshop.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ewyywvc": {
+  "name": "rafahiacoffee",
+  "status": "opportunity",
+  "priority": "urgent",
+  "website": "https://rafahiacoffee.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ex84j6t": {
+  "name": "wtr",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://wtr.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ex84m2f": {
+  "name": "قهوتى",
+  "status": "opportunity",
+  "priority": "urgent",
+  "website": "https://qahwati.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ex84pha": {
+  "name": "مود القهوه",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://cmood.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ex8gny2": {
+  "name": "كيف-المسافر",
+  "status": "propose",
+  "priority": "high",
+  "website": "https://kifalmosafer.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86ex8ha6n": {
+  "name": "kiffaمحمصه",
+  "status": "rejected",
+  "priority": "urgent",
+  "website": "https://kiffa.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ex8z087": {
+  "name": "wixtore",
+  "status": "opportunity",
+  "priority": "urgent",
+  "website": "https://wixstor.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86ex8z4rq": {
+  "name": "mirza مكتبه",
+  "status": "rejected",
+  "priority": "high",
+  "website": "https://mirza.com.sa",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86exak6ka": {
+  "name": "عشبة وزيت",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://herbandoil1.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86exana8m": {
+  "name": "توباور",
+  "status": "rejected",
+  "priority": "urgent",
+  "website": "",
+  "source": "",
+  "confidence": ""
+ },
+ "86exandae": {
+  "name": "azyan",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://azyanperfumes.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exb14qm": {
+  "name": "AUKEY Official",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://escotele.com",
+  "source": "Contact email domain (activity)",
+  "confidence": "medium"
+ },
+ "86exb1a0j": {
+  "name": "اياكلين",
+  "status": "rejected",
+  "priority": "urgent",
+  "website": "https://eyaclean.sa",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exb21za": {
+  "name": "حكايه طفل",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://baby-story.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exb2b68": {
+  "name": "onebrand",
+  "status": "rejected",
+  "priority": "high",
+  "website": "https://salla.sa/onebrand",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exb2et5": {
+  "name": "aletawiksa",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://aletawiksa.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exb3c3u": {
+  "name": "kawaderstore",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://kawaderstore.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exbh1zx": {
+  "name": "لعبه و مفاجاه",
+  "status": "rejected",
+  "priority": "urgent",
+  "website": "https://toyandsurprise.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86exbh94t": {
+  "name": "goldenwingas متجر الجناح الذهبى",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://goldenwingas.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exbhafa": {
+  "name": "ادوات البن",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://salla.sa/coffeetools",
+  "source": "Domain check",
+  "confidence": "medium"
+ },
+ "86exbhcpp": {
+  "name": "balsam-store",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://balsam-store.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86excvw4z": {
+  "name": "tesstea",
+  "status": "rejected",
+  "priority": "urgent",
+  "website": "",
+  "source": "",
+  "confidence": ""
+ },
+ "86excw0k8": {
+  "name": "مكتبه النابغه",
+  "status": "rejected",
+  "priority": "urgent",
+  "website": "https://alnabigah.com",
+  "source": "Web search",
+  "confidence": "high"
+ },
+ "86excwa5d": {
+  "name": "تك بلس",
+  "status": "rejected",
+  "priority": "high",
+  "website": "https://tech-plus.sa",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86excxtk9": {
+  "name": "asteribeauty",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://www.asteribeauty.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exd94n0": {
+  "name": "متجر العامر",
+  "status": "rejected",
+  "priority": "urgent",
+  "website": "https://alamer.com.sa",
+  "source": "Domain check",
+  "confidence": "medium"
+ },
+ "86exd968m": {
+  "name": "باندوز",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://pandoz.sa",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exd96qv": {
+  "name": "هوم سول",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://homesoul.co",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exdc0kb": {
+  "name": "متجر سبون",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://salla.sa/spoonstore",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exdc1ha": {
+  "name": "ماس متجر",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://salla.sa/masstore",
+  "source": "Domain check",
+  "confidence": "medium"
+ },
+ "86exea5wv": {
+  "name": "ARES",
+  "status": "propose",
+  "priority": "urgent",
+  "website": "",
+  "source": "",
+  "confidence": ""
+ },
+ "86exfmv38": {
+  "name": "الماس للعطور",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://almasperfumes.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exgee48": {
+  "name": "shareefcorner",
+  "status": "rejected",
+  "priority": "urgent",
+  "website": "",
+  "source": "",
+  "confidence": ""
+ },
+ "86exgf119": {
+  "name": "رشفه فن للقهوه",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://salla.sa/rashfa",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exgjb28": {
+  "name": "نجد العذيه",
+  "status": "propose",
+  "priority": "urgent",
+  "website": "https://najdalatheyah.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exgk8wt": {
+  "name": "بت زون",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://salla.sa/pet-zone",
+  "source": "Domain check",
+  "confidence": "medium"
+ },
+ "86exgk9jr": {
+  "name": "نباتا للتجارة",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://nabata.sa",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exgkbn1": {
+  "name": "البيت الصغير",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://thelettleh.com",
+  "source": "Web search",
+  "confidence": "high"
+ },
+ "86exgvxwr": {
+  "name": "aromatic للعطور",
+  "status": "opportunity",
+  "priority": "urgent",
+  "website": "https://aromatic.sa",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exhx0j7": {
+  "name": "لانا اكل حيوانات أليف",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://lanapets.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exhx3c8": {
+  "name": "بتسى",
+  "status": "meeting",
+  "priority": "urgent",
+  "website": "https://petsysa.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86exhx3f8": {
+  "name": "Catu",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://salla.sa/catu",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exj2ep2": {
+  "name": "ابجور",
+  "status": "rejected",
+  "priority": "high",
+  "website": "https://abajur.sa",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exj2hky": {
+  "name": "خطوه جمل",
+  "status": "opportunity",
+  "priority": "urgent",
+  "website": "https://camelstep.com",
+  "source": "Web search",
+  "confidence": "high"
+ },
+ "86exkea5b": {
+  "name": "سليب بوكس",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://sleepbox.com.sa",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exkeewv": {
+  "name": "CREATIVO",
+  "status": "rejected",
+  "priority": "urgent",
+  "website": "https://www.creativostore.com",
+  "source": "Web search",
+  "confidence": "medium"
+ },
+ "86exker91": {
+  "name": "Black Stamp Roastery",
+  "status": "opportunity",
+  "priority": "urgent",
+  "website": "https://blackstamp.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exkew94": {
+  "name": "BaristaTools",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://salla.sa/baristatools",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exkeza0": {
+  "name": "كرز القهوة",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://salla.sa/karazalqahwa",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exkf0df": {
+  "name": "Bunah",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://bunah.sa",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exkf4ct": {
+  "name": "عتاد",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://www.etad.com.sa",
+  "source": "Domain check",
+  "confidence": "medium"
+ },
+ "86exkf5du": {
+  "name": "Bica roasters",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://bica.sa",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exkf99d": {
+  "name": "ركن السرير",
+  "status": "opportunity",
+  "priority": "urgent",
+  "website": "https://bedquarter.com",
+  "source": "Web search",
+  "confidence": "high"
+ },
+ "86exkfbfa": {
+  "name": "متجر ليون بروتين مكملات غذائية",
+  "status": "rejected",
+  "priority": "high",
+  "website": "https://lion-protein.com",
+  "source": "Web search",
+  "confidence": "high"
+ },
+ "86exkfbud": {
+  "name": "organicfoood",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://organicfoood.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exkfc3t": {
+  "name": "Natureland",
+  "status": "rejected",
+  "priority": "high",
+  "website": "https://natureland.net",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exkgmgq": {
+  "name": "JpDose",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://jpdose.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exkgp93": {
+  "name": "SHAHA",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://shaha.com.sa",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exkgpcv": {
+  "name": "Brio",
+  "status": "opportunity",
+  "priority": "urgent",
+  "website": "https://balsam-store.com",
+  "source": "Contact email domain (activity)",
+  "confidence": "medium"
+ },
+ "86exkgpvt": {
+  "name": "سجاد ويفت",
+  "status": "rejected",
+  "priority": "urgent",
+  "website": "https://weftrug.com",
+  "source": "Web search",
+  "confidence": "high"
+ },
+ "86exkgqe3": {
+  "name": "السعادة هوم",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://alsaadahome.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exkgqve": {
+  "name": "لامينا",
+  "status": "propose",
+  "priority": "urgent",
+  "website": "https://lamina-sa.com",
+  "source": "Web search",
+  "confidence": "medium"
+ },
+ "86exkgw1y": {
+  "name": "عالم رحال للمستلزمات الرجالية",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://alamrahal.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exkh1y9": {
+  "name": "جوادير",
+  "status": "opportunity",
+  "priority": "urgent",
+  "website": "",
+  "source": "",
+  "confidence": ""
+ },
+ "86exmhqyh": {
+  "name": "فرسان الخيال",
+  "status": "postpone",
+  "priority": "high",
+  "website": "https://fursanalkhail.com",
+  "source": "Web search",
+  "confidence": "high"
+ },
+ "86exmjdw0": {
+  "name": "حلم الرشاقة",
+  "status": "rejected",
+  "priority": "urgent",
+  "website": "",
+  "source": "",
+  "confidence": ""
+ },
+ "86exmqnjt": {
+  "name": "عالم الصفوه",
+  "status": "opportunity",
+  "priority": "urgent",
+  "website": "https://alamalsafwah.com.sa",
+  "source": "Web search",
+  "confidence": "high"
+ },
+ "86exmqrj2": {
+  "name": "مراتب سيلي",
+  "status": "opportunity",
+  "priority": "urgent",
+  "website": "https://sealyme.com",
+  "source": "Web search",
+  "confidence": "medium"
+ },
+ "86exmrpcb": {
+  "name": "Buff",
+  "status": "postpone",
+  "priority": "urgent",
+  "website": "https://salla.sa/buff",
+  "source": "Domain check",
+  "confidence": "medium"
+ },
+ "86exmrv1x": {
+  "name": "Blends",
+  "status": "opportunity",
+  "priority": "urgent",
+  "website": "https://blendshome.com",
+  "source": "Domain check",
+  "confidence": "medium"
+ },
+ "86exmrx44": {
+  "name": "Alsannat",
+  "status": "meeting",
+  "priority": "urgent",
+  "website": "https://alsannat.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exnzxvb": {
+  "name": "نايس",
+  "status": "opportunity",
+  "priority": "urgent",
+  "website": "https://www.nice.com.sa",
+  "source": "Domain check",
+  "confidence": "medium"
+ },
+ "86exq5gcp": {
+  "name": "كتب سقف",
+  "status": "opportunity",
+  "priority": "urgent",
+  "website": "https://saqfbooks.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exq9tbf": {
+  "name": "هناك",
+  "status": "meeting",
+  "priority": "urgent",
+  "website": "https://hnak.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86exqbwg7": {
+  "name": "وضوح",
+  "status": "opportunity",
+  "priority": "high",
+  "website": "https://wodoh.sa",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86exqc0uw": {
+  "name": "Freesiashop",
+  "status": "opportunity",
+  "priority": "urgent",
+  "website": "https://freesiashop.com",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86extcj9k": {
+  "name": "شركة رياحين",
+  "status": "opportunity",
+  "priority": "urgent",
+  "website": "https://salla.sa/rayaheen",
+  "source": "Domain check",
+  "confidence": "medium"
+ },
+ "86extcnzm": {
+  "name": "شركة بنتي للصناعة",
+  "status": "opportunity",
+  "priority": "urgent",
+  "website": "https://salla.sa/binti",
+  "source": "Domain check",
+  "confidence": "medium"
+ },
+ "86ey0mtqj": {
+  "name": "LIMRA TROLY",
+  "status": "propose",
+  "priority": "high",
+  "website": "https://limratroly.com",
+  "source": "ClickUp activity",
+  "confidence": "high"
+ },
+ "86eyuxng0": {
+  "name": "Al-Ahli Club Company",
+  "status": "opportunity",
+  "priority": "urgent",
+  "website": "https://www.alahlifc.sa",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86eyuxnru": {
+  "name": "نادى النصر",
+  "status": "opportunity",
+  "priority": "urgent",
+  "website": "https://salla.sa/alnassr",
+  "source": "Domain check",
+  "confidence": "high"
+ },
+ "86eyuxp0v": {
+  "name": "Savola Group",
+  "status": "opportunity",
+  "priority": "urgent",
+  "website": "https://www.savola.com",
+  "source": "Web search",
+  "confidence": "high"
+ },
+ "86eu04bdy": {
+  "name": "Alkhuzama Care",
+  "status": "meeting",
+  "own_site": "https://alkhuzamacare.com/ar",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/1554323192/"
+ },
+ "86euhb08h": {
+  "name": "رسيس",
+  "status": "rejected",
+  "own_site": "https://salla.sa/rasis",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/1999947742/"
+ },
+ "86ewm5dn9": {
+  "name": "REEF | ريف",
+  "status": "rejected",
+  "own_site": "https://salla.sa/reef",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/254895921/"
+ },
+ "86ewpmcdh": {
+  "name": "Beyyak",
+  "status": "opportunity",
+  "own_site": "https://beyyak.com/ar",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/2144568613/"
+ },
+ "86ewpppga": {
+  "name": "Wadi Halfa",
+  "status": "approved",
+  "own_site": "https://salla.sa/wadihalfa",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/1690488029/"
+ },
+ "86ewu5rrc": {
+  "name": "sarah store",
+  "status": "postpone",
+  "own_site": "https://salla.sa/sarahstore",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/1165709693/"
+ },
+ "86ewu69v1": {
+  "name": "miniso",
+  "status": "postpone",
+  "own_site": "https://miniso.sa",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/976102739/"
+ },
+ "86ewvkk11": {
+  "name": "alsultan",
+  "status": "meeting",
+  "own_site": "https://salla.sa/alsultan",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/341398094/"
+ },
+ "86ewvkzaz": {
+  "name": "classylook",
+  "status": "postpone",
+  "own_site": "https://classylook.sa/ar",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/953237741/"
+ },
+ "86ewwdwgr": {
+  "name": "black-deer",
+  "status": "opportunity",
+  "own_site": "https://salla.sa/blackdeer",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/1833649559/"
+ },
+ "86ewweut1": {
+  "name": "صره",
+  "status": "meeting",
+  "own_site": "https://salla.sa/bundle",
+  "source": "Domain check (own site)",
+  "confidence": "medium",
+  "mahally_listing": "https://mahally.com/en/stores/170708616/"
+ },
+ "86ewygvpx": {
+  "name": "waya store",
+  "status": "postpone",
+  "own_site": "https://salla.sa/waya",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/600817462/"
+ },
+ "86ewyhebj": {
+  "name": "option-b",
+  "status": "opportunity",
+  "own_site": "https://option-b.shop/ar",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/779771963/"
+ },
+ "86ewyyhv0": {
+  "name": "سر العود",
+  "status": "postpone",
+  "own_site": "https://salla.sa/secretofoud",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/74410982/"
+ },
+ "86ewyytvq": {
+  "name": "hugezone",
+  "status": "opportunity",
+  "own_site": "https://hugezone-sa.com",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/1564904143/"
+ },
+ "86ex84c2v": {
+  "name": "coffeesouq",
+  "status": "opportunity",
+  "own_site": "https://salla.sa/coffee-souq",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/1658035366/"
+ },
+ "86exak5g1": {
+  "name": "donella",
+  "status": "postpone",
+  "own_site": "https://salla.sa/donella",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/1272014984/"
+ },
+ "86exd976m": {
+  "name": "متجر نقوه",
+  "status": "rejected",
+  "own_site": "https://salla.sa/naqwastore",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/190470491/"
+ },
+ "86exdrtkf": {
+  "name": "draljamal",
+  "status": "opportunity",
+  "own_site": "https://draljamal.com",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/1017839016/"
+ },
+ "86exgke8d": {
+  "name": "متجر سياف",
+  "status": "opportunity",
+  "own_site": "https://siyafstore.com",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/558258409/"
+ },
+ "86exkgq6h": {
+  "name": "Urjwan Store",
+  "status": "rejected",
+  "own_site": "https://urjwan.com/ar",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/1692289458/"
+ },
+ "86exmhudw": {
+  "name": "متجر سهيل",
+  "status": "postpone",
+  "own_site": "https://salla.sa/suhail",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/1468317857/"
+ },
+ "86exmqunx": {
+  "name": "Shelf",
+  "status": "opportunity",
+  "own_site": "https://salla.sa/shelf",
+  "source": "Domain check (own site)",
+  "confidence": "medium",
+  "mahally_listing": "https://mahally.com/en/stores/1991402881/"
+ },
+ "86exmqy14": {
+  "name": "متجر سبون",
+  "status": "opportunity",
+  "own_site": "https://salla.sa/spoonstore",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/449953746/"
+ },
+ "86exmr2vb": {
+  "name": "Swis sstar",
+  "status": "opportunity",
+  "own_site": "https://swis-sstar.com/ar",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/1680923228/"
+ },
+ "86exnyxmq": {
+  "name": "لويس نايس",
+  "status": "opportunity",
+  "own_site": "https://salla.sa/louisnice",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/1238707016/"
+ },
+ "86exnz8rk": {
+  "name": "العراب",
+  "status": "opportunity",
+  "own_site": "https://salla.sa/godfather",
+  "source": "Domain check (own site)",
+  "confidence": "medium",
+  "mahally_listing": "https://mahally.com/en/stores/862218137/"
+ },
+ "86exnzadm": {
+  "name": "Prandosa",
+  "status": "opportunity",
+  "own_site": "https://prandosa.com",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/2026024706/"
+ },
+ "86exnzvnu": {
+  "name": "TOYS YARD",
+  "status": "opportunity",
+  "own_site": "https://toys-yard.com/ar",
+  "source": "Domain check (own site)",
+  "confidence": "high",
+  "mahally_listing": "https://mahally.com/en/stores/1759808630/"
+ },
+ "86exq57am": {
+  "name": "KANGAROO",
+  "status": "opportunity",
+  "own_site": "https://salla.sa/kangaroo",
+  "source": "Domain check (own site)",
+  "confidence": "medium",
+  "mahally_listing": "https://mahally.com/en/stores/630986646/"
+ },
+ "86exqc0r7": {
+  "name": "Lines",
+  "status": "opportunity",
+  "own_site": "https://salla.sa/lines",
+  "source": "Domain check (own site)",
+  "confidence": "medium",
+  "mahally_listing": "https://mahally.com/en/stores/675718663/"
+ }
+}
