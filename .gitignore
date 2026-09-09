@@ -1,0 +1,7 @@
+# ClickUp workspace/list/member IDs — copy clickup-ids.example.md to this name and fill it in.
+# Kept out of git because this repository is public.
+.claude/skills/clickup/references/clickup-ids.local.md
+
+# Local env holding CLICKUP_TOKEN and friends
+.env
+.env.local
