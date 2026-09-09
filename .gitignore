@@ -1,0 +1,5 @@
+
+# Monthly accounting exports: bills and journal carry pay and insurance against named staff.
+# accounting.py commits the aggregates it needs (sources/acct_series_*.json) instead.
+revenue-view/sources/wafeq_bills_*.xlsx
+revenue-view/sources/wafeq_journal_*.xlsx

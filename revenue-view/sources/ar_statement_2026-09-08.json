@@ -1,0 +1,88 @@
+{
+  "as_of": "2026-09-08",
+  "source": "Wafeq customer balances statement (كشف أرصدة العملاء), shared by Tarik 9 Sep 2026",
+  "note": "Rows are internally consistent: debit 206,501.15 - credit 157,117.96 = 49,383.19 = sum of closing balances. The statement's printed total (45,165.51) is 4,217.68 lower and does not tie to its own rows — with the accountant.",
+  "printed_total": 45165.51,
+  "rows_total": 49383.19,
+  "debit_total": 206501.15,
+  "credit_total": 157117.96,
+  "rows": [
+    {
+      "contact": "شركة البخور الذكي - IOUD",
+      "client": "Rimath",
+      "debit": 33171.43,
+      "credit": 24482.72,
+      "closing": 8688.71
+    },
+    {
+      "contact": "شركة البخور الذكي - Oso spray",
+      "client": "Rimath",
+      "debit": 7171.6,
+      "credit": 5451.75,
+      "closing": 1719.85
+    },
+    {
+      "contact": "شركة البخور الذكي - Thannah",
+      "client": "Rimath",
+      "debit": 19817.82,
+      "credit": 12262.73,
+      "closing": 7555.09
+    },
+    {
+      "contact": "شركة التكامل الثلاثي للتجارة",
+      "client": "Ancy & Shaya",
+      "debit": 20380.14,
+      "credit": 13367.87,
+      "closing": 7012.27
+    },
+    {
+      "contact": "شركة قمة التطورات المستقبلية التجارية",
+      "client": "Gamesir",
+      "debit": 11550.17,
+      "credit": 4500.0,
+      "closing": 7050.17
+    },
+    {
+      "contact": "شركة مجموعة الفارس الصناعية",
+      "client": "Alfaris Group",
+      "debit": 41420.14,
+      "credit": 32540.06,
+      "closing": 8880.08
+    },
+    {
+      "contact": "شركة وادي حلفا التجارية",
+      "client": "Wadi Halfa",
+      "debit": 10620.04,
+      "credit": 7356.99,
+      "closing": 3263.05
+    },
+    {
+      "contact": "مؤسسة محمد صالح محمد العشري للتجارة",
+      "client": "Reetal",
+      "debit": 9009.21,
+      "credit": 8324.72,
+      "closing": 684.49
+    },
+    {
+      "contact": "مؤسسة صحة ونكهة للتجارة",
+      "client": "Inivita",
+      "debit": 42888.99,
+      "credit": 38974.72,
+      "closing": 3914.27
+    },
+    {
+      "contact": "مؤسسة نقوش القهوة للتجارة",
+      "client": "Nokush",
+      "debit": 3727.61,
+      "credit": 3356.13,
+      "closing": 371.48
+    },
+    {
+      "contact": "كلاود شيلف",
+      "client": "Cloud Shelf (pass-through)",
+      "debit": 6744.0,
+      "credit": 6500.27,
+      "closing": 243.73
+    }
+  ]
+}

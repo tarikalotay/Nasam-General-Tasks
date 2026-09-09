@@ -6,7 +6,7 @@ from collections import defaultdict
 from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Font, PatternFill, Alignment
 from openpyxl.utils import get_column_letter
-import rev5, old_gmv, add6, wafeq_api, po_plat
+import rev5, old_gmv, add6, wafeq_api, po_plat, accounting
 
 F="Arial"
 BLACK=Font(name=F,size=10); BOLD=Font(name=F,size=10,bold=True)
@@ -301,10 +301,10 @@ def olvl(ws,r,lvl):
 # ---------- 0 ReadMe ----------
 w=wb.active; w.title="0 ReadMe"
 w.column_dimensions['B'].width=26; w.column_dimensions['C'].width=112
-rows=[("Nasam Revenue View — weekly run · 6 Sep 2026",""),
-("This run","Third automated Sunday run. Wafeq pulled via API on 6 Sep (164 invoices): no new invoices issued since 30 Aug; four August monthly invoices are drafted (31 Aug, 12,013.72) and enter billed once sent; five invoices moved to PAID (Alfaris May–Jul, Inivita Jul, INV-000151). The platform read layer was unavailable this run, so platform sales, purchase orders and Sonbol's from-integration figure are carried from the 30 Aug pull (August through 30 Aug; no September GMV yet). The six duplicated Alfaris retail invoices (INV-000169/170/171/181/182/183, 739.48) are still SENT in Wafeq with no credit note, so the Dec–Feb over-billing is still shown."),
-("Sources","Wafeq API snapshot 6 Sep (164 invoices) · platform revenue + purchase orders pulled 30 Aug (not refreshed this run) · churned-brand snapshots 15 Aug (the read layer does not serve deactivated brands) · Salla Partners export 30 Aug (manual, 26 records) · rate card 17 Aug."),
-("Reporting rules","Window Nov 2025+ (current model) · GMV post-Nasam only (Sonbol from 13 Aug 2026) · post-churn months excluded · SaaS brand-channels 0% · SaaS subscriptions net of Salla 15% · retail commission on the RECEIVED value of closed POs · pass-throughs (3,355.01) excluded · all figures SAR ex-VAT."),
+rows=[("Nasam Revenue View — run of 9 Sep 2026 · August monthly close",""),
+("This run","Monthly close for August, off the accounting drop Tarik shared on 9 Sep (data to 8 Sep). The four August invoices drafted on 31 Aug are now issued, so 10,013.72 moves from the memo line into billed — Wadi Halfa's released invoice is 8.11, not 2,008.11, because the 2,000 monthly fee was dropped while the shipping disruption lasts. New sheet 4 Cost & Break-even carries the expense side for the first time: salaries and bills against revenue, what was spent on clients' behalf, how the gap was funded, and receivables reconciled against the accountant's statement. Platform sales, purchase orders and Sonbol's from-integration figure are still the 30 Aug pull (the read layer is offline)."),
+("Sources","Wafeq API snapshot 9 Sep (164 invoices) · Wafeq accounting exports 8 Sep: purchase bills, journal entries, customer-balances statement · platform revenue + purchase orders pulled 30 Aug (not refreshed) · churned-brand snapshots 15 Aug · Salla Partners export 30 Aug (manual, 26 records) · rate card 17 Aug."),
+("Monthly close — first week","Every month, once the monthly invoices are released, Tarik shares four Wafeq exports: sales invoices, purchase bills, journal entries and the customer-balances statement. That run reissues the closed month: drafted invoices move into billed, cost and funding are refreshed from bills and the journal, and receivables are reconciled Wafeq against the accountant. Weekly runs in between leave the cost sheet as it stands and say which drop it came from."),("Reporting rules","Window Nov 2025+ (current model) · GMV post-Nasam only (Sonbol from 13 Aug 2026) · post-churn months excluded · SaaS brand-channels 0% · SaaS subscriptions net of Salla 15% · retail commission on the RECEIVED value of closed POs · pass-throughs (3,355.01) excluded · all figures SAR ex-VAT."),
 ("Weekly update","Automatic: Wafeq API, platform sales, platform POs, rebuild + verification. Manual: only the Salla Partners subscriptions export — share it whenever it changes."),]
 for i,(a,b) in enumerate(rows, start=2):
     w.cell(row=i,column=2,value=a).font=BOLD if i==2 else BLACK
@@ -493,6 +493,99 @@ for s in SAAS_SUBS:
 put(w3,r,1,"TOTAL PAID (ex-VAT)",BOLD)
 put(w3,r,8,round(saas_total,2),BOLD,SAR,GREY)
 put(w3,r,12,SRC_SALLA)
+
+# ---------- 4 Cost & Break-even ----------
+if accounting.available():
+    AOF=accounting.as_of(); SRC_ACC=f"Wafeq accounting export {AOF}"
+    ser=accounting.series()
+    w4=wb.create_sheet("4 Cost & Break-even")
+    hdr(w4,["","Item"]+ML+["Total","Source"],widths=[3,40]+[10]*len(M)+[12,52])
+    r=2
+    put(w4,r,2,"REVENUE (from sheet 1)",BOLD); r+=1
+    rev_b=month_row(w4,r,"Billed revenue",lambda m: sum(billed[(k,m)] for k in allk),SRC_WAFEQ); r+=1
+    rev_a=month_row(w4,r,"Retail commission — closed POs, to invoice",lambda m: sum(d.get(m,0.0) for d in acc.values()),SRC_PO); r+=1
+    rev_s=month_row(w4,r,"SaaS subscriptions, net of Salla 15%",lambda m: saas_rev.get(m,0.0)*(1-SALLA_SHARE),SRC_SALLA); r+=1
+    revf=lambda m: sum(billed[(k,m)] for k in allk)+sum(d.get(m,0.0) for d in acc.values())+saas_rev.get(m,0.0)*(1-SALLA_SHARE)
+    rev_t=month_row(w4,r,"TOTAL REVENUE",revf,"Sum of the three rows above",BOLD,GREY); r+=1
+    r+=1
+
+    put(w4,r,2,"NASAM OPERATING COST",BOLD); r+=1
+    salf=lambda m: ser['salaries'].get(m,0.0)+ser['staff_adj'].get(m,0.0)
+    month_row(w4,r,"Salaries and staff cost",salf,SRC_ACC+" — journal, accounts 5201/5231 (+GOSI and insurance adjustments)"); r+=1
+    op_accts=sorted({a for (a,m) in ser['operating'] if m in M},
+                    key=lambda a: -sum(ser['operating'].get((a,m),0.0) for m in M))
+    for a in op_accts:
+        if sum(ser['operating'].get((a,m),0.0) for m in M)<=0.005: continue
+        month_row(w4,r,a,lambda m,a=a: ser['operating'].get((a,m),0.0),SRC_ACC+" — bills",lvl=1); r+=1
+    zkf=lambda m: ser['zakat'].get(m,0.0)
+    if sum(zkf(m) for m in M)>0.005:
+        month_row(w4,r,"Zakat",zkf,SRC_ACC+" — journal, account 545",lvl=1); r+=1
+    costf=lambda m: salf(m)+sum(ser['operating'].get((a,m),0.0) for a in op_accts)+zkf(m)
+    cost_t=month_row(w4,r,"TOTAL OPERATING COST",costf,"Salaries + bills (own cost) + zakat",BOLD,GREY); r+=1
+    r+=1
+
+    put(w4,r,2,"RESULT",BOLD); r+=1
+    gapf=lambda m: revf(m)-costf(m)
+    month_row(w4,r,"Revenue less operating cost",gapf,"Break-even is this row at zero",BOLD,GREY); r+=1
+    month_row(w4,r,"Cost covered by revenue (%)",lambda m: (revf(m)/costf(m)*100) if costf(m)>0.005 else 0.0,
+              "Revenue / operating cost",BLACK,None,'0"%"')
+    put(w4,r,3+len(M),round(rev_t/cost_t*100,1) if cost_t>0.005 else None,BLACK,'0.0"%"')  # window, not a sum of months
+    r+=1
+    r+=1
+
+    put(w4,r,2,"SPENT ON A CLIENT'S BEHALF — rebill decision open",BOLD); r+=1
+    cs_accts=sorted({a for (a,m) in ser['client_side'] if m in M},
+                    key=lambda a: -sum(ser['client_side'].get((a,m),0.0) for m in M))
+    for a in cs_accts:
+        if sum(ser['client_side'].get((a,m),0.0) for m in M)<=0.005: continue
+        note=accounting.CLIENT_SIDE.get(a,'')
+        month_row(w4,r,a,lambda m,a=a: ser['client_side'].get((a,m),0.0),SRC_ACC+" — bills · "+note,lvl=1); r+=1
+    csf=lambda m: sum(ser['client_side'].get((a,m),0.0) for a in cs_accts)
+    month_row(w4,r,"TOTAL SPENT ON CLIENTS' BEHALF",csf,"Excluded from operating cost above — confirm what is rebilled",BOLD,GREY); r+=1
+    r+=1
+
+    put(w4,r,2,"HOW THE GAP WAS FUNDED",BOLD); r+=1
+    month_row(w4,r,"Partner contributions",lambda m: ser['funding'].get(m,0.0),SRC_ACC+" — journal, accounts 3231-3234 (funding, not revenue)"); r+=1
+    if sum(ser['grant'].get(m,0.0) for m in M)>0.005:
+        month_row(w4,r,"Monshaat support",lambda m: ser['grant'].get(m,0.0),SRC_ACC+" — journal, account 421"); r+=1
+    month_row(w4,r,"Salla payouts received (settlement account)",lambda m: ser['settlement'].get(m,0.0),SRC_ACC+" — journal, account 418 · cash timing, not a second revenue stream"); r+=1
+    r+=1
+
+    # ---- receivables: Wafeq live vs the accountant's statement ----
+    ar=accounting.ar_statement()
+    if ar:
+        put(w4,r,2,f"RECEIVABLES — Wafeq live vs the accountant's statement ({ar['as_of']})",BOLD); r+=1
+        for i,h in enumerate(["Client","Wafeq (live invoices)","Accountant statement","Difference","What the difference is"],2):
+            c=put(w4,r,i,h,HDR); c.fill=HFILL
+        r+=1
+        wl=defaultdict(float)
+        for L in wafeq_lines():
+            if not L['first'] or L['status']=='DRAFT' or L['balance']<=0: continue
+            wl[ckey(L['contact']) or L['contact']]+=L['balance']
+        st=defaultdict(float)
+        for row in ar['rows']: st[row['client']]+=row['closing']
+        DIFF_NOTE={'Rimath':'Receipts booked in the ledger, not applied to the invoices in Wafeq',
+                   'Alfaris Group':'739.48 — the six duplicated retail invoices, credited in the ledger only',
+                   'Wadi Halfa':'Receipt booked in the ledger, not applied in Wafeq',
+                   'Nokush':'Receipt booked in the ledger, not applied in Wafeq'}
+        tw=ts=0.0
+        for k in sorted(set(wl)|set(st), key=lambda k: -st.get(k,0.0)):
+            a,b=wl.get(k,0.0),st.get(k,0.0); tw+=a; ts+=b
+            put(w4,r,2,k); put(w4,r,3,round(a,2) or None,BLACK,SAR); put(w4,r,4,round(b,2) or None,BLACK,SAR)
+            put(w4,r,5,round(a-b,2) or None,BLACK,SAR)
+            note=DIFF_NOTE.get(k,'') if abs(a-b)>0.01 else ''
+            if k not in wl and b>0: note='Pass-through contact — excluded from revenue, still an open balance'
+            put(w4,r,6,note); r+=1
+        put(w4,r,2,"TOTAL",BOLD); put(w4,r,3,round(tw,2),BOLD,SAR,GREY); put(w4,r,4,round(ts,2),BOLD,SAR,GREY)
+        put(w4,r,5,round(tw-ts,2),BOLD,SAR,GREY)
+        put(w4,r,6,"Statement rows tie to debit less credit ("+f"{ar['rows_total']:,.2f}"+"); its printed footer says "
+                   +f"{ar['printed_total']:,.2f}"+" — with the accountant",BOLD); r+=2
+    put(w4,r,2,"Read this sheet with care",BOLD); r+=1
+    for t in ["Cost is on a cash-recorded basis: a bill lands in the month it was entered, so months are lumpy (accounting fees, insurance and government fees arrive in blocks).",
+              "Salaries come from the journal, bills from the purchase ledger. Nothing here is accrued or apportioned.",
+              "The client-side block is excluded from operating cost on purpose. Until each line is confirmed as rebilled or absorbed, the true cost sits between the two totals.",
+              "Partner contributions are how the gap has been funded to date. They are not revenue and never enter the revenue sheets."]:
+        c=put(w4,r,2,t); c.alignment=Alignment(wrap_text=True,vertical="top"); w4.row_dimensions[r].height=28; r+=1
 
 OUT=os.path.join(HERE,"output","Nasam_Revenue_View.xlsx")
 wb.save(OUT)
