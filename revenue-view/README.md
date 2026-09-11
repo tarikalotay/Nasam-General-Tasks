@@ -8,6 +8,7 @@ Canonical builder for `output/Nasam_Revenue_View.xlsx`. A scheduled routine runs
   `SELECT "brandName","channelName", substring("date"::text,1,7) AS ym, SUM("totalRevenue"::numeric), SUM("orderCount") FROM mcp_read.revenue WHERE "date">='2025-11-01' GROUP BY 1,2,3` — replace `REV_ACT`. Also refresh Sonbol's from-integration figure (`add6.SONBOL_FROM_INTEGRATION`, date >= 2026-08-13).
 - `old_gmv.py`, `add6.py` — frozen snapshots: churned brands (platform no longer serves deactivated brands) and Two United's constellation (orders view). Do not refresh.
 - `fetch_wafeq.py` — pulls all Wafeq invoices/contacts/items/projects to `sources/wafeq_api_snapshot.json`. Needs `ACCOUNTING_API_KEY` in the environment (never committed). Verified working 18 Aug 2026 (160 invoices).
+- `chart_invoices_by_stream.py` — renders `output/nasam_invoices_by_stream.png`: invoiced revenue by month, stacked by AM fees / commission / setup, discounts below the baseline. Figures come from the by-stream aggregation of every issued invoice.
 - `accounting.py` — the expense side: parses the monthly Wafeq bills and journal exports plus the customer-balances statement into the monthly series behind sheet 4 (`Cost & Break-even`). Classifies bill accounts as Nasam's own cost or spent on a client's behalf (`CLIENT_SIDE`).
 - `sources/` — dated input snapshots: Wafeq invoice export (xlsx), closed-PO export (csv), Salla Partners subscriptions (pdf; data transcribed into `build.py` `SAAS_SUBS`), and the monthly accounting drop (bills, journal, AR statement).
 
@@ -33,7 +34,7 @@ Tarik releases the monthly invoices at the start of the month and then shares fo
 Weekly runs in between do not refresh the cost sheet. It keeps the drop it was built from, and the ReadMe sheet names that date.
 
 ## Reporting rules (fixed decisions)
-Window Nov 2025+ (current model) · GMV post-Nasam only (Sonbol from 13 Aug 2026; post-churn months excluded) · SaaS brand-channels 0% commission · SaaS subscriptions net of Salla 15% · Cloud Shelf recharges (3,355.01), Dashcam and the old 35% ledger excluded · retail commission on RECEIVED value, closed POs only · no VAT (exempt, trailing-12m income < 375K).
+Window Nov 2025+ (current model) · GMV post-Nasam only (Sonbol from 13 Aug 2026; post-churn months excluded) · SaaS brand-channels 0% commission · SaaS subscriptions net of Salla 15% · pass-throughs excluded — Cloud Shelf recharges (3,355.01 in window) and marketing rebilled to a client at cost (INV-000137, 16,534.40, Oct 2025); only a management fee charged on such work is revenue, and that invoice carried none — Dashcam and the old 35% ledger excluded · retail commission on RECEIVED value, closed POs only · no VAT (exempt, trailing-12m income < 375K).
 
 ## Open questions
 Q1 retail invoices being raised manually (started 18 Aug) · Q2 PO value columns in platform (Fahad) · Q3 Wafeq API parser switch-over (key verified, now the source) · Q4 Salla app trials converting w/c 19 Aug · Q5 which client-side spend is rebilled and which is absorbed (sheet 4) · Q6 the accountant's statement footer does not tie to its own rows (4,217.68) · Q7 receipts booked in the ledger but not applied to invoices in Wafeq (17,545.95 as of 8 Sep).
