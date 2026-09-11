@@ -91,7 +91,7 @@ a(f'<text x="140" y="266" font-size="12.5" fill="{INK2}">fell away from June as 
 a(f'<text x="140" y="284" font-size="12.5" fill="{INK2}">Nothing has replaced them.</text>')
 
 a(f'<text x="{ML}" y="{H-46}" font-size="11.5" fill="{MUTED}">AM fees 132,921 · commission 78,287 · setup 33,451 · discounts −7,550 · total 237,108 across 157 invoices</text>')
-a(f'<text x="{ML}" y="{H-28}" font-size="11.5" fill="{MUTED}">Excludes drafts and pass-throughs rebilled at cost: Cloud Shelf recharges and 16,534 of marketing for Sep 2025, which carried no management fee. Nothing issued yet in Sep 2026.</text>')
+a(f'<text x="{ML}" y="{H-28}" font-size="11.5" fill="{MUTED}">Excludes drafts and amounts rebilled to clients at cost. Nothing issued yet in Sep 2026.</text>')
 a('</svg>')
 
 svg = "\n".join(s)
