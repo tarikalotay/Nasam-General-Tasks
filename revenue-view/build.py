@@ -122,7 +122,7 @@ def parse_ref(ref,fallback):
 def fnum(x):
     try: return float(x)
     except: return 0.0
-CH_AR=[('أمازون للتجزئة','Amazon Retail'),('أمازون','Amazon'),('ترنديول','Trendyol'),('سلة','Salla'),('نون','Noon'),('منصات التجارة السريعة','Quick-commerce')]
+CH_AR=[('أمازون للتجزئة','Amazon Retail'),('أمازون','Amazon'),('ترنديول','Trendyol'),('سلة','Salla'),('نمشي','Namshi'),('نون','Noon'),('منصات التجارة السريعة','Quick-commerce')]  # Namshi item created in Wafeq 10 Sep 2026, no invoice yet
 def stream(item,desc,client):
     it=str(item or ''); de=str(desc or '')
     if 'كلاود شيلف' in de or 'كلاود شيلف' in it: return ('PassThrough',None)
@@ -249,9 +249,9 @@ for b,c,ym,g,o in add6.TWO_M:
 gmv[(SONBOL,"Salla","2026-08")]=add6.SONBOL_FROM_INTEGRATION[0]
 gmv_src[(SONBOL,"Salla")]=SRC_PLAT+" (from 13 Aug 2026)"
 
-CH_PLAT={'Amazon':['Amazon'],'Trendyol':['Trendyol'],'Salla':['Salla'],'Noon':['Noon'],
+CH_PLAT={'Amazon':['Amazon'],'Trendyol':['Trendyol'],'Salla':['Salla'],'Noon':['Noon'],'Namshi':['Namshi'],
          'Quick-commerce':['Jahez','Hungerstation','NoonFood'],'Amazon Retail':[],'Other':[]}
-P2W={'Amazon':'Amazon','Trendyol':'Trendyol','Salla':'Salla','Noon':'Noon','Jahez':'Quick-commerce','Hungerstation':'Quick-commerce','NoonFood':'Quick-commerce'}
+P2W={'Amazon':'Amazon','Trendyol':'Trendyol','Salla':'Salla','Noon':'Noon','Namshi':'Namshi','Jahez':'Quick-commerce','Hungerstation':'Quick-commerce','NoonFood':'Quick-commerce'}
 
 alloc=defaultdict(lambda: defaultdict(float)); alloc_note=set()
 for (ck,ch,month),amt in comm.items():
@@ -301,9 +301,9 @@ def olvl(ws,r,lvl):
 # ---------- 0 ReadMe ----------
 w=wb.active; w.title="0 ReadMe"
 w.column_dimensions['B'].width=26; w.column_dimensions['C'].width=112
-rows=[("Nasam Revenue View — run of 9 Sep 2026 · August monthly close",""),
-("This run","Monthly close for August, off the accounting drop Tarik shared on 9 Sep (data to 8 Sep). The four August invoices drafted on 31 Aug are now issued, so 10,013.72 moves from the memo line into billed — Wadi Halfa's released invoice is 8.11, not 2,008.11, because the 2,000 monthly fee was dropped while the shipping disruption lasts. New sheet 4 Cost & Break-even carries the expense side for the first time: salaries and bills against revenue, what was spent on clients' behalf, how the gap was funded, and receivables reconciled against the accountant's statement. Platform sales, purchase orders and Sonbol's from-integration figure are still the 30 Aug pull (the read layer is offline)."),
-("Sources","Wafeq API snapshot 9 Sep (164 invoices) · Wafeq accounting exports 8 Sep: purchase bills, journal entries, customer-balances statement · platform revenue + purchase orders pulled 30 Aug (not refreshed) · churned-brand snapshots 15 Aug · Salla Partners export 30 Aug (manual, 26 records) · rate card 17 Aug."),
+rows=[("Nasam Revenue View — weekly run · 13 Sep 2026",""),
+("This run","A quiet week: no invoice was issued, paid or changed since 9 Sep, so billed, receivables and every total are unchanged. Wafeq was re-pulled today and matches the 9 Sep state exactly. One forward signal: a new billing item, عمولة مبيعات - نمشي (Namshi sales commission), was created in Wafeq on 10 Sep — the channel is now mapped here so the first Namshi invoice classifies correctly instead of falling into Other. Platform sales, purchase orders and Sonbol's from-integration figure are still the 30 Aug pull; the platform read layer needs re-authorising."),
+("Sources","Wafeq API snapshot 13 Sep (164 invoices) · Wafeq accounting exports 8 Sep: purchase bills, journal entries, customer-balances statement · platform revenue + purchase orders pulled 30 Aug (14 days old) · churned-brand snapshots 15 Aug · Salla Partners export 30 Aug (14 days old — the four trials live then have all since expired) · closed-PO export 17 Aug · rate card 17 Aug."),
 ("Monthly close — first week","Every month, once the monthly invoices are released, Tarik shares four Wafeq exports: sales invoices, purchase bills, journal entries and the customer-balances statement. That run reissues the closed month: drafted invoices move into billed, cost and funding are refreshed from bills and the journal, and receivables are reconciled Wafeq against the accountant. Weekly runs in between leave the cost sheet as it stands and say which drop it came from."),("Reporting rules","Window Nov 2025+ (current model) · GMV post-Nasam only (Sonbol from 13 Aug 2026) · post-churn months excluded · SaaS brand-channels 0% · SaaS subscriptions net of Salla 15% · retail commission on the RECEIVED value of closed POs · pass-throughs excluded: Cloud Shelf recharges (3,355.01 in window) and marketing rebilled to a client at cost (INV-000137, 16,534.40, Oct 2025 — outside the window) · only the management fee on such work is revenue, and there was none on that invoice · all figures SAR ex-VAT."),
 ("Weekly update","Automatic: Wafeq API, platform sales, platform POs, rebuild + verification. Manual: only the Salla Partners subscriptions export — share it whenever it changes."),]
 for i,(a,b) in enumerate(rows, start=2):
