@@ -13,6 +13,16 @@
 # Nothing is inferred here: an organization absent from ORGS has NOT been read off the platform, and
 # validate() reports it as unconfirmed rather than letting build.py's rate-card defaults pass as
 # verified.
+#
+# FIRST AUTHORISED RUN — the mapping's own view is not identified yet. The two mcp_read views this
+# repo already uses are `revenue` and `purchase_orders`; neither carries the commission flag or the
+# monthly fee. So on the first run with the connector live, list what mcp_read exposes and find the
+# organization/channel view before writing any query — do not guess a table name. What is needed,
+# one row per organization and channel:
+#     organization (brand) · channel · commission active (bool) · monthly fee on the organization
+# Then fill ORGS and re-run build.py; the mapping check compares it against the billing by itself.
+# Everything Sonbol below was read off the dialog by eye and should be re-read from the view on that
+# first run, so the whole table comes from one source.
 AS_OF = '2026-09-13'
 SOURCE = 'Nasam platform — تعديل المنظمة (per-channel commission toggle + الرسوم الشهرية)'
 
