@@ -93,7 +93,7 @@ Section title: `Trendyol in the Gulf, 2025`
 - `4M+` — Active shoppers
 - `35M` — Units sold
 - `~$1B` — Marketing invested
-- `15K` — Influencers in our network
+- `15K` — Gulf influencers
 Footnote (12px muted): `Trendyol Gulf figures, 2025.`
 
 ### What you get (checklist, orange check discs)

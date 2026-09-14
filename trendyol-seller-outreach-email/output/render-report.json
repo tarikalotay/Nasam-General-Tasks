@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-09-14T08:47:32.970Z",
+  "merged_html": "output/email-okwan-sample.html",
+  "leftover_merge_tokens": 0,
+  "screenshots": [
+    {
+      "label": "phone",
+      "path": "output/trendyol-seller-email-phone.png",
+      "viewport": "390x844 @2x",
+      "pixels": {
+        "width": 780,
+        "height": 5262
+      },
+      "bytes": 436850,
+      "document_scroll_width": 390,
+      "document_client_width": 390,
+      "horizontal_overflow": false
+    },
+    {
+      "label": "desktop",
+      "path": "output/trendyol-seller-email-desktop.png",
+      "viewport": "1280x800 @2x",
+      "pixels": {
+        "width": 2560,
+        "height": 4410
+      },
+      "bytes": 453660,
+      "document_scroll_width": 1280,
+      "document_client_width": 1280,
+      "horizontal_overflow": false
+    }
+  ],
+  "images": [
+    {
+      "src": "trendyol-logo.png",
+      "loaded": true,
+      "natural": "716x163",
+      "rendered": "132x30"
+    },
+    {
+      "src": "whatsapp-icon-white.png",
+      "loaded": true,
+      "natural": "96x96",
+      "rendered": "20x20"
+    }
+  ],
+  "fonts_loaded": [
+    "Inter 400 normal",
+    "Inter 600 normal",
+    "Inter 700 normal",
+    "Noto Sans Arabic 400 normal"
+  ],
+  "font_families_loaded": [
+    "Inter",
+    "Noto Sans Arabic"
+  ],
+  "console_errors": [],
+  "failed_requests": []
+}
