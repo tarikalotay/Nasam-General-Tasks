@@ -26,9 +26,6 @@ Full rationale, copy and layout rules are in `DESIGN.md`.
 | Field | Example | Notes |
 |---|---|---|
 | `{{seller_name}}` | `OKWAN` | Store or brand name exactly as the seller writes it. |
-| `{{category}}` | `Travel & Lifestyle Accessories` | Main category on their current channels, English. |
-| `{{category_ar}}` | `إكسسوارات السفر ونمط الحياة` | Same category in Arabic. |
-| `{{item_count}}` | `100+` | Live item count on their current channels. Keep it honest; round down. |
 | `{{seller_name_url}}` | `OKWAN` | URL-encoded seller name for the WhatsApp and mailto links. Most ESPs can derive it; `render.js` does. |
 
 Subject lines (A/B):
@@ -43,13 +40,12 @@ Subject lines (A/B):
    `whatsapp-icon-orange.png`, `whatsapp-icon-white.png`. Base64 images are blocked by Gmail.
 2. **Check the sender address.** The template signs as `tarik.alotay@trendyol.com`.
    Send from that mailbox so replies land in the right inbox and DKIM/SPF align.
-3. **Fill the four seller fields per row** from the lead sheet. Never name another
-   marketplace; the copy only says "sales channels".
-4. **Verify OKWAN's item count** (the sample uses `100+` as a placeholder).
-5. Send a test to yourself on iPhone Mail, Gmail app (Android), Gmail web and Outlook.
+3. **Fill `seller_name` per row** from the lead sheet. It is the only per-seller field. Never name
+   another marketplace; the copy only says "sales channels".
+4. Send a test to yourself on iPhone Mail, Gmail app (Android), Gmail web and Outlook.
    Tap both buttons: WhatsApp opens a chat with a pre-filled message; the reply button
    opens a pre-addressed email.
-6. Keep the opt-out line in the footer.
+5. Keep the opt-out line in the footer.
 
 ## Re-rendering the previews
 

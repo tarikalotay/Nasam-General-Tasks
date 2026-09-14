@@ -66,8 +66,7 @@ Assets (all in `assets/`, 2x for retina):
 
 ## 3. Content (final copy)
 
-Merge fields: `{{seller_name}}`, `{{category}}` (English), `{{category_ar}}` (Arabic),
-`{{item_count}}`, `{{seller_name_url}}` (URL-encoded seller name, derived by the script).
+Merge fields: `{{seller_name}}` only, plus `{{seller_name_url}}` (URL-encoded seller name, derived by the script).
 
 Subject line (A/B):
 - A: `{{seller_name}} × Trendyol: open your store · افتحوا متجركم على ترينديول`
@@ -98,7 +97,7 @@ Wordmark `assets/trendyol-logo.png`, 140px wide, alt `trendyol`, padding 24px to
 Arabic column (right on PC, first on phone; `dir="rtl" lang="ar"`, text right-aligned, Noto Sans Arabic 16px/28, colour `#434343`):
 > مرحباً فريق {{seller_name}}،
 >
-> أنا **طارق**، مسؤول تطوير الأعمال في ترينديول. لاحظنا حضوركم القوي في قنوات البيع ضمن فئة **{{category_ar}}** وبقائمة تضم **{{item_count}} منتج**. نريد منتجاتكم على ترينديول.
+> أنا **طارق**، مسؤول تطوير الأعمال في ترينديول. لاحظنا حضوركم القوي في قنوات البيع، ونريد منتجاتكم على ترينديول.
 >
 > **للبدء، ردّوا على هذا الإيميل أو راسلوني على واتساب وأرسلوا:**
 > 1. رابط متجركم
@@ -109,7 +108,7 @@ Arabic column (right on PC, first on phone; `dir="rtl" lang="ar"`, text right-al
 English column (left on PC, second on phone; `dir="ltr" lang="en"`, left-aligned, Inter 16px/26, `#434343`):
 > Hi {{seller_name}} team,
 >
-> I'm **Tarik Alotay**, Business Development Executive at Trendyol. We saw your strong presence across sales channels in **{{category}}**, with **{{item_count}} items** live. We want your products on Trendyol.
+> I'm **Tarik Alotay**, Business Development Executive at Trendyol. We saw your strong presence across sales channels, and we want your products on Trendyol.
 >
 > **To start, reply to this email or message me on WhatsApp with:**
 > 1. Your store link
