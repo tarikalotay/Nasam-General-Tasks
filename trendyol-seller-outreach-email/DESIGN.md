@@ -82,10 +82,10 @@ Wordmark `assets/trendyol-logo.png`, 140px wide, alt `trendyol`, padding 24px to
 - Eyebrow (12px/18, SemiBold, letter-spacing 1.5px on the Latin part, colour `#FFE0D2`):
   `SELLER INVITATION · دعوة للبائعين`
 - Arabic H1 (`dir="rtl" lang="ar"`, Noto Sans Arabic 700, 34px/44 phone, 42px/54 PC, white):
-  `{{seller_name}}، افتحوا متجركم على ترينديول`
+  `افتحوا متجركم على ترينديول` (no seller name in the hero; it appears once, in the greeting of each column)
 - English H1 (Inter 700, 30px/36 phone, 38px/44 PC, white, 8px below the Arabic H1):
-  `{{seller_name}}, open your store on Trendyol.`
-- Both H1s sit in a nested table `max-width:520px` so they wrap into two balanced lines on PC instead of leaving an orphan word.
+  `Open your store on Trendyol.`
+- Both H1s sit in a nested table `max-width:600px`; on PC each fits on one line, on phone they wrap to two balanced lines.
 - Primary button (white `#FFFFFF` background, orange text, radius 12px, `max-width:340px`, width 100%,
   padding 14px 20px, orange WhatsApp icon 20px + 8px gap), two-line label:
   line 1 Inter 600 16px `Message me on WhatsApp`, line 2 Noto Sans Arabic 500 14px `dir="rtl"` `راسلني على واتساب`
