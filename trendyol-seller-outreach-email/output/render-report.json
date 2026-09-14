@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T09:27:31.021Z",
+  "generated_at": "2026-09-14T09:31:15.636Z",
   "merged_html": "output/email-okwan-sample.html",
   "leftover_merge_tokens": 0,
   "screenshots": [
@@ -11,7 +11,7 @@
         "width": 780,
         "height": 7906
       },
-      "bytes": 1192081,
+      "bytes": 1194597,
       "document_scroll_width": 390,
       "document_client_width": 390,
       "horizontal_overflow": false
@@ -24,7 +24,7 @@
         "width": 1920,
         "height": 6716
       },
-      "bytes": 1248479,
+      "bytes": 1251263,
       "document_scroll_width": 960,
       "document_client_width": 960,
       "horizontal_overflow": false

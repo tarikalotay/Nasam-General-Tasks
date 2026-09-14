@@ -154,8 +154,8 @@ Rows separated by 1px `#E6E6E6` lines, 16px padding above and below each row.
 12px between buttons, 16px above the phone line.
 
 ### 3.8 Signature (white)
-Row: 48px orange disc with white `T` (Inter 700 18px) | text block:
-- `Tarik` (Inter 600 16px/24 ink; first name only, per sender's request)
+Row: 48px orange disc with white `TA` (Inter 700 18px) | text block:
+- `Tarik Alotay` (Inter 600 16px/24 ink; the intro uses the first name only)
 - `Business Development Executive · مسؤول تطوير الأعمال` (Inter 14px/22 `#434343`; the Arabic part in a `dir="rtl"` no-wrap span)
 - `Trendyol, Saudi Arabia · ترينديول، السعودية` (same treatment)
 - `tarik.alotay@trendyol.com · +966 55 018 4495` (Inter 13px/20 muted; both links `#434343`, no underline; phone `white-space:nowrap`)
