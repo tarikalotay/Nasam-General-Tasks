@@ -37,7 +37,7 @@ Subject lines (A/B):
 ## Before sending
 
 1. **Host the five images** and replace the relative `assets/...` paths in `email.html`
-   with absolute HTTPS URLs: `trendyol-logo.png`, `hero-hand-phone.jpg`, `app-hand-phone.jpg`,
+   with absolute HTTPS URLs: `trendyol-logo-extended.png`, `hero-hand-phone.jpg`, `app-hand-phone.jpg`,
    `whatsapp-icon-orange.png`, `whatsapp-icon-white.png`. Base64 images are blocked by Gmail.
 2. **Check the sender address.** The template signs as `tarik.alotay@trendyol.com`.
    Send from that mailbox so replies land in the right inbox and DKIM/SPF align.

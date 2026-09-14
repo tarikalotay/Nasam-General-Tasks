@@ -33,7 +33,7 @@ v3 changes (after review of v1):
 | White | `#FFFFFF` | Message and steps sections |
 
 Typography: Latin `'Inter','Helvetica Neue',Helvetica,Arial,sans-serif`; Arabic
-`'Noto Sans Arabic','Segoe UI',Tahoma,Arial,sans-serif`. Google Fonts `@import` for both
+`'Noto Sans Arabic','Segoe UI',Tahoma,Arial,sans-serif`. Google Fonts `<link>` in the head (not `@import`, which Gmail can choke on) for both
 (`Inter:wght@400;500;600;700;800` and `Noto+Sans+Arabic:wght@400;500;600;700`).
 Trendyol's Arabic wordmark spelling is `ترينديول`. Logo rules as before: black lowercase
 wordmark on white/off-white, white on orange, never stretched or recoloured.
@@ -42,7 +42,8 @@ Assets (all in `assets/`, 2x for retina):
 
 | File | Size | Display | Use |
 |---|---|---|---|
-| `trendyol-logo.png` | 716×163 | 140px wide | Top bar wordmark |
+| `trendyol-logo-extended.png` | 400×133 | 200px wide | Top bar: extended lockup, wordmark + orange .com tag (Wikimedia Commons, Trendyol trademark) |
+| `trendyol-logo.png` | 716×163 | unused | Plain wordmark from the deck, kept for reference |
 | `hero-hand-phone.jpg` | 640×697 | 100% of cell, max 320px wide | Hero image, already flattened on `#FF6720` |
 | `app-hand-phone.jpg` | 640×792 | 100% of cell, max 320px wide | App showcase, flattened on `#FAFAFA` to match its band |
 | `whatsapp-icon-orange.png` | 96×96 | 20px | Icon in the white hero button |
@@ -75,7 +76,7 @@ Subject line (A/B):
 Preheader (hidden): `Reply with your store link and CR number. I'll handle the rest. · أرسلوا رابط متجركم ورقم السجل التجاري وسأتولى الباقي.`
 
 ### 3.1 Top bar (white, centered)
-Wordmark `assets/trendyol-logo.png`, 140px wide, alt `trendyol`, padding 24px top/bottom.
+Extended logo `assets/trendyol-logo-extended.png`, 200px wide, alt `trendyol.com`, padding 24px top/bottom.
 
 ### 3.2 Hero (orange `#FF6720`, everything centered)
 - Eyebrow (12px/18, SemiBold, letter-spacing 1.5px on the Latin part, colour `#FFE0D2`):

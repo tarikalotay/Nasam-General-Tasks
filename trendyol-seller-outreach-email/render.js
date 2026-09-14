@@ -104,6 +104,7 @@ function buildRenderHtml(mergedHtml) {
 
   // No network during render: drop the Google Fonts @import.
   html = html.replace(/^[ \t]*@import\s+url\((['"]?)https:\/\/fonts\.googleapis\.com[^\n]*\n/gm, '');
+  html = html.replace(/^[ \t]*<link[^>]*fonts\.googleapis\.com[^>]*>\s*\n/gm, '');
 
   // The temp file lives in output/, so relative assets/... must become absolute.
   html = html.replace(/(src|href)="assets\/([^"]+)"/g, (m, attr, rel) => {
