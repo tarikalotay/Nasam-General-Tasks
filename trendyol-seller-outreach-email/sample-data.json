@@ -1,7 +1,8 @@
 {
-  "_comment": "Sample merge values used by render.js. seller_name/category/item_count come from your lead sheet per seller. item_count for OKWAN could not be verified from this environment; replace before sending.",
+  "_comment": "Sample merge values used by render.js. seller_name/category/category_ar/item_count come from your lead sheet per seller. item_count for OKWAN could not be verified from this environment; replace before sending.",
   "seller_name": "OKWAN",
   "category": "Travel & Lifestyle Accessories",
+  "category_ar": "إكسسوارات السفر ونمط الحياة",
   "item_count": "100+",
   "sender_name": "Tarik Alotay",
   "sender_title": "Business Development Executive",
