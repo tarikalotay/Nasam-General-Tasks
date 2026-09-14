@@ -1,0 +1,12 @@
+{
+  "_comment": "Sample merge values used by render.js. seller_name/category/item_count come from your lead sheet per seller. item_count for OKWAN could not be verified from this environment; replace before sending.",
+  "seller_name": "OKWAN",
+  "category": "Travel & Lifestyle Accessories",
+  "item_count": "100+",
+  "sender_name": "Tarik Alotay",
+  "sender_title": "Business Development Executive",
+  "sender_company": "Trendyol, Saudi Arabia",
+  "sender_email": "tarik.alotay@trendyol.com",
+  "sender_phone_display": "+966 55 018 4495",
+  "sender_phone_e164": "966550184495"
+}
