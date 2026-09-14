@@ -14,6 +14,7 @@ v3 changes (after review of v1):
   languages; the personal message is split into two columns (Arabic right, English left on PC;
   Arabic first, then English on phone).
 - PC preview rendered at a reading-pane width (960px) so the email is legible, not lost in a canvas.
+- v3.1 dark-mode pass: white logo inside the orange hero, transparent PNG photos, and a simulated Gmail dark-mode render (`darkmode-sim.js`) as a QA step.
 
 ---
 
@@ -24,13 +25,13 @@ v3 changes (after review of v1):
 | Orange | `#FF6720` | Hero field, primary buttons, numerals, accent labels |
 | Orange dark | `#E5581A` | Borders on orange, pressed states |
 | Peach tint | `#FFF3EC` | CTA panel background |
-| Ink | `#181818` | Headlines, stats band background, wordmark |
+| Ink | `#181818` | Headlines |
 | Body | `#434343` | Body copy |
 | Muted | `#7A7A7A` | Captions, footer |
 | Line | `#E6E6E6` | Dividers |
-| Off-white | `#FAFAFA` | App-showcase section, footer background |
+| Off-white | `#FAFAFA` | Stats band, steps and footer backgrounds (alternating with white) |
 | Page | `#F2F2F2` | Page background behind the 680px column |
-| White | `#FFFFFF` | Message and steps sections |
+| White | `#FFFFFF` | Message, app-showcase and signature sections |
 
 Typography: Latin `'Inter','Helvetica Neue',Helvetica,Arial,sans-serif`; Arabic
 `'Noto Sans Arabic','Segoe UI',Tahoma,Arial,sans-serif`. Google Fonts `<link>` in the head (not `@import`, which Gmail can choke on) for both
@@ -42,10 +43,11 @@ Assets (all in `assets/`, 2x for retina):
 
 | File | Size | Display | Use |
 |---|---|---|---|
-| `trendyol-logo-extended.png` | 400×133 | 200px wide | Top bar: extended lockup, wordmark + orange .com tag (Wikimedia Commons, Trendyol trademark) |
+| `trendyol-logo-extended-white.png` | 440×149 | 176px wide | Top of the hero: extended lockup in white with orange .com, on transparent. Carries its own colours so Gmail dark mode cannot hide it |
+| `trendyol-logo-extended.png` | 400×133 | unused | Black version of the lockup, kept for light-only uses |
 | `trendyol-logo.png` | 716×163 | unused | Plain wordmark from the deck, kept for reference |
-| `hero-hand-phone.jpg` | 640×697 | 100% of cell, max 320px wide | Hero image, already flattened on `#FF6720` |
-| `app-hand-phone.jpg` | 640×792 | 100% of cell, max 320px wide | App showcase, flattened on `#FAFAFA` to match its band |
+| `hero-hand-phone.png` | 640×697 | 100% of cell, max 320px wide | Hero image, transparent PNG so it blends with whatever a dark-mode client does to the orange |
+| `app-hand-phone.png` | 640×792 | 100% of cell, max 320px wide | App showcase, transparent PNG for the same reason |
 | `whatsapp-icon-orange.png` | 96×96 | 20px | Icon in the white hero button |
 | `whatsapp-icon-white.png` | 96×96 | 20px | Icon in the orange CTA button |
 
@@ -55,13 +57,13 @@ Assets (all in `assets/`, 2x for retina):
 
 | Standard (Apple, Samsung, Amazon, X, Starlink) | v3 |
 |---|---|
-| One column, 600–680px, mobile-first, full-bleed colour sections, no card chrome | 680px column, square full-width sections: white / orange / white / ink / off-white / white / peach / white / off-white |
+| One column, 600–680px, mobile-first, full-bleed colour sections, no card chrome | 680px column, square full-width sections: orange / white / off-white / white / off-white / peach / white / off-white |
 | Big headline (32–44px), one-line subhead, one CTA above the fold | Hero: 12px eyebrow, Arabic H1 34px (phone) / 42px (PC), English H1 30/38px, then the white WhatsApp button, then the product image |
 | Product imagery as the hero, device-in-hand shots | Deck cover shot (hand + phone with Trendyol splash) in the hero; Saudi app in hand in the showcase |
 | Very short copy, scannable modules, big numbers | Message = 3 short paragraphs + 2-item ask per language; stats band with 3 numbers; 3 one-line steps |
 | High-contrast rounded buttons, repeated at the end | White-on-orange button in hero, orange button + outline button in the CTA panel |
 | Generous spacing (40–56px section padding) | 48px top/bottom on PC, 36px on phone; 24px side on phone |
-| Logo alone in the top bar; small grey legal footer | Centered wordmark top bar; bilingual footer with opt-out |
+| Logo alone at the top; small grey legal footer | White extended logo at the top of the hero; bilingual footer with opt-out |
 
 ---
 
@@ -75,8 +77,8 @@ Subject line (A/B):
 
 Preheader (hidden): `Reply with your store link and CR number. I'll handle the rest. · أرسلوا رابط متجركم ورقم السجل التجاري وسأتولى الباقي.`
 
-### 3.1 Top bar (white, centered)
-Extended logo `assets/trendyol-logo-extended.png`, 200px wide, alt `trendyol.com`, padding 24px top/bottom.
+### 3.1 Top bar
+Removed in v3.1: the email opens directly with the orange hero, which carries the white extended logo (176px wide, 28px above the eyebrow).
 
 ### 3.2 Hero (orange `#FF6720`, everything centered)
 - Eyebrow (12px/18, SemiBold, letter-spacing 1.5px on the Latin part, colour `#FFE0D2`):
@@ -91,7 +93,7 @@ Extended logo `assets/trendyol-logo-extended.png`, 200px wide, alt `trendyol.com
   padding 14px 20px, orange WhatsApp icon 20px + 8px gap), two-line label:
   line 1 Inter 600 16px `Message me on WhatsApp`, line 2 Noto Sans Arabic 500 14px `dir="rtl"` `راسلني على واتساب`
   → `https://wa.me/966550184495?text=Hi%20Tarik%2C%20this%20is%20{{seller_name_url}}.%20We%27d%20like%20to%20join%20Trendyol.`
-- Hero image row: `assets/hero-hand-phone.jpg`, `width="320"` attribute, `style="width:100%; max-width:320px; height:auto; display:block; margin:0 auto"`,
+- Hero image row: `assets/hero-hand-phone.png`, `width="320"` attribute, `style="width:100%; max-width:320px; height:auto; display:block; margin:0 auto"`,
   alt `Trendyol app on a phone`, 28px above it, **0px below it** (the hand bleeds off the bottom edge of the orange).
 - Hero padding: 40px 32px 0 on PC, 36px 24px 0 on phone.
 
@@ -121,21 +123,21 @@ English column (left on PC, second on phone; `dir="ltr" lang="en"`, left-aligned
 Bold = Inter/Noto 700, colour `#181818`. The numbered items are a 2-column table (numeral cell
 28px wide, orange 16px Bold, bare numerals `1` `2` without dots; in the Arabic column the table is `dir="rtl"` so numerals sit on the right).
 
-### 3.4 Stats band (ink `#181818`, three stats)
+### 3.4 Stats band (off-white `#FAFAFA`, three stats; light so dark-mode inversion cannot hide the numbers)
 Title row (centered, 12px/18 SemiBold letter-spaced on the Latin part, colour `#FF6720`): `TRENDYOL IN THE GULF · ترينديول في الخليج` (year lives in the labels and footnote so the title stays on one line on phone)
-Each stat: number (Inter 800, 44px/48, white), English label (Inter 13px/18, `#FFB38A`), Arabic label
-(Noto 13px/22, `#FFB38A`, `dir="rtl"`), all centered.
+Each stat: number (Inter 800, 44px/48, orange `#FF6720`), English label (Inter 13px/18, `#434343`), Arabic label
+(Noto 13px/22, `#434343`, `dir="rtl"`), all centered.
 - `4M+` — `Active shoppers in the Gulf` — `متسوق نشط في الخليج`
 - `35M` — `Units sold in 2025` — `منتج مُباع في 2025`
 - `#2` — `Saudi Arabia: our 2nd-largest market worldwide` — `السعودية ثاني أكبر أسواقنا عالمياً`
-Footnote (11px/16, `#9A9A9A`, centered): `Trendyol Gulf figures, 2025 · أرقام ترينديول في الخليج، 2025`
+Footnote (11px/16, `#7A7A7A`, centered): `Trendyol Gulf figures, 2025 · أرقام ترينديول في الخليج، 2025`
 
-### 3.5 App showcase (off-white `#FAFAFA`, centered)
+### 3.5 App showcase (white, centered)
 - Title (Inter 700 22px/28 ink, manual break for balanced lines): `Your products,` / `in the Trendyol app.`
 - Arabic title (Noto 700 22px/34 ink, `dir="rtl"`): `منتجاتكم في تطبيق ترينديول`
-- Image: `assets/app-hand-phone.jpg`, `width="320"`, `max-width:320px; width:100%`, alt `Trendyol app in Saudi Arabia`, 24px above, 0 below (bleeds off the section's bottom edge).
+- Image: `assets/app-hand-phone.png`, `width="320"`, `max-width:320px; width:100%`, alt `Trendyol app in Saudi Arabia`, 24px above, 0 below (bleeds off the section's bottom edge).
 
-### 3.6 How it works (white)
+### 3.6 How it works (off-white `#FAFAFA`)
 Title (centered, Inter 700 22px/28 ink): `How it works · كيف تبدأ`
 Three rows, each: numeral cell 44px wide (Inter 800 28px/32 orange) + text cell with an English line
 (Inter 600 16px/24 ink) and an Arabic line beneath (Noto 400 15px/26 `#434343`, `dir="rtl"`, right-aligned... **no**: keep the Arabic line left-aligned in the same cell but with `dir="rtl"` so it reads correctly; alignment follows the cell = left).

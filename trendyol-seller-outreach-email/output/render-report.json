@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T10:29:52.779Z",
+  "generated_at": "2026-09-14T10:49:08.976Z",
   "merged_html": "output/email-okwan-sample.html",
   "leftover_merge_tokens": 0,
   "screenshots": [
@@ -9,9 +9,9 @@
       "viewport": "390x844 @2x",
       "pixels": {
         "width": 780,
-        "height": 7976
+        "height": 7920
       },
-      "bytes": 1210094,
+      "bytes": 1161903,
       "document_scroll_width": 390,
       "document_client_width": 390,
       "horizontal_overflow": false
@@ -22,9 +22,9 @@
       "viewport": "960x800 @2x",
       "pixels": {
         "width": 1920,
-        "height": 6786
+        "height": 6730
       },
-      "bytes": 1269368,
+      "bytes": 1217566,
       "document_scroll_width": 960,
       "document_client_width": 960,
       "horizontal_overflow": false
@@ -32,10 +32,10 @@
   ],
   "images": [
     {
-      "src": "trendyol-logo-extended.png",
+      "src": "trendyol-logo-extended-white.png",
       "loaded": true,
-      "natural": "400x135",
-      "rendered": "200x68"
+      "natural": "440x149",
+      "rendered": "176x60"
     },
     {
       "src": "whatsapp-icon-orange.png",
@@ -44,13 +44,13 @@
       "rendered": "20x20"
     },
     {
-      "src": "hero-hand-phone.jpg",
+      "src": "hero-hand-phone.png",
       "loaded": true,
       "natural": "640x697",
       "rendered": "320x349"
     },
     {
-      "src": "app-hand-phone.jpg",
+      "src": "app-hand-phone.png",
       "loaded": true,
       "natural": "640x792",
       "rendered": "320x396"

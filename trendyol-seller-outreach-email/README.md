@@ -17,6 +17,7 @@ Full rationale, copy and layout rules are in `DESIGN.md`.
 | `render.js` | Playwright script: merges sample data, renders phone + PC PNGs. |
 | `output/trendyol-seller-email-phone.png` | Phone preview (390 px viewport, 2x). |
 | `output/trendyol-seller-email-desktop.png` | PC preview (960 px reading-pane viewport, 2x). |
+| `output/trendyol-seller-email-phone-darkmode-sim.png` | Simulated Gmail dark mode (backgrounds darkened, text lightened, images untouched). Run `darkmode-sim.js` to regenerate. |
 | `output/email-okwan-sample.html` | Merged sample, openable in a browser. |
 | `output/email-okwan-send.html` | Merged sample with images pointing at this branch's GitHub raw URLs; what was sent as the Gmail test. Re-host the images on a permanent CDN before the mass send. |
 | `assets/` | Wordmark, hero and app images (from the Trendyol deck), WhatsApp icons, fonts for offline rendering. |
@@ -37,7 +38,7 @@ Subject lines (A/B):
 ## Before sending
 
 1. **Host the five images** and replace the relative `assets/...` paths in `email.html`
-   with absolute HTTPS URLs: `trendyol-logo-extended.png`, `hero-hand-phone.jpg`, `app-hand-phone.jpg`,
+   with absolute HTTPS URLs: `trendyol-logo-extended-white.png`, `hero-hand-phone.png`, `app-hand-phone.png`,
    `whatsapp-icon-orange.png`, `whatsapp-icon-white.png`. Base64 images are blocked by Gmail.
 2. **Check the sender address.** The template signs as `tarik.alotay@trendyol.com`.
    Send from that mailbox so replies land in the right inbox and DKIM/SPF align.
