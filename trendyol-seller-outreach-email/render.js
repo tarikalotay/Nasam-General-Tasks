@@ -7,7 +7,7 @@
  * Outputs (see DESIGN.md section 6):
  *   output/email-okwan-sample.html
  *   output/trendyol-seller-email-phone.png     (390x844, dsf 2, full page)
- *   output/trendyol-seller-email-desktop.png   (1280x800, dsf 2, full page)
+ *   output/trendyol-seller-email-desktop.png   (960x800, dsf 2, full page)
  *   output/render-report.json
  */
 
@@ -200,7 +200,7 @@ async function shoot(browser, { width, height, out, label }) {
   let desktop;
   try {
     phone = await shoot(browser, { width: 390, height: 844, out: PHONE_PNG, label: 'phone' });
-    desktop = await shoot(browser, { width: 1280, height: 800, out: DESKTOP_PNG, label: 'desktop' });
+    desktop = await shoot(browser, { width: 960, height: 800, out: DESKTOP_PNG, label: 'desktop' });
   } finally {
     await browser.close();
     if (fs.existsSync(TMP_HTML)) fs.unlinkSync(TMP_HTML);
@@ -227,7 +227,7 @@ async function shoot(browser, { width, height, out, label }) {
       {
         label: 'desktop',
         path: path.relative(ROOT, DESKTOP_PNG),
-        viewport: '1280x800 @2x',
+        viewport: '960x800 @2x',
         pixels: pngSize(DESKTOP_PNG),
         bytes: fs.statSync(DESKTOP_PNG).size,
         document_scroll_width: desktop.metrics.scrollWidth,

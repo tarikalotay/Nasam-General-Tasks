@@ -44,7 +44,7 @@ Assets (all in `assets/`, 2x for retina):
 |---|---|---|---|
 | `trendyol-logo.png` | 716×163 | 140px wide | Top bar wordmark |
 | `hero-hand-phone.jpg` | 640×697 | 100% of cell, max 320px wide | Hero image, already flattened on `#FF6720` |
-| `app-hand-phone.jpg` | 640×792 | 100% of cell, max 320px wide | App showcase, flattened on white |
+| `app-hand-phone.jpg` | 640×792 | 100% of cell, max 320px wide | App showcase, flattened on `#FAFAFA` to match its band |
 | `whatsapp-icon-orange.png` | 96×96 | 20px | Icon in the white hero button |
 | `whatsapp-icon-white.png` | 96×96 | 20px | Icon in the orange CTA button |
 
@@ -85,6 +85,7 @@ Wordmark `assets/trendyol-logo.png`, 140px wide, alt `trendyol`, padding 24px to
   `{{seller_name}}، افتحوا متجركم على ترينديول`
 - English H1 (Inter 700, 30px/36 phone, 38px/44 PC, white, 8px below the Arabic H1):
   `{{seller_name}}, open your store on Trendyol.`
+- Both H1s sit in a nested table `max-width:520px` so they wrap into two balanced lines on PC instead of leaving an orphan word.
 - Primary button (white `#FFFFFF` background, orange text, radius 12px, `max-width:340px`, width 100%,
   padding 14px 20px, orange WhatsApp icon 20px + 8px gap), two-line label:
   line 1 Inter 600 16px `Message me on WhatsApp`, line 2 Noto Sans Arabic 500 14px `dir="rtl"` `راسلني على واتساب`
@@ -117,10 +118,10 @@ English column (left on PC, second on phone; `dir="ltr" lang="en"`, left-aligned
 > I'll open your store and get your catalogue live. Onboarding takes 1–2 weeks.
 
 Bold = Inter/Noto 700, colour `#181818`. The numbered items are a 2-column table (numeral cell
-28px wide, orange 16px Bold; in the Arabic column the table is `dir="rtl"` so numerals sit on the right).
+28px wide, orange 16px Bold, bare numerals `1` `2` without dots; in the Arabic column the table is `dir="rtl"` so numerals sit on the right).
 
 ### 3.4 Stats band (ink `#181818`, three stats)
-Title row (centered, 12px/18 SemiBold letter-spaced, colour `#FF6720`): `TRENDYOL IN THE GULF, 2025 · ترينديول في الخليج 2025`
+Title row (centered, 12px/18 SemiBold letter-spaced on the Latin part, colour `#FF6720`): `TRENDYOL IN THE GULF · ترينديول في الخليج` (year lives in the labels and footnote so the title stays on one line on phone)
 Each stat: number (Inter 800, 44px/48, white), English label (Inter 13px/18, `#FFB38A`), Arabic label
 (Noto 13px/22, `#FFB38A`, `dir="rtl"`), all centered.
 - `4M+` — `Active shoppers in the Gulf` — `متسوق نشط في الخليج`
@@ -129,7 +130,7 @@ Each stat: number (Inter 800, 44px/48, white), English label (Inter 13px/18, `#F
 Footnote (11px/16, `#9A9A9A`, centered): `Trendyol Gulf figures, 2025 · أرقام ترينديول في الخليج، 2025`
 
 ### 3.5 App showcase (off-white `#FAFAFA`, centered)
-- Title (Inter 700 22px/28 ink): `Your products, in the Trendyol app.`
+- Title (Inter 700 22px/28 ink, manual break for balanced lines): `Your products,` / `in the Trendyol app.`
 - Arabic title (Noto 700 22px/34 ink, `dir="rtl"`): `منتجاتكم في تطبيق ترينديول`
 - Image: `assets/app-hand-phone.jpg`, `width="320"`, `max-width:320px; width:100%`, alt `Trendyol app in Saudi Arabia`, 24px above, 0 below (bleeds off the section's bottom edge).
 
@@ -143,8 +144,8 @@ Three rows, each: numeral cell 44px wide (Inter 800 28px/32 orange) + text cell 
 Rows separated by 1px `#E6E6E6` lines, 16px padding above and below each row.
 
 ### 3.7 CTA panel (peach `#FFF3EC`, centered)
-- Line 1 (Inter 600 18px/26 ink): `Reply to this email or message me on WhatsApp.`
-- Line 2 (Noto 600 18px/30 ink, `dir="rtl"`): `ردّوا على هذا الإيميل أو راسلوني على واتساب.`
+- Line 1 (Inter 600 18px/26 ink, manual break): `Reply to this email` / `or message me on WhatsApp.`
+- Line 2 (Noto 600 18px/30 ink, `dir="rtl"`, manual break): `ردّوا على هذا الإيميل` / `أو راسلوني على واتساب.`
 - Primary button (orange `#FF6720`, white text, radius 12px, max-width 340px, padding 14px 20px, white WhatsApp icon), two-line label as in the hero. Same wa.me link.
 - Secondary button (white, 2px `#FF6720` border, orange text, radius 12px, padding 12px 20px), two-line label:
   `Reply to this email` / `الرد على هذا الإيميل`
@@ -155,8 +156,8 @@ Rows separated by 1px `#E6E6E6` lines, 16px padding above and below each row.
 ### 3.8 Signature (white)
 Row: 48px orange disc with white `TA` (Inter 700 18px) | text block:
 - `Tarik Alotay` (Inter 600 16px/24 ink)
-- `Business Development Executive · Trendyol, Saudi Arabia` (Inter 14px/22 `#434343`)
-- `مسؤول تطوير الأعمال · ترينديول، السعودية` (Noto 14px/24 `#434343`, `dir="rtl"`, left-aligned block)
+- `Business Development Executive · مسؤول تطوير الأعمال` (Inter 14px/22 `#434343`; the Arabic part in a `dir="rtl"` no-wrap span)
+- `Trendyol, Saudi Arabia · ترينديول، السعودية` (same treatment)
 - `tarik.alotay@trendyol.com · +966 55 018 4495` (Inter 13px/20 muted; both links `#434343`, no underline; phone `white-space:nowrap`)
 
 ### 3.9 Footer (off-white `#FAFAFA`, centered, 12px)
