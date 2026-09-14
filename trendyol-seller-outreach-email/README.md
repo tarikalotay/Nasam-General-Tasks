@@ -49,6 +49,28 @@ Subject lines (A/B):
    opens a pre-addressed email.
 5. Keep the opt-out line in the footer.
 
+## Why a Gmail test sent from this session looks different from the PNGs
+
+The Gmail connector used in this session sanitises outgoing HTML: it removes every
+`<img>` tag (hosted or inline attachment), the `<head>`, the `<style>` block and all
+`class` attributes. Drafts are sanitised the same way. A message sent that way arrives
+with no logo, no photos and no responsive rules, so it cannot match the previews.
+The template itself is fine; it needs a sender that passes HTML through untouched.
+
+Ways to see the real email in an inbox:
+
+1. **Gmail compose, copy-paste.** Open `output/email-okwan-send.html` in Chrome, select all
+   (Ctrl+A), copy, paste into a new Gmail message, send to yourself. Gmail keeps the tables,
+   inline styles and hosted images.
+2. **Your ESP** (Mailchimp, Brevo, HubSpot, Apollo sequences): import `email.html` as a custom
+   HTML template with the images hosted. This is also the path for the mass send.
+3. Any tool that accepts raw MIME (SMTP script, Postmark, SendGrid API).
+
+The layout no longer depends on the `<style>` block: headline sizes, section padding and the
+gaps between stacked columns and stats are inline, so even a sender that strips styles keeps a
+clean phone layout. The media query only adds the divider line between the two language
+columns on phone.
+
 ## Re-rendering the previews
 
 ```bash
