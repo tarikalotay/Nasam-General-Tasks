@@ -18,6 +18,7 @@ Full rationale, copy and layout rules are in `DESIGN.md`.
 | `output/trendyol-seller-email-phone.png` | Phone preview (390 px viewport, 2x). |
 | `output/trendyol-seller-email-desktop.png` | PC preview (960 px reading-pane viewport, 2x). |
 | `output/email-okwan-sample.html` | Merged sample, openable in a browser. |
+| `output/email-okwan-send.html` | Merged sample with images pointing at this branch's GitHub raw URLs; what was sent as the Gmail test. Re-host the images on a permanent CDN before the mass send. |
 | `assets/` | Wordmark, hero and app images (from the Trendyol deck), WhatsApp icons, fonts for offline rendering. |
 | `DESIGN.md` | Brand study, big-brand benchmark, final copy in both languages, layout and engineering rules. |
 
