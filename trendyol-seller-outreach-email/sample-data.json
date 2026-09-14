@@ -1,7 +1,7 @@
 {
   "_comment": "Sample merge values used by render.js. The only per-seller field is seller_name; everything else is the sender.",
   "seller_name": "OKWAN",
-  "sender_name": "Tarik Alotay",
+  "sender_name": "Tarik",
   "sender_title": "Business Development Executive",
   "sender_company": "Trendyol, Saudi Arabia",
   "sender_email": "tarik.alotay@trendyol.com",

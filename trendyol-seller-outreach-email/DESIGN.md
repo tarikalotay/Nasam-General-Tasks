@@ -80,8 +80,9 @@ Wordmark `assets/trendyol-logo.png`, 140px wide, alt `trendyol`, padding 24px to
 ### 3.2 Hero (orange `#FF6720`, everything centered)
 - Eyebrow (12px/18, SemiBold, letter-spacing 1.5px on the Latin part, colour `#FFE0D2`):
   `SELLER INVITATION · دعوة للبائعين`
+- Seller name line (English, Inter 800, 28px/34 phone, 32px/38 PC, white, letter-spacing 0.5px): `{{seller_name}}`
 - Arabic H1 (`dir="rtl" lang="ar"`, Noto Sans Arabic 700, 34px/44 phone, 42px/54 PC, white):
-  `افتحوا متجركم على ترينديول` (no seller name in the hero; it appears once, in the greeting of each column)
+  `افتحوا متجركم على ترينديول`
 - English H1 (Inter 700, 30px/36 phone, 38px/44 PC, white, 8px below the Arabic H1):
   `Open your store on Trendyol.`
 - Both H1s sit in a nested table `max-width:600px`; on PC each fits on one line, on phone they wrap to two balanced lines.
@@ -108,7 +109,7 @@ Arabic column (right on PC, first on phone; `dir="rtl" lang="ar"`, text right-al
 English column (left on PC, second on phone; `dir="ltr" lang="en"`, left-aligned, Inter 16px/26, `#434343`):
 > Hi {{seller_name}} team,
 >
-> I'm **Tarik Alotay**, Business Development Executive at Trendyol. We saw your strong presence across sales channels, and we want your products on Trendyol.
+> I'm **Tarik**, Business Development Executive at Trendyol. We saw your strong presence across sales channels, and we want your products on Trendyol.
 >
 > **To start, reply to this email or message me on WhatsApp with:**
 > 1. Your store link
@@ -153,8 +154,8 @@ Rows separated by 1px `#E6E6E6` lines, 16px padding above and below each row.
 12px between buttons, 16px above the phone line.
 
 ### 3.8 Signature (white)
-Row: 48px orange disc with white `TA` (Inter 700 18px) | text block:
-- `Tarik Alotay` (Inter 600 16px/24 ink)
+Row: 48px orange disc with white `T` (Inter 700 18px) | text block:
+- `Tarik` (Inter 600 16px/24 ink; first name only, per sender's request)
 - `Business Development Executive · مسؤول تطوير الأعمال` (Inter 14px/22 `#434343`; the Arabic part in a `dir="rtl"` no-wrap span)
 - `Trendyol, Saudi Arabia · ترينديول، السعودية` (same treatment)
 - `tarik.alotay@trendyol.com · +966 55 018 4495` (Inter 13px/20 muted; both links `#434343`, no underline; phone `white-space:nowrap`)

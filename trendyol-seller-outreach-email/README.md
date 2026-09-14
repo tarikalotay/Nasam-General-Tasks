@@ -25,7 +25,7 @@ Full rationale, copy and layout rules are in `DESIGN.md`.
 
 | Field | Example | Notes |
 |---|---|---|
-| `{{seller_name}}` | `OKWAN` | Store or brand name exactly as the seller writes it. |
+| `{{seller_name}}` | `OKWAN` | Store or brand name exactly as the seller writes it. Shown in English at the top of the hero and in both greetings. |
 | `{{seller_name_url}}` | `OKWAN` | URL-encoded seller name for the WhatsApp and mailto links. Most ESPs can derive it; `render.js` does. |
 
 Subject lines (A/B):
