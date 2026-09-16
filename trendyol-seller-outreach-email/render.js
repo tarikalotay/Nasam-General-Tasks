@@ -24,6 +24,7 @@ const FONTS_DIR = path.join(ASSETS_DIR, 'fonts');
 const EMAIL_SRC = path.join(ROOT, 'email.html');
 const DATA_SRC = path.join(ROOT, 'sample-data.json');
 const MERGED_HTML = path.join(OUT_DIR, 'email-okwan-sample.html');
+const EMBEDDED_HTML = path.join(OUT_DIR, 'email-okwan-embedded.html');
 const TMP_HTML = path.join(OUT_DIR, '.render-tmp.html');
 const PHONE_PNG = path.join(OUT_DIR, 'trendyol-seller-email-phone.png');
 const DESKTOP_PNG = path.join(OUT_DIR, 'trendyol-seller-email-desktop.png');
@@ -192,6 +193,13 @@ async function shoot(browser, { width, height, out, label }) {
 
   const merged = buildMergedHtml();
   fs.writeFileSync(MERGED_HTML, merged, 'utf8');
+  // Self-contained copy: every assets/ image inlined as a base64 data URI (no hosting needed).
+  const embedded = merged.replace(/src="assets\/([^"]+)"/g, (m, file) => {
+    const abs = path.join(ASSETS_DIR, file);
+    const mime = file.endsWith('.png') ? 'image/png' : file.endsWith('.jpg') ? 'image/jpeg' : 'application/octet-stream';
+    return `src="data:${mime};base64,${fs.readFileSync(abs).toString('base64')}"`;
+  });
+  fs.writeFileSync(EMBEDDED_HTML, embedded, 'utf8');
 
   const renderHtml = buildRenderHtml(merged);
   fs.writeFileSync(TMP_HTML, renderHtml, 'utf8');
@@ -213,6 +221,7 @@ async function shoot(browser, { width, height, out, label }) {
   const report = {
     generated_at: new Date().toISOString(),
     merged_html: path.relative(ROOT, MERGED_HTML),
+    embedded_html: path.relative(ROOT, EMBEDDED_HTML),
     leftover_merge_tokens: phone.metrics.leftoverTokens + desktop.metrics.leftoverTokens,
     screenshots: [
       {
