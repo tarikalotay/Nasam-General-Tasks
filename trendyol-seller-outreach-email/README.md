@@ -19,6 +19,7 @@ Full rationale, copy and layout rules are in `DESIGN.md`.
 | `output/trendyol-seller-email-desktop.png` | PC preview (960 px reading-pane viewport, 2x). |
 | `output/trendyol-seller-email-phone-darkmode-sim.png` | Simulated Gmail dark mode (backgrounds darkened, text lightened, images untouched). Run `darkmode-sim.js` to regenerate. |
 | `output/email-okwan-sample.html` | Merged sample, openable in a browser. |
+| `output/email-okwan.eml` | The email as a standard message file: HTML plus the five images as inline parts. Double-click to open in Outlook, Apple Mail or Thunderbird with the logo and photos showing; Outlook opens it ready to send. Rebuild with `python3 make-eml.py`. |
 | `output/email-okwan-embedded.html` | Self-contained: the Trendyol logo and all photos are embedded in the file as base64, so it opens anywhere with no hosting. Best for previewing and for pasting into a compose window. Note: most mail clients block base64 images in *received* mail, so for the mass send use hosted images. |
 | `output/email-okwan-send.html` | Merged sample with images pointing at this branch's GitHub raw URLs; what was sent as the Gmail test. Re-host the images on a permanent CDN before the mass send. |
 | `assets/` | Wordmark, hero and app images (from the Trendyol deck), WhatsApp icons, fonts for offline rendering. |
