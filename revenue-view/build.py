@@ -66,16 +66,19 @@ SAAS={("SONDOS","Salla"),("Marah","Salla"),("Sense","Salla"),("Arabesque","Salla
 def model(b,ch):
     return "SaaS" if (b,ch) in SAAS else "FAM"
 def commissioned(b,ch):
-    """Does this brand-channel carry commission? The platform's own toggle wins where Nasam has
-    set it (mapping.py); brand-channels the platform has not been read for fall back to the rate
-    card. Commission off is a billing switch only — the orders still sync and the GMV still shows."""
-    f=mapping.commission_on(b,ch)
+    """Does this brand-channel carry commission? What the platform actually bills wins (mapping.py,
+    read off its own invoices); anything it has not billed falls back to the rate card. Commission
+    off is a billing switch only — the orders still sync and the GMV still counts in sales."""
+    f=mapping.commission_on(B2C.get(b),ch)
     return ((b,ch) not in SAAS) if f is None else f
 def plat_note(b,ch):
-    f=mapping.commission_on(b,ch)
+    ck=B2C.get(b)
+    if mapping.is_pending(ck,ch): return " · platform mapping: not billed yet — rate still to be set"
+    f=mapping.commission_on(ck,ch)
     if f is None: return ""
-    return " · platform mapping: "+("العمولة سارية — commission active" if f
-                                    else "بلا عمولة — commission off, orders still sync")
+    if not f: return " · platform mapping: بلا عمولة — commission off, orders still sync"
+    r=mapping.rate(ck,ch)
+    return f" · platform mapping: العمولة سارية at {r:g}%" if r else " · platform mapping: العمولة سارية"
 
 # SaaS app subscriptions — Salla Partners export 18 Aug 2026 (منصة نسم)
 SAAS_SUBS=[ # store, client, merchant#, plan, start, end, list, net ex-VAT, paid inc-VAT, coupon, status
@@ -219,6 +222,7 @@ for (ck,m),v in pth.items(): billed[(ck,m)]-=v
 acc=defaultdict(lambda: defaultdict(float)); acc_val=defaultdict(lambda: defaultdict(float)); acc_rate={}
 plat=defaultdict(float)
 for b,ch,ym,rec in po_plat.PO_CLOSED:
+    if ym not in M: continue   # POs closed after the window belong to the next monthly close
     k=B2C[b]; rate=po_plat.RETAIL_RATE[b]
     acc_val[(k,b,ch)][ym]+=rec
     plat[(k,b,ch,ym)]+=rec*rate
@@ -312,11 +316,11 @@ def olvl(ws,r,lvl):
 # ---------- 0 ReadMe ----------
 w=wb.active; w.title="0 ReadMe"
 w.column_dimensions['B'].width=26; w.column_dimensions['C'].width=112
-rows=[("Nasam Revenue View — weekly run · 13 Sep 2026",""),
-("This run","Nasam has fixed the per-channel commission mapping in the platform, so the platform's own toggle — not the rate card — now decides whether a channel is invoiced. That mapping is held in mapping.py and checked against the billing every run; see PLATFORM MAPPING CHECK at the foot of this sheet. Sonbol is read in from the organization dialog: Amazon, Namshi, Noon and Trendyol commission-active, Salla بلا عمولة (which matches how Salla was already treated), monthly fee 8,000. The check raises one thing to decide — that 8,000 has never been billed — and confirms Salla carries no commission by design. Nothing else moved: no invoice was issued, paid or changed since 9 Sep, so billed, receivables and every total are unchanged. The live platform read layer is still unauthorised, so the other 20 brands remain on rate-card defaults and are listed as unconfirmed rather than shown as verified."),
-("Sources","Wafeq API snapshot 13 Sep (164 invoices) · platform channel mapping and monthly fees read 13 Sep (Sonbol only) · Wafeq accounting exports 8 Sep: purchase bills, journal entries, customer-balances statement · platform revenue + purchase orders pulled 30 Aug (14 days old) · churned-brand snapshots 15 Aug · Salla Partners export 30 Aug (14 days old — the four trials live then have all since expired) · closed-PO export 17 Aug · rate card 17 Aug."),
+rows=[("Nasam Revenue View — weekly run · 20 Sep 2026",""),
+("This run","The platform read layer is authorised again, so the commission mapping is now checked against the platform's OWN invoices instead of a screenshot — and it holds. Every rate the platform billed in August matches the rate the ledger shows: Alfaris Group 6% on Trendyol and Noon with a 2,500 fee, Inivita 7% on Amazon, Noon and Trendyol with 1,500, Nokush 7% on Amazon, Noon and Salla with no fee, Wadi Halfa 4.5% on Trendyol with the 2,000 fee dropped. The NASAM-ORG-* invoices the platform raises are the same documents Wafeq holds, so there is no second billing stream and nothing uncounted. Two things need a decision — see PLATFORM MAPPING CHECK at the foot of this sheet. Billed is unchanged at 211,873.82: no invoice has been issued, paid or amended since 9 Sep."),
+("Sources","Wafeq API snapshot 20 Sep (164 invoices) · platform commission mapping read 20 Sep from the August NASAM-ORG-* invoices (5 clients) · platform sales and purchase orders pulled 20 Sep · Wafeq accounting exports 8 Sep: purchase bills, journal entries, customer-balances statement · churned-brand snapshots 15 Aug (frozen) · Salla Partners export 30 Aug (21 days old — the four trials live then have all since expired) · rate card 17 Aug. The closed-PO export is retired: purchase orders now carry their values in the platform read layer."),
 ("Monthly close — first week","Every month, once the monthly invoices are released, Tarik shares four Wafeq exports: sales invoices, purchase bills, journal entries and the customer-balances statement. That run reissues the closed month: drafted invoices move into billed, cost and funding are refreshed from bills and the journal, and receivables are reconciled Wafeq against the accountant. Weekly runs in between leave the cost sheet as it stands and say which drop it came from."),("Reporting rules","Window Nov 2025+ (current model) · GMV post-Nasam only (Sonbol from 13 Aug 2026) · post-churn months excluded · a channel is commissioned only if the platform says so (بلا عمولة = 0%, orders still sync and still show in sales); brands not yet read off the platform fall back to the rate card and SaaS brand-channels stay 0% · SaaS subscriptions net of Salla 15% · retail commission on the RECEIVED value of closed POs · pass-throughs excluded: Cloud Shelf recharges (3,355.01 in window) and marketing rebilled to a client at cost (INV-000137, 16,534.40, Oct 2025 — outside the window) · only the management fee on such work is revenue, and there was none on that invoice · all figures SAR ex-VAT."),
-("Weekly update","Automatic: Wafeq API, platform sales, platform POs, platform channel mapping and monthly fees, rebuild + verification + mapping check. Manual: only the Salla Partners subscriptions export — share it whenever it changes."),]
+("Weekly update","Automatic: Wafeq API, platform sales, platform purchase orders with values, the commission mapping off the newest platform invoices, rebuild + verification + mapping check. Manual: only the Salla Partners subscriptions export — share it whenever it changes."),]
 for i,(a,b) in enumerate(rows, start=2):
     w.cell(row=i,column=2,value=a).font=BOLD if i==2 else BLACK
     c=w.cell(row=i,column=3,value=b); c.font=BLACK; c.alignment=Alignment(wrap_text=True,vertical="top")
@@ -408,16 +412,15 @@ assert abs(tot_all-tot_billed-acc_total-saas_total*(1-SALLA_SHARE))<0.02
 # holds it against what the workbook actually bills, so a switch flipped in the platform and never
 # reflected in an invoice — or the reverse — shows up here instead of going unnoticed.
 CLOSED=M[-1]
-known={(b,c) for k in tree for b in tree[k] for c in tree[k][b]}|{(b,ch) for (kk,b,ch) in alloc if not b.startswith('—')}
-comm_bc=defaultdict(float)
-for (kk,b,ch),mm in alloc.items():
-    for m,v in mm.items(): comm_bc[(b,ch,m)]+=v
-fee_bc={b:{m:fee[(kk,m)] for m in M} for kk,_,_,_,brs in CL for b in brs}
-shared_fee={b for kk,_,_,_,brs in CL if len(brs)>1 for b in brs}
-findings=mapping.validate(known,gmv,comm_bc,fee_bc,M,SAAS,CLOSED,shared_fee=shared_fee)
+known={(k,c) for k in tree for b in tree[k] for c in tree[k][b]}|{(kk,ch) for (kk,b,ch) in alloc}
+gmv_cc=defaultdict(float)
+for (b,c,m),v in gmv.items(): gmv_cc[(B2C[b],c,m)]+=v
+fee_c={k:{m:fee[(k,m)] for m in M} for k in allk}
+rate_f={kk:{float(x) for x in vv} for kk,vv in rate_obs.items()}
+findings=mapping.validate(known,gmv_cc,comm,fee_c,rate_f,M,CLOSED)
 r+=1
 put(w1,r,2,"PLATFORM MAPPING CHECK",BOLD); r+=1
-put(w1,r,2,f"Read {mapping.AS_OF} · {len(mapping.confirmed())} of {len({b for b,c in known})} brands confirmed against the platform",BLACK)
+put(w1,r,2,f"Read {mapping.AS_OF} from the {mapping.BILLED_MONTH} platform invoices · {len(mapping.confirmed())} of {len({k for k,c in known})} clients read from the platform",BLACK)
 put(w1,r,4+len(M),mapping.SOURCE,BLACK); r+=1
 if not findings:
     put(w1,r,2,"Platform mapping and billing agree — nothing to resolve.",BLACK); r+=1
@@ -437,7 +440,7 @@ r=2
 NOTES={("Wadi Halfa","fee"):"Temporary support discount (supply issues); card fee 2,000",
        ("Reetal","fee"):"Card 5% + 1,000; billed 4% + 2,000 under setup-period arrangement",
        ("Rimath","fee"):"Card 1,500 = 500 × 3 brands",
-       ("Dar Sonbol","fee"):f"Platform: {mapping.fee(SONBOL) or 0:,.0f}/mo set on the organization, not billed in any month here. Card: FAM 2% + 5,000/mo — 50% at 1st live managed channel, 100% from 2nd (FAM only). Salla SaaS = separate added deal.",
+       ("Dar Sonbol","fee"):f"Platform: {mapping.ORGS['Dar Sonbol'].get('fee_on_record') or 0:,.0f}/mo on the organization record, but no platform invoice has ever charged it — the only document for this client is INV-000159 (4,000 setup, Jun). Card: FAM 2% + 5,000/mo — 50% at 1st live managed channel, 100% from 2nd (FAM only). Salla SaaS = separate added deal.",
        ("Nokush","fee"):"Card: 7%, no monthly fee"}
 CARD={"Two United":"Card: MP 2% / Retail 1.5% + 5,000/mo","Ancy & Shaya":"Card: 4% + 1,500/mo",
       "Safwat Aljouf":"Card: 6%","Gamesir":"Card: 1.5%","Inivita":"Card: 7% + 1,500/mo",
@@ -498,13 +501,17 @@ for k,cons,st_,chn,brs in CL:
             rs=rate_str(k,ch) or ({"Alfaris Group":"6%"}.get(k,"") if ch=='Amazon Retail' else "")
             mrow(r,[k,b,ch,"Commission (billed)","FAM",rs],lambda m,d=alloc[(kk,b,ch)]: d.get(m,0.0),SRC_WAFEQ,BLACK,BILLED_F,lvl=1)
             r+=1
-    # channels the platform has mapped for this client's brands that carry no figure yet
-    for b in K2B.get(k,[]):
-        for chn2,on2 in sorted((mapping.ORGS.get(b) or {}).get('channels',{}).items()):
-            if (b,chn2) in shown: continue
-            mrow(r,[k,disp(b),chn2,"Mapping",model(b,chn2),"0%" if not on2 else (rate_str(k,chn2) or CARD_PCT.get(k))],
-                 lambda m: 0.0,SRC_PLAT+" — mapped, no sales and no invoice yet"+plat_note(b,chn2),BLACK,lvl=1)
-            r+=1
+    # channels the platform maps for this client that carry no figure of their own yet
+    o=mapping.ORGS.get(k) or {}
+    for chn2 in sorted(set(o.get('on',{}))|set(o.get('off',[]))):
+        if any((b,chn2) in shown for b in K2B.get(k,[])): continue
+        b0=K2B.get(k,[None])[0]
+        on2=mapping.commission_on(k,chn2)
+        mrow(r,[k,disp(b0) if b0 else "—",chn2,"Mapping",model(b0,chn2) if b0 else None,
+                "0%" if not on2 else f"{mapping.rate(k,chn2):g}%"],
+             lambda m: 0.0,SRC_PLAT+" — mapped, no sales and no invoice yet"
+             +(plat_note(b0,chn2) if b0 else ""),BLACK,lvl=1)
+        r+=1
     if k=="Dar Sonbol":
         mrow(r,[k,disp(SONBOL),"aivi","Mapping","FAM","2%"],lambda m: 0.0,SRC_CARD+" — integration WIP, not a platform channel",BLACK,lvl=1)
         r+=1

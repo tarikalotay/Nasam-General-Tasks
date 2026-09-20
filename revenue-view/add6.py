@@ -24,4 +24,4 @@ TWO_M=[
 ("Reefi","Trendyol","2026-05",6300.00,57),("Reefi","Trendyol","2026-06",2931.00,23),
 ]
 # Sonbol Salla from integration date (13 Aug 2026) — mcp_read.revenue daily, refreshed 30 Aug 2026
-SONBOL_FROM_INTEGRATION=(480598.20, 1833)
+SONBOL_FROM_INTEGRATION=(533634.20, 2022)   # refreshed 20 Sep 2026 (was 480,598.20/1,833 at the 30 Aug pull)
