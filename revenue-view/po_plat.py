@@ -1,4 +1,4 @@
-# Closed retail POs pulled DIRECTLY from mcp_read.purchase_orders — 27 Sep 2026.
+# Closed retail POs pulled DIRECTLY from mcp_read.purchase_orders — 4 Oct 2026.
 # Q2 is closed: the view now exposes requestedValue / acceptedValue / receivedValue alongside the
 # three stages and an `outcome` label, so the closed-PO CSV export is retired. Retail commission is
 # charged on RECEIVED value, so receivedValue is the base.
@@ -23,7 +23,7 @@ PO_CLOSED=[
 ("Marah","Amazon Retail","2026-06",4366.70),
 ("Marah","Amazon Retail","2026-07",5179.00),
 ("Marah","Amazon Retail","2026-08",6513.40),
-("Marah","Amazon Retail","2026-09",1442.50),
+("Marah","Amazon Retail","2026-09",4132.90),
 ("SONDOS","Amazon Retail","2025-11",1101.60),
 ("SONDOS","Amazon Retail","2025-12",239.94),
 ("SONDOS","Amazon Retail","2026-01",2676.61),
@@ -34,12 +34,12 @@ PO_CLOSED=[
 ("SONDOS","Amazon Retail","2026-06",3464.60),
 ("SONDOS","Amazon Retail","2026-07",441.70),
 ("SONDOS","Amazon Retail","2026-08",1801.20),
-("SONDOS","Amazon Retail","2026-09",1728.00),
+("SONDOS","Amazon Retail","2026-09",2120.40),
 ("Wadi Halfa","Amazon Retail","2026-07",953.85),
 ("Wadi Halfa","Amazon Retail","2026-08",3266.32),
 ("Wadi Halfa","Amazon Retail","2026-09",6043.44),
 ("Wadi Halfa","Ninja Retail","2026-08",9120.70),
-("Wadi Halfa","Ninja Retail","2026-09",12221.24),
+("Wadi Halfa","Ninja Retail","2026-09",13231.84),
 ]
 # commission rate per brand on retail
 RETAIL_RATE={"Marah":0.06,"SONDOS":0.06,"Wadi Halfa":0.04}

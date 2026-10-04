@@ -1,4 +1,4 @@
-# Platform GMV, active brands — mcp_read.revenue pull 27 Sep 2026: (brand, channel, ym, gmv, orders)
+# Platform GMV, active brands — mcp_read.revenue pull 4 Oct 2026: (brand, channel, ym, gmv, orders)
 # totalRevenue excludes shipping and is already net of cancels/returns.
 #
 # Two brand-channels are EXCLUDED here because the platform backfilled a long history when the
@@ -6,8 +6,8 @@
 #   Sonbol · Salla   — connected 13 Aug 2026, backfilled to Feb 2026. Counted from the integration
 #                      date only, via add6.SONBOL_FROM_INTEGRATION (build.py injects it).
 #   Invita · Salla   — connected 10 Sep 2026, backfilled a full year (1.48M SAR, Sep 2025 onward).
-#                      Same rule: only the 105,896.98 earned from 10 Sep 2026 is Nasam's, and that
-#                      falls outside the Nov 2025 - Aug 2026 window, so the row below is Sep only.
+#                      Same rule: only the 215,869.85 earned from 10 Sep 2026 is Nasam's, and that
+#                      is Nasam's, so the row below is September only. Not yet commissioned (Q9).
 # Churned brands come from old_gmv.py (15 Aug snapshot — the platform no longer serves them).
 REV_ACT=[
 ("Arabesque","Salla","2026-05",109.25,1),
@@ -30,7 +30,7 @@ REV_ACT=[
 ("Invita","Amazon","2026-06",10251.25,57),
 ("Invita","Amazon","2026-07",12498.20,89),
 ("Invita","Amazon","2026-08",16415.60,116),
-("Invita","Amazon","2026-09",9423.70,72),
+("Invita","Amazon","2026-09",11886.05,88),
 ("Invita","Jahez","2026-03",132.00,1),
 ("Invita","Jahez","2026-07",79.00,1),
 ("Invita","Noon","2025-11",5824.50,36),
@@ -43,8 +43,8 @@ REV_ACT=[
 ("Invita","Noon","2026-06",1155.00,5),
 ("Invita","Noon","2026-07",4265.00,27),
 ("Invita","Noon","2026-08",12002.33,75),
-("Invita","Noon","2026-09",4512.80,34),
-("Invita","Salla","2026-09",105896.98,516),
+("Invita","Noon","2026-09",5558.40,43),
+("Invita","Salla","2026-09",215869.85,1449),
 ("Invita","Trendyol","2025-11",15144.20,83),
 ("Invita","Trendyol","2025-12",9456.48,45),
 ("Invita","Trendyol","2026-01",8031.34,37),
@@ -55,14 +55,14 @@ REV_ACT=[
 ("Invita","Trendyol","2026-06",961.16,6),
 ("Invita","Trendyol","2026-07",2867.08,16),
 ("Invita","Trendyol","2026-08",264.72,2),
-("Invita","Trendyol","2026-09",3649.14,19),
+("Invita","Trendyol","2026-09",3942.82,21),
 ("Marah","Noon","2026-08",478.87,6),
-("Marah","Noon","2026-09",532.00,8),
+("Marah","Noon","2026-09",679.00,11),
 ("Marah","Salla","2026-04",8389.84,18),
 ("Marah","Salla","2026-05",4398.61,20),
 ("Marah","Salla","2026-06",9995.03,26),
-("Marah","Salla","2026-07",14184.83,56),
-("Marah","Salla","2026-08",3662.32,30),
+("Marah","Salla","2026-07",15389.77,58),
+("Marah","Salla","2026-08",5451.03,32),
 ("Marah","Salla","2026-09",2086.40,13),
 ("Marah","Trendyol","2026-03",38.71,1),
 ("Marah","Trendyol","2026-04",739.21,6),
@@ -70,7 +70,7 @@ REV_ACT=[
 ("Marah","Trendyol","2026-06",3488.84,63),
 ("Marah","Trendyol","2026-07",1180.74,11),
 ("Marah","Trendyol","2026-08",17419.32,312),
-("Marah","Trendyol","2026-09",14941.91,242),
+("Marah","Trendyol","2026-09",15804.71,256),
 ("Nokush","Amazon","2025-11",1830.40,41),
 ("Nokush","Amazon","2025-12",1549.86,34),
 ("Nokush","Amazon","2026-01",1133.21,21),
@@ -92,7 +92,7 @@ REV_ACT=[
 ("Nokush","Noon","2026-06",1353.00,20),
 ("Nokush","Noon","2026-07",1892.50,30),
 ("Nokush","Noon","2026-08",1475.33,28),
-("Nokush","Noon","2026-09",348.15,9),
+("Nokush","Noon","2026-09",484.62,10),
 ("Nokush","Salla","2025-11",777.45,6),
 ("Nokush","Salla","2025-12",2172.19,10),
 ("Nokush","Salla","2026-01",653.12,4),
@@ -100,9 +100,9 @@ REV_ACT=[
 ("Nokush","Salla","2026-03",855.08,5),
 ("Nokush","Salla","2026-04",1241.39,5),
 ("Nokush","Salla","2026-05",1236.82,6),
-("Nokush","Salla","2026-06",748.10,5),
+("Nokush","Salla","2026-06",900.51,6),
 ("Nokush","Salla","2026-08",246.00,1),
-("Nokush","Salla","2026-09",566.19,3),
+("Nokush","Salla","2026-09",706.19,5),
 ("Nokush","Trendyol","2025-11",2712.23,38),
 ("Nokush","Trendyol","2025-12",287.74,10),
 ("Nokush","Trendyol","2026-01",56.95,1),
@@ -115,7 +115,7 @@ REV_ACT=[
 ("Sense","Salla","2026-05",3751.67,27),
 ("Sense","Salla","2026-06",2042.55,18),
 ("Sense","Salla","2026-07",4879.35,25),
-("Sense","Salla","2026-08",1314.77,14),
+("Sense","Salla","2026-08",1407.68,14),
 ("Sense","Salla","2026-09",377.76,3),
 ("Sense","Trendyol","2026-05",1345.56,22),
 ("Sense","Trendyol","2026-06",6588.79,135),
@@ -127,14 +127,14 @@ REV_ACT=[
 ("SONDOS","Noon","2026-05",2062.47,38),
 ("SONDOS","Noon","2026-06",5937.49,132),
 ("SONDOS","Noon","2026-08",1701.16,19),
-("SONDOS","Noon","2026-09",2370.50,31),
+("SONDOS","Noon","2026-09",2666.50,35),
 ("SONDOS","Salla","2026-03",217.60,1),
 ("SONDOS","Salla","2026-04",24706.58,109),
 ("SONDOS","Salla","2026-05",48459.50,116),
 ("SONDOS","Salla","2026-06",69284.01,160),
 ("SONDOS","Salla","2026-07",199016.56,462),
-("SONDOS","Salla","2026-08",37661.21,136),
-("SONDOS","Salla","2026-09",99979.97,520),
+("SONDOS","Salla","2026-08",36095.94,130),
+("SONDOS","Salla","2026-09",154308.44,810),
 ("SONDOS","Trendyol","2025-12",467.82,10),
 ("SONDOS","Trendyol","2026-01",380.31,4),
 ("SONDOS","Trendyol","2026-02",6088.50,114),
@@ -144,7 +144,7 @@ REV_ACT=[
 ("SONDOS","Trendyol","2026-06",2149.71,27),
 ("SONDOS","Trendyol","2026-07",1269.98,19),
 ("SONDOS","Trendyol","2026-08",20575.62,257),
-("SONDOS","Trendyol","2026-09",38701.80,326),
+("SONDOS","Trendyol","2026-09",40313.79,345),
 ("Wadi Halfa","Trendyol","2026-04",199.00,1),
 ("Wadi Halfa","Trendyol","2026-05",534.25,2),
 ("Wadi Halfa","Trendyol","2026-06",366.25,2),
@@ -152,6 +152,6 @@ REV_ACT=[
 ("Wadi Halfa","Trendyol","2026-08",180.15,1),
 ]
 # Invita - Salla from its integration date (10 Sep 2026), for the run that first reports September.
-INVITA_SALLA_FROM_INTEGRATION=(105896.98, 516)
+INVITA_SALLA_FROM_INTEGRATION=(215869.85, 1449)   # 10-30 Sep 2026
 # retained for build.py compatibility (retail now comes from po_plat.py — platform purchase orders)
 PO=[]

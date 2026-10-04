@@ -21,29 +21,59 @@
 # HOW TO REFRESH (weekly run): read the newest NASAM-ORG-* invoice per client in full (billing tool,
 # document='invoices', pass the id) and copy each commission line's channel and rate plus the
 # رسوم شهرية amount into ORGS, then move AS_OF. Keys are build.py client keys.
-AS_OF = '2026-09-20'
-BILLED_MONTH = '2026-08'
-SOURCE = 'Nasam platform billing — NASAM-ORG-* invoice line items (Aug 2026), plus the تعديل المنظمة dialog for switched-off channels'
+AS_OF = '2026-10-04'
+BILLED_MONTH = '2026-08'     # newest month with ISSUED invoices — what validate() compares against
+DRAFT_MONTH  = '2026-09'     # drafted by the platform 3 Oct, not yet released
+SOURCE = 'Nasam platform billing — NASAM-ORG-* invoice line items (Aug issued, Sep drafted), plus the تعديل المنظمة dialog for switched-off channels'
 
 ORGS = {
-    'Alfaris Group': dict(on={'Trendyol': 6.0, 'Noon': 6.0}, off=['Salla'], fee=2500.0,
-                          src='NASAM-ORG-6-08-2026'),
+    'Alfaris Group': dict(on={'Trendyol': 6.0, 'Noon': 6.0, 'Amazon Retail': 6.0}, off=['Salla'],
+                          fee=2500.0, src='NASAM-ORG-6-08-2026; Amazon Retail from the Sep draft'),
     'Inivita':       dict(on={'Amazon': 7.0, 'Noon': 7.0, 'Trendyol': 7.0}, off=[], fee=1500.0,
                           src='NASAM-ORG-3-08-2026'),
     'Nokush':        dict(on={'Amazon': 7.0, 'Noon': 7.0, 'Salla': 7.0}, off=[], fee=0.0,
                           src='NASAM-ORG-4-08-2026 — no fee line, by agreement'),
-    'Wadi Halfa':    dict(on={'Trendyol': 4.5}, off=[], fee=0.0,
-                          src='NASAM-ORG-70-08-2026 — the 2,000 fee was dropped on release'),
+    'Wadi Halfa':    dict(on={'Trendyol': 4.5, 'Amazon Retail': 4.0}, off=[], fee=0.0,
+                          src='NASAM-ORG-70-08-2026 — the 2,000 fee was dropped on release; retail from the Sep draft'),
     # Dar Sonbol has never been invoiced a fee or any commission: its only document is INV-000159
     # (4,000 setup, Jun 2026). The organization record carries 8,000/mo, which no invoice has used.
     'Dar Sonbol':    dict(on={}, off=['Salla'], fee=0.0, fee_on_record=8000.0,
-                          src='org dialog 13 Sep 2026; no platform invoice exists for this client'),
+                          src='org dialog 13 Sep 2026; the Sep draft NASAM-ORG-86-09-2026 charges the 8,000 for the first time'),
 }
 # Channels that started selling too recently for the platform to have billed them yet. Each needs a
 # decision before its first full month closes, which is what validate() reports.
 PENDING = {
-    ('Inivita', 'Salla'): 'connected 10 Sep 2026; no commission line yet — is it 7% like Invita\'s '
-                          'other channels, or no-commission like the other Salla stores?',
+    ('Inivita', 'Salla'): 'connected 10 Sep 2026 and sold 215,870 in September, but the September draft '
+                          'itemises Amazon, Noon and Trendyol and still carries no Salla line — is it 7% '
+                          'like Invita\'s other channels, or no-commission like the other Salla stores?',
+}
+
+# Channels Nasam bills BY HAND in Wafeq that the platform's own invoices never produce. This is not
+# a commission switch — the money is charged, it just does not come out of the billing engine, so it
+# depends on someone remembering to raise it.
+PLATFORM_GAP = {
+    ('Wadi Halfa', 'Ninja Retail'): 'billed by hand at 4%; the platform has never produced a Ninja '
+                                    'Retail line, including on the September draft against 13,232 received',
+}
+
+# What the platform DRAFTED for September (created 3 Oct, status DRAFT — not billed until released).
+# Recorded here because a draft states the platform's intent for the closing month before the ledger
+# does, and two of these change standing answers. Totals are the drafted invoice totals.
+DRAFTED = {
+    'Alfaris Group': dict(total=6992.82, fee=2500.0, on={'Trendyol': 6.0, 'Noon': 6.0, 'Amazon Retail': 6.0},
+                          note='12 Amazon Retail PO lines — every one a PO that closed in JULY, so retail '
+                               'commission is running two months behind the deliveries'),
+    'Inivita':       dict(total=3012.51, fee=1500.0, on={'Amazon': 7.0, 'Noon': 7.0, 'Trendyol': 7.0},
+                          note='still no Salla line, against 215,870 of September Salla sales'),
+    'Nokush':        dict(total=120.59, fee=0.0, on={'Amazon': 7.0, 'Salla': 7.0, 'Noon': 7.0},
+                          note='unchanged terms'),
+    'Wadi Halfa':    dict(total=2038.15, fee=2000.0, on={'Amazon Retail': 4.0},
+                          note='the 2,000 monthly fee is back after being dropped from the August invoice; '
+                               'two July retail POs billed; no Ninja Retail line at all, against 13,232 received'),
+    'Dar Sonbol':    dict(total=8000.0, fee=8000.0, on={},
+                          note='the first invoice ever raised for this client beyond the June setup fee, and '
+                               'the first to charge the 8,000 — it settles which figure applies, but still '
+                               'carries no commission on 694,011 of September Salla sales'),
 }
 
 
@@ -115,6 +145,13 @@ def validate(known, gmv_cc, comm_cc, fee_c, rate_obs, months, closed_month):
                 out.append(('i', ck, ch, 'sells but appears on no platform invoice — not mapped either way'))
     for (ck, ch), why in sorted(PENDING.items()):
         out.append(('x', ck, ch, why))
+    for (ck, ch), why in sorted(PLATFORM_GAP.items()):
+        c = sum(comm_cc.get((ck, ch, m), 0.0) for m in months)
+        out.append(('x', ck, ch, why + f' — {c:,.2f} booked in the window by hand'))
+    for ck, d in sorted(DRAFTED.items()):
+        out.append(('d', ck, '—', f"drafted {d['total']:,.2f} for {DRAFT_MONTH}"
+                                  + (f" (fee {d['fee']:,.0f})" if d['fee'] else ' (no fee)')
+                                  + ' — ' + d['note']))
     unconf = sorted({k for k, c in known} - confirmed())
     if unconf:
         out.append(('i', ', '.join(unconf), '—', 'no platform invoice to read — still on rate-card terms'))

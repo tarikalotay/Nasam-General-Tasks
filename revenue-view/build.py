@@ -16,7 +16,7 @@ SALES_F=PatternFill("solid",fgColor="E9F1F9"); BILLED_F=PatternFill("solid",fgCo
 SALLA_SHARE=0.15
 SAR='#,##0.00;(#,##0.00);-'; SAR0='#,##0;(#,##0);-'
 CUT='2025-11'
-M=[f"20{y}-{m:02d}" for y,m in [(25,11),(25,12)]+[(26,i) for i in range(1,9)]]
+M=[f"20{y}-{m:02d}" for y,m in [(25,11),(25,12)]+[(26,i) for i in range(1,10)]]
 MNAMES={1:'Jan',2:'Feb',3:'Mar',4:'Apr',5:'May',6:'Jun',7:'Jul',8:'Aug',9:'Sep',10:'Oct',11:'Nov',12:'Dec'}
 def mlbl(m): return f"{MNAMES[int(m[5:7])]} {m[:4]}"
 ML=[mlbl(m) for m in M]
@@ -261,7 +261,7 @@ for b,c,ym,o,g in old_gmv.OLD_M:
     if covered(b,ym): gmv[(b,c,ym)]+=g; gmv_src[(b,c)]=SRC_PLAT
 for b,c,ym,g,o in add6.TWO_M:
     if covered(b,ym): gmv[(b,c,ym)]+=g; gmv_src[(b,c)]=SRC_ORD
-gmv[(SONBOL,"Salla","2026-08")]=add6.SONBOL_FROM_INTEGRATION[0]
+for _m,(_g,_o) in add6.SONBOL_FROM_INTEGRATION.items(): gmv[(SONBOL,"Salla",_m)]=_g
 gmv_src[(SONBOL,"Salla")]=SRC_PLAT+" (from 13 Aug 2026)"
 
 CH_PLAT={'Amazon':['Amazon'],'Trendyol':['Trendyol'],'Salla':['Salla'],'Noon':['Noon'],'Namshi':['Namshi'],
@@ -316,23 +316,23 @@ def olvl(ws,r,lvl):
 # ---------- 0 ReadMe ----------
 w=wb.active; w.title="0 ReadMe"
 w.column_dimensions['B'].width=26; w.column_dimensions['C'].width=112
-rows=[("Nasam Revenue View — weekly run · 27 Sep 2026",""),
-("This run","A quiet week on billing and a busy one on sales. No invoice has been issued, paid or amended since 9 Sep — three weeks now — so billed stays 211,873.82 and the mapping check is unchanged from last week. August has settled: every marketplace figure in the window is identical to last week's, with two small corrections from late activity — Wadi Halfa closed another 948.15 of August retail, and Sonbol's August-from-integration GMV was trimmed 2,923.50 by late cancellations. September, which is outside this window and lands in the close on 4 Oct, is running hard: Sonbol 643,010, SONDOS Salla 99,980, Invita's new Salla store 105,897, and Wadi Halfa 18,265 of retail. On present trend September will be the largest sales month Nasam has had, and almost none of it is invoiced yet."),
-("Sources","Wafeq API snapshot 27 Sep (164 invoices, unchanged since 9 Sep) · platform commission mapping read 20 Sep from the August NASAM-ORG-* invoices (5 clients — September invoices are not raised yet) · platform sales and purchase orders pulled 27 Sep · Wafeq accounting exports 8 Sep: purchase bills, journal entries, customer-balances statement · churned-brand snapshots 15 Aug (frozen) · Salla Partners export 30 Aug (28 days old — the four trials live then have all since expired) · rate card 17 Aug. The closed-PO export is retired: purchase orders now carry their values in the platform read layer."),
-("Monthly close — first week","Every month, once the monthly invoices are released, Tarik shares four Wafeq exports: sales invoices, purchase bills, journal entries and the customer-balances statement. That run reissues the closed month: drafted invoices move into billed, cost and funding are refreshed from bills and the journal, and receivables are reconciled Wafeq against the accountant. Weekly runs in between leave the cost sheet as it stands and say which drop it came from."),("Reporting rules","Window Nov 2025+ (current model) · GMV post-Nasam only (Sonbol from 13 Aug 2026) · post-churn months excluded · a channel is commissioned only if the platform says so (بلا عمولة = 0%, orders still sync and still show in sales); brands not yet read off the platform fall back to the rate card and SaaS brand-channels stay 0% · SaaS subscriptions net of Salla 15% · retail commission on the RECEIVED value of closed POs · pass-throughs excluded: Cloud Shelf recharges (3,355.01 in window) and marketing rebilled to a client at cost (INV-000137, 16,534.40, Oct 2025 — outside the window) · only the management fee on such work is revenue, and there was none on that invoice · all figures SAR ex-VAT."),
+rows=[("Nasam Revenue View — SEPTEMBER MONTHLY CLOSE · 4 Oct 2026",""),
+("This run","September's close, and the window now runs to September. The month's invoices exist but are DRAFTED, not issued — the platform raised five of them on 3 Oct totalling 20,164.07, so billed is still 211,873.82 and September shows only 920.70 of recognised revenue against the largest sales month Nasam has had. Two standing questions move. Dar Sonbol is charged the 8,000 monthly fee for the first time, which settles which figure applies. Wadi Halfa's 2,000 fee is back after being dropped from the August invoice. Retail commission is now itemised per purchase order by the platform rather than raised by hand — but every PO on the September drafts closed in JULY, so retail billing is running two months behind delivery, and Ninja Retail has never appeared on a platform invoice at all. Invita's Salla store sold 215,870 in September and still carries no commission line. The cost sheet is unchanged: it is built from the 8 Sep accounting drop and covers through August, because the October drop has not arrived."),
+("Sources","Wafeq API snapshot 4 Oct (169 invoices — 5 new, all September drafts) · platform commission mapping read 4 Oct from the August issued and September drafted NASAM-ORG-* invoices (5 clients) · platform sales and purchase orders pulled 4 Oct · Wafeq accounting exports 8 Sep: purchase bills, journal entries, customer-balances statement · churned-brand snapshots 15 Aug (frozen) · Salla Partners export 30 Aug (35 days old — the four trials live then have all since expired) · rate card 17 Aug. The closed-PO export is retired: purchase orders now carry their values in the platform read layer."),
+("Monthly close — first week","This is that run for September, done on what is available. The sales side is closed and September is now a column here. The expense side is NOT: the four Wafeq exports for October have not been shared, so sheet 4 still carries the 8 Sep drop and stops at August — its months deliberately differ from sheet 1 rather than pairing September revenue with a cost of almost nothing. Receivables likewise still reconcile against the 8 Sep statement. Send the four exports (sales invoices, purchase bills, journal entries, customer-balances statement) and the September cost, funding and receivables close follows in the next run."),("Reporting rules","Window Nov 2025+ (current model) · GMV post-Nasam only (Sonbol from 13 Aug 2026) · post-churn months excluded · a channel is commissioned only if the platform says so (بلا عمولة = 0%, orders still sync and still show in sales); brands not yet read off the platform fall back to the rate card and SaaS brand-channels stay 0% · SaaS subscriptions net of Salla 15% · retail commission on the RECEIVED value of closed POs · pass-throughs excluded: Cloud Shelf recharges (3,355.01 in window) and marketing rebilled to a client at cost (INV-000137, 16,534.40, Oct 2025 — outside the window) · only the management fee on such work is revenue, and there was none on that invoice · all figures SAR ex-VAT."),
 ("Weekly update","Automatic: Wafeq API, platform sales, platform purchase orders with values, the commission mapping off the newest platform invoices, rebuild + verification + mapping check. Manual: only the Salla Partners subscriptions export — share it whenever it changes."),]
 for i,(a,b) in enumerate(rows, start=2):
     w.cell(row=i,column=2,value=a).font=BOLD if i==2 else BLACK
     c=w.cell(row=i,column=3,value=b); c.font=BLACK; c.alignment=Alignment(wrap_text=True,vertical="top")
     w.row_dimensions[i].height=None if i==2 else 52
 
-def month_row(ws,r,label,getter,src,font=BLACK,fill=None,fmt=SAR0,lvl=0):
+def month_row(ws,r,label,getter,src,font=BLACK,fill=None,fmt=SAR0,lvl=0,months=None):
     put(ws,r,2,label,font,fill=fill); tot=0.0
-    for j,m in enumerate(M):
+    for j,m in enumerate(months or M):
         v=getter(m); tot+=v
         put(ws,r,3+j,round(v,2) if abs(v)>0.005 else None,font,fmt,fill)
-    put(ws,r,3+len(M),round(tot,2),font,fmt,fill)
-    put(ws,r,4+len(M),src,BLACK)
+    put(ws,r,3+len(months or M),round(tot,2),font,fmt,fill)
+    put(ws,r,4+len(months or M),src,BLACK)
     olvl(ws,r,lvl)
     return tot
 
@@ -353,6 +353,12 @@ put(w1,r,2,"SALES",BOLD); r+=1
 def gmv_by(pred):
     return lambda m: sum(v for (b,c,m2),v in gmv.items() if m2==m and pred(b,c))
 man_tot=month_row(w1,r,"Managed (FAM) marketplace GMV",gmv_by(lambda b,c: model(b,c)=="FAM"),SRC_PLAT); r+=1
+_pend=[(b,c) for (b,c,_m) in gmv if mapping.is_pending(B2C.get(b),c)]
+if _pend:   # managed, but the platform has not commissioned it and the rate is undecided
+    _lbl=", ".join(sorted({f"{disp(b)} · {c}" for b,c in _pend}))
+    month_row(w1,r,f"    of which NOT yet commissioned — {_lbl}",
+              gmv_by(lambda b,c: mapping.is_pending(B2C.get(b),c)),
+              SRC_PLAT+" — no commission line on any platform invoice; rate undecided (see mapping check)",lvl=1); r+=1
 ret_tot=month_row(w1,r,"Managed retail — received value",lambda m: sum(d.get(m,0.0) for d in acc_val.values()),SRC_PO+" — received value"); r+=1
 saas_tot=month_row(w1,r,"SaaS (unmanaged) GMV",gmv_by(lambda b,c: model(b,c)=="SaaS"),SRC_PLAT); r+=1
 all_tot=month_row(w1,r,"Total sales",lambda m: sum(v for (b,c,m2),v in gmv.items() if m2==m)+sum(d.get(m,0.0) for d in acc_val.values()),"Sum of the three rows above",BOLD,GREY); r+=1
@@ -411,7 +417,11 @@ assert abs(tot_all-tot_billed-acc_total-saas_total*(1-SALLA_SHARE))<0.02
 # now the authority on whether a channel is invoiced. This block reads that mapping (mapping.py) and
 # holds it against what the workbook actually bills, so a switch flipped in the platform and never
 # reflected in an invoice — or the reverse — shows up here instead of going unnoticed.
-CLOSED=M[-1]
+# The mapping check holds the platform's invoices against the ledger, so it can only use a month
+# that has actually been ISSUED. September is drafted, not released, so that month is reported
+# separately (DRAFTED below) rather than compared.
+CLOSED=mapping.BILLED_MONTH
+assert CLOSED in M, CLOSED
 known={(k,c) for k in tree for b in tree[k] for c in tree[k][b]}|{(kk,ch) for (kk,b,ch) in alloc}
 gmv_cc=defaultdict(float)
 for (b,c,m),v in gmv.items(): gmv_cc[(B2C[b],c,m)]+=v
@@ -420,16 +430,17 @@ rate_f={kk:{float(x) for x in vv} for kk,vv in rate_obs.items()}
 findings=mapping.validate(known,gmv_cc,comm,fee_c,rate_f,M,CLOSED)
 r+=1
 put(w1,r,2,"PLATFORM MAPPING CHECK",BOLD); r+=1
-put(w1,r,2,f"Read {mapping.AS_OF} from the {mapping.BILLED_MONTH} platform invoices · {len(mapping.confirmed())} of {len({k for k,c in known})} clients read from the platform",BLACK)
+put(w1,r,2,f"Read {mapping.AS_OF} · checked against the {mapping.BILLED_MONTH} issued invoices · {len(mapping.confirmed())} of {len({k for k,c in known})} clients read from the platform · {mapping.DRAFT_MONTH} is drafted, not released",BLACK)
 put(w1,r,4+len(M),mapping.SOURCE,BLACK); r+=1
 if not findings:
     put(w1,r,2,"Platform mapping and billing agree — nothing to resolve.",BLACK); r+=1
+LBL={'x':"Decide: ",'d':"Drafted: ",'i':"Note: "}
 for sev,b,c,txt in findings:
-    put(w1,r,2,("Decide: " if sev=='x' else "Note: ")+f"{b}"+(f" · {c}" if c!='—' else ""),BOLD if sev=='x' else BLACK)
+    put(w1,r,2,LBL[sev]+f"{b}"+(f" · {c}" if c!='—' else ""),BOLD if sev=='x' else BLACK)
     put(w1,r,4+len(M),txt,BLACK); r+=1
 print("platform mapping check:", sum(1 for f in findings if f[0]=='x'), "to decide,",
-      sum(1 for f in findings if f[0]=='i'), "notes")
-for sev,b,c,txt in findings: print("   ", "x" if sev=='x' else " ", b, "·", c, "—", txt)
+      sum(1 for f in findings if f[0]=='d'), "drafted,", sum(1 for f in findings if f[0]=='i'), "notes")
+for sev,b,c,txt in findings: print("   ", sev if sev!='i' else " ", b, "·", c, "—", txt)
 
 # ---------- 2 Brand-Channel Detail (merged, grouped) ----------
 w2=wb.create_sheet("2 Brand-Channel Detail")
@@ -552,57 +563,64 @@ put(w3,r,12,SRC_SALLA)
 if accounting.available():
     AOF=accounting.as_of(); SRC_ACC=f"Wafeq accounting export {AOF}"
     ser=accounting.series()
+    # The drop carries data to the day before its date, so the last month it covers in full is the
+    # one before its own month. Showing a later month here would put real revenue beside a cost of
+    # almost nothing and make the break-even read far better than it is.
+    _y,_mo=int(AOF[:4]),int(AOF[5:7])
+    ACCT_LAST=f"{_y-1}-12" if _mo==1 else f"{_y}-{_mo-1:02d}"
+    MC=[m for m in M if m<=ACCT_LAST]; MLC=[mlbl(m) for m in MC]
+    def m4(*a,**k): return month_row(*a,months=MC,**k)
     w4=wb.create_sheet("4 Cost & Break-even")
-    hdr(w4,["","Item"]+ML+["Total","Source"],widths=[3,40]+[10]*len(M)+[12,52])
+    hdr(w4,["","Item"]+MLC+["Total","Source"],widths=[3,40]+[10]*len(MC)+[12,52])
     r=2
     put(w4,r,2,"REVENUE (from sheet 1)",BOLD); r+=1
-    rev_b=month_row(w4,r,"Billed revenue",lambda m: sum(billed[(k,m)] for k in allk),SRC_WAFEQ); r+=1
-    rev_a=month_row(w4,r,"Retail commission — closed POs, to invoice",lambda m: sum(d.get(m,0.0) for d in acc.values()),SRC_PO); r+=1
-    rev_s=month_row(w4,r,"SaaS subscriptions, net of Salla 15%",lambda m: saas_rev.get(m,0.0)*(1-SALLA_SHARE),SRC_SALLA); r+=1
+    rev_b=m4(w4,r,"Billed revenue",lambda m: sum(billed[(k,m)] for k in allk),SRC_WAFEQ); r+=1
+    rev_a=m4(w4,r,"Retail commission — closed POs, to invoice",lambda m: sum(d.get(m,0.0) for d in acc.values()),SRC_PO); r+=1
+    rev_s=m4(w4,r,"SaaS subscriptions, net of Salla 15%",lambda m: saas_rev.get(m,0.0)*(1-SALLA_SHARE),SRC_SALLA); r+=1
     revf=lambda m: sum(billed[(k,m)] for k in allk)+sum(d.get(m,0.0) for d in acc.values())+saas_rev.get(m,0.0)*(1-SALLA_SHARE)
-    rev_t=month_row(w4,r,"TOTAL REVENUE",revf,"Sum of the three rows above",BOLD,GREY); r+=1
+    rev_t=m4(w4,r,"TOTAL REVENUE",revf,"Sum of the three rows above",BOLD,GREY); r+=1
     r+=1
 
     put(w4,r,2,"NASAM OPERATING COST",BOLD); r+=1
     salf=lambda m: ser['salaries'].get(m,0.0)+ser['staff_adj'].get(m,0.0)
-    month_row(w4,r,"Salaries and staff cost",salf,SRC_ACC+" — journal, accounts 5201/5231 (+GOSI and insurance adjustments)"); r+=1
-    op_accts=sorted({a for (a,m) in ser['operating'] if m in M},
-                    key=lambda a: -sum(ser['operating'].get((a,m),0.0) for m in M))
+    m4(w4,r,"Salaries and staff cost",salf,SRC_ACC+" — journal, accounts 5201/5231 (+GOSI and insurance adjustments)"); r+=1
+    op_accts=sorted({a for (a,m) in ser['operating'] if m in MC},
+                    key=lambda a: -sum(ser['operating'].get((a,m),0.0) for m in MC))
     for a in op_accts:
-        if sum(ser['operating'].get((a,m),0.0) for m in M)<=0.005: continue
-        month_row(w4,r,a,lambda m,a=a: ser['operating'].get((a,m),0.0),SRC_ACC+" — bills",lvl=1); r+=1
+        if sum(ser['operating'].get((a,m),0.0) for m in MC)<=0.005: continue
+        m4(w4,r,a,lambda m,a=a: ser['operating'].get((a,m),0.0),SRC_ACC+" — bills",lvl=1); r+=1
     zkf=lambda m: ser['zakat'].get(m,0.0)
-    if sum(zkf(m) for m in M)>0.005:
-        month_row(w4,r,"Zakat",zkf,SRC_ACC+" — journal, account 545",lvl=1); r+=1
+    if sum(zkf(m) for m in MC)>0.005:
+        m4(w4,r,"Zakat",zkf,SRC_ACC+" — journal, account 545",lvl=1); r+=1
     costf=lambda m: salf(m)+sum(ser['operating'].get((a,m),0.0) for a in op_accts)+zkf(m)
-    cost_t=month_row(w4,r,"TOTAL OPERATING COST",costf,"Salaries + bills (own cost) + zakat",BOLD,GREY); r+=1
+    cost_t=m4(w4,r,"TOTAL OPERATING COST",costf,"Salaries + bills (own cost) + zakat",BOLD,GREY); r+=1
     r+=1
 
     put(w4,r,2,"RESULT",BOLD); r+=1
     gapf=lambda m: revf(m)-costf(m)
-    month_row(w4,r,"Revenue less operating cost",gapf,"Break-even is this row at zero",BOLD,GREY); r+=1
-    month_row(w4,r,"Cost covered by revenue (%)",lambda m: (revf(m)/costf(m)*100) if costf(m)>0.005 else 0.0,
+    m4(w4,r,"Revenue less operating cost",gapf,"Break-even is this row at zero",BOLD,GREY); r+=1
+    m4(w4,r,"Cost covered by revenue (%)",lambda m: (revf(m)/costf(m)*100) if costf(m)>0.005 else 0.0,
               "Revenue / operating cost",BLACK,None,'0"%"')
-    put(w4,r,3+len(M),round(rev_t/cost_t*100,1) if cost_t>0.005 else None,BLACK,'0.0"%"')  # window, not a sum of months
+    put(w4,r,3+len(MC),round(rev_t/cost_t*100,1) if cost_t>0.005 else None,BLACK,'0.0"%"')  # window, not a sum of months
     r+=1
     r+=1
 
     put(w4,r,2,"SPENT ON A CLIENT'S BEHALF — rebill decision open",BOLD); r+=1
-    cs_accts=sorted({a for (a,m) in ser['client_side'] if m in M},
-                    key=lambda a: -sum(ser['client_side'].get((a,m),0.0) for m in M))
+    cs_accts=sorted({a for (a,m) in ser['client_side'] if m in MC},
+                    key=lambda a: -sum(ser['client_side'].get((a,m),0.0) for m in MC))
     for a in cs_accts:
-        if sum(ser['client_side'].get((a,m),0.0) for m in M)<=0.005: continue
+        if sum(ser['client_side'].get((a,m),0.0) for m in MC)<=0.005: continue
         note=accounting.CLIENT_SIDE.get(a,'')
-        month_row(w4,r,a,lambda m,a=a: ser['client_side'].get((a,m),0.0),SRC_ACC+" — bills · "+note,lvl=1); r+=1
+        m4(w4,r,a,lambda m,a=a: ser['client_side'].get((a,m),0.0),SRC_ACC+" — bills · "+note,lvl=1); r+=1
     csf=lambda m: sum(ser['client_side'].get((a,m),0.0) for a in cs_accts)
-    month_row(w4,r,"TOTAL SPENT ON CLIENTS' BEHALF",csf,"Excluded from operating cost above — confirm what is rebilled",BOLD,GREY); r+=1
+    m4(w4,r,"TOTAL SPENT ON CLIENTS' BEHALF",csf,"Excluded from operating cost above — confirm what is rebilled",BOLD,GREY); r+=1
     r+=1
 
     put(w4,r,2,"HOW THE GAP WAS FUNDED",BOLD); r+=1
-    month_row(w4,r,"Partner contributions",lambda m: ser['funding'].get(m,0.0),SRC_ACC+" — journal, accounts 3231-3234 (funding, not revenue)"); r+=1
-    if sum(ser['grant'].get(m,0.0) for m in M)>0.005:
-        month_row(w4,r,"Monshaat support",lambda m: ser['grant'].get(m,0.0),SRC_ACC+" — journal, account 421"); r+=1
-    month_row(w4,r,"Salla payouts received (settlement account)",lambda m: ser['settlement'].get(m,0.0),SRC_ACC+" — journal, account 418 · cash timing, not a second revenue stream"); r+=1
+    m4(w4,r,"Partner contributions",lambda m: ser['funding'].get(m,0.0),SRC_ACC+" — journal, accounts 3231-3234 (funding, not revenue)"); r+=1
+    if sum(ser['grant'].get(m,0.0) for m in MC)>0.005:
+        m4(w4,r,"Monshaat support",lambda m: ser['grant'].get(m,0.0),SRC_ACC+" — journal, account 421"); r+=1
+    m4(w4,r,"Salla payouts received (settlement account)",lambda m: ser['settlement'].get(m,0.0),SRC_ACC+" — journal, account 418 · cash timing, not a second revenue stream"); r+=1
     r+=1
 
     # ---- receivables: Wafeq live vs the accountant's statement ----
