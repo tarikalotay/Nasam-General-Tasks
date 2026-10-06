@@ -63,6 +63,13 @@ Team member IDs (for `assignees` filters):
 7. **Check escalation responses.** Re-read the tasks behind each escalation and state
    whether any response was logged. "No response logged" is itself a finding worth
    stating at the top of the Escalations table.
+   **Re-test the underlying condition, not just the comment thread.** A connection or
+   sync alert must be checked against `sync_and_connection_health` before it is carried
+   forward. Wk 40 found `86eyu8uwx` still _update required_ after five weeks while every
+   Sonbol and Invita stream — Salla and Trendyol settlements included — read
+   **Connected · Healthy**. The alert was stale, not open. **Carrying a resolved alert as
+   an escalation is as wrong as missing a real one**, and it costs the lead call time on
+   something that only needs closing.
 8. **Create a ClickUp task for every action in Feedback from Call.** This is not
    optional and is the step most easily missed. For each bullet naming an owner:
    `clickup_create_task` into the list the action belongs to, assign the named person,
@@ -87,6 +94,15 @@ Seen so far: the **Store Enhancement list was emptied into Advertising** (Wk 33)
 **QC registrations moved from Operations into Onboarding**, The Chefz registration was
 deleted, and tasks were renamed (`Onboarding Plan (Shared With Sonbol)` →
 `(Shared With Dar Sonbol)`).
+
+**Lists get renamed and disappear too.** By Wk 40 `Brand Health by System` returns from
+the API as just **`Brand Health`**, and `Store Enhancement and Marketing` no longer
+appears in the space at all. Match list sections on the **list id**, never the name, and
+keep the page's heading stable even when ClickUp's label changes — the reader is
+comparing weeks, not reading ClickUp.
+
+**New task ids no longer all start `86ey`.** The two alerts opened on 2 Oct came back as
+`z8xxqw7bhj` / `z8xxqw7bhh`. Never filter or sort task ids on a prefix.
 
 **Watch for wholesale assignee changes.** In Wk 34 Mohammed Alrowitea vanished as
 assignee from all ~50 of his tasks in one move, with the work transferred to Tarik. The
@@ -113,6 +129,18 @@ stating.
   batches are where the work shows — they just do not inflate the numbers.
 - Where a main task's only activity is on its subtasks, the main task counts as
   updated (e.g. the Inivita ads parent, worked entirely through its levers).
+- **`date_updated` is not evidence that an AM updated anything.** Phase 0's own nudge
+  comments bump it on every stale task, so a list can look busy in the metadata and be
+  completely silent. When deciding "updated", discount comments from the service account
+  beginning `⏰ WBR Phase 0`, ClickBot's `@assignees` line at creation, and the system's
+  own `Recovered to Healthy` / `Escalated to Needs action` notes. In Wk 40, 24 tasks
+  carried a `date_updated` inside or after the window and **not one had a human comment
+  in it** — the whole week's movement was Phase 0 and two auto-generated alerts.
+- **Bound the comment pull by `date_updated`.** A comment bumps `date_updated`, so a task
+  whose `date_updated` predates the window cannot hold in-window activity. Pull comments
+  only for tasks with `date_updated >= window start` — in Wk 40 that was 24 of 126 and
+  made the comment check cheap. Include tasks updated *after* the window too; they may
+  still carry an in-window comment under a later one.
 - A shared parent counts for **every** assignee — so owner figures do not sum to the
   list total. State this once under the table; never silently reconcile it.
 - Check every timestamp against the window. Items closed or commented a day or two
@@ -156,7 +184,24 @@ Parse it, do not read it:
 
 Report `Brand | Channel | This wk | Last wk | Chg`, sorted by this-week revenue. Drop
 rows where both weeks are under 1 SAR. Mark a channel that went from zero as `new`, not
-`+inf%`. Read the sales against the ads levers — a bid change and a revenue move on the
+`+inf%`.
+
+**Nokush's Salla is in scope and is no longer zero.** It ran 243 in Wk 39 and 140 in
+Wk 40. Give it its own row, labelled `Salla — Nokush only`, and keep it **outside the
+Total** so the headline marketplace figure stays comparable with every prior page.
+AlFaris Group Salla stays excluded entirely.
+
+**Before calling a revenue jump real, apply three tests.** A 5x swing has twice been
+settlement catch-up, so do not assume either way:
+1. **Did orders move with it?** Wk 40 was +80% revenue on +62% orders — proportional, so
+   trading. The 46–49k fortnight was flat orders on 5x revenue — settlement.
+2. **Is it spread across the days?** Split the window by day at marketplace grain. A
+   single huge day is a posting batch; a lift on every day is demand.
+3. **Are settlements healthy?** `sync_and_connection_health` per brand, checking the
+   `Settlements` stream's `lastSyncedAt`, not just `brandWide.state`.
+Then ask whether it **fades inside the week**. Wk 40 ran 3,117 on Thursday down to 812 by
+Wednesday — a holiday tail, not a new baseline. Say which it is; a lead who reads +80%
+as the new level will plan against it. Read the sales against the ads levers — a bid change and a revenue move on the
 same brand/channel is the story worth putting on the page.
 
 ## Onboarding is tracked separately
@@ -218,6 +263,13 @@ the same sections in the same order.
      `Channel lever - Brand` (e.g. `Trendyol Deals - Sondos`, `Amazon PPC - Invita`).
      This means walking each brand's lever subtasks, not just the brand parent —
      `clickup_get_task` on the brand parent with `include: ["subtasks"]`, one call.
+     **Since the 21 Sep rebuild the tree is three levels, not two:**
+     `Brand → Ads / Promotions → one card per channel` (Amazon · Noon · Trendyol). One
+     call on the brand parent returns only `Ads` and `Promotions`; the channel cards are
+     a level below and are where an update would actually be written. Five brands means
+     **30 channel cards**. A report that stops at the brand parent sees 5 pending cards
+     and misses that 30 are untouched. The channel cards carry **no assignee of their
+     own** — list them unassigned, and say that nobody is named on an individual channel.
      **Lever names in ClickUp do not carry the channel** — they are all
      "PPC Weekly Update", "Deals Weekly Update" etc., repeated once per channel batch.
      Read the `Sale Channel` custom field to label them; do not infer the channel from
@@ -357,6 +409,29 @@ These have each produced a wrong report. Check every one.
 ## Changelog
 
 Keep this current — the skill is expected to grow.
+
+- **2026-10-06** — **Phase 0's own comments bump `date_updated`.** Discount
+  `⏰ WBR Phase 0`, ClickBot `@assignees` and system recovery/escalation notes when
+  judging "updated". Wk 40 had 24 tasks with in-window-or-later `date_updated` and zero
+  human comments in the window. Bound the comment pull to `date_updated >= window start`.
+- **2026-10-06** — **The ad template is three levels deep** since the 21 Sep rebuild:
+  `Brand → Ads / Promotions → one card per channel`. 5 brands = **30 channel cards**, all
+  unassigned. Stopping at the brand parent undercounts the silence six-fold.
+- **2026-10-06** — **Three tests before calling a revenue jump real**: orders moved in
+  proportion · the lift is spread across the days · settlements synced. Then say whether
+  it fades inside the week. Wk 40's +80% passed all three and still faded 3,117 → 812.
+- **2026-10-06** — **Re-test the condition behind every carried escalation.** The Salla
+  sync alert had been healthy for weeks and was still on the page as open. Carrying a
+  resolved alert is as wrong as missing a real one.
+- **2026-10-06** — **Nokush's Salla is in scope and no longer zero.** Own row labelled
+  `Salla — Nokush only`, kept outside the marketplace Total for comparability.
+- **2026-10-06** — `Brand Health by System` now reads back as **`Brand Health`**, Store
+  Enhancement is gone from the space, and new task ids do not start `86ey`. Match on list
+  id, never on name or id prefix.
+- **2026-10-06** — Phase 0's reminder text was wrong on two counts and was fixed in the
+  Routine: it announced a 4:00 PM build when Phase 1 runs 15:30, and it hardcoded "Second
+  week in a row" on tasks silent for six. It now counts the streak from the task's own
+  comments.
 
 - **2026-08-06** — **Brand Health** splits into `Done | Updated | No Update` with the
   open items grouped *updated / not updated*. **Advertising** is a campaign-level matrix
