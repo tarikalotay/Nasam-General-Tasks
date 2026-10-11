@@ -23,5 +23,5 @@ TWO_M=[
 ("Reefi","Trendyol","2026-02",884.10,7),("Reefi","Trendyol","2026-03",1210.55,17),("Reefi","Trendyol","2026-04",4728.50,39),
 ("Reefi","Trendyol","2026-05",6300.00,57),("Reefi","Trendyol","2026-06",2931.00,23),
 ]
-# Sonbol Salla from its integration date (13 Aug 2026), by month — refreshed 4 Oct 2026.
-SONBOL_FROM_INTEGRATION={"2026-08":(556654.30,2172),"2026-09":(694010.74,2677)}
+# Sonbol Salla from its integration date (13 Aug 2026), by month — refreshed 11 Oct 2026.
+SONBOL_FROM_INTEGRATION={"2026-08":(556932.30,2173),"2026-09":(681572.34,2615)}
