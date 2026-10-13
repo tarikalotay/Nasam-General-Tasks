@@ -46,6 +46,7 @@ Team member IDs (for `assignees` filters):
 | Tarik Alotay | `194571442` |
 | Salman Alkhalifah | `107631936` |
 | Mohamed Eladawy | `107631935` |
+| Nasser Abuwandah | `308593216` |
 
 ## Process
 
@@ -186,6 +187,23 @@ Report `Brand | Channel | This wk | Last wk | Chg`, sorted by this-week revenue.
 rows where both weeks are under 1 SAR. Mark a channel that went from zero as `new`, not
 `+inf%`.
 
+**Prior-week figures restate downward — the `Last wk` column will not match the prior
+page's `This wk`.** Re-querying 24–30 Sep a week later returned **12,907** against the
+**13,795** published on the Wk 40 page: the same week, 6% lower, as returns and
+cancellations netted off. Invita Amazon restated 4,988 → 4,521 and Sondos Trendyol
+4,469 → 4,049. Marketplace revenue keeps settling for roughly a fortnight. **Always
+compute both periods from the same single `compare_sales_periods` call** so the two
+columns are internally consistent, then say on the page that the prior week has restated
+and by how much. Never quietly reconcile to the published figure, and never present the
+gap as an error.
+
+**New channels appear in the data without warning.** Namshi (channel id 14) showed up in
+Wk 41 carrying Sonbol's first marketplace revenue. Keep the **Total on Amazon · Noon ·
+Trendyol** so it stays comparable with every prior page, and give a new channel its own
+row **outside the Total**, flagged for a scope decision — the same treatment as Nokush's
+Salla. Folding a channel into the Total mid-stream rebases every week-over-week number on
+the page.
+
 **Nokush's Salla is in scope and is no longer zero.** It ran 243 in Wk 39 and 140 in
 Wk 40. Give it its own row, labelled `Salla — Nokush only`, and keep it **outside the
 Total** so the headline marketplace figure stays comparable with every prior page.
@@ -276,6 +294,13 @@ the same sections in the same order.
      batch order without saying so. Invita ran 19 levers in Wk 31 — 8 running, 2 paused
      (Amazon Coupon, Meta Ads), 9 cannot-implement — against the "7 levers" figure
      carried on earlier pages, so count them rather than trusting the prior week.
+     **A blank ad card may be a decision, not neglect — read the comments before calling
+     it silence.** Wk 41's Nokush card carried "we are not going to spend any money on
+     ads on all platforms until you update us": the spend was frozen group-wide pending
+     the lead, which reframed four weeks of empty cards. Report a frozen account as
+     frozen, then make the two real findings — the freeze is recorded on **one** card out
+     of five, so a reader cannot tell frozen from abandoned, and "until you update us"
+     carries no review date while the work it blocks has one.
 5. **Onboarding** — no counts, activity narrative only. **Group by brand under its own
    `###` heading**, one short paragraph each, 300 words max total.
 6. **Escalations** — numbered table: Item · Owner · Status.
@@ -292,6 +317,24 @@ the same sections in the same order.
    > Weak: "Discount created on old stock."
    > Strong: "32% clearance on 14 legacy SKUs, Amazon and Noon, 15 Aug to 30 Sep,
    > target 80% sell-through before the new brand goes live."
+
+   **The commonest AM failure mode is a comment that says resolved on a card that stays
+   open.** Four landed in one Sunday in Wk 41 — Sense buy box "already fixed" still
+   `to do`, Arabesque inventory "all stock updated" still `update required`, both new
+   profitability alerts answered and still `to do`. The board is what the WBR counts, so
+   this reads as eight more weeks of open work. Name each one and say plainly that it
+   needs closing or a reason.
+
+   **Check for one answer pasted across several tasks.** In Wk 41 the sentence "All stock
+   has been updated by the Sondos team on Trendyol today" appeared on five alerts of three
+   different types, including two *profitability* alerts a stock line cannot answer. Diff
+   the comment text across the week's batch: five identical comments are one update, not
+   five, and the per-AM Updated column will otherwise read as a good week.
+
+   **A task closed with no comment is its own finding.** Dar Sonbol's onboarding card
+   closed on 12 Oct after 36 days overdue with nothing written — what completed, what the
+   booked call agreed and what carries into v2 are all unrecorded. Closure without a note
+   destroys the handover.
 
    **Flag any task whose status contradicts its comments.** A task marked `running`
    whose only comment says "blocked on client" will land in the wrong column and read as
@@ -371,6 +414,10 @@ These have each produced a wrong report. Check every one.
   is via task comments. Do not report chat activity as a gap each week; just use tasks.
 - **Onboarding is a deep template tree** (~255 items, 4 levels). Walk it with
   `include: ["subtasks"]`. Its counts are approximate — label them so.
+  The **v2 template is nine phases** — `Phase 0 · Deal Handover` through
+  `Phase 8 · Go-Live, Review & Handover` — and first ran on a genuinely new brand
+  (Al Safa care) on 13 Oct. Phases carry no individual owner by default; that gap is
+  worth stating.
 - **Onboarding template subtasks are scaffolding**, not weekly load. Keep the count
   visible but do not let it imply workload.
 - **Brand Health tasks are auto-generated** by the Nasam system and may show `complete`
@@ -409,6 +456,24 @@ These have each produced a wrong report. Check every one.
 ## Changelog
 
 Keep this current — the skill is expected to grow.
+
+- **2026-10-13** — **Prior-week sales figures restate downward ~6% over the following
+  fortnight.** The `Last wk` column will not match the prior page's `This wk` — compute
+  both periods from one `compare_sales_periods` call, then say so on the page.
+- **2026-10-13** — **New channels appear without warning** (Namshi, id 14, carrying
+  Sonbol's first marketplace revenue). Keep the Total on Amazon · Noon · Trendyol and put
+  a new channel in its own row outside it, pending a scope decision.
+- **2026-10-13** — **"Resolved in the comment, open on the board" is the commonest AM
+  failure mode** — four in one Sunday. Name each; the board is what the WBR counts.
+- **2026-10-13** — **Diff comment text across the week's batch.** One sentence pasted onto
+  five alerts of three types reads as five updates and is one.
+- **2026-10-13** — **A task closed with no comment is its own finding** (Dar Sonbol
+  onboarding, 36 days overdue, closed silently).
+- **2026-10-13** — **A blank ad card may be a frozen account, not a silent one.** Read the
+  comments before calling it neglect, then flag that the freeze is recorded on one card of
+  five and carries no review date.
+- **2026-10-13** — The v2 onboarding template is **nine phases (0–8)**; Nasser Abuwandah
+  `308593216` joined the workspace on Al Safa care.
 
 - **2026-10-06** — **Phase 0's own comments bump `date_updated`.** Discount
   `⏰ WBR Phase 0`, ClickBot `@assignees` and system recovery/escalation notes when
