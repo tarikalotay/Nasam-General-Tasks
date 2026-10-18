@@ -1,4 +1,4 @@
-# Platform GMV, active brands — mcp_read.revenue pull 11 Oct 2026: (brand, channel, ym, gmv, orders)
+# Platform GMV, active brands — mcp_read.revenue pull 18 Oct 2026: (brand, channel, ym, gmv, orders)
 # totalRevenue excludes shipping and is already net of cancels/returns.
 #
 # Two brand-channels are EXCLUDED here because the platform backfilled a long history when the
@@ -144,7 +144,7 @@ REV_ACT=[
 ("SONDOS","Trendyol","2026-06",2149.71,27),
 ("SONDOS","Trendyol","2026-07",1269.98,19),
 ("SONDOS","Trendyol","2026-08",20575.62,257),
-("SONDOS","Trendyol","2026-09",39893.79,343),
+("SONDOS","Trendyol","2026-09",39243.43,339),
 ("Wadi Halfa","Trendyol","2026-04",199.00,1),
 ("Wadi Halfa","Trendyol","2026-05",534.25,2),
 ("Wadi Halfa","Trendyol","2026-06",366.25,2),

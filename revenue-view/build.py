@@ -43,7 +43,12 @@ CL=[
  ("Safwat Aljouf",["صفوة الجوف الزراعية التجارية"],"Churned","2026-02",["Safwat Aljawf"]),
  ("Reetal",["مؤسسة محمد صالح محمد العشري للتجارة"],"Churned","2026-06",["Reetal"]),
  ("House Mart",["شركة الريادية الابتكارية للتجارة"],"Churned","2026-04",[]),
+ ("Al Safa",["مستودع الصفا للأدوية المحدودة"],"Active","",[]),
 ]
+# Signed after the window closed: first invoice INV-000193, 13 Oct 2026, a 5,499 setup fee for
+# onboarding to Amazon, Trendyol and Noon with inventory integration. No platform brand yet, so no
+# sales rows — it carries a label and the post-window memo on sheet 1 until October closes.
+NEW_CLIENT={"Al Safa":"2026-10"}
 EXCL_CONTACT={"Cloud Shelf":"x","مؤسسة قيادة آمنة للتجارة":"x"}
 C2K={}
 for k,cons,*_ in CL:
@@ -55,6 +60,10 @@ for k,_,_,_,brs in CL:
 B2C[SONBOL_OLD]="Dar Sonbol"
 DISP={SONBOL:"Sonbol (سنبل)",SONBOL_OLD:"Sonbol (سنبل)"}
 def disp(b): return DISP.get(b,b)
+def clabel(k,chn):
+    if chn: return f"{k}  (churned {chn})"
+    if k in NEW_CLIENT: return f"{k}  (new — first invoice {mlbl(NEW_CLIENT[k])})"
+    return k
 def ckey(contact):
     if contact in C2K: return C2K[contact]
     s=str(contact or '')
@@ -316,9 +325,9 @@ def olvl(ws,r,lvl):
 # ---------- 0 ReadMe ----------
 w=wb.active; w.title="0 ReadMe"
 w.column_dimensions['B'].width=26; w.column_dimensions['C'].width=112
-rows=[("Nasam Revenue View — weekly run · 11 Oct 2026",""),
-("This run","September is billed. Four of the five invoices drafted last week were released, putting 10,148.67 into billed and taking it to 222,022.49 — the first movement in a month. Three things worth reading. Dar Sonbol's 8,000 is the one invoice NOT released, so a client with 681,572 of September sales has still never been charged a fee. Wadi Halfa's 2,000 monthly fee was drafted and then dropped on release for the second month running, so zero is what that client actually pays whatever the rate card says. And Inivita's Noon line came down 15.40 on release, recalculated against settled GMV — so the platform does true up marketplace lines when it issues, which answers half of the cancellation question. Collections restarted too: 10,552.78 came in, Ancy & Shaya clearing their whole 7,012.27 balance, though new September invoicing means receivables only fell to 66,525.03. The expense side is still waiting on the October accounting drop."),
-("Sources","Wafeq API snapshot 11 Oct (169 invoices; 4 September drafts released, 4 older invoices paid) · platform commission mapping read 11 Oct from the September invoices as issued (5 clients) · platform sales and purchase orders pulled 11 Oct · Wafeq accounting exports 8 Sep: purchase bills, journal entries, customer-balances statement · churned-brand snapshots 15 Aug (frozen) · Salla Partners export 30 Aug (42 days old — the four trials live then have all since expired) · rate card 17 Aug. The closed-PO export is retired: purchase orders now carry their values in the platform read layer."),
+rows=[("Nasam Revenue View — weekly run · 18 Oct 2026",""),
+("This run","Nasam has signed a client. مستودع الصفا للأدوية المحدودة (Al Safa) was invoiced 5,499 on 13 Oct — a setup fee for onboarding to Amazon, Trendyol and Noon with inventory integration. It is the first new client to be billed since the churn began in February, and the first setup fee since Dar Sonbol in June. The invoice is dated October, so it sits outside this window and is shown as a memo under the revenue streams rather than in any total; it enters billed when October closes. Nothing else moved on billing: the window stays at 222,022.49 and Dar Sonbol's 8,000 is still the one September invoice in draft, now a fortnight old. One small reversal — 0.27 of the Ancy & Shaya balance settled last week has reopened, leaving that account all but clear. September sales continue to settle downward as late cancellations land: Sonbol 677,237 and SONDOS Trendyol 39,243, both trimmed again this week."),
+("Sources","Wafeq API snapshot 18 Oct (170 invoices — one new client, INV-000193) · platform commission mapping read 11 Oct from the September invoices as issued (5 clients; no October invoices raised yet) · platform sales and purchase orders pulled 18 Oct · Wafeq accounting exports 8 Sep: purchase bills, journal entries, customer-balances statement · churned-brand snapshots 15 Aug (frozen) · Salla Partners export 30 Aug (49 days old — the four trials live then have all since expired) · rate card 17 Aug. The closed-PO export is retired: purchase orders now carry their values in the platform read layer."),
 ("Monthly close — still open","September's revenue side is now complete and billed. The expense side is not: the four Wafeq exports have still not been shared, so sheet 4 carries the 8 Sep drop and stops at August — its months deliberately differ from sheet 1 rather than pairing September revenue with a cost of almost nothing. Send the four exports (sales invoices, purchase bills, journal entries, customer-balances statement) and September's cost, funding and receivables close follows in the next run. Until then the newest month that can be judged against its own cost is August."),("Reporting rules","Window Nov 2025+ (current model) · GMV post-Nasam only (Sonbol from 13 Aug 2026) · post-churn months excluded · a channel is commissioned only if the platform says so (بلا عمولة = 0%, orders still sync and still show in sales); brands not yet read off the platform fall back to the rate card and SaaS brand-channels stay 0% · SaaS subscriptions net of Salla 15% · retail commission on the RECEIVED value of closed POs · pass-throughs excluded: Cloud Shelf recharges (3,355.01 in window) and marketing rebilled to a client at cost (INV-000137, 16,534.40, Oct 2025 — outside the window) · only the management fee on such work is revenue, and there was none on that invoice · all figures SAR ex-VAT."),
 ("Weekly update","Automatic: Wafeq API, platform sales, platform purchase orders with values, the commission mapping off the newest platform invoices, rebuild + verification + mapping check. Manual: only the Salla Partners subscriptions export — share it whenever it changes."),]
 for i,(a,b) in enumerate(rows, start=2):
@@ -370,7 +379,7 @@ for k,cons,st_,chn,brs in CL:
     brands=sorted(kb.keys())
     single_brand=len(brands)==1
     single_all=single_brand and len(kb[brands[0]])==1
-    lbl=k+(f"  (churned {chn})" if chn else "")
+    lbl=clabel(k,chn)
     if single_all:
         b=brands[0]; c=list(kb[b].keys())[0]
         month_row(w1,r,f"{lbl} — {disp(b)} · {c}",lambda m,bb=b,cc=c,kk=k: tree[kk][bb][cc].get(m,0.0),tree_src[(k,b,c)]); r+=1
@@ -397,6 +406,12 @@ sums['Other']=month_row(w1,r,"Other",lambda m: sum(other[(k,m)] for k in allk),S
 sums['Discounts']=month_row(w1,r,"Discounts",lambda m: sum(disc[(k,m)] for k in allk),SRC_WAFEQ); r+=1
 tot_billed=month_row(w1,r,"TOTAL BILLED",lambda m: sum(billed[(k,m)] for k in allk),SRC_WAFEQ+" — ties to ledger",BOLD,GREY); r+=1
 month_row(w1,r,"Memo: drafted in Wafeq, not yet issued (not in billed)",lambda m: sum(v for (k,m2),v in drafted.items() if m2==m),SRC_WAFEQ+" — DRAFT status; enters billed once sent"); r+=1
+POSTW={m2:v for (k,m2),v in billed.items() if m2>M[-1]}
+if POSTW:
+    _pw=sum(POSTW.values()); _pm=", ".join(mlbl(x) for x in sorted(POSTW))
+    put(w1,r,2,f"Memo: issued after the window closed ({_pm}) — not in any total above",BLACK)
+    put(w1,r,3+len(M),round(_pw,2),BLACK,SAR0)
+    put(w1,r,4+len(M),SRC_WAFEQ+" — enters the totals when that month closes",BLACK); r+=1
 acc_row=month_row(w1,r,"Retail commission — closed POs, to invoice",lambda m: sum(d.get(m,0.0) for d in acc.values()),SRC_PO+" — net of retail already billed in Wafeq"); r+=1
 saas_row=month_row(w1,r,"SaaS subscriptions (Salla App Store, gross)",lambda m: saas_rev.get(m,0.0),SRC_SALLA); r+=1
 for s in SAAS_SUBS:
@@ -406,7 +421,7 @@ share_row=month_row(w1,r,"less: Salla share (15%)",lambda m: -saas_rev.get(m,0.0
 tot_all=month_row(w1,r,"TOTAL REVENUE",lambda m: sum(billed[(k,m)] for k in allk)+sum(d.get(m,0.0) for d in acc.values())+saas_rev.get(m,0.0)*(1-SALLA_SHARE),"Billed + to-invoice + SaaS net of Salla share",BOLD,GREY); r+=2
 put(w1,r,2,"BY CLIENT (billed)",BOLD); r+=1
 for k,cons,st_,chn,brs in CL:
-    lbl=k+(f"  (churned {chn})" if chn else "")
+    lbl=clabel(k,chn)
     month_row(w1,r,lbl,lambda m,kk=k: billed[(kk,m)],SRC_WAFEQ); r+=1
 tot_clients=month_row(w1,r,"TOTAL",lambda m: sum(billed[(k,m)] for k in allk),SRC_WAFEQ,BOLD,GREY); r+=1
 assert abs(tot_billed-tot_clients)<0.02 and abs(sum(sums.values())-tot_billed)<0.02
@@ -474,7 +489,7 @@ grand=defaultdict(float)
 for k,cons,st_,chn,brs in CL:
     haseco=k in tree or any(kk==k for (kk,b,ch) in alloc) or any(abs(fee[(k,m)])+abs(setup[(k,m)])+abs(other[(k,m)])+abs(disc[(k,m)])>0.005 for m in M)
     if not haseco: continue
-    lbl=k+(f"  (churned {chn})" if chn else "")
+    lbl=clabel(k,chn)
     mrow(r,[lbl,None,None,"Billed revenue",None,None],lambda m,kk=k: billed[(kk,m)],SRC_WAFEQ+((" · "+CARD[k]) if k in CARD else ""),BOLD,BILLED_F)
     for j,m in enumerate(M): grand[m]+=billed[(k,m)]
     r+=1
@@ -662,6 +677,8 @@ if accounting.available():
 OUT=os.path.join(HERE,"output","Nasam_Revenue_View.xlsx")
 wb.save(OUT)
 print('SAVED', os.path.getsize(OUT), 'bytes')
-print('billed:', round(sum(billed.values()),2), '| to-invoice:', round(acc_total,2), '| SaaS gross:', round(saas_total,2), '| SaaS net:', round(saas_total*(1-SALLA_SHARE),2),
-      '| TOTAL:', round(sum(billed.values())+acc_total+saas_total*(1-SALLA_SHARE),2))
+_bw=sum(v for (k,m),v in billed.items() if m in M)
+print('billed:', round(_bw,2), '| to-invoice:', round(acc_total,2), '| SaaS gross:', round(saas_total,2), '| SaaS net:', round(saas_total*(1-SALLA_SHARE),2),
+      '| TOTAL:', round(_bw+acc_total+saas_total*(1-SALLA_SHARE),2))
+if POSTW: print('post-window (issued, outside the window):', round(sum(POSTW.values()),2), sorted(POSTW))
 print('sales: managed', round(man_tot), '+ retail', round(ret_tot,2), '+ SaaS', round(saas_tot), '=', round(all_tot))
