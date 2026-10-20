@@ -105,6 +105,25 @@ comparing weeks, not reading ClickUp.
 **New task ids no longer all start `86ey`.** The two alerts opened on 2 Oct came back as
 `z8xxqw7bhj` / `z8xxqw7bhh`. Never filter or sort task ids on a prefix.
 
+**A new AM rebases every count in one week.** Nasser Abuwandah added **16 main tasks**
+across Catalog, Operations and Advertising in Wk 42 — Catalog went 10 → 17 — and closed
+five of them. Never report list growth as backlog growth without naming who created it,
+and never read a new joiner's open cards as the team's deteriorating throughput. Check
+too whether their new card **duplicates an existing one**: the Sondos purchase-order
+problem landed on Khaled's 44-day `pending clent` card and on Nasser's fresh card in the
+same week, with the new one carrying the actual cause. Say they need merging rather than
+counting the work twice.
+
+**Work migrates to the wrong list.** Sonbol/Tenda's effective onboarding — Amazon brand
+registry, A+ content, size charts, the summer collection — ran entirely through Catalog
+and Pricing while the Onboarding list showed nothing. Report where the work actually is,
+and say that the list which should own it is silent.
+
+**A brand rename in flight breaks every week-over-week figure.** Sonbol is mid-rename to
+**Tenda** (`z8xxqwaf6v`, run with Okasha on the main account). Flag a rename the week you
+see it, ask for the cutover date, and expect the brand to appear under both names in the
+sales data across the changeover.
+
 **Watch for wholesale assignee changes.** In Wk 34 Mohammed Alrowitea vanished as
 assignee from all ~50 of his tasks in one move, with the work transferred to Tarik. The
 per-AM tables would otherwise have shown this as one person's heroic week and another's
@@ -208,6 +227,22 @@ the page.
 Wk 40. Give it its own row, labelled `Salla — Nokush only`, and keep it **outside the
 Total** so the headline marketplace figure stays comparable with every prior page.
 AlFaris Group Salla stays excluded entirely.
+
+**Separate a demand move from a basket move before writing a word about it.** Put
+revenue growth next to order growth: Wk 42 fell **32% on orders down only 7%**, so
+average basket went 116 → 85 SAR. That is fewer large orders, not fewer customers, and it
+reads completely differently on the call. A drop with orders flat is pricing, promotion or
+mix; a drop with orders down is demand or availability.
+
+**A brand falling across every channel on a healthy connection is a stock or buyability
+question before it is a demand question.** Wk 42's Invita −62% was an outright
+**Amazon stock-out — every SKU 0 available, 450 units inbound** — found by checking live
+stock, not by reading the task lists, where no card existed for it. Add
+`inventory_live` to the cross-check beside `sync_and_connection_health`; it needs
+**both `brand` and `channel`** (brand alone errors), so call it per channel on any brand
+down more than ~40%. Where stock is present and revenue still fell, say so and name the
+other candidate — Invita held 315 units on Noon and still fell 73%, which pointed at the
+deal, not the shelf.
 
 **Before calling a revenue jump real, apply three tests.** A 5x swing has twice been
 settlement catch-up, so do not assume either way:
@@ -317,6 +352,12 @@ the same sections in the same order.
    > Weak: "Discount created on old stock."
    > Strong: "32% clearance on 14 legacy SKUs, Amazon and Noon, 15 Aug to 30 Sep,
    > target 80% sell-through before the new brand goes live."
+
+   **An alert that closes on a system recovery is not the AM's answer landing.** Arabesque
+   profitability auto-closed on "Recovered to Healthy on 2026-10-15" four days after
+   Khaled answered a *margin* alert with a *stock* sentence. Credit the close to the
+   recovery and still carry the update as weak — otherwise the page teaches that any
+   sentence works as long as the metric drifts back on its own.
 
    **The commonest AM failure mode is a comment that says resolved on a card that stays
    open.** Four landed in one Sunday in Wk 41 — Sense buy box "already fixed" still
@@ -456,6 +497,21 @@ These have each produced a wrong report. Check every one.
 ## Changelog
 
 Keep this current — the skill is expected to grow.
+
+- **2026-10-20** — **Put revenue growth next to order growth.** Wk 42 was −32% revenue on
+  −7% orders: a basket move (116 → 85 SAR), not a demand move.
+- **2026-10-20** — **Check live stock before blaming demand.** Invita's −62% was an Amazon
+  stock-out with every SKU at 0 and 450 units inbound, and **no task existed for it**.
+  `inventory_live` needs both `brand` and `channel`.
+- **2026-10-20** — **A new AM rebases every count.** Nasser added 16 main tasks in one
+  week; name who created new cards before reporting list growth, and check for duplicates
+  of existing cards (the Sondos POs landed twice).
+- **2026-10-20** — **Work migrates to the wrong list** — Tenda's onboarding ran through
+  Catalog while Onboarding stayed silent. Report where the work is.
+- **2026-10-20** — **A rename in flight breaks week-over-week figures** (Sonbol → Tenda).
+  Flag it and ask for the cutover date.
+- **2026-10-20** — **An alert closing on a system recovery is not the AM's answer
+  landing.** Credit the close, still carry the update as weak.
 
 - **2026-10-13** — **Prior-week sales figures restate downward ~6% over the following
   fortnight.** The `Last wk` column will not match the prior page's `This wk` — compute
