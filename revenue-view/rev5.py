@@ -1,10 +1,14 @@
-# Platform GMV, active brands — mcp_read.revenue pull 18 Oct 2026: (brand, channel, ym, gmv, orders)
+# Platform GMV, active brands — mcp_read.revenue pull 25 Oct 2026: (brand, channel, ym, gmv, orders)
 # totalRevenue excludes shipping and is already net of cancels/returns.
 #
 # Two brand-channels are EXCLUDED here because the platform backfilled a long history when the
 # channel was first connected, and GMV from before Nasam served it is not Nasam's to show:
 #   Sonbol · Salla   — connected 13 Aug 2026, backfilled to Feb 2026. Counted from the integration
 #                      date only, via add6.SONBOL_FROM_INTEGRATION (build.py injects it).
+#   Al-safa Care · Salla — connected 20 Oct 2026, backfilled a full year (1299 orders from Oct 2025).
+#                      EXCLUDED ENTIRELY from the list below: every month of it predates the
+#                      integration, so none of it belongs in a Nov 2025 - Sep 2026 window. Only the
+#                      2,699.05 earned from 20 Oct 2026 is Nasam's, and that falls in October.
 #   Invita · Salla   — connected 10 Sep 2026, backfilled a full year (1.48M SAR, Sep 2025 onward).
 #                      Same rule: only the 215,869.85 earned from 10 Sep 2026 is Nasam's, and that
 #                      is Nasam's, so the row below is September only. Not yet commissioned (Q9).
@@ -118,7 +122,7 @@ REV_ACT=[
 ("Sense","Salla","2026-08",1407.68,14),
 ("Sense","Salla","2026-09",377.76,3),
 ("Sense","Trendyol","2026-05",1345.56,22),
-("Sense","Trendyol","2026-06",6588.79,135),
+("Sense","Trendyol","2026-06",6459.64,132),
 ("Sense","Trendyol","2026-07",745.47,11),
 ("Sense","Trendyol","2026-08",10196.43,207),
 ("Sense","Trendyol","2026-09",3170.88,63),
@@ -134,7 +138,7 @@ REV_ACT=[
 ("SONDOS","Salla","2026-06",69284.01,160),
 ("SONDOS","Salla","2026-07",199016.56,462),
 ("SONDOS","Salla","2026-08",36095.94,130),
-("SONDOS","Salla","2026-09",154308.44,810),
+("SONDOS","Salla","2026-09",154113.89,809),
 ("SONDOS","Trendyol","2025-12",467.82,10),
 ("SONDOS","Trendyol","2026-01",380.31,4),
 ("SONDOS","Trendyol","2026-02",6088.50,114),
@@ -153,5 +157,7 @@ REV_ACT=[
 ]
 # Invita - Salla from its integration date (10 Sep 2026), for the run that first reports September.
 INVITA_SALLA_FROM_INTEGRATION=(215869.85, 1449)   # 10-30 Sep 2026
+# Al-safa Care - Salla from its integration date (20 Oct 2026), for the October close.
+AL_SAFA_FROM_INTEGRATION=(2699.05, 12)
 # retained for build.py compatibility (retail now comes from po_plat.py — platform purchase orders)
 PO=[]

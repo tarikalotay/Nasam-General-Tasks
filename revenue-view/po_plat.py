@@ -1,4 +1,4 @@
-# Closed retail POs pulled DIRECTLY from mcp_read.purchase_orders — 18 Oct 2026.
+# Closed retail POs pulled DIRECTLY from mcp_read.purchase_orders — 25 Oct 2026.
 # Q2 is closed: the view now exposes requestedValue / acceptedValue / receivedValue alongside the
 # three stages and an `outcome` label, so the closed-PO CSV export is retired. Retail commission is
 # charged on RECEIVED value, so receivedValue is the base.

@@ -21,9 +21,9 @@
 # HOW TO REFRESH (weekly run): read the newest NASAM-ORG-* invoice per client in full (billing tool,
 # document='invoices', pass the id) and copy each commission line's channel and rate plus the
 # رسوم شهرية amount into ORGS, then move AS_OF. Keys are build.py client keys.
-AS_OF = '2026-10-11'
+AS_OF = '2026-10-25'
 BILLED_MONTH = '2026-09'     # newest month with ISSUED invoices — what validate() compares against
-DRAFT_MONTH  = '2026-09'     # four of the five September invoices were released 5-10 Oct; Dar Sonbol's is still DRAFT
+DRAFT_MONTH  = '2026-09'     # nothing is drafted any more: Dar Sonbol's was DELETED rather than released
 SOURCE = 'Nasam platform billing — NASAM-ORG-* invoice line items (September, as issued), plus the تعديل المنظمة dialog for switched-off channels'
 
 ORGS = {
@@ -39,12 +39,16 @@ ORGS = {
     # Dar Sonbol has never been invoiced a fee or any commission: its only document is INV-000159
     # (4,000 setup, Jun 2026). The organization record carries 8,000/mo, which no invoice has used.
     'Dar Sonbol':    dict(on={}, off=['Salla'], fee=0.0, fee_on_record=8000.0,
-                          src='org dialog 13 Sep 2026; NASAM-ORG-86-09-2026 charges the 8,000 but is still DRAFT, '
-                              'while its four siblings were released'),
+                          src='org dialog 13 Sep 2026. NASAM-ORG-86-09-2026 charged the 8,000 for September and '
+                              'was DELETED from Wafeq in the week of 18-25 Oct rather than released, so this '
+                              'client has still never been billed a fee of any kind'),
 }
 # Channels that started selling too recently for the platform to have billed them yet. Each needs a
 # decision before its first full month closes, which is what validate() reports.
 PENDING = {
+    ('Al Safa', 'Salla'): 'signed Oct 2026 — two invoices so far (5,499 setup, 2,990 Salla subscription) '
+                          'and no commercial terms recorded: no rate per channel and no monthly fee, so '
+                          'nothing to check its first commission month against',
     ('Inivita', 'Salla'): 'connected 10 Sep 2026 and sold 215,870 in September. The September invoice has now '
                           'been ISSUED itemising Amazon, Noon and Trendyol with no Salla line, so the month is '
                           'billed and closed without it — is it 7% like Invita\'s other channels, or '
@@ -62,13 +66,7 @@ PLATFORM_GAP = {
 # What the platform DRAFTED for September (created 3 Oct, status DRAFT — not billed until released).
 # Recorded here because a draft states the platform's intent for the closing month before the ledger
 # does, and two of these change standing answers. Totals are the drafted invoice totals.
-DRAFTED = {
-    'Dar Sonbol':   dict(total=8000.0, fee=8000.0, on={},
-                         note='NASAM-ORG-86-09-2026 — the only September invoice NOT released. It is the first '
-                              'document ever raised for this client beyond the June setup fee and the first to '
-                              'charge the 8,000; until it is released Dar Sonbol has still never been billed a '
-                              'fee, against 681,572 of September Salla sales'),
-}
+DRAFTED = {}   # cleared — see Dar Sonbol's src note for what happened to the one that was here
 
 
 def rate(client, channel):
