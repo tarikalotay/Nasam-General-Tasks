@@ -21,7 +21,7 @@
 # HOW TO REFRESH (weekly run): read the newest NASAM-ORG-* invoice per client in full (billing tool,
 # document='invoices', pass the id) and copy each commission line's channel and rate plus the
 # رسوم شهرية amount into ORGS, then move AS_OF. Keys are build.py client keys.
-AS_OF = '2026-10-25'
+AS_OF = '2026-11-01'
 BILLED_MONTH = '2026-09'     # newest month with ISSUED invoices — what validate() compares against
 DRAFT_MONTH  = '2026-09'     # nothing is drafted any more: Dar Sonbol's was DELETED rather than released
 SOURCE = 'Nasam platform billing — NASAM-ORG-* invoice line items (September, as issued), plus the تعديل المنظمة dialog for switched-off channels'
@@ -46,9 +46,11 @@ ORGS = {
 # Channels that started selling too recently for the platform to have billed them yet. Each needs a
 # decision before its first full month closes, which is what validate() reports.
 PENDING = {
-    ('Al Safa', 'Salla'): 'signed Oct 2026 — two invoices so far (5,499 setup, 2,990 Salla subscription) '
-                          'and no commercial terms recorded: no rate per channel and no monthly fee, so '
-                          'nothing to check its first commission month against',
+    ('Al Safa', 'Salla'): 'signed Oct 2026 — two invoices (5,499 setup, 2,990 Salla subscription) and a store '
+                          'connected 20 Oct that sold 9,429 since, but no commercial terms recorded: no rate '
+                          'per channel and no monthly fee, so nothing to check its first commission month against',
+    ('Najd', '—'):        'signed Oct 2026 (INV-000194, 3,500 setup) with no platform brand connected and no '
+                          'commercial terms recorded',
     ('Inivita', 'Salla'): 'connected 10 Sep 2026 and sold 215,870 in September. The September invoice has now '
                           'been ISSUED itemising Amazon, Noon and Trendyol with no Salla line, so the month is '
                           'billed and closed without it — is it 7% like Invita\'s other channels, or '
@@ -129,8 +131,8 @@ def validate(known, gmv_cc, comm_cc, fee_c, rate_obs, months, closed_month):
             out.append(('x', ck, '—', f'no fee line on the platform invoice, yet {got:,.2f} is booked in {closed_month}'))
         onrec = o.get('fee_on_record')
         if onrec and not f:
-            out.append(('x', ck, '—', f'organization record holds {onrec:,.0f}/mo and no RELEASED invoice has '
-                                      f'ever charged it — the one that does is still in draft'))
+            out.append(('x', ck, '—', f'organization record holds {onrec:,.0f}/mo and no invoice has ever '
+                                      f'charged it — the one that did was deleted rather than released'))
         mapped = set(o['on']) | set(o['off'])
         for (kk, ch) in sorted(known):
             if kk == ck and ch not in mapped and ch != 'Amazon Retail' \

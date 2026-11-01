@@ -16,7 +16,7 @@ SALES_F=PatternFill("solid",fgColor="E9F1F9"); BILLED_F=PatternFill("solid",fgCo
 SALLA_SHARE=0.15
 SAR='#,##0.00;(#,##0.00);-'; SAR0='#,##0;(#,##0);-'
 CUT='2025-11'
-M=[f"20{y}-{m:02d}" for y,m in [(25,11),(25,12)]+[(26,i) for i in range(1,10)]]
+M=[f"20{y}-{m:02d}" for y,m in [(25,11),(25,12)]+[(26,i) for i in range(1,11)]]
 MNAMES={1:'Jan',2:'Feb',3:'Mar',4:'Apr',5:'May',6:'Jun',7:'Jul',8:'Aug',9:'Sep',10:'Oct',11:'Nov',12:'Dec'}
 def mlbl(m): return f"{MNAMES[int(m[5:7])]} {m[:4]}"
 ML=[mlbl(m) for m in M]
@@ -44,11 +44,14 @@ CL=[
  ("Reetal",["مؤسسة محمد صالح محمد العشري للتجارة"],"Churned","2026-06",["Reetal"]),
  ("House Mart",["شركة الريادية الابتكارية للتجارة"],"Churned","2026-04",[]),
  ("Al Safa",["مستودع الصفا للأدوية المحدودة"],"Active","",["Al-safa Care"]),
+ ("Najd",["شركة نجد العذية للعطورات"],"Active","",[]),
 ]
-# Signed after the window closed: first invoice INV-000193, 13 Oct 2026, a 5,499 setup fee for
-# onboarding to Amazon, Trendyol and Noon with inventory integration. No platform brand yet, so no
-# sales rows — it carries a label and the post-window memo on sheet 1 until October closes.
-NEW_CLIENT={"Al Safa":"2026-10"}
+# Two clients signed in October, the first since the churn began in February:
+#   Al Safa  — INV-000193 (5,499 setup, 13 Oct) and INV00194 (2,990 Salla subscription, 22 Oct).
+#              Its store Al-safa Care was connected on 20 Oct; only GMV from that date is Nasam's.
+#   Najd     — INV-000194 (3,500 setup, 25 Oct). No platform brand connected yet.
+# Neither has commercial terms recorded in mapping.py, so neither can be commission-checked.
+NEW_CLIENT={"Al Safa":"2026-10","Najd":"2026-10"}
 EXCL_CONTACT={"Cloud Shelf":"x","مؤسسة قيادة آمنة للتجارة":"x"}
 C2K={}
 for k,cons,*_ in CL:
@@ -271,6 +274,8 @@ for b,c,ym,o,g in old_gmv.OLD_M:
 for b,c,ym,g,o in add6.TWO_M:
     if covered(b,ym): gmv[(b,c,ym)]+=g; gmv_src[(b,c)]=SRC_ORD
 for _m,(_g,_o) in add6.SONBOL_FROM_INTEGRATION.items(): gmv[(SONBOL,"Salla",_m)]=_g
+for _m,(_g,_o) in rev5.AL_SAFA_FROM_INTEGRATION.items(): gmv[("Al-safa Care","Salla",_m)]=_g
+gmv_src[("Al-safa Care","Salla")]=SRC_PLAT+" (from 20 Oct 2026)"
 gmv_src[(SONBOL,"Salla")]=SRC_PLAT+" (from 13 Aug 2026)"
 
 CH_PLAT={'Amazon':['Amazon'],'Trendyol':['Trendyol'],'Salla':['Salla'],'Noon':['Noon'],'Namshi':['Namshi'],
@@ -325,10 +330,10 @@ def olvl(ws,r,lvl):
 # ---------- 0 ReadMe ----------
 w=wb.active; w.title="0 ReadMe"
 w.column_dimensions['B'].width=26; w.column_dimensions['C'].width=112
-rows=[("Nasam Revenue View — weekly run · 25 Oct 2026",""),
-("This run","Dar Sonbol's 8,000 September invoice has been DELETED from Wafeq rather than released, so that client has still never been billed a fee of any kind — against 674,790 of September Salla sales. Nothing is in draft now. Al Safa, the new client, is moving quickly: a second invoice on 22 Oct for 2,990, a Salla subscription, taking its October billing to 8,489; and its store Al-safa Care was connected to the platform on 20 Oct, arriving with a year of backfilled Salla history worth roughly 430,000. That backfill predates the integration, so every month of it is excluded on the same rule as Sonbol and Invita — only the 2,699 earned since 20 Oct is Nasam's, and that falls in October. The window itself is unchanged at 222,022.49 billed. Two older figures were restated again this week, Sense Trendyol in June and SONDOS Salla in September."),
-("Sources","Wafeq API snapshot 25 Oct (170 invoices — INV00194 added, NASAM-ORG-86-09-2026 deleted) · platform commission mapping read 11 Oct from the September invoices as issued (5 clients; no October invoices raised yet) · platform sales and purchase orders pulled 25 Oct · Wafeq accounting exports 8 Sep: purchase bills, journal entries, customer-balances statement · churned-brand snapshots 15 Aug (frozen) · Salla Partners export 30 Aug (56 days old — the four trials live then have all since expired) · rate card 17 Aug. The closed-PO export is retired: purchase orders now carry their values in the platform read layer."),
-("Monthly close — still open","September's revenue side is now complete and billed. The expense side is not: the four Wafeq exports have still not been shared, so sheet 4 carries the 8 Sep drop and stops at August — its months deliberately differ from sheet 1 rather than pairing September revenue with a cost of almost nothing. Send the four exports (sales invoices, purchase bills, journal entries, customer-balances statement) and September's cost, funding and receivables close follows in the next run. Until then the newest month that can be judged against its own cost is August."),("Reporting rules","Window Nov 2025+ (current model) · GMV post-Nasam only (Sonbol from 13 Aug 2026) · post-churn months excluded · a channel is commissioned only if the platform says so (بلا عمولة = 0%, orders still sync and still show in sales); brands not yet read off the platform fall back to the rate card and SaaS brand-channels stay 0% · SaaS subscriptions net of Salla 15% · retail commission on the RECEIVED value of closed POs · pass-throughs excluded: Cloud Shelf recharges (3,355.01 in window) and marketing rebilled to a client at cost (INV-000137, 16,534.40, Oct 2025 — outside the window) · only the management fee on such work is revenue, and there was none on that invoice · all figures SAR ex-VAT."),
+rows=[("Nasam Revenue View — OCTOBER MONTHLY CLOSE · 1 Nov 2026",""),
+("This run","October's close. Two clients signed — Al Safa and Najd — the first since the churn began in February, and between them 8,999 of setup fees plus a 2,990 Salla subscription. That is the whole of October's billing: 11,989, all of it one-off. The recurring book has NOT been invoiced yet — no monthly fee and no commission line exists for October, where September's equivalents were raised on 3 Oct, so roughly 10,000 of recurring revenue is still to come and this month's column will rise. Separately, the platform has started syncing a wave of stores this workbook does not cover: six brands with sales since their own integration dates, 283,879 in total and 184,287 of it in October, none mapped to a Wafeq client and none ever invoiced. They are reported in their own block below and are in no total here, because whether they are Salla App Store subscribers, prospects mid-onboarding or test data decides whether any of it is revenue — one of them is in our own lapsed-trial list and another is named \"test store\". The expense side is unchanged for a fifth week: sheet 4 still carries the 8 Sep drop and stops at August."),
+("Sources","Wafeq API snapshot 1 Nov (171 invoices — INV-000194, a second new client) · platform commission mapping read 11 Oct from the September invoices as issued (5 clients; October's monthly invoices are not raised yet) · platform sales and purchase orders pulled 1 Nov · Wafeq accounting exports 8 Sep: purchase bills, journal entries, customer-balances statement · churned-brand snapshots 15 Aug (frozen) · Salla Partners export 30 Aug (63 days old — the four trials live then have all since expired) · rate card 17 Aug. The closed-PO export is retired: purchase orders now carry their values in the platform read layer."),
+("Monthly close — expense side two months behind","Sales are closed through October. Cost is not: the four Wafeq exports have not been shared since the 8 Sep drop, so sheet 4 stops at August and NEITHER September nor October can be judged against its own cost. Its months deliberately differ from sheet 1 rather than pairing two closed months' revenue with a cost of almost nothing. Send the four exports — sales invoices, purchase bills, journal entries, customer-balances statement — and both months close in the next run. August remains the newest month with both sides: revenue 13,722 against operating cost 22,091, 62% covered."),("Reporting rules","Window Nov 2025+ (current model) · GMV post-Nasam only (Sonbol from 13 Aug 2026) · post-churn months excluded · a channel is commissioned only if the platform says so (بلا عمولة = 0%, orders still sync and still show in sales); brands not yet read off the platform fall back to the rate card and SaaS brand-channels stay 0% · SaaS subscriptions net of Salla 15% · retail commission on the RECEIVED value of closed POs · pass-throughs excluded: Cloud Shelf recharges (3,355.01 in window) and marketing rebilled to a client at cost (INV-000137, 16,534.40, Oct 2025 — outside the window) · only the management fee on such work is revenue, and there was none on that invoice · all figures SAR ex-VAT."),
 ("Weekly update","Automatic: Wafeq API, platform sales, platform purchase orders with values, the commission mapping off the newest platform invoices, rebuild + verification + mapping check. Manual: only the Salla Partners subscriptions export — share it whenever it changes."),]
 for i,(a,b) in enumerate(rows, start=2):
     w.cell(row=i,column=2,value=a).font=BOLD if i==2 else BLACK
@@ -449,6 +454,26 @@ put(w1,r,2,f"Read {mapping.AS_OF} · checked against the {mapping.BILLED_MONTH} 
 put(w1,r,4+len(M),mapping.SOURCE,BLACK); r+=1
 if not findings:
     put(w1,r,2,"Platform mapping and billing agree — nothing to resolve.",BLACK); r+=1
+# brands the platform syncs that this workbook does not cover — reported, never folded into a total
+if rev5.UNMAPPED:
+    r+=1
+    put(w1,r,2,"BRANDS THE PLATFORM SYNCS THAT THIS WORKBOOK DOES NOT COVER",BOLD); r+=1
+    _u=sorted({b for b,_m,_g,_o,_s in rev5.UNMAPPED})
+    put(w1,r,2,f"{len(_u)} brands, none mapped to a Wafeq client and none ever invoiced. "
+               f"GMV below counts only from each one's own integration date.",BLACK)
+    put(w1,r,4+len(M),"Not in any total on this sheet — what they are is an open question: Salla App Store "
+                      "subscribers, prospects mid-onboarding, or test data",BLACK); r+=1
+    for b in _u:
+        d={mm:g for bb,mm,g,o,sy in rev5.UNMAPPED if bb==b}
+        sy=[sy for bb,mm,g,o,sy in rev5.UNMAPPED if bb==b][0]
+        month_row(w1,r,f"    {b}",lambda m,dd=d: dd.get(m,0.0),SRC_PLAT+f" — connected {sy}",lvl=1); r+=1
+    month_row(w1,r,"    TOTAL (not counted above)",
+              lambda m: sum(g for _b,mm,g,_o,_s in rev5.UNMAPPED if mm==m),
+              "Sum of the rows above",BOLD,GREY,lvl=1); r+=1
+    if rev5.UNMAPPED_NO_SALES:
+        put(w1,r,2,f"    Also synced, no sales since: {', '.join(rev5.UNMAPPED_NO_SALES)}",BLACK)
+        olvl(w1,r,1); r+=1
+
 LBL={'x':"Decide: ",'d':"Drafted: ",'i':"Note: "}
 for sev,b,c,txt in findings:
     put(w1,r,2,LBL[sev]+f"{b}"+(f" · {c}" if c!='—' else ""),BOLD if sev=='x' else BLACK)

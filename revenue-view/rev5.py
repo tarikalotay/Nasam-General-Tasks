@@ -1,4 +1,4 @@
-# Platform GMV, active brands — mcp_read.revenue pull 25 Oct 2026: (brand, channel, ym, gmv, orders)
+# Platform GMV, active brands — mcp_read.revenue pull 1 Nov 2026: (brand, channel, ym, gmv, orders)
 # totalRevenue excludes shipping and is already net of cancels/returns.
 #
 # Two brand-channels are EXCLUDED here because the platform backfilled a long history when the
@@ -20,10 +20,11 @@ REV_ACT=[
 ("Arabesque","Salla","2026-08",376.91,3),
 ("Arabesque","Salla","2026-09",125.64,1),
 ("Arabesque","Trendyol","2026-05",2299.68,11),
-("Arabesque","Trendyol","2026-06",3559.06,18),
+("Arabesque","Trendyol","2026-06",3654.88,19),
 ("Arabesque","Trendyol","2026-07",3704.90,12),
 ("Arabesque","Trendyol","2026-08",10045.89,53),
 ("Arabesque","Trendyol","2026-09",6141.95,39),
+("Arabesque","Trendyol","2026-10",255.35,2),
 ("Invita","Amazon","2025-11",7479.44,37),
 ("Invita","Amazon","2025-12",9883.89,48),
 ("Invita","Amazon","2026-01",9682.10,54),
@@ -35,6 +36,7 @@ REV_ACT=[
 ("Invita","Amazon","2026-07",12498.20,89),
 ("Invita","Amazon","2026-08",16415.60,116),
 ("Invita","Amazon","2026-09",11418.55,87),
+("Invita","Amazon","2026-10",7247.35,51),
 ("Invita","Jahez","2026-03",132.00,1),
 ("Invita","Jahez","2026-07",79.00,1),
 ("Invita","Noon","2025-11",5824.50,36),
@@ -48,7 +50,9 @@ REV_ACT=[
 ("Invita","Noon","2026-07",4265.00,27),
 ("Invita","Noon","2026-08",12002.33,75),
 ("Invita","Noon","2026-09",5558.40,43),
+("Invita","Noon","2026-10",9775.54,62),
 ("Invita","Salla","2026-09",215869.85,1449),
+("Invita","Salla","2026-10",76334.99,472),
 ("Invita","Trendyol","2025-11",15144.20,83),
 ("Invita","Trendyol","2025-12",9456.48,45),
 ("Invita","Trendyol","2026-01",8031.34,37),
@@ -60,6 +64,7 @@ REV_ACT=[
 ("Invita","Trendyol","2026-07",2867.08,16),
 ("Invita","Trendyol","2026-08",264.72,2),
 ("Invita","Trendyol","2026-09",3942.82,21),
+("Invita","Trendyol","2026-10",1745.45,11),
 ("Marah","Noon","2026-08",478.87,6),
 ("Marah","Noon","2026-09",679.00,11),
 ("Marah","Salla","2026-04",8389.84,18),
@@ -68,13 +73,15 @@ REV_ACT=[
 ("Marah","Salla","2026-07",15389.77,58),
 ("Marah","Salla","2026-08",5451.03,32),
 ("Marah","Salla","2026-09",2086.40,13),
+("Marah","Salla","2026-10",5234.20,27),
 ("Marah","Trendyol","2026-03",38.71,1),
 ("Marah","Trendyol","2026-04",739.21,6),
-("Marah","Trendyol","2026-05",6623.52,114),
+("Marah","Trendyol","2026-05",6865.19,121),
 ("Marah","Trendyol","2026-06",3488.84,63),
 ("Marah","Trendyol","2026-07",1180.74,11),
-("Marah","Trendyol","2026-08",17419.32,312),
-("Marah","Trendyol","2026-09",15804.71,256),
+("Marah","Trendyol","2026-08",17560.13,317),
+("Marah","Trendyol","2026-09",15907.16,258),
+("Marah","Trendyol","2026-10",4381.33,79),
 ("Nokush","Amazon","2025-11",1830.40,41),
 ("Nokush","Amazon","2025-12",1549.86,34),
 ("Nokush","Amazon","2026-01",1133.21,21),
@@ -86,6 +93,7 @@ REV_ACT=[
 ("Nokush","Amazon","2026-07",2668.25,34),
 ("Nokush","Amazon","2026-08",1607.42,27),
 ("Nokush","Amazon","2026-09",395.45,6),
+("Nokush","Jahez","2026-10",38.98,1),
 ("Nokush","Noon","2025-11",56.95,1),
 ("Nokush","Noon","2025-12",393.40,8),
 ("Nokush","Noon","2026-01",569.65,7),
@@ -97,6 +105,7 @@ REV_ACT=[
 ("Nokush","Noon","2026-07",1892.50,30),
 ("Nokush","Noon","2026-08",1475.33,28),
 ("Nokush","Noon","2026-09",484.62,10),
+("Nokush","Noon","2026-10",397.85,4),
 ("Nokush","Salla","2025-11",777.45,6),
 ("Nokush","Salla","2025-12",2172.19,10),
 ("Nokush","Salla","2026-01",653.12,4),
@@ -107,6 +116,7 @@ REV_ACT=[
 ("Nokush","Salla","2026-06",900.51,6),
 ("Nokush","Salla","2026-08",246.00,1),
 ("Nokush","Salla","2026-09",706.19,5),
+("Nokush","Salla","2026-10",1578.63,7),
 ("Nokush","Trendyol","2025-11",2712.23,38),
 ("Nokush","Trendyol","2025-12",287.74,10),
 ("Nokush","Trendyol","2026-01",56.95,1),
@@ -115,23 +125,27 @@ REV_ACT=[
 ("Nokush","Trendyol","2026-04",43.57,1),
 ("Sense","Noon","2026-08",159.00,3),
 ("Sense","Noon","2026-09",257.00,5),
+("Sense","Noon","2026-10",265.00,5),
 ("Sense","Salla","2026-04",2004.08,15),
 ("Sense","Salla","2026-05",3751.67,27),
 ("Sense","Salla","2026-06",2042.55,18),
 ("Sense","Salla","2026-07",4879.35,25),
 ("Sense","Salla","2026-08",1407.68,14),
 ("Sense","Salla","2026-09",377.76,3),
+("Sense","Salla","2026-10",233.45,3),
 ("Sense","Trendyol","2026-05",1345.56,22),
 ("Sense","Trendyol","2026-06",6459.64,132),
 ("Sense","Trendyol","2026-07",745.47,11),
 ("Sense","Trendyol","2026-08",10196.43,207),
 ("Sense","Trendyol","2026-09",3170.88,63),
+("Sense","Trendyol","2026-10",182.57,3),
 ("SONDOS","Jahez","2026-04",561.48,6),
 ("SONDOS","Jahez","2026-06",324.85,1),
 ("SONDOS","Noon","2026-05",2062.47,38),
 ("SONDOS","Noon","2026-06",5937.49,132),
 ("SONDOS","Noon","2026-08",1701.16,19),
 ("SONDOS","Noon","2026-09",2666.50,35),
+("SONDOS","Noon","2026-10",49.00,1),
 ("SONDOS","Salla","2026-03",217.60,1),
 ("SONDOS","Salla","2026-04",24706.58,109),
 ("SONDOS","Salla","2026-05",48459.50,116),
@@ -139,16 +153,18 @@ REV_ACT=[
 ("SONDOS","Salla","2026-07",199016.56,462),
 ("SONDOS","Salla","2026-08",36095.94,130),
 ("SONDOS","Salla","2026-09",154113.89,809),
+("SONDOS","Salla","2026-10",419583.41,2394),
 ("SONDOS","Trendyol","2025-12",467.82,10),
 ("SONDOS","Trendyol","2026-01",380.31,4),
 ("SONDOS","Trendyol","2026-02",6088.50,114),
 ("SONDOS","Trendyol","2026-03",2303.84,46),
 ("SONDOS","Trendyol","2026-04",4114.03,71),
-("SONDOS","Trendyol","2026-05",2628.82,36),
-("SONDOS","Trendyol","2026-06",2149.71,27),
+("SONDOS","Trendyol","2026-05",3123.65,43),
+("SONDOS","Trendyol","2026-06",2298.80,29),
 ("SONDOS","Trendyol","2026-07",1269.98,19),
-("SONDOS","Trendyol","2026-08",20575.62,257),
-("SONDOS","Trendyol","2026-09",39243.43,339),
+("SONDOS","Trendyol","2026-08",20623.15,258),
+("SONDOS","Trendyol","2026-09",41103.67,350),
+("SONDOS","Trendyol","2026-10",3987.09,42),
 ("Wadi Halfa","Trendyol","2026-04",199.00,1),
 ("Wadi Halfa","Trendyol","2026-05",534.25,2),
 ("Wadi Halfa","Trendyol","2026-06",366.25,2),
@@ -157,7 +173,27 @@ REV_ACT=[
 ]
 # Invita - Salla from its integration date (10 Sep 2026), for the run that first reports September.
 INVITA_SALLA_FROM_INTEGRATION=(215869.85, 1449)   # 10-30 Sep 2026
-# Al-safa Care - Salla from its integration date (20 Oct 2026), for the October close.
-AL_SAFA_FROM_INTEGRATION=(2699.05, 12)
+# Al-safa Care - Salla from its integration date (20 Oct 2026), by month. build.py injects it.
+AL_SAFA_FROM_INTEGRATION={"2026-10":(9428.84,36)}
+
+# Brands the PLATFORM now syncs that this workbook does NOT cover, with the GMV earned from each
+# one's own integration date (everything before that is backfill and is not Nasam's to show).
+# None of them maps to a Wafeq client and none has ever been invoiced, so none can be commissioned
+# here: folding them into managed GMV would show sales the business may earn nothing on. They are
+# reported on sheet 1 as their own block instead, and what they are is an open question —
+# Salla App Store subscribers, prospects mid-onboarding, or test data.
+#   العيسائي للاطفال موندو توندو appears in build.py SAAS_SUBS as a Salla app trial that lapsed in
+#   June, which is evidence for the first reading. متجر تجريبي means "test store".
+# (brand, ym, gmv, orders, synced_on)
+UNMAPPED=[
+("RIWAQ","2026-09",99592.62,552,"2026-09-08"),
+("RIWAQ","2026-10",121832.55,787,"2026-09-08"),
+("العيسائي للاطفال موندو توندو","2026-10",60057.66,255,"2026-10-25"),
+("متجر تجريبي","2026-10",2199.09,22,"2026-10-28"),
+("Bimkook","2026-10",97.48,2,"2026-10-26"),
+("ساعات","2026-10",100.00,1,"2026-10-30"),
+]
+# Synced but with no sales at all since: MOODYUL (4 Oct), بدر للتقنية (27 Oct).
+UNMAPPED_NO_SALES=["MOODYUL","بدر للتقنية"]
 # retained for build.py compatibility (retail now comes from po_plat.py — platform purchase orders)
 PO=[]
