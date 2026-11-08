@@ -21,9 +21,9 @@
 # HOW TO REFRESH (weekly run): read the newest NASAM-ORG-* invoice per client in full (billing tool,
 # document='invoices', pass the id) and copy each commission line's channel and rate plus the
 # رسوم شهرية amount into ORGS, then move AS_OF. Keys are build.py client keys.
-AS_OF = '2026-11-01'
+AS_OF = '2026-11-08'
 BILLED_MONTH = '2026-09'     # newest month with ISSUED invoices — what validate() compares against
-DRAFT_MONTH  = '2026-09'     # nothing is drafted any more: Dar Sonbol's was DELETED rather than released
+DRAFT_MONTH  = '2026-10'     # all five October invoices are drafted, none released yet
 SOURCE = 'Nasam platform billing — NASAM-ORG-* invoice line items (September, as issued), plus the تعديل المنظمة dialog for switched-off channels'
 
 ORGS = {
@@ -39,16 +39,17 @@ ORGS = {
     # Dar Sonbol has never been invoiced a fee or any commission: its only document is INV-000159
     # (4,000 setup, Jun 2026). The organization record carries 8,000/mo, which no invoice has used.
     'Dar Sonbol':    dict(on={}, off=['Salla'], fee=0.0, fee_on_record=8000.0,
-                          src='org dialog 13 Sep 2026. NASAM-ORG-86-09-2026 charged the 8,000 for September and '
-                              'was DELETED from Wafeq in the week of 18-25 Oct rather than released, so this '
-                              'client has still never been billed a fee of any kind'),
+                          src='org dialog 13 Sep 2026. September\'s 8,000 invoice was DELETED rather than '
+                              'released; October\'s draft charges 4,166.00 plus 2% commission on Trendyol, Noon '
+                              'and Namshi. Nothing issued yet, so this client has still never been billed'),
 }
 # Channels that started selling too recently for the platform to have billed them yet. Each needs a
 # decision before its first full month closes, which is what validate() reports.
 PENDING = {
     ('Al Safa', 'Salla'): 'signed Oct 2026 — two invoices (5,499 setup, 2,990 Salla subscription) and a store '
                           'connected 20 Oct that sold 9,429 since, but no commercial terms recorded: no rate '
-                          'per channel and no monthly fee, so nothing to check its first commission month against',
+                          'per channel and no monthly fee, so nothing to check its first commission month against. '
+                          'No October invoice was drafted for it either',
     ('Najd', '—'):        'signed Oct 2026 (INV-000194, 3,500 setup) with no platform brand connected and no '
                           'commercial terms recorded',
     ('Inivita', 'Salla'): 'connected 10 Sep 2026 and sold 215,870 in September. The September invoice has now '
@@ -60,15 +61,27 @@ PENDING = {
 # Channels Nasam bills BY HAND in Wafeq that the platform's own invoices never produce. This is not
 # a commission switch — the money is charged, it just does not come out of the billing engine, so it
 # depends on someone remembering to raise it.
-PLATFORM_GAP = {
-    ('Wadi Halfa', 'Ninja Retail'): 'billed by hand at 4%; the platform has never produced a Ninja '
-                                    'Retail line, including on the released September invoice, against 13,232 received',
-}
+PLATFORM_GAP = {}   # Ninja Retail was the only entry; the platform billed it on the October draft
 
 # What the platform DRAFTED for September (created 3 Oct, status DRAFT — not billed until released).
 # Recorded here because a draft states the platform's intent for the closing month before the ledger
 # does, and two of these change standing answers. Totals are the drafted invoice totals.
-DRAFTED = {}   # cleared — see Dar Sonbol's src note for what happened to the one that was here
+DRAFTED = {
+    'Alfaris Group': dict(total=3561.70, fee=2500.0, on={'Trendyol': 6.0, 'Noon': 6.0, 'Amazon Retail': 6.0},
+                          note="16 Amazon Retail PO lines, now SEPTEMBER's POs — the retail lag has closed "
+                               "from two months to one"),
+    'Inivita':       dict(total=2813.78, fee=1500.0, on={'Amazon': 7.0, 'Noon': 7.0, 'Trendyol': 7.0},
+                          note="a third month with no Salla line, against 76,335 of October Salla sales"),
+    'Nokush':        dict(total=141.08, fee=0.0, on={'Salla': 7.0, 'Noon': 7.0, 'Quick-commerce': 7.0},
+                          note="Quick-commerce billed for the first time (one Jahez order)"),
+    'Wadi Halfa':    dict(total=495.48, fee=0.0, on={'Amazon Retail': 4.0, 'Ninja Retail': 4.0},
+                          note="Ninja Retail is itemised at last, nine PO lines — the hand-billed gap is closed. "
+                               "No monthly fee line was even drafted this month, so the 2,000 is gone for good"),
+    'Dar Sonbol':    dict(total=4582.80, fee=4166.0, on={'Trendyol': 2.0, 'Noon': 2.0, 'Namshi': 2.0},
+                          note="the first invoice ever to charge this client commission, at the rate card's 2%, "
+                               "and Namshi's first invoice on any client. The fee is 4,166.00 — neither the "
+                               "8,000 on the organization record nor the 5,000 on the rate card"),
+}
 
 
 def rate(client, channel):

@@ -1,4 +1,4 @@
-# Closed retail POs pulled DIRECTLY from mcp_read.purchase_orders — 1 Nov 2026.
+# Closed retail POs pulled DIRECTLY from mcp_read.purchase_orders — 8 Nov 2026.
 # Q2 is closed: the view now exposes requestedValue / acceptedValue / receivedValue alongside the
 # three stages and an `outcome` label, so the closed-PO CSV export is retired. Retail commission is
 # charged on RECEIVED value, so receivedValue is the base.
@@ -24,7 +24,7 @@ PO_CLOSED=[
 ("Marah","Amazon Retail","2026-07",5179.00),
 ("Marah","Amazon Retail","2026-08",6348.40),
 ("Marah","Amazon Retail","2026-09",5085.80),
-("Marah","Amazon Retail","2026-10",4572.00),
+("Marah","Amazon Retail","2026-10",5626.10),
 ("SONDOS","Amazon Retail","2025-11",1101.60),
 ("SONDOS","Amazon Retail","2025-12",239.94),
 ("SONDOS","Amazon Retail","2026-01",2676.61),
@@ -36,7 +36,7 @@ PO_CLOSED=[
 ("SONDOS","Amazon Retail","2026-07",441.70),
 ("SONDOS","Amazon Retail","2026-08",1801.20),
 ("SONDOS","Amazon Retail","2026-09",2223.20),
-("SONDOS","Amazon Retail","2026-10",1293.60),
+("SONDOS","Amazon Retail","2026-10",1731.00),
 ("Wadi Halfa","Amazon Retail","2026-07",953.85),
 ("Wadi Halfa","Amazon Retail","2026-08",3266.32),
 ("Wadi Halfa","Amazon Retail","2026-09",6043.44),

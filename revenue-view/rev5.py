@@ -1,4 +1,4 @@
-# Platform GMV, active brands — mcp_read.revenue pull 1 Nov 2026: (brand, channel, ym, gmv, orders)
+# Platform GMV, active brands — mcp_read.revenue pull 8 Nov 2026: (brand, channel, ym, gmv, orders)
 # totalRevenue excludes shipping and is already net of cancels/returns.
 #
 # Two brand-channels are EXCLUDED here because the platform backfilled a long history when the
@@ -36,7 +36,7 @@ REV_ACT=[
 ("Invita","Amazon","2026-07",12498.20,89),
 ("Invita","Amazon","2026-08",16415.60,116),
 ("Invita","Amazon","2026-09",11418.55,87),
-("Invita","Amazon","2026-10",7247.35,51),
+("Invita","Amazon","2026-10",7247.35,50),
 ("Invita","Jahez","2026-03",132.00,1),
 ("Invita","Jahez","2026-07",79.00,1),
 ("Invita","Noon","2025-11",5824.50,36),
@@ -153,7 +153,7 @@ REV_ACT=[
 ("SONDOS","Salla","2026-07",199016.56,462),
 ("SONDOS","Salla","2026-08",36095.94,130),
 ("SONDOS","Salla","2026-09",154113.89,809),
-("SONDOS","Salla","2026-10",419583.41,2394),
+("SONDOS","Salla","2026-10",418823.56,2392),
 ("SONDOS","Trendyol","2025-12",467.82,10),
 ("SONDOS","Trendyol","2026-01",380.31,4),
 ("SONDOS","Trendyol","2026-02",6088.50,114),
@@ -186,14 +186,14 @@ AL_SAFA_FROM_INTEGRATION={"2026-10":(9428.84,36)}
 #   June, which is evidence for the first reading. متجر تجريبي means "test store".
 # (brand, ym, gmv, orders, synced_on)
 UNMAPPED=[
-("RIWAQ","2026-09",99592.62,552,"2026-09-08"),
-("RIWAQ","2026-10",121832.55,787,"2026-09-08"),
-("العيسائي للاطفال موندو توندو","2026-10",60057.66,255,"2026-10-25"),
+("RIWAQ","2026-09",99396.62,551,"2026-09-08"),
+("RIWAQ","2026-10",120209.28,766,"2026-09-08"),
+("العيسائي للاطفال موندو توندو","2026-10",60869.74,255,"2026-10-25"),
 ("متجر تجريبي","2026-10",2199.09,22,"2026-10-28"),
 ("Bimkook","2026-10",97.48,2,"2026-10-26"),
-("ساعات","2026-10",100.00,1,"2026-10-30"),
 ]
-# Synced but with no sales at all since: MOODYUL (4 Oct), بدر للتقنية (27 Oct).
-UNMAPPED_NO_SALES=["MOODYUL","بدر للتقنية"]
+# Synced but with no sales at all since: MOODYUL (4 Oct), بدر للتقنية (27 Oct), ساعات (30 Oct,
+# whose single order has since been cancelled).
+UNMAPPED_NO_SALES=["MOODYUL","بدر للتقنية","ساعات"]
 # retained for build.py compatibility (retail now comes from po_plat.py — platform purchase orders)
 PO=[]
