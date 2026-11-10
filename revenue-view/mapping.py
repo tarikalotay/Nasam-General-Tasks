@@ -21,7 +21,7 @@
 # HOW TO REFRESH (weekly run): read the newest NASAM-ORG-* invoice per client in full (billing tool,
 # document='invoices', pass the id) and copy each commission line's channel and rate plus the
 # رسوم شهرية amount into ORGS, then move AS_OF. Keys are build.py client keys.
-AS_OF = '2026-11-08'
+AS_OF = '2026-11-10'
 BILLED_MONTH = '2026-09'     # newest month with ISSUED invoices — what validate() compares against
 DRAFT_MONTH  = '2026-10'     # all five October invoices are drafted, none released yet
 SOURCE = 'Nasam platform billing — NASAM-ORG-* invoice line items (September, as issued), plus the تعديل المنظمة dialog for switched-off channels'
@@ -38,10 +38,12 @@ ORGS = {
                               'SECOND month running, so 0 is what this client actually pays'),
     # Dar Sonbol has never been invoiced a fee or any commission: its only document is INV-000159
     # (4,000 setup, Jun 2026). The organization record carries 8,000/mo, which no invoice has used.
-    'Dar Sonbol':    dict(on={}, off=['Salla'], fee=0.0, fee_on_record=8000.0,
-                          src='org dialog 13 Sep 2026. September\'s 8,000 invoice was DELETED rather than '
-                              'released; October\'s draft charges 4,166.00 plus 2% commission on Trendyol, Noon '
-                              'and Namshi. Nothing issued yet, so this client has still never been billed'),
+    'Dar Sonbol':    dict(on={}, off=['Salla'], fee=4166.0, fee_from='2026-10',
+                          src='fee 4,166.00/mo CONFIRMED by Tarik 10 Nov 2026 — that is the agreed figure, not '
+                              'the 8,000 the organization dialog showed in September nor the 5,000 on the rate '
+                              'card, and it is not to be changed. It runs from October, the first month billed: '
+                              'September\'s 8,000 invoice was deleted rather than released. Commission terms '
+                              '(2% on Trendyol, Noon and Namshi) are from October\'s draft, not yet issued'),
 }
 # Channels that started selling too recently for the platform to have billed them yet. Each needs a
 # decision before its first full month closes, which is what validate() reports.
@@ -79,8 +81,8 @@ DRAFTED = {
                                "No monthly fee line was even drafted this month, so the 2,000 is gone for good"),
     'Dar Sonbol':    dict(total=4582.80, fee=4166.0, on={'Trendyol': 2.0, 'Noon': 2.0, 'Namshi': 2.0},
                           note="the first invoice ever to charge this client commission, at the rate card's 2%, "
-                               "and Namshi's first invoice on any client. The fee is 4,166.00 — neither the "
-                               "8,000 on the organization record nor the 5,000 on the rate card"),
+                               "and Namshi's first invoice on any client. The 4,166.00 fee is the agreed "
+                               "figure, confirmed 10 Nov"),
 }
 
 
@@ -138,14 +140,15 @@ def validate(known, gmv_cc, comm_cc, fee_c, rate_obs, months, closed_month):
                 out.append(('i', ck, ch, f'commission off by agreement — {g:,.0f} of sales in {closed_month} '
                                          f'earns nothing and is shown for visibility only'))
         f, got = o.get('fee'), fee_c.get(ck, {}).get(closed_month, 0.0)
+        if f and o.get('fee_from') and closed_month < o['fee_from']:
+            f = None          # the fee had not started yet in the month being checked
         if f and abs(got - f) > 0.005:
             out.append(('x', ck, '—', f'platform fee {f:,.0f}/mo, ledger shows {got:,.2f} in {closed_month}'))
         if not f and abs(got) > 0.005:
             out.append(('x', ck, '—', f'no fee line on the platform invoice, yet {got:,.2f} is booked in {closed_month}'))
-        onrec = o.get('fee_on_record')
-        if onrec and not f:
-            out.append(('x', ck, '—', f'organization record holds {onrec:,.0f}/mo and no invoice has ever '
-                                      f'charged it — the one that did was deleted rather than released'))
+        if o.get('fee_from') and closed_month < o['fee_from']:
+            out.append(('i', ck, '—', f"monthly fee of {o['fee']:,.0f} agreed and running from "
+                                      f"{o['fee_from']}, so nothing is expected in {closed_month}"))
         mapped = set(o['on']) | set(o['off'])
         for (kk, ch) in sorted(known):
             if kk == ck and ch not in mapped and ch != 'Amazon Retail' \
