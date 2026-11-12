@@ -46,6 +46,8 @@ Weekly runs in between do not refresh the cost sheet. It keeps the drop it was b
 
 **A new client must be added to `CL` before its first invoice parses.** `build.py` asserts on unresolved contacts rather than silently dropping them, so a new name fails the build loudly — add the Wafeq contact string to `CL` (and `NEW_CLIENT` if it signed after the window) and rerun.
 
+**Only the weekly run writes the workbook.** `build.py` saves under `if __name__=='__main__'`, so `verify.py` and any ad-hoc analysis can import it for its client map and parsed figures without rewriting the committed file. Importing it used to re-save with fresh zip timestamps and leave the tree dirty with no change of content.
+
 **The build must be reproducible.** Sorting a set by a single numeric key leaves ties to set-iteration order, which varies between processes, so the saved workbook churned on every rebuild and binary diffs meant nothing. Every such sort in `build.py` now ends with the name as a tiebreaker. If you add one, do the same, and check it by building under two different `PYTHONHASHSEED` values and comparing the cells.
 
 **A term that starts part-way through the window needs `fee_from`.** A fee agreed from a given month is not a discrepancy in the months before it: set `fee_from` on the client in `mapping.ORGS` and the check expects nothing earlier, reporting the start month as a note instead of a finding.

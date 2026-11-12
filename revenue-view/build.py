@@ -700,8 +700,12 @@ if accounting.available():
         c=put(w4,r,2,t); c.alignment=Alignment(wrap_text=True,vertical="top"); w4.row_dimensions[r].height=28; r+=1
 
 OUT=os.path.join(HERE,"output","Nasam_Revenue_View.xlsx")
-wb.save(OUT)
-print('SAVED', os.path.getsize(OUT), 'bytes')
+# Only the weekly run writes the workbook. verify.py and ad-hoc analysis import this module for its
+# client map and parsed figures; re-saving on import rewrote the committed file with fresh zip
+# timestamps and left the tree dirty with no change of content.
+if __name__=='__main__':
+    wb.save(OUT)
+    print('SAVED', os.path.getsize(OUT), 'bytes')
 _bw=sum(v for (k,m),v in billed.items() if m in M)
 print('billed:', round(_bw,2), '| to-invoice:', round(acc_total,2), '| SaaS gross:', round(saas_total,2), '| SaaS net:', round(saas_total*(1-SALLA_SHARE),2),
       '| TOTAL:', round(_bw+acc_total+saas_total*(1-SALLA_SHARE),2))
