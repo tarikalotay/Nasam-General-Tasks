@@ -625,7 +625,7 @@ if accounting.available():
     salf=lambda m: ser['salaries'].get(m,0.0)+ser['staff_adj'].get(m,0.0)
     m4(w4,r,"Salaries and staff cost",salf,SRC_ACC+" — journal, accounts 5201/5231 (+GOSI and insurance adjustments)"); r+=1
     op_accts=sorted({a for (a,m) in ser['operating'] if m in MC},
-                    key=lambda a: -sum(ser['operating'].get((a,m),0.0) for m in MC))
+                    key=lambda a: (-sum(ser['operating'].get((a,m),0.0) for m in MC), a))
     for a in op_accts:
         if sum(ser['operating'].get((a,m),0.0) for m in MC)<=0.005: continue
         m4(w4,r,a,lambda m,a=a: ser['operating'].get((a,m),0.0),SRC_ACC+" — bills",lvl=1); r+=1
@@ -647,7 +647,7 @@ if accounting.available():
 
     put(w4,r,2,"SPENT ON A CLIENT'S BEHALF — rebill decision open",BOLD); r+=1
     cs_accts=sorted({a for (a,m) in ser['client_side'] if m in MC},
-                    key=lambda a: -sum(ser['client_side'].get((a,m),0.0) for m in MC))
+                    key=lambda a: (-sum(ser['client_side'].get((a,m),0.0) for m in MC), a))
     for a in cs_accts:
         if sum(ser['client_side'].get((a,m),0.0) for m in MC)<=0.005: continue
         note=accounting.CLIENT_SIDE.get(a,'')
@@ -681,7 +681,7 @@ if accounting.available():
                    'Wadi Halfa':'Receipt booked in the ledger, not applied in Wafeq',
                    'Nokush':'Receipt booked in the ledger, not applied in Wafeq'}
         tw=ts=0.0
-        for k in sorted(set(wl)|set(st), key=lambda k: -st.get(k,0.0)):
+        for k in sorted(set(wl)|set(st), key=lambda k: (-st.get(k,0.0), -wl.get(k,0.0), k)):
             a,b=wl.get(k,0.0),st.get(k,0.0); tw+=a; ts+=b
             put(w4,r,2,k); put(w4,r,3,round(a,2) or None,BLACK,SAR); put(w4,r,4,round(b,2) or None,BLACK,SAR)
             put(w4,r,5,round(a-b,2) or None,BLACK,SAR)
