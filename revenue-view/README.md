@@ -42,6 +42,10 @@ Weekly runs in between do not refresh the cost sheet. It keeps the drop it was b
 
 **An invoice dated after the window is not lost, but it is not in a total either.** It shows in the "issued after the window closed" memo on sheet 1 and enters the totals when that month closes. `build.py`'s closing summary and the verification both sum billed over `M` only, so the sheet and the console agree; don't reintroduce a bare `sum(billed.values())`.
 
+**A brand can be renamed on the platform.** The pull selects by `brandName`, so a rename makes a brand vanish from the query rather than error — check `mcp_read.brands` when a known brand disappears. Invita became Inivita in Nov 2026; `rev5.py` selects the new name and emits the old one, because the whole series and every past delivery use it.
+
+**The mapping check compares Wafeq channel names.** Commission is keyed by the name on the invoice, so the platform's channel has to go through `P2W` first — otherwise a Jahez sale billed as "Quick-commerce" reads as unbilled.
+
 **A brand the platform syncs is not automatically Nasam's to report.** Every brand arrives with its whole history backfilled to the day it was connected, and only GMV from the integration date onward belongs here (`first_synced` in `mcp_read.orders`, via `MIN(createdAt)`). A brand that maps to no Wafeq client and has never been invoiced cannot be commissioned either: it goes in `rev5.UNMAPPED`, which sheet 1 reports as its own block outside every total, not into managed GMV. `build.py` raises a KeyError on an unknown brand in `B2C`, so a new one cannot slip into a total unnoticed — decide what it is first.
 
 **A new client must be added to `CL` before its first invoice parses.** `build.py` asserts on unresolved contacts rather than silently dropping them, so a new name fails the build loudly — add the Wafeq contact string to `CL` (and `NEW_CLIENT` if it signed after the window) and rerun.

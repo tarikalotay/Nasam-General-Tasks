@@ -1,4 +1,7 @@
-# Platform GMV, active brands — mcp_read.revenue pull 8 Nov 2026: (brand, channel, ym, gmv, orders)
+# Platform GMV, active brands — mcp_read.revenue pull 15 Nov 2026: (brand, channel, ym, gmv, orders)
+# NAME: the platform renamed the brand "Invita" to "Inivita" in Nov 2026. It is kept as "Invita"
+# here, the name the whole series and every past delivery uses; the pull selects "Inivita" and
+# emits "Invita". The CLIENT key in build.py has always been "Inivita" — they are not the same key.
 # totalRevenue excludes shipping and is already net of cancels/returns.
 #
 # Two brand-channels are EXCLUDED here because the platform backfilled a long history when the
@@ -23,7 +26,7 @@ REV_ACT=[
 ("Arabesque","Trendyol","2026-06",3654.88,19),
 ("Arabesque","Trendyol","2026-07",3704.90,12),
 ("Arabesque","Trendyol","2026-08",10045.89,53),
-("Arabesque","Trendyol","2026-09",6141.95,39),
+("Arabesque","Trendyol","2026-09",6236.12,40),
 ("Arabesque","Trendyol","2026-10",255.35,2),
 ("Invita","Amazon","2025-11",7479.44,37),
 ("Invita","Amazon","2025-12",9883.89,48),
@@ -136,7 +139,7 @@ REV_ACT=[
 ("Sense","Trendyol","2026-05",1345.56,22),
 ("Sense","Trendyol","2026-06",6459.64,132),
 ("Sense","Trendyol","2026-07",745.47,11),
-("Sense","Trendyol","2026-08",10196.43,207),
+("Sense","Trendyol","2026-08",10317.09,208),
 ("Sense","Trendyol","2026-09",3170.88,63),
 ("Sense","Trendyol","2026-10",182.57,3),
 ("SONDOS","Jahez","2026-04",561.48,6),
@@ -153,7 +156,7 @@ REV_ACT=[
 ("SONDOS","Salla","2026-07",199016.56,462),
 ("SONDOS","Salla","2026-08",36095.94,130),
 ("SONDOS","Salla","2026-09",154113.89,809),
-("SONDOS","Salla","2026-10",418823.56,2392),
+("SONDOS","Salla","2026-10",418631.56,2391),
 ("SONDOS","Trendyol","2025-12",467.82,10),
 ("SONDOS","Trendyol","2026-01",380.31,4),
 ("SONDOS","Trendyol","2026-02",6088.50,114),
@@ -163,7 +166,7 @@ REV_ACT=[
 ("SONDOS","Trendyol","2026-06",2298.80,29),
 ("SONDOS","Trendyol","2026-07",1269.98,19),
 ("SONDOS","Trendyol","2026-08",20623.15,258),
-("SONDOS","Trendyol","2026-09",41103.67,350),
+("SONDOS","Trendyol","2026-09",41243.67,351),
 ("SONDOS","Trendyol","2026-10",3987.09,42),
 ("Wadi Halfa","Trendyol","2026-04",199.00,1),
 ("Wadi Halfa","Trendyol","2026-05",534.25,2),
@@ -186,14 +189,13 @@ AL_SAFA_FROM_INTEGRATION={"2026-10":(9428.84,36)}
 #   June, which is evidence for the first reading. متجر تجريبي means "test store".
 # (brand, ym, gmv, orders, synced_on)
 UNMAPPED=[
-("RIWAQ","2026-09",99396.62,551,"2026-09-08"),
-("RIWAQ","2026-10",120209.28,766,"2026-09-08"),
-("العيسائي للاطفال موندو توندو","2026-10",60869.74,255,"2026-10-25"),
-("متجر تجريبي","2026-10",2199.09,22,"2026-10-28"),
+("RIWAQ","2026-09",98691.58,547,"2026-09-08"),
+("RIWAQ","2026-10",116401.79,740,"2026-09-08"),
+("العيسائي للاطفال موندو توندو","2026-10",60374.32,253,"2026-10-25"),
 ("Bimkook","2026-10",97.48,2,"2026-10-26"),
 ]
-# Synced but with no sales at all since: MOODYUL (4 Oct), بدر للتقنية (27 Oct), ساعات (30 Oct,
-# whose single order has since been cancelled).
-UNMAPPED_NO_SALES=["MOODYUL","بدر للتقنية","ساعات"]
+# Synced but with no sales since: MOODYUL (4 Oct). The test store متجر تجريبي, بدر للتقنية and
+# ساعات have been deactivated on the platform and drop out of this block.
+UNMAPPED_NO_SALES=["MOODYUL"]   # متجر تجريبي, بدر للتقنية and ساعات have been deactivated
 # retained for build.py compatibility (retail now comes from po_plat.py — platform purchase orders)
 PO=[]
