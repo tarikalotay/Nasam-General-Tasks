@@ -42,6 +42,8 @@ Weekly runs in between do not refresh the cost sheet. It keeps the drop it was b
 
 **An invoice dated after the window is not lost, but it is not in a total either.** It shows in the "issued after the window closed" memo on sheet 1 and enters the totals when that month closes. `build.py`'s closing summary and the verification both sum billed over `M` only, so the sheet and the console agree; don't reintroduce a bare `sum(billed.values())`.
 
+**A deactivated brand's figures decay — freeze them.** The platform stops maintaining the revenue rollup for a brand it no longer serves, so later pulls return less and less of its history (RIWAQ's September fell 98,692 → 30,711 in one week and its October vanished, while the brand was still selling). When `mcp_read.brands.isActive` turns false, record the last complete reading in `rev5.UNMAPPED_FROZEN` and stop refreshing those rows — the same reason `old_gmv.py` exists for the churned clients.
+
 **A brand can be renamed on the platform.** The pull selects by `brandName`, so a rename makes a brand vanish from the query rather than error — check `mcp_read.brands` when a known brand disappears. Invita became Inivita in Nov 2026; `rev5.py` selects the new name and emits the old one, because the whole series and every past delivery use it.
 
 **The mapping check compares Wafeq channel names.** Commission is keyed by the name on the invoice, so the platform's channel has to go through `P2W` first — otherwise a Jahez sale billed as "Quick-commerce" reads as unbilled.

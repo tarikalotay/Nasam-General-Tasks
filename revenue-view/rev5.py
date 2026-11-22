@@ -1,4 +1,4 @@
-# Platform GMV, active brands — mcp_read.revenue pull 15 Nov 2026: (brand, channel, ym, gmv, orders)
+# Platform GMV, active brands — mcp_read.revenue pull 22 Nov 2026: (brand, channel, ym, gmv, orders)
 # NAME: the platform renamed the brand "Invita" to "Inivita" in Nov 2026. It is kept as "Invita"
 # here, the name the whole series and every past delivery uses; the pull selects "Inivita" and
 # emits "Invita". The CLIENT key in build.py has always been "Inivita" — they are not the same key.
@@ -156,7 +156,7 @@ REV_ACT=[
 ("SONDOS","Salla","2026-07",199016.56,462),
 ("SONDOS","Salla","2026-08",36095.94,130),
 ("SONDOS","Salla","2026-09",154113.89,809),
-("SONDOS","Salla","2026-10",418631.56,2391),
+("SONDOS","Salla","2026-10",418458.76,2390),
 ("SONDOS","Trendyol","2025-12",467.82,10),
 ("SONDOS","Trendyol","2026-01",380.31,4),
 ("SONDOS","Trendyol","2026-02",6088.50,114),
@@ -189,13 +189,20 @@ AL_SAFA_FROM_INTEGRATION={"2026-10":(9428.84,36)}
 #   June, which is evidence for the first reading. متجر تجريبي means "test store".
 # (brand, ym, gmv, orders, synced_on)
 UNMAPPED=[
+# RIWAQ was DEACTIVATED on the platform in the week to 22 Nov while still selling (last order
+# 15 Nov, 2,463 confirmed orders). A deactivated brand's revenue rollup stops being maintained, so
+# its figures decay on every later pull — Sep had already fallen 98,692 -> 30,711 and Oct had
+# vanished entirely. These two rows are therefore FROZEN at the last complete reading, 15 Nov,
+# the same treatment old_gmv.py gives the churned brands. Do not refresh them.
 ("RIWAQ","2026-09",98691.58,547,"2026-09-08"),
 ("RIWAQ","2026-10",116401.79,740,"2026-09-08"),
-("العيسائي للاطفال موندو توندو","2026-10",60374.32,253,"2026-10-25"),
+("العيسائي للاطفال موندو توندو","2026-10",105783.63,478,"2026-10-25"),
+("بريم بوكس PREMBOX","2026-10",12260.91,46,"2026-10-26"),
 ("Bimkook","2026-10",97.48,2,"2026-10-26"),
 ]
 # Synced but with no sales since: MOODYUL (4 Oct). The test store متجر تجريبي, بدر للتقنية and
 # ساعات have been deactivated on the platform and drop out of this block.
-UNMAPPED_NO_SALES=["MOODYUL"]   # متجر تجريبي, بدر للتقنية and ساعات have been deactivated
+UNMAPPED_NO_SALES=["MOODYUL"]   # متجر تجريبي, بدر للتقنية and ساعات were deactivated with no sales
+UNMAPPED_FROZEN={"RIWAQ":"2026-11-22"}   # deactivated: figures above are the last complete reading
 # retained for build.py compatibility (retail now comes from po_plat.py — platform purchase orders)
 PO=[]
